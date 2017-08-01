@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAdapterLibrary", "EasyAdapterLibrary\EasyAdapterLibrary.csproj", "{E3549BD2-D270-4DDA-9ABA-175CA7824205}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E3549BD2-D270-4DDA-9ABA-175CA7824205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3549BD2-D270-4DDA-9ABA-175CA7824205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3549BD2-D270-4DDA-9ABA-175CA7824205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3549BD2-D270-4DDA-9ABA-175CA7824205}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
