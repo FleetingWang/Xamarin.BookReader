@@ -16,4 +16,4 @@ public class ReadAsset : Activity
 
 Additionally, some Android functions will automatically load asset files:
 
-Typeface tf = Typeface.CreateFromAsset (Context.Assets, "fonts/samplefont.ttf");
+Typeface tf = Typeface.CreateFromAsset (Context.Assets, "fonts/Xamarin.BookReaderfont.ttf");

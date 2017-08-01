@@ -2,9 +2,9 @@
 using Android.Widget;
 using Android.OS;
 
-namespace Sample
+namespace Xamarin.BookReader
 {
-    [Activity(Label = "Sample", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Xamarin.BookReader", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

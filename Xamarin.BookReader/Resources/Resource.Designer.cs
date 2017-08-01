@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Sample.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Xamarin.BookReader.Resource", IsApplication=true)]
 
-namespace Sample
+namespace Xamarin.BookReader
 {
 	
 	

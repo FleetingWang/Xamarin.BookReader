@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.BookReader", "Xamarin.BookReader\Xamarin.BookReader.csproj", "{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAdapterLibrary", "EasyAdapterLibrary\EasyAdapterLibrary.csproj", "{E3549BD2-D270-4DDA-9ABA-175CA7824205}"
 EndProject

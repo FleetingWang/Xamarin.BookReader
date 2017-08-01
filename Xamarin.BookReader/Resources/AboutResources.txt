@@ -3,7 +3,7 @@ in your application as resource files.  Various Android APIs are designed to
 operate on the resource IDs instead of dealing with images, strings or binary blobs 
 directly.
 
-For example, a sample Android app that contains a user interface layout (main.axml),
+For example, a Xamarin.BookReader Android app that contains a user interface layout (main.axml),
 an internationalization string table (strings.xml) and some icons (drawable-XXX/icon.png) 
 would keep its resources in the "Resources" directory of the application:
 
