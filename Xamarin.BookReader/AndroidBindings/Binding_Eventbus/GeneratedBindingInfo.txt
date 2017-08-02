@@ -1,0 +1,6 @@
+Binding for:
+org.greenrobot:eventbus:3.0.0
+
+Dependencies:
+
+eventbus-3.0.0.jar,    Path=C:\Users\wtffl\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar

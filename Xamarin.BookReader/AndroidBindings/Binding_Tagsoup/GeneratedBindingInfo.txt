@@ -1,0 +1,6 @@
+Binding for:
+org.ccil.cowan.tagsoup:tagsoup:1.2.1
+
+Dependencies:
+
+tagsoup-1.2.1.jar,    Path=C:\Users\wtffl\.gradle\caches\modules-2\files-2.1\org.ccil.cowan.tagsoup\tagsoup\1.2.1\5584627487e984c03456266d3f8802eb85a9ce97\tagsoup-1.2.1.jar

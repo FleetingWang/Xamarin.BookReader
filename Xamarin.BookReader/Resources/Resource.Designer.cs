@@ -26,6 +26,7 @@ namespace Xamarin.BookReader
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::Xamarin.BookReader.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -2263,11 +2264,11 @@ namespace Xamarin.BookReader
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f090022
-			public const int ApplicationName = 2131296290;
+			// aapt resource value: 0x7f090023
+			public const int ApplicationName = 2131296291;
 			
-			// aapt resource value: 0x7f090021
-			public const int Hello = 2131296289;
+			// aapt resource value: 0x7f090022
+			public const int Hello = 2131296290;
 			
 			// aapt resource value: 0x7f090000
 			public const int abc_action_bar_home_description = 2131296256;
@@ -2361,6 +2362,9 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f090012
 			public const int abc_toolbar_collapse_description = 2131296274;
+			
+			// aapt resource value: 0x7f090021
+			public const int library_name = 2131296289;
 			
 			// aapt resource value: 0x7f090013
 			public const int search_menu_title = 2131296275;
