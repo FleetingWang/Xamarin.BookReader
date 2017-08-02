@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 JustWayward Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/touch_bg"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/ivBookCover"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar_default" />
+
+    <TextView
+        android:id="@+id/tvFloor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ivBookCover"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/comment_floor"
+        android:textColor="@color/common_h3"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvBookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvFloor"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="我就是静静"
+        android:textColor="@color/light_coffee"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvBookType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvBookTitle"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/book_detail_user_lv"
+        android:textColor="@color/light_coffee"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/common_h3"
+        android:textSize="13sp" />
+
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBookTitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/ivBookCover"
+        android:text="越到后面越索然无味"
+        android:textColor="@color/common_h2" />
+
+    <TextView
+        android:id="@+id/tvReplyNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvContent"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/ivBookCover"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/comment_reply_nickname"
+        android:textColor="@color/common_h3"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvReplyFloor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvContent"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/tvReplyNickName"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/comment_reply_floor"
+        android:textColor="@color/common_h3"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

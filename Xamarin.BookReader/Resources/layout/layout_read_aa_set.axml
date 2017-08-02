@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 JustWayward Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlReadAaSet"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:layout_above="@+id/llBookReadBottom"
+    android:background="@color/reader_menu_bg_color"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/ivBrightnessMinus"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:padding="5dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_brightness_minus" />
+
+        <SeekBar
+            android:id="@+id/seekbarLightness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"
+            android:progressDrawable="@drawable/seekbar_bg"
+            android:thumb="@drawable/seekbar_thumb"
+            android:thumbOffset="10dp" />
+
+        <ImageView
+            android:id="@+id/ivBrightnessPlus"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:padding="5dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_brightness_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tvFontsizeMinus"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Aa-"
+            android:textColor="@color/common_h2"
+            android:textSize="14dp" />
+
+        <SeekBar
+            android:id="@+id/seekbarFontSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"
+            android:progressDrawable="@drawable/seekbar_bg"
+            android:thumb="@drawable/seekbar_thumb"
+            android:thumbOffset="10dp" />
+
+        <TextView
+            android:id="@+id/tvFontsizePlus"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Aa+"
+            android:textColor="@color/common_h2"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/volume_checkbox_selector"
+            android:text="音量键翻页"
+            android:textColor="@color/common_h3"
+            android:textSize="14dp" />
+
+        <CheckBox
+            android:id="@+id/cbAutoBrightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/volume_checkbox_selector"
+            android:text="自动调整亮度"
+            android:textColor="@color/common_h3"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gvTheme"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="6"
+        android:scrollbars="none" />
+</LinearLayout>

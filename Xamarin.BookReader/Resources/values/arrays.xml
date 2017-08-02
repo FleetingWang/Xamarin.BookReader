@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 JustWayward Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources>
+    <string-array name="home_tabs">
+        <item>书架</item>
+        <item>社区</item>
+        <item>发现</item>
+    </string-array>
+
+    <string-array name="sub_tabs">
+        <item>新书</item>
+        <item>热门</item>
+        <item>口碑</item>
+        <item>完结</item>
+    </string-array>
+
+    <string-array name="sub_rank_tabs">
+        <item>周榜</item>
+        <item>月榜</item>
+        <item>总榜</item>
+    </string-array>
+
+    <string-array name="subject_tabs">
+        <item>本周最热</item>
+        <item>最新发布</item>
+        <item>最多收藏</item>
+    </string-array>
+
+    <string-array name="bookdetail_community_tabs">
+        <item>讨论</item>
+        <item>书评</item>
+    </string-array>
+
+    <string-array name="recommend_item_long_click_choice">
+        <item>置顶</item>
+        <item>书籍详情</item>
+        <item>移入养肥区</item>
+        <item>缓存全本</item>
+        <item>删除</item>
+        <item>批量管理</item>
+    </string-array>
+
+    <string-array name="recommend_item_long_click_choice_local">
+        <item>置顶</item>
+        <item>删除</item>
+        <item>批量管理</item>
+    </string-array>
+
+    <string-array name="recommend_item_long_click_choice_recommend">
+        <item>书籍详情</item>
+        <item>删除</item>
+        <item>缓存全本</item>
+    </string-array>
+
+    <string-array name="my_book_list_item_long_click_choice">
+        <item>删除</item>
+    </string-array>
+
+    <string-array name="setting_dialog_sort_choice">
+        <item>按更新时间</item>
+        <item>按最近阅读</item>
+    </string-array>
+
+    <string-array name="setting_dialog_style_choice">
+        <item>模拟翻书效果</item>
+        <item>滑动覆盖翻页效果</item>
+    </string-array>
+</resources>

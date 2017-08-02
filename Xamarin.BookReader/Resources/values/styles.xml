@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 JustWayward Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources>
+
+    BaseContract application theme.
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+        <!--标题栏的颜色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏的颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--控件的选中颜色，即checked或selected状态的颜色。-->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.ToolBar.Menu" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- 设置-弹窗的背景-颜色-->
+        <item name="android:colorBackground">@color/common_bg</item>
+        <!-- 字体的颜色-->
+        <item name="android:textColor">@color/common_h1</item>
+        <!-- 字体大小-->
+        <item name="android:textSize">16sp</item>
+        <!-- 用于替换菜单的三个小白点，换成自已的图片-->
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow.Menu</item>
+        <!--用于控制menu弹出的位置，位于toolbar的下面，而不是上面-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <!-- 用于修改item默认的分割线-->
+        <item name="android:dropDownListViewStyle">@style/dropDownStyle</item>
+        <item name="dropDownListViewStyle">@style/dropDownStyle</item>
+    </style>
+
+    <style name="ActionButton.Overflow.Menu" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
+    </style>
+
+    <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <!--用于修改popmenu的分割线-->
+    <style name="dropDownStyle" parent="android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/touch_bg</item>
+        <item name="android:divider">@color/common_divider_narrow</item>
+        <item name="android:dividerHeight">0.5dp</item>
+    </style>
+
+    <style name="TagGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="atg_isAppendMode">false</item>
+        <item name="atg_inputHint">@string/add_tag</item>
+        <item name="atg_borderColor">#49C120</item>
+        <item name="atg_textColor">#49C120</item>
+        <item name="atg_backgroundColor">#FFFFFF</item>
+        <item name="atg_dashBorderColor">#AAAAAA</item>
+        <item name="atg_inputHintColor">#80000000</item>
+        <item name="atg_inputTextColor">#DE000000</item>
+        <item name="atg_checkedBorderColor">#49C120</item>
+        <item name="atg_checkedTextColor">#FFFFFF</item>
+        <item name="atg_checkedMarkerColor">#FFFFFF</item>
+        <item name="atg_checkedBackgroundColor">#49C120</item>
+        <item name="atg_pressedBackgroundColor">#EDEDED</item>
+        <item name="atg_borderStrokeWidth">0.5dp</item>
+        <item name="atg_textSize">14sp</item>
+        <item name="atg_horizontalSpacing">12dp</item>
+        <item name="atg_verticalSpacing">10dp</item>
+        <item name="atg_horizontalPadding">12dp</item>
+        <item name="atg_verticalPadding">6dp</item>
+    </style>
+
+    <style name="TagGroup.Small" parent="TagGroup">
+        <item name="atg_textSize">10sp</item>
+        <item name="atg_horizontalSpacing">6dp</item>
+        <item name="atg_verticalSpacing">3dp</item>
+        <item name="atg_horizontalPadding">8dp</item>
+        <item name="atg_verticalPadding">2dp</item>
+    </style>
+
+    <style name="TagGroup.Large" parent="TagGroup">
+        <item name="atg_borderStrokeWidth">0.7dp</item>
+        <item name="atg_textSize">15sp</item>
+        <item name="atg_horizontalSpacing">9dp</item>
+        <item name="atg_verticalSpacing">5dp</item>
+        <item name="atg_horizontalPadding">14dp</item>
+        <item name="atg_verticalPadding">4dp</item>
+    </style>
+
+    <style name="TagGroup.Beauty_Red" parent="TagGroup">
+        <item name="atg_borderColor">#FF3D7F</item>
+        <item name="atg_textColor">#FF3D7F</item>
+        <item name="atg_checkedBorderColor">#FF3D7F</item>
+        <item name="atg_checkedBackgroundColor">#FF3D7F</item>
+    </style>
+
+    <style name="TagGroup.Beauty_Red.Inverse" parent="TagGroup">
+        <item name="atg_borderColor">#FF3D7F</item>
+        <item name="atg_textColor">#FFFFFF</item>
+        <item name="atg_backgroundColor">#FF3D7F</item>
+        <item name="atg_inputHintColor">#80FFFFFF</item>
+        <item name="atg_inputTextColor">#DEFFFFFF</item>
+        <item name="atg_checkedBorderColor">#FF3D7F</item>
+        <item name="atg_checkedTextColor">#FF3D7F</item>
+        <item name="atg_checkedMarkerColor">#FF3D7F</item>
+        <item name="atg_checkedBackgroundColor">#FFFFFF</item>
+        <item name="atg_pressedBackgroundColor">#FF99B1</item>
+
+    </style>
+
+    <style name="LoginPopup">
+        <item name="android:windowEnterAnimation">@anim/login_show</item>
+        <item name="android:windowExitAnimation">@anim/login_dismiss</item>
+    </style>
+
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Widget.MaterialProgressBar.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateDrawable">@null</item>
+        <item name="android:minHeight">4dp</item>
+        <item name="android:maxHeight">4dp</item>
+    </style>
+
+</resources>

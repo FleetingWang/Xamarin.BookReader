@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 JustWayward Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources>
+    <!--标题栏的颜色-->
+    <color name="colorPrimary">#3B99DF</color>
+    <!--状态栏的颜色-->
+    <color name="colorPrimaryDark">#3B90DF</color>
+    <!--控件的选中颜色，即checked或selected状态的颜色。-->
+    <color name="colorAccent">#3B99DF</color>
+
+    <color name="tip">#88303F9F</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#DE6014</color>
+    <color name="gray">#b8b8b8</color>
+    <color name="green">#5FB236</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="light_white">#EEEEEE</color>
+    <color name="light_black">#515151</color>
+    <color name="light_pink">#fb9090</color>
+    <color name="light_coffee">#A58D5E</color>
+    <color name="light_gray">#AAAAAA</color>
+    <color name="light_red">#EC4A48</color>
+    <color name="light_blue">#039BE5</color>
+    <color name="dark_red">#B93221</color>
+
+    <!--通用背景色-->
+    <color name="common_bg">@color/white</color>
+    <!--通用触摸背景色-->
+    <color name="common_touch_bg">#E3E3E3</color>
+    <!--通用背景色-->
+    <color name="common_gray_bg">#EEEEEE</color>
+    <!--通用一级标题的颜色-->
+    <color name="common_h1">#212121</color>
+    <!--通用二级标题的颜色-->
+    <color name="common_h2">#727272</color>
+    <!--通用三级标题的颜色-->
+    <color name="common_h3">#B2B2B2</color>
+    <!--通用分割线细-->
+    <color name="common_divider_narrow">#E3E3E3</color>
+    <!--通用分割线粗-->
+    <color name="common_divider_wide">@color/light_white</color>
+
+    <color name="reader_menu_bg_color">#191919</color>
+    <color name="read_theme_white">#ffffff</color>
+    <color name="read_theme_green">#bed0cf</color>
+    <color name="read_theme_yellow">#e6dbbf</color>
+    <color name="read_theme_gray">#AAAAAA</color>
+    <color name="read_theme_night">#000000</color>
+
+    <!--章节标题夜间颜色-->
+    <color name="chapter_title_night">#292929</color>
+    <!--章节内容夜间颜色-->
+    <color name="chapter_content_night">#444444</color>
+    <!--章节标题日间颜色-->
+    <color name="chapter_title_day">#837B63</color>
+    <!--章节内容夜间颜色-->
+    <color name="chapter_content_day">#3B3220</color>
+    <!--阅读页顶部字体颜色-->
+    <color name="book_read_top_text">#D1D1D1</color>
+    <!--阅读页底部字体颜色-->
+    <color name="book_read_bottom_text">#e6e6e6</color>
+
+    <!--性别选择颜色值-->
+    <color name="gender_select_male_normal">#B0E2FF</color>
+    <color name="gender_select_male_pressed">#B2DFEE</color>
+    <color name="gender_select_female_normal">#EEA9B8</color>
+    <color name="gender_select_female_pressed">#EEA2AD</color>
+
+</resources>
