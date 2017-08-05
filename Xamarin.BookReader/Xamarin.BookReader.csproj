@@ -116,6 +116,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bases\BaseActivity.cs" />
+    <Compile Include="Bases\BaseCommunitActivity.cs" />
+    <Compile Include="Bases\BaseFragment.cs" />
     <Compile Include="Bases\Constant.cs" />
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="MainActivity.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Utils\ToastUtils.cs" />
     <Compile Include="Views\Loading\CustomDialog.cs" />
     <Compile Include="Views\Loading\LoadingView.cs" />
+    <Compile Include="Views\SelectionLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -186,11 +189,23 @@
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\common_progress_view.axml" />
     <AndroidResource Include="Resources\layout\common_toolbar.axml" />
+    <AndroidResource Include="Resources\layout\view_selection.axml" />
+    <AndroidResource Include="Resources\layout\item_selection_view.axml" />
+    <AndroidResource Include="Resources\layout\activity_community_book_discussion.axml" />
+    <AndroidResource Include="Resources\layout\activity_community_book_help.axml" />
+    <AndroidResource Include="Resources\layout\activity_community_book_review.axml" />
+    <AndroidResource Include="Resources\layout\activity_community_girl_book_discussion.axml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EasyAdapterLibrary\EasyAdapterLibrary.csproj">
+      <Project>{E3549BD2-D270-4DDA-9ABA-175CA7824205}</Project>
+      <Name>EasyAdapterLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="AndroidBindings\Binding_Eventbus\Binding_Eventbus.csproj">
       <Project>{CC0D43A0-EEFD-4B2F-9FA4-D6100236492A}</Project>
       <Name>Binding_Eventbus</Name>

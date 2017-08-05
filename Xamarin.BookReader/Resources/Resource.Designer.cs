@@ -26,6 +26,1446 @@ namespace Xamarin.BookReader
 		
 		public static void UpdateIdValues()
 		{
+			global::EasyAdapterLibrary.Resource.Animation.abc_fade_in = global::Xamarin.BookReader.Resource.Animation.abc_fade_in;
+			global::EasyAdapterLibrary.Resource.Animation.abc_fade_out = global::Xamarin.BookReader.Resource.Animation.abc_fade_out;
+			global::EasyAdapterLibrary.Resource.Animation.abc_grow_fade_in_from_bottom = global::Xamarin.BookReader.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::EasyAdapterLibrary.Resource.Animation.abc_popup_enter = global::Xamarin.BookReader.Resource.Animation.abc_popup_enter;
+			global::EasyAdapterLibrary.Resource.Animation.abc_popup_exit = global::Xamarin.BookReader.Resource.Animation.abc_popup_exit;
+			global::EasyAdapterLibrary.Resource.Animation.abc_shrink_fade_out_from_bottom = global::Xamarin.BookReader.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::EasyAdapterLibrary.Resource.Animation.abc_slide_in_bottom = global::Xamarin.BookReader.Resource.Animation.abc_slide_in_bottom;
+			global::EasyAdapterLibrary.Resource.Animation.abc_slide_in_top = global::Xamarin.BookReader.Resource.Animation.abc_slide_in_top;
+			global::EasyAdapterLibrary.Resource.Animation.abc_slide_out_bottom = global::Xamarin.BookReader.Resource.Animation.abc_slide_out_bottom;
+			global::EasyAdapterLibrary.Resource.Animation.abc_slide_out_top = global::Xamarin.BookReader.Resource.Animation.abc_slide_out_top;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarDivider = global::Xamarin.BookReader.Resource.Attribute.actionBarDivider;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarItemBackground = global::Xamarin.BookReader.Resource.Attribute.actionBarItemBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarPopupTheme = global::Xamarin.BookReader.Resource.Attribute.actionBarPopupTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarSize = global::Xamarin.BookReader.Resource.Attribute.actionBarSize;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarSplitStyle = global::Xamarin.BookReader.Resource.Attribute.actionBarSplitStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarStyle = global::Xamarin.BookReader.Resource.Attribute.actionBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarTabBarStyle = global::Xamarin.BookReader.Resource.Attribute.actionBarTabBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarTabStyle = global::Xamarin.BookReader.Resource.Attribute.actionBarTabStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarTabTextStyle = global::Xamarin.BookReader.Resource.Attribute.actionBarTabTextStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarTheme = global::Xamarin.BookReader.Resource.Attribute.actionBarTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.actionBarWidgetTheme = global::Xamarin.BookReader.Resource.Attribute.actionBarWidgetTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.actionButtonStyle = global::Xamarin.BookReader.Resource.Attribute.actionButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionDropDownStyle = global::Xamarin.BookReader.Resource.Attribute.actionDropDownStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionLayout = global::Xamarin.BookReader.Resource.Attribute.actionLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.actionMenuTextAppearance = global::Xamarin.BookReader.Resource.Attribute.actionMenuTextAppearance;
+			global::EasyAdapterLibrary.Resource.Attribute.actionMenuTextColor = global::Xamarin.BookReader.Resource.Attribute.actionMenuTextColor;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeBackground = global::Xamarin.BookReader.Resource.Attribute.actionModeBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeCloseButtonStyle = global::Xamarin.BookReader.Resource.Attribute.actionModeCloseButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeCloseDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeCloseDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeCopyDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeCopyDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeCutDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeCutDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeFindDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeFindDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModePasteDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModePasteDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModePopupWindowStyle = global::Xamarin.BookReader.Resource.Attribute.actionModePopupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeSelectAllDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeSelectAllDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeShareDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeShareDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeSplitBackground = global::Xamarin.BookReader.Resource.Attribute.actionModeSplitBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeStyle = global::Xamarin.BookReader.Resource.Attribute.actionModeStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionModeWebSearchDrawable = global::Xamarin.BookReader.Resource.Attribute.actionModeWebSearchDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.actionOverflowButtonStyle = global::Xamarin.BookReader.Resource.Attribute.actionOverflowButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionOverflowMenuStyle = global::Xamarin.BookReader.Resource.Attribute.actionOverflowMenuStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.actionProviderClass = global::Xamarin.BookReader.Resource.Attribute.actionProviderClass;
+			global::EasyAdapterLibrary.Resource.Attribute.actionViewClass = global::Xamarin.BookReader.Resource.Attribute.actionViewClass;
+			global::EasyAdapterLibrary.Resource.Attribute.activityChooserViewStyle = global::Xamarin.BookReader.Resource.Attribute.activityChooserViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.alertDialogButtonGroupStyle = global::Xamarin.BookReader.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.alertDialogCenterButtons = global::Xamarin.BookReader.Resource.Attribute.alertDialogCenterButtons;
+			global::EasyAdapterLibrary.Resource.Attribute.alertDialogStyle = global::Xamarin.BookReader.Resource.Attribute.alertDialogStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.alertDialogTheme = global::Xamarin.BookReader.Resource.Attribute.alertDialogTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.allowStacking = global::Xamarin.BookReader.Resource.Attribute.allowStacking;
+			global::EasyAdapterLibrary.Resource.Attribute.alpha = global::Xamarin.BookReader.Resource.Attribute.alpha;
+			global::EasyAdapterLibrary.Resource.Attribute.arrowHeadLength = global::Xamarin.BookReader.Resource.Attribute.arrowHeadLength;
+			global::EasyAdapterLibrary.Resource.Attribute.arrowShaftLength = global::Xamarin.BookReader.Resource.Attribute.arrowShaftLength;
+			global::EasyAdapterLibrary.Resource.Attribute.autoCompleteTextViewStyle = global::Xamarin.BookReader.Resource.Attribute.autoCompleteTextViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.background = global::Xamarin.BookReader.Resource.Attribute.background;
+			global::EasyAdapterLibrary.Resource.Attribute.backgroundSplit = global::Xamarin.BookReader.Resource.Attribute.backgroundSplit;
+			global::EasyAdapterLibrary.Resource.Attribute.backgroundStacked = global::Xamarin.BookReader.Resource.Attribute.backgroundStacked;
+			global::EasyAdapterLibrary.Resource.Attribute.backgroundTint = global::Xamarin.BookReader.Resource.Attribute.backgroundTint;
+			global::EasyAdapterLibrary.Resource.Attribute.backgroundTintMode = global::Xamarin.BookReader.Resource.Attribute.backgroundTintMode;
+			global::EasyAdapterLibrary.Resource.Attribute.barLength = global::Xamarin.BookReader.Resource.Attribute.barLength;
+			global::EasyAdapterLibrary.Resource.Attribute.borderlessButtonStyle = global::Xamarin.BookReader.Resource.Attribute.borderlessButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonBarButtonStyle = global::Xamarin.BookReader.Resource.Attribute.buttonBarButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonBarNegativeButtonStyle = global::Xamarin.BookReader.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonBarNeutralButtonStyle = global::Xamarin.BookReader.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonBarPositiveButtonStyle = global::Xamarin.BookReader.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonBarStyle = global::Xamarin.BookReader.Resource.Attribute.buttonBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonGravity = global::Xamarin.BookReader.Resource.Attribute.buttonGravity;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonPanelSideLayout = global::Xamarin.BookReader.Resource.Attribute.buttonPanelSideLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonStyle = global::Xamarin.BookReader.Resource.Attribute.buttonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonStyleSmall = global::Xamarin.BookReader.Resource.Attribute.buttonStyleSmall;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonTint = global::Xamarin.BookReader.Resource.Attribute.buttonTint;
+			global::EasyAdapterLibrary.Resource.Attribute.buttonTintMode = global::Xamarin.BookReader.Resource.Attribute.buttonTintMode;
+			global::EasyAdapterLibrary.Resource.Attribute.checkboxStyle = global::Xamarin.BookReader.Resource.Attribute.checkboxStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.checkedTextViewStyle = global::Xamarin.BookReader.Resource.Attribute.checkedTextViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.closeIcon = global::Xamarin.BookReader.Resource.Attribute.closeIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.closeItemLayout = global::Xamarin.BookReader.Resource.Attribute.closeItemLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.collapseContentDescription = global::Xamarin.BookReader.Resource.Attribute.collapseContentDescription;
+			global::EasyAdapterLibrary.Resource.Attribute.collapseIcon = global::Xamarin.BookReader.Resource.Attribute.collapseIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.color = global::Xamarin.BookReader.Resource.Attribute.color;
+			global::EasyAdapterLibrary.Resource.Attribute.colorAccent = global::Xamarin.BookReader.Resource.Attribute.colorAccent;
+			global::EasyAdapterLibrary.Resource.Attribute.colorBackgroundFloating = global::Xamarin.BookReader.Resource.Attribute.colorBackgroundFloating;
+			global::EasyAdapterLibrary.Resource.Attribute.colorButtonNormal = global::Xamarin.BookReader.Resource.Attribute.colorButtonNormal;
+			global::EasyAdapterLibrary.Resource.Attribute.colorControlActivated = global::Xamarin.BookReader.Resource.Attribute.colorControlActivated;
+			global::EasyAdapterLibrary.Resource.Attribute.colorControlHighlight = global::Xamarin.BookReader.Resource.Attribute.colorControlHighlight;
+			global::EasyAdapterLibrary.Resource.Attribute.colorControlNormal = global::Xamarin.BookReader.Resource.Attribute.colorControlNormal;
+			global::EasyAdapterLibrary.Resource.Attribute.colorPrimary = global::Xamarin.BookReader.Resource.Attribute.colorPrimary;
+			global::EasyAdapterLibrary.Resource.Attribute.colorPrimaryDark = global::Xamarin.BookReader.Resource.Attribute.colorPrimaryDark;
+			global::EasyAdapterLibrary.Resource.Attribute.colorSwitchThumbNormal = global::Xamarin.BookReader.Resource.Attribute.colorSwitchThumbNormal;
+			global::EasyAdapterLibrary.Resource.Attribute.commitIcon = global::Xamarin.BookReader.Resource.Attribute.commitIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetEnd = global::Xamarin.BookReader.Resource.Attribute.contentInsetEnd;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetEndWithActions = global::Xamarin.BookReader.Resource.Attribute.contentInsetEndWithActions;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetLeft = global::Xamarin.BookReader.Resource.Attribute.contentInsetLeft;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetRight = global::Xamarin.BookReader.Resource.Attribute.contentInsetRight;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetStart = global::Xamarin.BookReader.Resource.Attribute.contentInsetStart;
+			global::EasyAdapterLibrary.Resource.Attribute.contentInsetStartWithNavigation = global::Xamarin.BookReader.Resource.Attribute.contentInsetStartWithNavigation;
+			global::EasyAdapterLibrary.Resource.Attribute.controlBackground = global::Xamarin.BookReader.Resource.Attribute.controlBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.customNavigationLayout = global::Xamarin.BookReader.Resource.Attribute.customNavigationLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.defaultQueryHint = global::Xamarin.BookReader.Resource.Attribute.defaultQueryHint;
+			global::EasyAdapterLibrary.Resource.Attribute.dialogPreferredPadding = global::Xamarin.BookReader.Resource.Attribute.dialogPreferredPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.dialogTheme = global::Xamarin.BookReader.Resource.Attribute.dialogTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.displayOptions = global::Xamarin.BookReader.Resource.Attribute.displayOptions;
+			global::EasyAdapterLibrary.Resource.Attribute.divider = global::Xamarin.BookReader.Resource.Attribute.divider;
+			global::EasyAdapterLibrary.Resource.Attribute.dividerHorizontal = global::Xamarin.BookReader.Resource.Attribute.dividerHorizontal;
+			global::EasyAdapterLibrary.Resource.Attribute.dividerPadding = global::Xamarin.BookReader.Resource.Attribute.dividerPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.dividerVertical = global::Xamarin.BookReader.Resource.Attribute.dividerVertical;
+			global::EasyAdapterLibrary.Resource.Attribute.drawableSize = global::Xamarin.BookReader.Resource.Attribute.drawableSize;
+			global::EasyAdapterLibrary.Resource.Attribute.drawerArrowStyle = global::Xamarin.BookReader.Resource.Attribute.drawerArrowStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.dropDownListViewStyle = global::Xamarin.BookReader.Resource.Attribute.dropDownListViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.dropdownListPreferredItemHeight = global::Xamarin.BookReader.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::EasyAdapterLibrary.Resource.Attribute.editTextBackground = global::Xamarin.BookReader.Resource.Attribute.editTextBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.editTextColor = global::Xamarin.BookReader.Resource.Attribute.editTextColor;
+			global::EasyAdapterLibrary.Resource.Attribute.editTextStyle = global::Xamarin.BookReader.Resource.Attribute.editTextStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.elevation = global::Xamarin.BookReader.Resource.Attribute.elevation;
+			global::EasyAdapterLibrary.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Xamarin.BookReader.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::EasyAdapterLibrary.Resource.Attribute.gapBetweenBars = global::Xamarin.BookReader.Resource.Attribute.gapBetweenBars;
+			global::EasyAdapterLibrary.Resource.Attribute.goIcon = global::Xamarin.BookReader.Resource.Attribute.goIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.height = global::Xamarin.BookReader.Resource.Attribute.height;
+			global::EasyAdapterLibrary.Resource.Attribute.hideOnContentScroll = global::Xamarin.BookReader.Resource.Attribute.hideOnContentScroll;
+			global::EasyAdapterLibrary.Resource.Attribute.homeAsUpIndicator = global::Xamarin.BookReader.Resource.Attribute.homeAsUpIndicator;
+			global::EasyAdapterLibrary.Resource.Attribute.homeLayout = global::Xamarin.BookReader.Resource.Attribute.homeLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.icon = global::Xamarin.BookReader.Resource.Attribute.icon;
+			global::EasyAdapterLibrary.Resource.Attribute.iconifiedByDefault = global::Xamarin.BookReader.Resource.Attribute.iconifiedByDefault;
+			global::EasyAdapterLibrary.Resource.Attribute.imageButtonStyle = global::Xamarin.BookReader.Resource.Attribute.imageButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.indeterminateProgressStyle = global::Xamarin.BookReader.Resource.Attribute.indeterminateProgressStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.initialActivityCount = global::Xamarin.BookReader.Resource.Attribute.initialActivityCount;
+			global::EasyAdapterLibrary.Resource.Attribute.isLightTheme = global::Xamarin.BookReader.Resource.Attribute.isLightTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.itemPadding = global::Xamarin.BookReader.Resource.Attribute.itemPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.layout = global::Xamarin.BookReader.Resource.Attribute.layout;
+			global::EasyAdapterLibrary.Resource.Attribute.layoutManager = global::Xamarin.BookReader.Resource.Attribute.layoutManager;
+			global::EasyAdapterLibrary.Resource.Attribute.listChoiceBackgroundIndicator = global::Xamarin.BookReader.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::EasyAdapterLibrary.Resource.Attribute.listDividerAlertDialog = global::Xamarin.BookReader.Resource.Attribute.listDividerAlertDialog;
+			global::EasyAdapterLibrary.Resource.Attribute.listItemLayout = global::Xamarin.BookReader.Resource.Attribute.listItemLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.listLayout = global::Xamarin.BookReader.Resource.Attribute.listLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.listMenuViewStyle = global::Xamarin.BookReader.Resource.Attribute.listMenuViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.listPopupWindowStyle = global::Xamarin.BookReader.Resource.Attribute.listPopupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.listPreferredItemHeight = global::Xamarin.BookReader.Resource.Attribute.listPreferredItemHeight;
+			global::EasyAdapterLibrary.Resource.Attribute.listPreferredItemHeightLarge = global::Xamarin.BookReader.Resource.Attribute.listPreferredItemHeightLarge;
+			global::EasyAdapterLibrary.Resource.Attribute.listPreferredItemHeightSmall = global::Xamarin.BookReader.Resource.Attribute.listPreferredItemHeightSmall;
+			global::EasyAdapterLibrary.Resource.Attribute.listPreferredItemPaddingLeft = global::Xamarin.BookReader.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::EasyAdapterLibrary.Resource.Attribute.listPreferredItemPaddingRight = global::Xamarin.BookReader.Resource.Attribute.listPreferredItemPaddingRight;
+			global::EasyAdapterLibrary.Resource.Attribute.logo = global::Xamarin.BookReader.Resource.Attribute.logo;
+			global::EasyAdapterLibrary.Resource.Attribute.logoDescription = global::Xamarin.BookReader.Resource.Attribute.logoDescription;
+			global::EasyAdapterLibrary.Resource.Attribute.maxButtonHeight = global::Xamarin.BookReader.Resource.Attribute.maxButtonHeight;
+			global::EasyAdapterLibrary.Resource.Attribute.measureWithLargestChild = global::Xamarin.BookReader.Resource.Attribute.measureWithLargestChild;
+			global::EasyAdapterLibrary.Resource.Attribute.multiChoiceItemLayout = global::Xamarin.BookReader.Resource.Attribute.multiChoiceItemLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.navigationContentDescription = global::Xamarin.BookReader.Resource.Attribute.navigationContentDescription;
+			global::EasyAdapterLibrary.Resource.Attribute.navigationIcon = global::Xamarin.BookReader.Resource.Attribute.navigationIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.navigationMode = global::Xamarin.BookReader.Resource.Attribute.navigationMode;
+			global::EasyAdapterLibrary.Resource.Attribute.overlapAnchor = global::Xamarin.BookReader.Resource.Attribute.overlapAnchor;
+			global::EasyAdapterLibrary.Resource.Attribute.paddingBottomNoButtons = global::Xamarin.BookReader.Resource.Attribute.paddingBottomNoButtons;
+			global::EasyAdapterLibrary.Resource.Attribute.paddingEnd = global::Xamarin.BookReader.Resource.Attribute.paddingEnd;
+			global::EasyAdapterLibrary.Resource.Attribute.paddingStart = global::Xamarin.BookReader.Resource.Attribute.paddingStart;
+			global::EasyAdapterLibrary.Resource.Attribute.paddingTopNoTitle = global::Xamarin.BookReader.Resource.Attribute.paddingTopNoTitle;
+			global::EasyAdapterLibrary.Resource.Attribute.panelBackground = global::Xamarin.BookReader.Resource.Attribute.panelBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.panelMenuListTheme = global::Xamarin.BookReader.Resource.Attribute.panelMenuListTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.panelMenuListWidth = global::Xamarin.BookReader.Resource.Attribute.panelMenuListWidth;
+			global::EasyAdapterLibrary.Resource.Attribute.popupMenuStyle = global::Xamarin.BookReader.Resource.Attribute.popupMenuStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.popupTheme = global::Xamarin.BookReader.Resource.Attribute.popupTheme;
+			global::EasyAdapterLibrary.Resource.Attribute.popupWindowStyle = global::Xamarin.BookReader.Resource.Attribute.popupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.preserveIconSpacing = global::Xamarin.BookReader.Resource.Attribute.preserveIconSpacing;
+			global::EasyAdapterLibrary.Resource.Attribute.progressBarPadding = global::Xamarin.BookReader.Resource.Attribute.progressBarPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.progressBarStyle = global::Xamarin.BookReader.Resource.Attribute.progressBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.queryBackground = global::Xamarin.BookReader.Resource.Attribute.queryBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.queryHint = global::Xamarin.BookReader.Resource.Attribute.queryHint;
+			global::EasyAdapterLibrary.Resource.Attribute.radioButtonStyle = global::Xamarin.BookReader.Resource.Attribute.radioButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.ratingBarStyle = global::Xamarin.BookReader.Resource.Attribute.ratingBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.ratingBarStyleIndicator = global::Xamarin.BookReader.Resource.Attribute.ratingBarStyleIndicator;
+			global::EasyAdapterLibrary.Resource.Attribute.ratingBarStyleSmall = global::Xamarin.BookReader.Resource.Attribute.ratingBarStyleSmall;
+			global::EasyAdapterLibrary.Resource.Attribute.reverseLayout = global::Xamarin.BookReader.Resource.Attribute.reverseLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.searchHintIcon = global::Xamarin.BookReader.Resource.Attribute.searchHintIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.searchIcon = global::Xamarin.BookReader.Resource.Attribute.searchIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.searchViewStyle = global::Xamarin.BookReader.Resource.Attribute.searchViewStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.seekBarStyle = global::Xamarin.BookReader.Resource.Attribute.seekBarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.selectableItemBackground = global::Xamarin.BookReader.Resource.Attribute.selectableItemBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.selectableItemBackgroundBorderless = global::Xamarin.BookReader.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::EasyAdapterLibrary.Resource.Attribute.showAsAction = global::Xamarin.BookReader.Resource.Attribute.showAsAction;
+			global::EasyAdapterLibrary.Resource.Attribute.showDividers = global::Xamarin.BookReader.Resource.Attribute.showDividers;
+			global::EasyAdapterLibrary.Resource.Attribute.showText = global::Xamarin.BookReader.Resource.Attribute.showText;
+			global::EasyAdapterLibrary.Resource.Attribute.showTitle = global::Xamarin.BookReader.Resource.Attribute.showTitle;
+			global::EasyAdapterLibrary.Resource.Attribute.singleChoiceItemLayout = global::Xamarin.BookReader.Resource.Attribute.singleChoiceItemLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.spanCount = global::Xamarin.BookReader.Resource.Attribute.spanCount;
+			global::EasyAdapterLibrary.Resource.Attribute.spinBars = global::Xamarin.BookReader.Resource.Attribute.spinBars;
+			global::EasyAdapterLibrary.Resource.Attribute.spinnerDropDownItemStyle = global::Xamarin.BookReader.Resource.Attribute.spinnerDropDownItemStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.spinnerStyle = global::Xamarin.BookReader.Resource.Attribute.spinnerStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.splitTrack = global::Xamarin.BookReader.Resource.Attribute.splitTrack;
+			global::EasyAdapterLibrary.Resource.Attribute.srcCompat = global::Xamarin.BookReader.Resource.Attribute.srcCompat;
+			global::EasyAdapterLibrary.Resource.Attribute.stackFromEnd = global::Xamarin.BookReader.Resource.Attribute.stackFromEnd;
+			global::EasyAdapterLibrary.Resource.Attribute.state_above_anchor = global::Xamarin.BookReader.Resource.Attribute.state_above_anchor;
+			global::EasyAdapterLibrary.Resource.Attribute.subMenuArrow = global::Xamarin.BookReader.Resource.Attribute.subMenuArrow;
+			global::EasyAdapterLibrary.Resource.Attribute.submitBackground = global::Xamarin.BookReader.Resource.Attribute.submitBackground;
+			global::EasyAdapterLibrary.Resource.Attribute.subtitle = global::Xamarin.BookReader.Resource.Attribute.subtitle;
+			global::EasyAdapterLibrary.Resource.Attribute.subtitleTextAppearance = global::Xamarin.BookReader.Resource.Attribute.subtitleTextAppearance;
+			global::EasyAdapterLibrary.Resource.Attribute.subtitleTextColor = global::Xamarin.BookReader.Resource.Attribute.subtitleTextColor;
+			global::EasyAdapterLibrary.Resource.Attribute.subtitleTextStyle = global::Xamarin.BookReader.Resource.Attribute.subtitleTextStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.suggestionRowLayout = global::Xamarin.BookReader.Resource.Attribute.suggestionRowLayout;
+			global::EasyAdapterLibrary.Resource.Attribute.switchMinWidth = global::Xamarin.BookReader.Resource.Attribute.switchMinWidth;
+			global::EasyAdapterLibrary.Resource.Attribute.switchPadding = global::Xamarin.BookReader.Resource.Attribute.switchPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.switchStyle = global::Xamarin.BookReader.Resource.Attribute.switchStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.switchTextAppearance = global::Xamarin.BookReader.Resource.Attribute.switchTextAppearance;
+			global::EasyAdapterLibrary.Resource.Attribute.textAllCaps = global::Xamarin.BookReader.Resource.Attribute.textAllCaps;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceLargePopupMenu = global::Xamarin.BookReader.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceListItem = global::Xamarin.BookReader.Resource.Attribute.textAppearanceListItem;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceListItemSmall = global::Xamarin.BookReader.Resource.Attribute.textAppearanceListItemSmall;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearancePopupMenuHeader = global::Xamarin.BookReader.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceSearchResultSubtitle = global::Xamarin.BookReader.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceSearchResultTitle = global::Xamarin.BookReader.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::EasyAdapterLibrary.Resource.Attribute.textAppearanceSmallPopupMenu = global::Xamarin.BookReader.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::EasyAdapterLibrary.Resource.Attribute.textColorAlertDialogListItem = global::Xamarin.BookReader.Resource.Attribute.textColorAlertDialogListItem;
+			global::EasyAdapterLibrary.Resource.Attribute.textColorSearchUrl = global::Xamarin.BookReader.Resource.Attribute.textColorSearchUrl;
+			global::EasyAdapterLibrary.Resource.Attribute.theme = global::Xamarin.BookReader.Resource.Attribute.theme;
+			global::EasyAdapterLibrary.Resource.Attribute.thickness = global::Xamarin.BookReader.Resource.Attribute.thickness;
+			global::EasyAdapterLibrary.Resource.Attribute.thumbTextPadding = global::Xamarin.BookReader.Resource.Attribute.thumbTextPadding;
+			global::EasyAdapterLibrary.Resource.Attribute.thumbTint = global::Xamarin.BookReader.Resource.Attribute.thumbTint;
+			global::EasyAdapterLibrary.Resource.Attribute.thumbTintMode = global::Xamarin.BookReader.Resource.Attribute.thumbTintMode;
+			global::EasyAdapterLibrary.Resource.Attribute.tickMark = global::Xamarin.BookReader.Resource.Attribute.tickMark;
+			global::EasyAdapterLibrary.Resource.Attribute.tickMarkTint = global::Xamarin.BookReader.Resource.Attribute.tickMarkTint;
+			global::EasyAdapterLibrary.Resource.Attribute.tickMarkTintMode = global::Xamarin.BookReader.Resource.Attribute.tickMarkTintMode;
+			global::EasyAdapterLibrary.Resource.Attribute.title = global::Xamarin.BookReader.Resource.Attribute.title;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMargin = global::Xamarin.BookReader.Resource.Attribute.titleMargin;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMarginBottom = global::Xamarin.BookReader.Resource.Attribute.titleMarginBottom;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMarginEnd = global::Xamarin.BookReader.Resource.Attribute.titleMarginEnd;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMarginStart = global::Xamarin.BookReader.Resource.Attribute.titleMarginStart;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMarginTop = global::Xamarin.BookReader.Resource.Attribute.titleMarginTop;
+			global::EasyAdapterLibrary.Resource.Attribute.titleMargins = global::Xamarin.BookReader.Resource.Attribute.titleMargins;
+			global::EasyAdapterLibrary.Resource.Attribute.titleTextAppearance = global::Xamarin.BookReader.Resource.Attribute.titleTextAppearance;
+			global::EasyAdapterLibrary.Resource.Attribute.titleTextColor = global::Xamarin.BookReader.Resource.Attribute.titleTextColor;
+			global::EasyAdapterLibrary.Resource.Attribute.titleTextStyle = global::Xamarin.BookReader.Resource.Attribute.titleTextStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.toolbarNavigationButtonStyle = global::Xamarin.BookReader.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.toolbarStyle = global::Xamarin.BookReader.Resource.Attribute.toolbarStyle;
+			global::EasyAdapterLibrary.Resource.Attribute.track = global::Xamarin.BookReader.Resource.Attribute.track;
+			global::EasyAdapterLibrary.Resource.Attribute.trackTint = global::Xamarin.BookReader.Resource.Attribute.trackTint;
+			global::EasyAdapterLibrary.Resource.Attribute.trackTintMode = global::Xamarin.BookReader.Resource.Attribute.trackTintMode;
+			global::EasyAdapterLibrary.Resource.Attribute.voiceIcon = global::Xamarin.BookReader.Resource.Attribute.voiceIcon;
+			global::EasyAdapterLibrary.Resource.Attribute.windowActionBar = global::Xamarin.BookReader.Resource.Attribute.windowActionBar;
+			global::EasyAdapterLibrary.Resource.Attribute.windowActionBarOverlay = global::Xamarin.BookReader.Resource.Attribute.windowActionBarOverlay;
+			global::EasyAdapterLibrary.Resource.Attribute.windowActionModeOverlay = global::Xamarin.BookReader.Resource.Attribute.windowActionModeOverlay;
+			global::EasyAdapterLibrary.Resource.Attribute.windowFixedHeightMajor = global::Xamarin.BookReader.Resource.Attribute.windowFixedHeightMajor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowFixedHeightMinor = global::Xamarin.BookReader.Resource.Attribute.windowFixedHeightMinor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowFixedWidthMajor = global::Xamarin.BookReader.Resource.Attribute.windowFixedWidthMajor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowFixedWidthMinor = global::Xamarin.BookReader.Resource.Attribute.windowFixedWidthMinor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowMinWidthMajor = global::Xamarin.BookReader.Resource.Attribute.windowMinWidthMajor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowMinWidthMinor = global::Xamarin.BookReader.Resource.Attribute.windowMinWidthMinor;
+			global::EasyAdapterLibrary.Resource.Attribute.windowNoTitle = global::Xamarin.BookReader.Resource.Attribute.windowNoTitle;
+			global::EasyAdapterLibrary.Resource.Boolean.abc_action_bar_embed_tabs = global::Xamarin.BookReader.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::EasyAdapterLibrary.Resource.Boolean.abc_allow_stacked_button_bar = global::Xamarin.BookReader.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::EasyAdapterLibrary.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::Xamarin.BookReader.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::EasyAdapterLibrary.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::Xamarin.BookReader.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::EasyAdapterLibrary.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::Xamarin.BookReader.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
+			global::EasyAdapterLibrary.Resource.Color.abc_background_cache_hint_selector_material_dark = global::Xamarin.BookReader.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.abc_background_cache_hint_selector_material_light = global::Xamarin.BookReader.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::EasyAdapterLibrary.Resource.Color.abc_btn_colored_borderless_text_material = global::Xamarin.BookReader.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::EasyAdapterLibrary.Resource.Color.abc_btn_colored_text_material = global::Xamarin.BookReader.Resource.Color.abc_btn_colored_text_material;
+			global::EasyAdapterLibrary.Resource.Color.abc_color_highlight_material = global::Xamarin.BookReader.Resource.Color.abc_color_highlight_material;
+			global::EasyAdapterLibrary.Resource.Color.abc_hint_foreground_material_dark = global::Xamarin.BookReader.Resource.Color.abc_hint_foreground_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.abc_hint_foreground_material_light = global::Xamarin.BookReader.Resource.Color.abc_hint_foreground_material_light;
+			global::EasyAdapterLibrary.Resource.Color.abc_input_method_navigation_guard = global::Xamarin.BookReader.Resource.Color.abc_input_method_navigation_guard;
+			global::EasyAdapterLibrary.Resource.Color.abc_primary_text_disable_only_material_dark = global::Xamarin.BookReader.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.abc_primary_text_disable_only_material_light = global::Xamarin.BookReader.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::EasyAdapterLibrary.Resource.Color.abc_primary_text_material_dark = global::Xamarin.BookReader.Resource.Color.abc_primary_text_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.abc_primary_text_material_light = global::Xamarin.BookReader.Resource.Color.abc_primary_text_material_light;
+			global::EasyAdapterLibrary.Resource.Color.abc_search_url_text = global::Xamarin.BookReader.Resource.Color.abc_search_url_text;
+			global::EasyAdapterLibrary.Resource.Color.abc_search_url_text_normal = global::Xamarin.BookReader.Resource.Color.abc_search_url_text_normal;
+			global::EasyAdapterLibrary.Resource.Color.abc_search_url_text_pressed = global::Xamarin.BookReader.Resource.Color.abc_search_url_text_pressed;
+			global::EasyAdapterLibrary.Resource.Color.abc_search_url_text_selected = global::Xamarin.BookReader.Resource.Color.abc_search_url_text_selected;
+			global::EasyAdapterLibrary.Resource.Color.abc_secondary_text_material_dark = global::Xamarin.BookReader.Resource.Color.abc_secondary_text_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.abc_secondary_text_material_light = global::Xamarin.BookReader.Resource.Color.abc_secondary_text_material_light;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_btn_checkable = global::Xamarin.BookReader.Resource.Color.abc_tint_btn_checkable;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_default = global::Xamarin.BookReader.Resource.Color.abc_tint_default;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_edittext = global::Xamarin.BookReader.Resource.Color.abc_tint_edittext;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_seek_thumb = global::Xamarin.BookReader.Resource.Color.abc_tint_seek_thumb;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_spinner = global::Xamarin.BookReader.Resource.Color.abc_tint_spinner;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_switch_thumb = global::Xamarin.BookReader.Resource.Color.abc_tint_switch_thumb;
+			global::EasyAdapterLibrary.Resource.Color.abc_tint_switch_track = global::Xamarin.BookReader.Resource.Color.abc_tint_switch_track;
+			global::EasyAdapterLibrary.Resource.Color.accent_material_dark = global::Xamarin.BookReader.Resource.Color.accent_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.accent_material_light = global::Xamarin.BookReader.Resource.Color.accent_material_light;
+			global::EasyAdapterLibrary.Resource.Color.background_floating_material_dark = global::Xamarin.BookReader.Resource.Color.background_floating_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.background_floating_material_light = global::Xamarin.BookReader.Resource.Color.background_floating_material_light;
+			global::EasyAdapterLibrary.Resource.Color.background_material_dark = global::Xamarin.BookReader.Resource.Color.background_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.background_material_light = global::Xamarin.BookReader.Resource.Color.background_material_light;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_disabled_material_dark = global::Xamarin.BookReader.Resource.Color.bright_foreground_disabled_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_disabled_material_light = global::Xamarin.BookReader.Resource.Color.bright_foreground_disabled_material_light;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_inverse_material_dark = global::Xamarin.BookReader.Resource.Color.bright_foreground_inverse_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_inverse_material_light = global::Xamarin.BookReader.Resource.Color.bright_foreground_inverse_material_light;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_material_dark = global::Xamarin.BookReader.Resource.Color.bright_foreground_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.bright_foreground_material_light = global::Xamarin.BookReader.Resource.Color.bright_foreground_material_light;
+			global::EasyAdapterLibrary.Resource.Color.button_material_dark = global::Xamarin.BookReader.Resource.Color.button_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.button_material_light = global::Xamarin.BookReader.Resource.Color.button_material_light;
+			global::EasyAdapterLibrary.Resource.Color.dim_foreground_disabled_material_dark = global::Xamarin.BookReader.Resource.Color.dim_foreground_disabled_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.dim_foreground_disabled_material_light = global::Xamarin.BookReader.Resource.Color.dim_foreground_disabled_material_light;
+			global::EasyAdapterLibrary.Resource.Color.dim_foreground_material_dark = global::Xamarin.BookReader.Resource.Color.dim_foreground_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.dim_foreground_material_light = global::Xamarin.BookReader.Resource.Color.dim_foreground_material_light;
+			global::EasyAdapterLibrary.Resource.Color.foreground_material_dark = global::Xamarin.BookReader.Resource.Color.foreground_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.foreground_material_light = global::Xamarin.BookReader.Resource.Color.foreground_material_light;
+			global::EasyAdapterLibrary.Resource.Color.highlighted_text_material_dark = global::Xamarin.BookReader.Resource.Color.highlighted_text_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.highlighted_text_material_light = global::Xamarin.BookReader.Resource.Color.highlighted_text_material_light;
+			global::EasyAdapterLibrary.Resource.Color.material_blue_grey_800 = global::Xamarin.BookReader.Resource.Color.material_blue_grey_800;
+			global::EasyAdapterLibrary.Resource.Color.material_blue_grey_900 = global::Xamarin.BookReader.Resource.Color.material_blue_grey_900;
+			global::EasyAdapterLibrary.Resource.Color.material_blue_grey_950 = global::Xamarin.BookReader.Resource.Color.material_blue_grey_950;
+			global::EasyAdapterLibrary.Resource.Color.material_deep_teal_200 = global::Xamarin.BookReader.Resource.Color.material_deep_teal_200;
+			global::EasyAdapterLibrary.Resource.Color.material_deep_teal_500 = global::Xamarin.BookReader.Resource.Color.material_deep_teal_500;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_100 = global::Xamarin.BookReader.Resource.Color.material_grey_100;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_300 = global::Xamarin.BookReader.Resource.Color.material_grey_300;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_50 = global::Xamarin.BookReader.Resource.Color.material_grey_50;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_600 = global::Xamarin.BookReader.Resource.Color.material_grey_600;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_800 = global::Xamarin.BookReader.Resource.Color.material_grey_800;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_850 = global::Xamarin.BookReader.Resource.Color.material_grey_850;
+			global::EasyAdapterLibrary.Resource.Color.material_grey_900 = global::Xamarin.BookReader.Resource.Color.material_grey_900;
+			global::EasyAdapterLibrary.Resource.Color.notification_action_color_filter = global::Xamarin.BookReader.Resource.Color.notification_action_color_filter;
+			global::EasyAdapterLibrary.Resource.Color.notification_icon_bg_color = global::Xamarin.BookReader.Resource.Color.notification_icon_bg_color;
+			global::EasyAdapterLibrary.Resource.Color.notification_material_background_media_default_color = global::Xamarin.BookReader.Resource.Color.notification_material_background_media_default_color;
+			global::EasyAdapterLibrary.Resource.Color.primary_dark_material_dark = global::Xamarin.BookReader.Resource.Color.primary_dark_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.primary_dark_material_light = global::Xamarin.BookReader.Resource.Color.primary_dark_material_light;
+			global::EasyAdapterLibrary.Resource.Color.primary_material_dark = global::Xamarin.BookReader.Resource.Color.primary_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.primary_material_light = global::Xamarin.BookReader.Resource.Color.primary_material_light;
+			global::EasyAdapterLibrary.Resource.Color.primary_text_default_material_dark = global::Xamarin.BookReader.Resource.Color.primary_text_default_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.primary_text_default_material_light = global::Xamarin.BookReader.Resource.Color.primary_text_default_material_light;
+			global::EasyAdapterLibrary.Resource.Color.primary_text_disabled_material_dark = global::Xamarin.BookReader.Resource.Color.primary_text_disabled_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.primary_text_disabled_material_light = global::Xamarin.BookReader.Resource.Color.primary_text_disabled_material_light;
+			global::EasyAdapterLibrary.Resource.Color.ripple_material_dark = global::Xamarin.BookReader.Resource.Color.ripple_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.ripple_material_light = global::Xamarin.BookReader.Resource.Color.ripple_material_light;
+			global::EasyAdapterLibrary.Resource.Color.secondary_text_default_material_dark = global::Xamarin.BookReader.Resource.Color.secondary_text_default_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.secondary_text_default_material_light = global::Xamarin.BookReader.Resource.Color.secondary_text_default_material_light;
+			global::EasyAdapterLibrary.Resource.Color.secondary_text_disabled_material_dark = global::Xamarin.BookReader.Resource.Color.secondary_text_disabled_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.secondary_text_disabled_material_light = global::Xamarin.BookReader.Resource.Color.secondary_text_disabled_material_light;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_disabled_material_dark = global::Xamarin.BookReader.Resource.Color.switch_thumb_disabled_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_disabled_material_light = global::Xamarin.BookReader.Resource.Color.switch_thumb_disabled_material_light;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_material_dark = global::Xamarin.BookReader.Resource.Color.switch_thumb_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_material_light = global::Xamarin.BookReader.Resource.Color.switch_thumb_material_light;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_normal_material_dark = global::Xamarin.BookReader.Resource.Color.switch_thumb_normal_material_dark;
+			global::EasyAdapterLibrary.Resource.Color.switch_thumb_normal_material_light = global::Xamarin.BookReader.Resource.Color.switch_thumb_normal_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_content_inset_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_default_height_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_default_height_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_default_padding_end_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_default_padding_start_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_elevation_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_elevation_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_progress_bar_size = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_progress_bar_size;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_stacked_max_height = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_button_min_height_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_button_min_height_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_button_min_width_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_button_min_width_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_action_button_min_width_overflow_material = global::Xamarin.BookReader.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_alert_dialog_button_bar_height = global::Xamarin.BookReader.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_button_inset_horizontal_material = global::Xamarin.BookReader.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_button_inset_vertical_material = global::Xamarin.BookReader.Resource.Dimension.abc_button_inset_vertical_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_button_padding_horizontal_material = global::Xamarin.BookReader.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_button_padding_vertical_material = global::Xamarin.BookReader.Resource.Dimension.abc_button_padding_vertical_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::Xamarin.BookReader.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_config_prefDialogWidth = global::Xamarin.BookReader.Resource.Dimension.abc_config_prefDialogWidth;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_control_corner_material = global::Xamarin.BookReader.Resource.Dimension.abc_control_corner_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_control_inset_material = global::Xamarin.BookReader.Resource.Dimension.abc_control_inset_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_control_padding_material = global::Xamarin.BookReader.Resource.Dimension.abc_control_padding_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_fixed_height_major = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_fixed_height_minor = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_fixed_width_major = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_fixed_width_minor = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_min_width_major = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_min_width_major;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_min_width_minor = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_min_width_minor;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_padding_material = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_padding_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_padding_top_material = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_padding_top_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dialog_title_divider_material = global::Xamarin.BookReader.Resource.Dimension.abc_dialog_title_divider_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_disabled_alpha_material_dark = global::Xamarin.BookReader.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_disabled_alpha_material_light = global::Xamarin.BookReader.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dropdownitem_icon_width = global::Xamarin.BookReader.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dropdownitem_text_padding_left = global::Xamarin.BookReader.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_dropdownitem_text_padding_right = global::Xamarin.BookReader.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_edit_text_inset_bottom_material = global::Xamarin.BookReader.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::Xamarin.BookReader.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_edit_text_inset_top_material = global::Xamarin.BookReader.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_floating_window_z = global::Xamarin.BookReader.Resource.Dimension.abc_floating_window_z;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_list_item_padding_horizontal_material = global::Xamarin.BookReader.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_panel_menu_list_width = global::Xamarin.BookReader.Resource.Dimension.abc_panel_menu_list_width;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_progress_bar_height_material = global::Xamarin.BookReader.Resource.Dimension.abc_progress_bar_height_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_search_view_preferred_height = global::Xamarin.BookReader.Resource.Dimension.abc_search_view_preferred_height;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_search_view_preferred_width = global::Xamarin.BookReader.Resource.Dimension.abc_search_view_preferred_width;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_seekbar_track_background_height_material = global::Xamarin.BookReader.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_seekbar_track_progress_height_material = global::Xamarin.BookReader.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_select_dialog_padding_start_material = global::Xamarin.BookReader.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_switch_padding = global::Xamarin.BookReader.Resource.Dimension.abc_switch_padding;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_body_1_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_body_1_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_body_2_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_body_2_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_button_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_button_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_caption_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_caption_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_display_1_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_display_1_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_display_2_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_display_2_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_display_3_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_display_3_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_display_4_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_display_4_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_headline_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_headline_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_large_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_large_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_medium_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_medium_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_menu_header_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_menu_header_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_menu_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_menu_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_small_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_small_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_subhead_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_subhead_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_title_material = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_title_material;
+			global::EasyAdapterLibrary.Resource.Dimension.abc_text_size_title_material_toolbar = global::Xamarin.BookReader.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::EasyAdapterLibrary.Resource.Dimension.disabled_alpha_material_dark = global::Xamarin.BookReader.Resource.Dimension.disabled_alpha_material_dark;
+			global::EasyAdapterLibrary.Resource.Dimension.disabled_alpha_material_light = global::Xamarin.BookReader.Resource.Dimension.disabled_alpha_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.highlight_alpha_material_colored = global::Xamarin.BookReader.Resource.Dimension.highlight_alpha_material_colored;
+			global::EasyAdapterLibrary.Resource.Dimension.highlight_alpha_material_dark = global::Xamarin.BookReader.Resource.Dimension.highlight_alpha_material_dark;
+			global::EasyAdapterLibrary.Resource.Dimension.highlight_alpha_material_light = global::Xamarin.BookReader.Resource.Dimension.highlight_alpha_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.hint_alpha_material_dark = global::Xamarin.BookReader.Resource.Dimension.hint_alpha_material_dark;
+			global::EasyAdapterLibrary.Resource.Dimension.hint_alpha_material_light = global::Xamarin.BookReader.Resource.Dimension.hint_alpha_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.hint_pressed_alpha_material_dark = global::Xamarin.BookReader.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::EasyAdapterLibrary.Resource.Dimension.hint_pressed_alpha_material_light = global::Xamarin.BookReader.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::EasyAdapterLibrary.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Xamarin.BookReader.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::EasyAdapterLibrary.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Xamarin.BookReader.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::EasyAdapterLibrary.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Xamarin.BookReader.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_action_icon_size = global::Xamarin.BookReader.Resource.Dimension.notification_action_icon_size;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_action_text_size = global::Xamarin.BookReader.Resource.Dimension.notification_action_text_size;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_big_circle_margin = global::Xamarin.BookReader.Resource.Dimension.notification_big_circle_margin;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_content_margin_start = global::Xamarin.BookReader.Resource.Dimension.notification_content_margin_start;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_large_icon_height = global::Xamarin.BookReader.Resource.Dimension.notification_large_icon_height;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_large_icon_width = global::Xamarin.BookReader.Resource.Dimension.notification_large_icon_width;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_main_column_padding_top = global::Xamarin.BookReader.Resource.Dimension.notification_main_column_padding_top;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_media_narrow_margin = global::Xamarin.BookReader.Resource.Dimension.notification_media_narrow_margin;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_right_icon_size = global::Xamarin.BookReader.Resource.Dimension.notification_right_icon_size;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_right_side_padding_top = global::Xamarin.BookReader.Resource.Dimension.notification_right_side_padding_top;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_small_icon_background_padding = global::Xamarin.BookReader.Resource.Dimension.notification_small_icon_background_padding;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_small_icon_size_as_large = global::Xamarin.BookReader.Resource.Dimension.notification_small_icon_size_as_large;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_subtext_size = global::Xamarin.BookReader.Resource.Dimension.notification_subtext_size;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_top_pad = global::Xamarin.BookReader.Resource.Dimension.notification_top_pad;
+			global::EasyAdapterLibrary.Resource.Dimension.notification_top_pad_large_text = global::Xamarin.BookReader.Resource.Dimension.notification_top_pad_large_text;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_action_bar_item_background_material = global::Xamarin.BookReader.Resource.Drawable.abc_action_bar_item_background_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_borderless_material = global::Xamarin.BookReader.Resource.Drawable.abc_btn_borderless_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_check_material = global::Xamarin.BookReader.Resource.Drawable.abc_btn_check_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_colored_material = global::Xamarin.BookReader.Resource.Drawable.abc_btn_colored_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_default_mtrl_shape = global::Xamarin.BookReader.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_radio_material = global::Xamarin.BookReader.Resource.Drawable.abc_btn_radio_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::Xamarin.BookReader.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_cab_background_internal_bg = global::Xamarin.BookReader.Resource.Drawable.abc_cab_background_internal_bg;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_cab_background_top_material = global::Xamarin.BookReader.Resource.Drawable.abc_cab_background_top_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_control_background_material = global::Xamarin.BookReader.Resource.Drawable.abc_control_background_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_dialog_material_background = global::Xamarin.BookReader.Resource.Drawable.abc_dialog_material_background;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_edit_text_material = global::Xamarin.BookReader.Resource.Drawable.abc_edit_text_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_ab_back_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_ab_back_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_clear_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_clear_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_go_search_api_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_go_search_api_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_overflow_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_search_api_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_search_api_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_black_16dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_black_16dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_black_36dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_black_36dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_black_48dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_black_48dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_half_black_16dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_half_black_36dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_star_half_black_48dp = global::Xamarin.BookReader.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ic_voice_search_api_material = global::Xamarin.BookReader.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_item_background_holo_dark = global::Xamarin.BookReader.Resource.Drawable.abc_item_background_holo_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_item_background_holo_light = global::Xamarin.BookReader.Resource.Drawable.abc_item_background_holo_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_divider_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_focused_holo = global::Xamarin.BookReader.Resource.Drawable.abc_list_focused_holo;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_longpressed_holo = global::Xamarin.BookReader.Resource.Drawable.abc_list_longpressed_holo;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_pressed_holo_dark = global::Xamarin.BookReader.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_pressed_holo_light = global::Xamarin.BookReader.Resource.Drawable.abc_list_pressed_holo_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_disabled_holo_light = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_holo_dark = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_holo_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_list_selector_holo_light = global::Xamarin.BookReader.Resource.Drawable.abc_list_selector_holo_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::Xamarin.BookReader.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_popup_background_mtrl_mult = global::Xamarin.BookReader.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ratingbar_indicator_material = global::Xamarin.BookReader.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ratingbar_material = global::Xamarin.BookReader.Resource.Drawable.abc_ratingbar_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_ratingbar_small_material = global::Xamarin.BookReader.Resource.Drawable.abc_ratingbar_small_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::Xamarin.BookReader.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::Xamarin.BookReader.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_seekbar_thumb_material = global::Xamarin.BookReader.Resource.Drawable.abc_seekbar_thumb_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_seekbar_tick_mark_material = global::Xamarin.BookReader.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_seekbar_track_material = global::Xamarin.BookReader.Resource.Drawable.abc_seekbar_track_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_spinner_textfield_background_material = global::Xamarin.BookReader.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_switch_thumb_material = global::Xamarin.BookReader.Resource.Drawable.abc_switch_thumb_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_switch_track_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_tab_indicator_material = global::Xamarin.BookReader.Resource.Drawable.abc_tab_indicator_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_cursor_material = global::Xamarin.BookReader.Resource.Drawable.abc_text_cursor_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::Xamarin.BookReader.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::Xamarin.BookReader.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_textfield_search_material = global::Xamarin.BookReader.Resource.Drawable.abc_textfield_search_material;
+			global::EasyAdapterLibrary.Resource.Drawable.abc_vector_test = global::Xamarin.BookReader.Resource.Drawable.abc_vector_test;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_action_background = global::Xamarin.BookReader.Resource.Drawable.notification_action_background;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg = global::Xamarin.BookReader.Resource.Drawable.notification_bg;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg_low = global::Xamarin.BookReader.Resource.Drawable.notification_bg_low;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg_low_normal = global::Xamarin.BookReader.Resource.Drawable.notification_bg_low_normal;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg_low_pressed = global::Xamarin.BookReader.Resource.Drawable.notification_bg_low_pressed;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg_normal = global::Xamarin.BookReader.Resource.Drawable.notification_bg_normal;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_bg_normal_pressed = global::Xamarin.BookReader.Resource.Drawable.notification_bg_normal_pressed;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_icon_background = global::Xamarin.BookReader.Resource.Drawable.notification_icon_background;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_template_icon_bg = global::Xamarin.BookReader.Resource.Drawable.notification_template_icon_bg;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_template_icon_low_bg = global::Xamarin.BookReader.Resource.Drawable.notification_template_icon_low_bg;
+			global::EasyAdapterLibrary.Resource.Drawable.notification_tile_bg = global::Xamarin.BookReader.Resource.Drawable.notification_tile_bg;
+			global::EasyAdapterLibrary.Resource.Drawable.notify_panel_notification_icon_bg = global::Xamarin.BookReader.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::EasyAdapterLibrary.Resource.Id.action0 = global::Xamarin.BookReader.Resource.Id.action0;
+			global::EasyAdapterLibrary.Resource.Id.action_bar = global::Xamarin.BookReader.Resource.Id.action_bar;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_activity_content = global::Xamarin.BookReader.Resource.Id.action_bar_activity_content;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_container = global::Xamarin.BookReader.Resource.Id.action_bar_container;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_root = global::Xamarin.BookReader.Resource.Id.action_bar_root;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_spinner = global::Xamarin.BookReader.Resource.Id.action_bar_spinner;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_subtitle = global::Xamarin.BookReader.Resource.Id.action_bar_subtitle;
+			global::EasyAdapterLibrary.Resource.Id.action_bar_title = global::Xamarin.BookReader.Resource.Id.action_bar_title;
+			global::EasyAdapterLibrary.Resource.Id.action_container = global::Xamarin.BookReader.Resource.Id.action_container;
+			global::EasyAdapterLibrary.Resource.Id.action_context_bar = global::Xamarin.BookReader.Resource.Id.action_context_bar;
+			global::EasyAdapterLibrary.Resource.Id.action_divider = global::Xamarin.BookReader.Resource.Id.action_divider;
+			global::EasyAdapterLibrary.Resource.Id.action_image = global::Xamarin.BookReader.Resource.Id.action_image;
+			global::EasyAdapterLibrary.Resource.Id.action_menu_divider = global::Xamarin.BookReader.Resource.Id.action_menu_divider;
+			global::EasyAdapterLibrary.Resource.Id.action_menu_presenter = global::Xamarin.BookReader.Resource.Id.action_menu_presenter;
+			global::EasyAdapterLibrary.Resource.Id.action_mode_bar = global::Xamarin.BookReader.Resource.Id.action_mode_bar;
+			global::EasyAdapterLibrary.Resource.Id.action_mode_bar_stub = global::Xamarin.BookReader.Resource.Id.action_mode_bar_stub;
+			global::EasyAdapterLibrary.Resource.Id.action_mode_close_button = global::Xamarin.BookReader.Resource.Id.action_mode_close_button;
+			global::EasyAdapterLibrary.Resource.Id.action_text = global::Xamarin.BookReader.Resource.Id.action_text;
+			global::EasyAdapterLibrary.Resource.Id.actions = global::Xamarin.BookReader.Resource.Id.actions;
+			global::EasyAdapterLibrary.Resource.Id.activity_chooser_view_content = global::Xamarin.BookReader.Resource.Id.activity_chooser_view_content;
+			global::EasyAdapterLibrary.Resource.Id.add = global::Xamarin.BookReader.Resource.Id.add;
+			global::EasyAdapterLibrary.Resource.Id.alertTitle = global::Xamarin.BookReader.Resource.Id.alertTitle;
+			global::EasyAdapterLibrary.Resource.Id.always = global::Xamarin.BookReader.Resource.Id.always;
+			global::EasyAdapterLibrary.Resource.Id.beginning = global::Xamarin.BookReader.Resource.Id.beginning;
+			global::EasyAdapterLibrary.Resource.Id.bottom = global::Xamarin.BookReader.Resource.Id.bottom;
+			global::EasyAdapterLibrary.Resource.Id.buttonPanel = global::Xamarin.BookReader.Resource.Id.buttonPanel;
+			global::EasyAdapterLibrary.Resource.Id.cancel_action = global::Xamarin.BookReader.Resource.Id.cancel_action;
+			global::EasyAdapterLibrary.Resource.Id.checkbox = global::Xamarin.BookReader.Resource.Id.checkbox;
+			global::EasyAdapterLibrary.Resource.Id.chronometer = global::Xamarin.BookReader.Resource.Id.chronometer;
+			global::EasyAdapterLibrary.Resource.Id.collapseActionView = global::Xamarin.BookReader.Resource.Id.collapseActionView;
+			global::EasyAdapterLibrary.Resource.Id.contentPanel = global::Xamarin.BookReader.Resource.Id.contentPanel;
+			global::EasyAdapterLibrary.Resource.Id.custom = global::Xamarin.BookReader.Resource.Id.custom;
+			global::EasyAdapterLibrary.Resource.Id.customPanel = global::Xamarin.BookReader.Resource.Id.customPanel;
+			global::EasyAdapterLibrary.Resource.Id.decor_content_parent = global::Xamarin.BookReader.Resource.Id.decor_content_parent;
+			global::EasyAdapterLibrary.Resource.Id.default_activity_button = global::Xamarin.BookReader.Resource.Id.default_activity_button;
+			global::EasyAdapterLibrary.Resource.Id.disableHome = global::Xamarin.BookReader.Resource.Id.disableHome;
+			global::EasyAdapterLibrary.Resource.Id.edit_query = global::Xamarin.BookReader.Resource.Id.edit_query;
+			global::EasyAdapterLibrary.Resource.Id.end = global::Xamarin.BookReader.Resource.Id.end;
+			global::EasyAdapterLibrary.Resource.Id.end_padder = global::Xamarin.BookReader.Resource.Id.end_padder;
+			global::EasyAdapterLibrary.Resource.Id.expand_activities_button = global::Xamarin.BookReader.Resource.Id.expand_activities_button;
+			global::EasyAdapterLibrary.Resource.Id.expanded_menu = global::Xamarin.BookReader.Resource.Id.expanded_menu;
+			global::EasyAdapterLibrary.Resource.Id.home = global::Xamarin.BookReader.Resource.Id.home;
+			global::EasyAdapterLibrary.Resource.Id.homeAsUp = global::Xamarin.BookReader.Resource.Id.homeAsUp;
+			global::EasyAdapterLibrary.Resource.Id.icon = global::Xamarin.BookReader.Resource.Id.icon;
+			global::EasyAdapterLibrary.Resource.Id.icon_group = global::Xamarin.BookReader.Resource.Id.icon_group;
+			global::EasyAdapterLibrary.Resource.Id.ifRoom = global::Xamarin.BookReader.Resource.Id.ifRoom;
+			global::EasyAdapterLibrary.Resource.Id.image = global::Xamarin.BookReader.Resource.Id.image;
+			global::EasyAdapterLibrary.Resource.Id.info = global::Xamarin.BookReader.Resource.Id.info;
+			global::EasyAdapterLibrary.Resource.Id.item_touch_helper_previous_elevation = global::Xamarin.BookReader.Resource.Id.item_touch_helper_previous_elevation;
+			global::EasyAdapterLibrary.Resource.Id.line1 = global::Xamarin.BookReader.Resource.Id.line1;
+			global::EasyAdapterLibrary.Resource.Id.line3 = global::Xamarin.BookReader.Resource.Id.line3;
+			global::EasyAdapterLibrary.Resource.Id.listMode = global::Xamarin.BookReader.Resource.Id.listMode;
+			global::EasyAdapterLibrary.Resource.Id.list_item = global::Xamarin.BookReader.Resource.Id.list_item;
+			global::EasyAdapterLibrary.Resource.Id.media_actions = global::Xamarin.BookReader.Resource.Id.media_actions;
+			global::EasyAdapterLibrary.Resource.Id.middle = global::Xamarin.BookReader.Resource.Id.middle;
+			global::EasyAdapterLibrary.Resource.Id.multiply = global::Xamarin.BookReader.Resource.Id.multiply;
+			global::EasyAdapterLibrary.Resource.Id.never = global::Xamarin.BookReader.Resource.Id.never;
+			global::EasyAdapterLibrary.Resource.Id.none = global::Xamarin.BookReader.Resource.Id.none;
+			global::EasyAdapterLibrary.Resource.Id.normal = global::Xamarin.BookReader.Resource.Id.normal;
+			global::EasyAdapterLibrary.Resource.Id.notification_background = global::Xamarin.BookReader.Resource.Id.notification_background;
+			global::EasyAdapterLibrary.Resource.Id.notification_main_column = global::Xamarin.BookReader.Resource.Id.notification_main_column;
+			global::EasyAdapterLibrary.Resource.Id.notification_main_column_container = global::Xamarin.BookReader.Resource.Id.notification_main_column_container;
+			global::EasyAdapterLibrary.Resource.Id.parentPanel = global::Xamarin.BookReader.Resource.Id.parentPanel;
+			global::EasyAdapterLibrary.Resource.Id.progress_circular = global::Xamarin.BookReader.Resource.Id.progress_circular;
+			global::EasyAdapterLibrary.Resource.Id.progress_horizontal = global::Xamarin.BookReader.Resource.Id.progress_horizontal;
+			global::EasyAdapterLibrary.Resource.Id.radio = global::Xamarin.BookReader.Resource.Id.radio;
+			global::EasyAdapterLibrary.Resource.Id.right_icon = global::Xamarin.BookReader.Resource.Id.right_icon;
+			global::EasyAdapterLibrary.Resource.Id.right_side = global::Xamarin.BookReader.Resource.Id.right_side;
+			global::EasyAdapterLibrary.Resource.Id.screen = global::Xamarin.BookReader.Resource.Id.screen;
+			global::EasyAdapterLibrary.Resource.Id.scrollIndicatorDown = global::Xamarin.BookReader.Resource.Id.scrollIndicatorDown;
+			global::EasyAdapterLibrary.Resource.Id.scrollIndicatorUp = global::Xamarin.BookReader.Resource.Id.scrollIndicatorUp;
+			global::EasyAdapterLibrary.Resource.Id.scrollView = global::Xamarin.BookReader.Resource.Id.scrollView;
+			global::EasyAdapterLibrary.Resource.Id.search_badge = global::Xamarin.BookReader.Resource.Id.search_badge;
+			global::EasyAdapterLibrary.Resource.Id.search_bar = global::Xamarin.BookReader.Resource.Id.search_bar;
+			global::EasyAdapterLibrary.Resource.Id.search_button = global::Xamarin.BookReader.Resource.Id.search_button;
+			global::EasyAdapterLibrary.Resource.Id.search_close_btn = global::Xamarin.BookReader.Resource.Id.search_close_btn;
+			global::EasyAdapterLibrary.Resource.Id.search_edit_frame = global::Xamarin.BookReader.Resource.Id.search_edit_frame;
+			global::EasyAdapterLibrary.Resource.Id.search_go_btn = global::Xamarin.BookReader.Resource.Id.search_go_btn;
+			global::EasyAdapterLibrary.Resource.Id.search_mag_icon = global::Xamarin.BookReader.Resource.Id.search_mag_icon;
+			global::EasyAdapterLibrary.Resource.Id.search_plate = global::Xamarin.BookReader.Resource.Id.search_plate;
+			global::EasyAdapterLibrary.Resource.Id.search_src_text = global::Xamarin.BookReader.Resource.Id.search_src_text;
+			global::EasyAdapterLibrary.Resource.Id.search_voice_btn = global::Xamarin.BookReader.Resource.Id.search_voice_btn;
+			global::EasyAdapterLibrary.Resource.Id.select_dialog_listview = global::Xamarin.BookReader.Resource.Id.select_dialog_listview;
+			global::EasyAdapterLibrary.Resource.Id.shortcut = global::Xamarin.BookReader.Resource.Id.shortcut;
+			global::EasyAdapterLibrary.Resource.Id.showCustom = global::Xamarin.BookReader.Resource.Id.showCustom;
+			global::EasyAdapterLibrary.Resource.Id.showHome = global::Xamarin.BookReader.Resource.Id.showHome;
+			global::EasyAdapterLibrary.Resource.Id.showTitle = global::Xamarin.BookReader.Resource.Id.showTitle;
+			global::EasyAdapterLibrary.Resource.Id.spacer = global::Xamarin.BookReader.Resource.Id.spacer;
+			global::EasyAdapterLibrary.Resource.Id.split_action_bar = global::Xamarin.BookReader.Resource.Id.split_action_bar;
+			global::EasyAdapterLibrary.Resource.Id.src_atop = global::Xamarin.BookReader.Resource.Id.src_atop;
+			global::EasyAdapterLibrary.Resource.Id.src_in = global::Xamarin.BookReader.Resource.Id.src_in;
+			global::EasyAdapterLibrary.Resource.Id.src_over = global::Xamarin.BookReader.Resource.Id.src_over;
+			global::EasyAdapterLibrary.Resource.Id.status_bar_latest_event_content = global::Xamarin.BookReader.Resource.Id.status_bar_latest_event_content;
+			global::EasyAdapterLibrary.Resource.Id.submenuarrow = global::Xamarin.BookReader.Resource.Id.submenuarrow;
+			global::EasyAdapterLibrary.Resource.Id.submit_area = global::Xamarin.BookReader.Resource.Id.submit_area;
+			global::EasyAdapterLibrary.Resource.Id.tabMode = global::Xamarin.BookReader.Resource.Id.tabMode;
+			global::EasyAdapterLibrary.Resource.Id.text = global::Xamarin.BookReader.Resource.Id.text;
+			global::EasyAdapterLibrary.Resource.Id.text2 = global::Xamarin.BookReader.Resource.Id.text2;
+			global::EasyAdapterLibrary.Resource.Id.textSpacerNoButtons = global::Xamarin.BookReader.Resource.Id.textSpacerNoButtons;
+			global::EasyAdapterLibrary.Resource.Id.textSpacerNoTitle = global::Xamarin.BookReader.Resource.Id.textSpacerNoTitle;
+			global::EasyAdapterLibrary.Resource.Id.time = global::Xamarin.BookReader.Resource.Id.time;
+			global::EasyAdapterLibrary.Resource.Id.title = global::Xamarin.BookReader.Resource.Id.title;
+			global::EasyAdapterLibrary.Resource.Id.titleDividerNoCustom = global::Xamarin.BookReader.Resource.Id.titleDividerNoCustom;
+			global::EasyAdapterLibrary.Resource.Id.title_template = global::Xamarin.BookReader.Resource.Id.title_template;
+			global::EasyAdapterLibrary.Resource.Id.top = global::Xamarin.BookReader.Resource.Id.top;
+			global::EasyAdapterLibrary.Resource.Id.topPanel = global::Xamarin.BookReader.Resource.Id.topPanel;
+			global::EasyAdapterLibrary.Resource.Id.up = global::Xamarin.BookReader.Resource.Id.up;
+			global::EasyAdapterLibrary.Resource.Id.useLogo = global::Xamarin.BookReader.Resource.Id.useLogo;
+			global::EasyAdapterLibrary.Resource.Id.withText = global::Xamarin.BookReader.Resource.Id.withText;
+			global::EasyAdapterLibrary.Resource.Id.wrap_content = global::Xamarin.BookReader.Resource.Id.wrap_content;
+			global::EasyAdapterLibrary.Resource.Integer.abc_config_activityDefaultDur = global::Xamarin.BookReader.Resource.Integer.abc_config_activityDefaultDur;
+			global::EasyAdapterLibrary.Resource.Integer.abc_config_activityShortDur = global::Xamarin.BookReader.Resource.Integer.abc_config_activityShortDur;
+			global::EasyAdapterLibrary.Resource.Integer.cancel_button_image_alpha = global::Xamarin.BookReader.Resource.Integer.cancel_button_image_alpha;
+			global::EasyAdapterLibrary.Resource.Integer.status_bar_notification_info_maxnum = global::Xamarin.BookReader.Resource.Integer.status_bar_notification_info_maxnum;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_bar_title_item = global::Xamarin.BookReader.Resource.Layout.abc_action_bar_title_item;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_bar_up_container = global::Xamarin.BookReader.Resource.Layout.abc_action_bar_up_container;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_bar_view_list_nav_layout = global::Xamarin.BookReader.Resource.Layout.abc_action_bar_view_list_nav_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_menu_item_layout = global::Xamarin.BookReader.Resource.Layout.abc_action_menu_item_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_menu_layout = global::Xamarin.BookReader.Resource.Layout.abc_action_menu_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_mode_bar = global::Xamarin.BookReader.Resource.Layout.abc_action_mode_bar;
+			global::EasyAdapterLibrary.Resource.Layout.abc_action_mode_close_item_material = global::Xamarin.BookReader.Resource.Layout.abc_action_mode_close_item_material;
+			global::EasyAdapterLibrary.Resource.Layout.abc_activity_chooser_view = global::Xamarin.BookReader.Resource.Layout.abc_activity_chooser_view;
+			global::EasyAdapterLibrary.Resource.Layout.abc_activity_chooser_view_list_item = global::Xamarin.BookReader.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::EasyAdapterLibrary.Resource.Layout.abc_alert_dialog_button_bar_material = global::Xamarin.BookReader.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::EasyAdapterLibrary.Resource.Layout.abc_alert_dialog_material = global::Xamarin.BookReader.Resource.Layout.abc_alert_dialog_material;
+			global::EasyAdapterLibrary.Resource.Layout.abc_alert_dialog_title_material = global::Xamarin.BookReader.Resource.Layout.abc_alert_dialog_title_material;
+			global::EasyAdapterLibrary.Resource.Layout.abc_dialog_title_material = global::Xamarin.BookReader.Resource.Layout.abc_dialog_title_material;
+			global::EasyAdapterLibrary.Resource.Layout.abc_expanded_menu_layout = global::Xamarin.BookReader.Resource.Layout.abc_expanded_menu_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_list_menu_item_checkbox = global::Xamarin.BookReader.Resource.Layout.abc_list_menu_item_checkbox;
+			global::EasyAdapterLibrary.Resource.Layout.abc_list_menu_item_icon = global::Xamarin.BookReader.Resource.Layout.abc_list_menu_item_icon;
+			global::EasyAdapterLibrary.Resource.Layout.abc_list_menu_item_layout = global::Xamarin.BookReader.Resource.Layout.abc_list_menu_item_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_list_menu_item_radio = global::Xamarin.BookReader.Resource.Layout.abc_list_menu_item_radio;
+			global::EasyAdapterLibrary.Resource.Layout.abc_popup_menu_header_item_layout = global::Xamarin.BookReader.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_popup_menu_item_layout = global::Xamarin.BookReader.Resource.Layout.abc_popup_menu_item_layout;
+			global::EasyAdapterLibrary.Resource.Layout.abc_screen_content_include = global::Xamarin.BookReader.Resource.Layout.abc_screen_content_include;
+			global::EasyAdapterLibrary.Resource.Layout.abc_screen_simple = global::Xamarin.BookReader.Resource.Layout.abc_screen_simple;
+			global::EasyAdapterLibrary.Resource.Layout.abc_screen_simple_overlay_action_mode = global::Xamarin.BookReader.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::EasyAdapterLibrary.Resource.Layout.abc_screen_toolbar = global::Xamarin.BookReader.Resource.Layout.abc_screen_toolbar;
+			global::EasyAdapterLibrary.Resource.Layout.abc_search_dropdown_item_icons_2line = global::Xamarin.BookReader.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::EasyAdapterLibrary.Resource.Layout.abc_search_view = global::Xamarin.BookReader.Resource.Layout.abc_search_view;
+			global::EasyAdapterLibrary.Resource.Layout.abc_select_dialog_material = global::Xamarin.BookReader.Resource.Layout.abc_select_dialog_material;
+			global::EasyAdapterLibrary.Resource.Layout.notification_action = global::Xamarin.BookReader.Resource.Layout.notification_action;
+			global::EasyAdapterLibrary.Resource.Layout.notification_action_tombstone = global::Xamarin.BookReader.Resource.Layout.notification_action_tombstone;
+			global::EasyAdapterLibrary.Resource.Layout.notification_media_action = global::Xamarin.BookReader.Resource.Layout.notification_media_action;
+			global::EasyAdapterLibrary.Resource.Layout.notification_media_cancel_action = global::Xamarin.BookReader.Resource.Layout.notification_media_cancel_action;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_big_media = global::Xamarin.BookReader.Resource.Layout.notification_template_big_media;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_big_media_custom = global::Xamarin.BookReader.Resource.Layout.notification_template_big_media_custom;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_big_media_narrow = global::Xamarin.BookReader.Resource.Layout.notification_template_big_media_narrow;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_big_media_narrow_custom = global::Xamarin.BookReader.Resource.Layout.notification_template_big_media_narrow_custom;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_custom_big = global::Xamarin.BookReader.Resource.Layout.notification_template_custom_big;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_icon_group = global::Xamarin.BookReader.Resource.Layout.notification_template_icon_group;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_lines_media = global::Xamarin.BookReader.Resource.Layout.notification_template_lines_media;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_media = global::Xamarin.BookReader.Resource.Layout.notification_template_media;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_media_custom = global::Xamarin.BookReader.Resource.Layout.notification_template_media_custom;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_part_chronometer = global::Xamarin.BookReader.Resource.Layout.notification_template_part_chronometer;
+			global::EasyAdapterLibrary.Resource.Layout.notification_template_part_time = global::Xamarin.BookReader.Resource.Layout.notification_template_part_time;
+			global::EasyAdapterLibrary.Resource.Layout.select_dialog_item_material = global::Xamarin.BookReader.Resource.Layout.select_dialog_item_material;
+			global::EasyAdapterLibrary.Resource.Layout.select_dialog_multichoice_material = global::Xamarin.BookReader.Resource.Layout.select_dialog_multichoice_material;
+			global::EasyAdapterLibrary.Resource.Layout.select_dialog_singlechoice_material = global::Xamarin.BookReader.Resource.Layout.select_dialog_singlechoice_material;
+			global::EasyAdapterLibrary.Resource.Layout.support_simple_spinner_dropdown_item = global::Xamarin.BookReader.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::EasyAdapterLibrary.Resource.String.abc_action_bar_home_description = global::Xamarin.BookReader.Resource.String.abc_action_bar_home_description;
+			global::EasyAdapterLibrary.Resource.String.abc_action_bar_home_description_format = global::Xamarin.BookReader.Resource.String.abc_action_bar_home_description_format;
+			global::EasyAdapterLibrary.Resource.String.abc_action_bar_home_subtitle_description_format = global::Xamarin.BookReader.Resource.String.abc_action_bar_home_subtitle_description_format;
+			global::EasyAdapterLibrary.Resource.String.abc_action_bar_up_description = global::Xamarin.BookReader.Resource.String.abc_action_bar_up_description;
+			global::EasyAdapterLibrary.Resource.String.abc_action_menu_overflow_description = global::Xamarin.BookReader.Resource.String.abc_action_menu_overflow_description;
+			global::EasyAdapterLibrary.Resource.String.abc_action_mode_done = global::Xamarin.BookReader.Resource.String.abc_action_mode_done;
+			global::EasyAdapterLibrary.Resource.String.abc_activity_chooser_view_see_all = global::Xamarin.BookReader.Resource.String.abc_activity_chooser_view_see_all;
+			global::EasyAdapterLibrary.Resource.String.abc_activitychooserview_choose_application = global::Xamarin.BookReader.Resource.String.abc_activitychooserview_choose_application;
+			global::EasyAdapterLibrary.Resource.String.abc_capital_off = global::Xamarin.BookReader.Resource.String.abc_capital_off;
+			global::EasyAdapterLibrary.Resource.String.abc_capital_on = global::Xamarin.BookReader.Resource.String.abc_capital_on;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_body_1_material = global::Xamarin.BookReader.Resource.String.abc_font_family_body_1_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_body_2_material = global::Xamarin.BookReader.Resource.String.abc_font_family_body_2_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_button_material = global::Xamarin.BookReader.Resource.String.abc_font_family_button_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_caption_material = global::Xamarin.BookReader.Resource.String.abc_font_family_caption_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_display_1_material = global::Xamarin.BookReader.Resource.String.abc_font_family_display_1_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_display_2_material = global::Xamarin.BookReader.Resource.String.abc_font_family_display_2_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_display_3_material = global::Xamarin.BookReader.Resource.String.abc_font_family_display_3_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_display_4_material = global::Xamarin.BookReader.Resource.String.abc_font_family_display_4_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_headline_material = global::Xamarin.BookReader.Resource.String.abc_font_family_headline_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_menu_material = global::Xamarin.BookReader.Resource.String.abc_font_family_menu_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_subhead_material = global::Xamarin.BookReader.Resource.String.abc_font_family_subhead_material;
+			global::EasyAdapterLibrary.Resource.String.abc_font_family_title_material = global::Xamarin.BookReader.Resource.String.abc_font_family_title_material;
+			global::EasyAdapterLibrary.Resource.String.abc_search_hint = global::Xamarin.BookReader.Resource.String.abc_search_hint;
+			global::EasyAdapterLibrary.Resource.String.abc_searchview_description_clear = global::Xamarin.BookReader.Resource.String.abc_searchview_description_clear;
+			global::EasyAdapterLibrary.Resource.String.abc_searchview_description_query = global::Xamarin.BookReader.Resource.String.abc_searchview_description_query;
+			global::EasyAdapterLibrary.Resource.String.abc_searchview_description_search = global::Xamarin.BookReader.Resource.String.abc_searchview_description_search;
+			global::EasyAdapterLibrary.Resource.String.abc_searchview_description_submit = global::Xamarin.BookReader.Resource.String.abc_searchview_description_submit;
+			global::EasyAdapterLibrary.Resource.String.abc_searchview_description_voice = global::Xamarin.BookReader.Resource.String.abc_searchview_description_voice;
+			global::EasyAdapterLibrary.Resource.String.abc_shareactionprovider_share_with = global::Xamarin.BookReader.Resource.String.abc_shareactionprovider_share_with;
+			global::EasyAdapterLibrary.Resource.String.abc_shareactionprovider_share_with_application = global::Xamarin.BookReader.Resource.String.abc_shareactionprovider_share_with_application;
+			global::EasyAdapterLibrary.Resource.String.abc_toolbar_collapse_description = global::Xamarin.BookReader.Resource.String.abc_toolbar_collapse_description;
+			global::EasyAdapterLibrary.Resource.String.app_name = global::Xamarin.BookReader.Resource.String.app_name;
+			global::EasyAdapterLibrary.Resource.String.search_menu_title = global::Xamarin.BookReader.Resource.String.search_menu_title;
+			global::EasyAdapterLibrary.Resource.String.status_bar_notification_info_overflow = global::Xamarin.BookReader.Resource.String.status_bar_notification_info_overflow;
+			global::EasyAdapterLibrary.Resource.Style.AlertDialog_AppCompat = global::Xamarin.BookReader.Resource.Style.AlertDialog_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.AlertDialog_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.AlertDialog_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Animation_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Animation_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Animation_AppCompat_DropDownUp = global::Xamarin.BookReader.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::EasyAdapterLibrary.Resource.Style.Base_AlertDialog_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_AlertDialog_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_AlertDialog_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_Animation_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::Xamarin.BookReader.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::EasyAdapterLibrary.Resource.Style.Base_DialogWindowTitle_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Button = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Large = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Small = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Title = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::Xamarin.BookReader.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::EasyAdapterLibrary.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::Xamarin.BookReader.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::Xamarin.BookReader.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::EasyAdapterLibrary.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::Xamarin.BookReader.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::EasyAdapterLibrary.Resource.Style.Base_V21_Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_V21_Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V22_Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_V22_Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_V23_Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_V23_Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_V23_Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Base_V7_Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::Xamarin.BookReader.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::EasyAdapterLibrary.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::Xamarin.BookReader.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionButton = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActionMode = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Button_Small = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_EditText = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ImageButton = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ListView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_RatingBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_SearchView = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_SeekBar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Spinner = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Toolbar = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::EasyAdapterLibrary.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::Xamarin.BookReader.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::EasyAdapterLibrary.Resource.Style.Platform_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_ThemeOverlay_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::Xamarin.BookReader.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::EasyAdapterLibrary.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V11_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_V11_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V11_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_V11_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V14_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_V14_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V14_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_V14_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V21_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_V21_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V21_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_V21_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V25_AppCompat = global::Xamarin.BookReader.Resource.Style.Platform_V25_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Platform_V25_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Platform_V25_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Platform_Widget_AppCompat_Spinner = global::Xamarin.BookReader.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::Xamarin.BookReader.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::EasyAdapterLibrary.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::Xamarin.BookReader.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::EasyAdapterLibrary.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::Xamarin.BookReader.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::EasyAdapterLibrary.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::Xamarin.BookReader.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Body1 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Body2 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Button = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Button;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Caption = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Display1 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Display2 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Display3 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Display4 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Headline = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Large = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Large;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Medium = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Menu = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Info = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Info;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Info_Media = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Info_Media;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Line2 = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Line2;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Line2_Media = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Line2_Media;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Media = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Media;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Time = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Time;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Time_Media = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Time_Media;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Notification_Title_Media = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Notification_Title_Media;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Small = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Small;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Subhead = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Xamarin.BookReader.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_StatusBar_EventContent = global::Xamarin.BookReader.Resource.Style.TextAppearance_StatusBar_EventContent;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_StatusBar_EventContent_Info = global::Xamarin.BookReader.Resource.Style.TextAppearance_StatusBar_EventContent_Info;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_StatusBar_EventContent_Line2 = global::Xamarin.BookReader.Resource.Style.TextAppearance_StatusBar_EventContent_Line2;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_StatusBar_EventContent_Time = global::Xamarin.BookReader.Resource.Style.TextAppearance_StatusBar_EventContent_Time;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_StatusBar_EventContent_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_StatusBar_EventContent_Title;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Xamarin.BookReader.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Xamarin.BookReader.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::EasyAdapterLibrary.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::Xamarin.BookReader.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_CompactMenu = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_Dialog = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Theme_AppCompat_NoActionBar = global::Xamarin.BookReader.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_Dark = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::EasyAdapterLibrary.Resource.Style.ThemeOverlay_AppCompat_Light = global::Xamarin.BookReader.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionButton = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionButton;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActionMode = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActionMode;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ActivityChooserView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button_Borderless = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button_Colored = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Button_Small = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Button_Small;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ButtonBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_EditText = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_EditText;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ImageButton = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ImageButton;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionButton = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_SearchView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ListMenuView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ListPopupWindow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ListView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ListView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ListView_DropDown = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ListView_Menu = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_NotificationActionContainer = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_NotificationActionContainer;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_NotificationActionText = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_NotificationActionText;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_PopupMenu = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_PopupWindow = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ProgressBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_RatingBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_RatingBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_RatingBar_Small = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_SearchView = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_SearchView;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_SeekBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_SeekBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Spinner = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Spinner;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Toolbar = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Toolbar;
+			global::EasyAdapterLibrary.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::Xamarin.BookReader.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar = global::Xamarin.BookReader.Resource.Styleable.ActionBar;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_background = global::Xamarin.BookReader.Resource.Styleable.ActionBar_background;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_backgroundSplit = global::Xamarin.BookReader.Resource.Styleable.ActionBar_backgroundSplit;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_backgroundStacked = global::Xamarin.BookReader.Resource.Styleable.ActionBar_backgroundStacked;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetEnd = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetLeft = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetRight = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetRight;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetStart = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetStart;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::Xamarin.BookReader.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_customNavigationLayout = global::Xamarin.BookReader.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_displayOptions = global::Xamarin.BookReader.Resource.Styleable.ActionBar_displayOptions;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_divider = global::Xamarin.BookReader.Resource.Styleable.ActionBar_divider;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_elevation = global::Xamarin.BookReader.Resource.Styleable.ActionBar_elevation;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_height = global::Xamarin.BookReader.Resource.Styleable.ActionBar_height;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_hideOnContentScroll = global::Xamarin.BookReader.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_homeAsUpIndicator = global::Xamarin.BookReader.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_homeLayout = global::Xamarin.BookReader.Resource.Styleable.ActionBar_homeLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_icon = global::Xamarin.BookReader.Resource.Styleable.ActionBar_icon;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::Xamarin.BookReader.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_itemPadding = global::Xamarin.BookReader.Resource.Styleable.ActionBar_itemPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_logo = global::Xamarin.BookReader.Resource.Styleable.ActionBar_logo;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_navigationMode = global::Xamarin.BookReader.Resource.Styleable.ActionBar_navigationMode;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_popupTheme = global::Xamarin.BookReader.Resource.Styleable.ActionBar_popupTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_progressBarPadding = global::Xamarin.BookReader.Resource.Styleable.ActionBar_progressBarPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_progressBarStyle = global::Xamarin.BookReader.Resource.Styleable.ActionBar_progressBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_subtitle = global::Xamarin.BookReader.Resource.Styleable.ActionBar_subtitle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_subtitleTextStyle = global::Xamarin.BookReader.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_title = global::Xamarin.BookReader.Resource.Styleable.ActionBar_title;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBar_titleTextStyle = global::Xamarin.BookReader.Resource.Styleable.ActionBar_titleTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBarLayout = global::Xamarin.BookReader.Resource.Styleable.ActionBarLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::Xamarin.BookReader.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMenuItemView = global::Xamarin.BookReader.Resource.Styleable.ActionMenuItemView;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMenuItemView_android_minWidth = global::Xamarin.BookReader.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMenuView = global::Xamarin.BookReader.Resource.Styleable.ActionMenuView;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode = global::Xamarin.BookReader.Resource.Styleable.ActionMode;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_background = global::Xamarin.BookReader.Resource.Styleable.ActionMode_background;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_backgroundSplit = global::Xamarin.BookReader.Resource.Styleable.ActionMode_backgroundSplit;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_closeItemLayout = global::Xamarin.BookReader.Resource.Styleable.ActionMode_closeItemLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_height = global::Xamarin.BookReader.Resource.Styleable.ActionMode_height;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_subtitleTextStyle = global::Xamarin.BookReader.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActionMode_titleTextStyle = global::Xamarin.BookReader.Resource.Styleable.ActionMode_titleTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.ActivityChooserView = global::Xamarin.BookReader.Resource.Styleable.ActivityChooserView;
+			global::EasyAdapterLibrary.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Xamarin.BookReader.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Xamarin.BookReader.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog = global::Xamarin.BookReader.Resource.Styleable.AlertDialog;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_android_layout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_android_layout;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_listItemLayout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_listItemLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_listLayout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_listLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_showTitle = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_showTitle;
+			global::EasyAdapterLibrary.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::Xamarin.BookReader.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatImageView = global::Xamarin.BookReader.Resource.Styleable.AppCompatImageView;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatImageView_android_src = global::Xamarin.BookReader.Resource.Styleable.AppCompatImageView_android_src;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatImageView_srcCompat = global::Xamarin.BookReader.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatSeekBar = global::Xamarin.BookReader.Resource.Styleable.AppCompatSeekBar;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatSeekBar_android_thumb = global::Xamarin.BookReader.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatSeekBar_tickMark = global::Xamarin.BookReader.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::Xamarin.BookReader.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::Xamarin.BookReader.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextView = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextView;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextView_android_textAppearance = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTextView_textAllCaps = global::Xamarin.BookReader.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarDivider = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarSize = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_checkboxStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorAccent = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorControlActivated = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorControlNormal = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorPrimary = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_controlBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dialogTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dividerVertical = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_editTextBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_editTextColor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_editTextStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_panelBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_searchViewStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_seekBarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_spinnerStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_switchStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_toolbarStyle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowActionBar = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::EasyAdapterLibrary.Resource.Styleable.AppCompatTheme_windowNoTitle = global::Xamarin.BookReader.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::EasyAdapterLibrary.Resource.Styleable.ButtonBarLayout = global::Xamarin.BookReader.Resource.Styleable.ButtonBarLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.ButtonBarLayout_allowStacking = global::Xamarin.BookReader.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::EasyAdapterLibrary.Resource.Styleable.ColorStateListItem = global::Xamarin.BookReader.Resource.Styleable.ColorStateListItem;
+			global::EasyAdapterLibrary.Resource.Styleable.ColorStateListItem_alpha = global::Xamarin.BookReader.Resource.Styleable.ColorStateListItem_alpha;
+			global::EasyAdapterLibrary.Resource.Styleable.ColorStateListItem_android_alpha = global::Xamarin.BookReader.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::EasyAdapterLibrary.Resource.Styleable.ColorStateListItem_android_color = global::Xamarin.BookReader.Resource.Styleable.ColorStateListItem_android_color;
+			global::EasyAdapterLibrary.Resource.Styleable.CompoundButton = global::Xamarin.BookReader.Resource.Styleable.CompoundButton;
+			global::EasyAdapterLibrary.Resource.Styleable.CompoundButton_android_button = global::Xamarin.BookReader.Resource.Styleable.CompoundButton_android_button;
+			global::EasyAdapterLibrary.Resource.Styleable.CompoundButton_buttonTint = global::Xamarin.BookReader.Resource.Styleable.CompoundButton_buttonTint;
+			global::EasyAdapterLibrary.Resource.Styleable.CompoundButton_buttonTintMode = global::Xamarin.BookReader.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_barLength = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_color = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_color;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_drawableSize = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_spinBars = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::EasyAdapterLibrary.Resource.Styleable.DrawerArrowToggle_thickness = global::Xamarin.BookReader.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_android_gravity = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_android_orientation = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_divider = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_divider;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_showDividers = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_Layout = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::EasyAdapterLibrary.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::Xamarin.BookReader.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::EasyAdapterLibrary.Resource.Styleable.ListPopupWindow = global::Xamarin.BookReader.Resource.Styleable.ListPopupWindow;
+			global::EasyAdapterLibrary.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::Xamarin.BookReader.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::EasyAdapterLibrary.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::Xamarin.BookReader.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup = global::Xamarin.BookReader.Resource.Styleable.MenuGroup;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_checkableBehavior = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_enabled = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_enabled;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_id = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_id;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_menuCategory = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_orderInCategory = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuGroup_android_visible = global::Xamarin.BookReader.Resource.Styleable.MenuGroup_android_visible;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem = global::Xamarin.BookReader.Resource.Styleable.MenuItem;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_actionLayout = global::Xamarin.BookReader.Resource.Styleable.MenuItem_actionLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_actionProviderClass = global::Xamarin.BookReader.Resource.Styleable.MenuItem_actionProviderClass;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_actionViewClass = global::Xamarin.BookReader.Resource.Styleable.MenuItem_actionViewClass;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_checkable = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_checkable;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_checked = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_checked;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_enabled = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_enabled;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_icon = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_icon;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_id = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_id;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_menuCategory = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_menuCategory;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_numericShortcut = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_onClick = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_onClick;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_orderInCategory = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_title = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_title;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_titleCondensed = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_android_visible = global::Xamarin.BookReader.Resource.Styleable.MenuItem_android_visible;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuItem_showAsAction = global::Xamarin.BookReader.Resource.Styleable.MenuItem_showAsAction;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView = global::Xamarin.BookReader.Resource.Styleable.MenuView;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_headerBackground = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_headerBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_horizontalDivider = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_itemBackground = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_itemBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_itemTextAppearance = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_verticalDivider = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_verticalDivider;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Xamarin.BookReader.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_preserveIconSpacing = global::Xamarin.BookReader.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::EasyAdapterLibrary.Resource.Styleable.MenuView_subMenuArrow = global::Xamarin.BookReader.Resource.Styleable.MenuView_subMenuArrow;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindow = global::Xamarin.BookReader.Resource.Styleable.PopupWindow;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::Xamarin.BookReader.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindow_android_popupBackground = global::Xamarin.BookReader.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindow_overlapAnchor = global::Xamarin.BookReader.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindowBackgroundState = global::Xamarin.BookReader.Resource.Styleable.PopupWindowBackgroundState;
+			global::EasyAdapterLibrary.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Xamarin.BookReader.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::EasyAdapterLibrary.Resource.Styleable.RecycleListView = global::Xamarin.BookReader.Resource.Styleable.RecycleListView;
+			global::EasyAdapterLibrary.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::Xamarin.BookReader.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::EasyAdapterLibrary.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::Xamarin.BookReader.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView = global::Xamarin.BookReader.Resource.Styleable.RecyclerView;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_android_descendantFocusability = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_android_orientation = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_android_orientation;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_layoutManager = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_layoutManager;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_reverseLayout = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_reverseLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_spanCount = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_spanCount;
+			global::EasyAdapterLibrary.Resource.Styleable.RecyclerView_stackFromEnd = global::Xamarin.BookReader.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView = global::Xamarin.BookReader.Resource.Styleable.SearchView;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_android_focusable = global::Xamarin.BookReader.Resource.Styleable.SearchView_android_focusable;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_android_imeOptions = global::Xamarin.BookReader.Resource.Styleable.SearchView_android_imeOptions;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_android_inputType = global::Xamarin.BookReader.Resource.Styleable.SearchView_android_inputType;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_android_maxWidth = global::Xamarin.BookReader.Resource.Styleable.SearchView_android_maxWidth;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_closeIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_closeIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_commitIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_commitIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_defaultQueryHint = global::Xamarin.BookReader.Resource.Styleable.SearchView_defaultQueryHint;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_goIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_goIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_iconifiedByDefault = global::Xamarin.BookReader.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_layout = global::Xamarin.BookReader.Resource.Styleable.SearchView_layout;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_queryBackground = global::Xamarin.BookReader.Resource.Styleable.SearchView_queryBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_queryHint = global::Xamarin.BookReader.Resource.Styleable.SearchView_queryHint;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_searchHintIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_searchHintIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_searchIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_searchIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_submitBackground = global::Xamarin.BookReader.Resource.Styleable.SearchView_submitBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_suggestionRowLayout = global::Xamarin.BookReader.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::EasyAdapterLibrary.Resource.Styleable.SearchView_voiceIcon = global::Xamarin.BookReader.Resource.Styleable.SearchView_voiceIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner = global::Xamarin.BookReader.Resource.Styleable.Spinner;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner_android_dropDownWidth = global::Xamarin.BookReader.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner_android_entries = global::Xamarin.BookReader.Resource.Styleable.Spinner_android_entries;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner_android_popupBackground = global::Xamarin.BookReader.Resource.Styleable.Spinner_android_popupBackground;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner_android_prompt = global::Xamarin.BookReader.Resource.Styleable.Spinner_android_prompt;
+			global::EasyAdapterLibrary.Resource.Styleable.Spinner_popupTheme = global::Xamarin.BookReader.Resource.Styleable.Spinner_popupTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_android_textOff = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_android_textOff;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_android_textOn = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_android_textOn;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_android_thumb = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_android_thumb;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_showText = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_showText;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_splitTrack = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_splitTrack;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_switchMinWidth = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_switchPadding = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_switchPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_switchTextAppearance = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_thumbTextPadding = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_thumbTint = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_thumbTint;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_thumbTintMode = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_track = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_track;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_trackTint = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_trackTint;
+			global::EasyAdapterLibrary.Resource.Styleable.SwitchCompat_trackTintMode = global::Xamarin.BookReader.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance = global::Xamarin.BookReader.Resource.Styleable.TextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_shadowColor = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_shadowDx = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_shadowDy = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_shadowRadius = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_textColor = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_textColor;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_textColorHint = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_textSize = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_textSize;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_textStyle = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_textStyle;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_android_typeface = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_android_typeface;
+			global::EasyAdapterLibrary.Resource.Styleable.TextAppearance_textAllCaps = global::Xamarin.BookReader.Resource.Styleable.TextAppearance_textAllCaps;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar = global::Xamarin.BookReader.Resource.Styleable.Toolbar;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_android_gravity = global::Xamarin.BookReader.Resource.Styleable.Toolbar_android_gravity;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_android_minHeight = global::Xamarin.BookReader.Resource.Styleable.Toolbar_android_minHeight;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_buttonGravity = global::Xamarin.BookReader.Resource.Styleable.Toolbar_buttonGravity;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_collapseContentDescription = global::Xamarin.BookReader.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_collapseIcon = global::Xamarin.BookReader.Resource.Styleable.Toolbar_collapseIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetEnd = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetLeft = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetRight = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetRight;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetStart = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetStart;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::Xamarin.BookReader.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_logo = global::Xamarin.BookReader.Resource.Styleable.Toolbar_logo;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_logoDescription = global::Xamarin.BookReader.Resource.Styleable.Toolbar_logoDescription;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_maxButtonHeight = global::Xamarin.BookReader.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_navigationContentDescription = global::Xamarin.BookReader.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_navigationIcon = global::Xamarin.BookReader.Resource.Styleable.Toolbar_navigationIcon;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_popupTheme = global::Xamarin.BookReader.Resource.Styleable.Toolbar_popupTheme;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_subtitle = global::Xamarin.BookReader.Resource.Styleable.Toolbar_subtitle;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_subtitleTextAppearance = global::Xamarin.BookReader.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_subtitleTextColor = global::Xamarin.BookReader.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_title = global::Xamarin.BookReader.Resource.Styleable.Toolbar_title;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMargin = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMargin;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMarginBottom = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMarginEnd = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMarginStart = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMarginStart;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMarginTop = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMarginTop;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleMargins = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleMargins;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleTextAppearance = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::EasyAdapterLibrary.Resource.Styleable.Toolbar_titleTextColor = global::Xamarin.BookReader.Resource.Styleable.Toolbar_titleTextColor;
+			global::EasyAdapterLibrary.Resource.Styleable.View = global::Xamarin.BookReader.Resource.Styleable.View;
+			global::EasyAdapterLibrary.Resource.Styleable.View_android_focusable = global::Xamarin.BookReader.Resource.Styleable.View_android_focusable;
+			global::EasyAdapterLibrary.Resource.Styleable.View_android_theme = global::Xamarin.BookReader.Resource.Styleable.View_android_theme;
+			global::EasyAdapterLibrary.Resource.Styleable.View_paddingEnd = global::Xamarin.BookReader.Resource.Styleable.View_paddingEnd;
+			global::EasyAdapterLibrary.Resource.Styleable.View_paddingStart = global::Xamarin.BookReader.Resource.Styleable.View_paddingStart;
+			global::EasyAdapterLibrary.Resource.Styleable.View_theme = global::Xamarin.BookReader.Resource.Styleable.View_theme;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewBackgroundHelper = global::Xamarin.BookReader.Resource.Styleable.ViewBackgroundHelper;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewBackgroundHelper_android_background = global::Xamarin.BookReader.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::Xamarin.BookReader.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::Xamarin.BookReader.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewStubCompat = global::Xamarin.BookReader.Resource.Styleable.ViewStubCompat;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewStubCompat_android_id = global::Xamarin.BookReader.Resource.Styleable.ViewStubCompat_android_id;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Xamarin.BookReader.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::EasyAdapterLibrary.Resource.Styleable.ViewStubCompat_android_layout = global::Xamarin.BookReader.Resource.Styleable.ViewStubCompat_android_layout;
 			global::Splat.Resource.String.library_name = global::Xamarin.BookReader.Resource.String.library_name;
 		}
 		
@@ -2520,8 +3960,8 @@ namespace Xamarin.BookReader
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070068
-			public const int action0 = 2131165288;
+			// aapt resource value: 0x7f07006b
+			public const int action0 = 2131165291;
 			
 			// aapt resource value: 0x7f070055
 			public const int action_bar = 2131165269;
@@ -2544,23 +3984,23 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070032
 			public const int action_bar_title = 2131165234;
 			
-			// aapt resource value: 0x7f070065
-			public const int action_container = 2131165285;
+			// aapt resource value: 0x7f070068
+			public const int action_container = 2131165288;
 			
 			// aapt resource value: 0x7f070056
 			public const int action_context_bar = 2131165270;
 			
-			// aapt resource value: 0x7f07006c
-			public const int action_divider = 2131165292;
+			// aapt resource value: 0x7f07006f
+			public const int action_divider = 2131165295;
+			
+			// aapt resource value: 0x7f070089
+			public const int action_feedback = 2131165321;
+			
+			// aapt resource value: 0x7f070069
+			public const int action_image = 2131165289;
 			
 			// aapt resource value: 0x7f070084
-			public const int action_feedback = 2131165316;
-			
-			// aapt resource value: 0x7f070066
-			public const int action_image = 2131165286;
-			
-			// aapt resource value: 0x7f07007f
-			public const int action_login = 2131165311;
+			public const int action_login = 2131165316;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -2577,35 +4017,35 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070034
 			public const int action_mode_close_button = 2131165236;
 			
-			// aapt resource value: 0x7f070080
-			public const int action_my_message = 2131165312;
-			
 			// aapt resource value: 0x7f070085
-			public const int action_night_mode = 2131165317;
+			public const int action_my_message = 2131165317;
 			
-			// aapt resource value: 0x7f070082
-			public const int action_scan_local_book = 2131165314;
+			// aapt resource value: 0x7f07008a
+			public const int action_night_mode = 2131165322;
 			
-			// aapt resource value: 0x7f07007e
-			public const int action_search = 2131165310;
-			
-			// aapt resource value: 0x7f070086
-			public const int action_settings = 2131165318;
-			
-			// aapt resource value: 0x7f07007d
-			public const int action_sort = 2131165309;
-			
-			// aapt resource value: 0x7f070081
-			public const int action_sync_bookshelf = 2131165313;
-			
-			// aapt resource value: 0x7f070067
-			public const int action_text = 2131165287;
+			// aapt resource value: 0x7f070087
+			public const int action_scan_local_book = 2131165319;
 			
 			// aapt resource value: 0x7f070083
-			public const int action_wifi_book = 2131165315;
+			public const int action_search = 2131165315;
 			
-			// aapt resource value: 0x7f070075
-			public const int actions = 2131165301;
+			// aapt resource value: 0x7f07008b
+			public const int action_settings = 2131165323;
+			
+			// aapt resource value: 0x7f070082
+			public const int action_sort = 2131165314;
+			
+			// aapt resource value: 0x7f070086
+			public const int action_sync_bookshelf = 2131165318;
+			
+			// aapt resource value: 0x7f07006a
+			public const int action_text = 2131165290;
+			
+			// aapt resource value: 0x7f070088
+			public const int action_wifi_book = 2131165320;
+			
+			// aapt resource value: 0x7f070078
+			public const int actions = 2131165304;
 			
 			// aapt resource value: 0x7f070035
 			public const int activity_chooser_view_content = 2131165237;
@@ -2631,20 +4071,20 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003c
 			public const int buttonPanel = 2131165244;
 			
-			// aapt resource value: 0x7f070069
-			public const int cancel_action = 2131165289;
+			// aapt resource value: 0x7f07006c
+			public const int cancel_action = 2131165292;
 			
 			// aapt resource value: 0x7f07004c
 			public const int checkbox = 2131165260;
 			
-			// aapt resource value: 0x7f070071
-			public const int chronometer = 2131165297;
+			// aapt resource value: 0x7f070074
+			public const int chronometer = 2131165300;
 			
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
-			// aapt resource value: 0x7f070064
-			public const int common_toolbar = 2131165284;
+			// aapt resource value: 0x7f070066
+			public const int common_toolbar = 2131165286;
 			
 			// aapt resource value: 0x7f07003f
 			public const int contentPanel = 2131165247;
@@ -2670,14 +4110,17 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07001c
 			public const int end = 2131165212;
 			
-			// aapt resource value: 0x7f07007b
-			public const int end_padder = 2131165307;
+			// aapt resource value: 0x7f07007e
+			public const int end_padder = 2131165310;
 			
 			// aapt resource value: 0x7f070036
 			public const int expand_activities_button = 2131165238;
 			
 			// aapt resource value: 0x7f07004b
 			public const int expanded_menu = 2131165259;
+			
+			// aapt resource value: 0x7f070065
+			public const int fragmentCO = 2131165285;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2691,8 +4134,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003a
 			public const int icon = 2131165242;
 			
-			// aapt resource value: 0x7f070076
-			public const int icon_group = 2131165302;
+			// aapt resource value: 0x7f070079
+			public const int icon_group = 2131165305;
 			
 			// aapt resource value: 0x7f070020
 			public const int ifRoom = 2131165216;
@@ -2700,8 +4143,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070037
 			public const int image = 2131165239;
 			
-			// aapt resource value: 0x7f070072
-			public const int info = 2131165298;
+			// aapt resource value: 0x7f070075
+			public const int info = 2131165301;
 			
 			// aapt resource value: 0x7f070029
 			public const int insideInset = 2131165225;
@@ -2712,14 +4155,17 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
+			// aapt resource value: 0x7f070080
+			public const int ivSelArrow = 2131165312;
+			
 			// aapt resource value: 0x7f070026
 			public const int line = 2131165222;
 			
-			// aapt resource value: 0x7f070077
-			public const int line1 = 2131165303;
+			// aapt resource value: 0x7f07007a
+			public const int line1 = 2131165306;
 			
-			// aapt resource value: 0x7f070079
-			public const int line3 = 2131165305;
+			// aapt resource value: 0x7f07007c
+			public const int line3 = 2131165308;
 			
 			// aapt resource value: 0x7f070030
 			public const int linear = 2131165232;
@@ -2733,23 +4179,23 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070031
 			public const int material = 2131165233;
 			
-			// aapt resource value: 0x7f07006b
-			public const int media_actions = 2131165291;
+			// aapt resource value: 0x7f07006e
+			public const int media_actions = 2131165294;
 			
-			// aapt resource value: 0x7f07008a
-			public const int menu_collect = 2131165322;
+			// aapt resource value: 0x7f07008f
+			public const int menu_collect = 2131165327;
 			
-			// aapt resource value: 0x7f070087
-			public const int menu_major = 2131165319;
+			// aapt resource value: 0x7f07008c
+			public const int menu_major = 2131165324;
 			
-			// aapt resource value: 0x7f070089
-			public const int menu_my_book_list = 2131165321;
+			// aapt resource value: 0x7f07008e
+			public const int menu_my_book_list = 2131165326;
 			
-			// aapt resource value: 0x7f07007c
-			public const int menu_search = 2131165308;
+			// aapt resource value: 0x7f070081
+			public const int menu_search = 2131165313;
 			
-			// aapt resource value: 0x7f070088
-			public const int menu_tags = 2131165320;
+			// aapt resource value: 0x7f07008d
+			public const int menu_tags = 2131165325;
 			
 			// aapt resource value: 0x7f07001d
 			public const int middle = 2131165213;
@@ -2766,14 +4212,14 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000b
 			public const int normal = 2131165195;
 			
-			// aapt resource value: 0x7f070074
-			public const int notification_background = 2131165300;
+			// aapt resource value: 0x7f070077
+			public const int notification_background = 2131165303;
 			
-			// aapt resource value: 0x7f07006e
-			public const int notification_main_column = 2131165294;
+			// aapt resource value: 0x7f070071
+			public const int notification_main_column = 2131165297;
 			
-			// aapt resource value: 0x7f07006d
-			public const int notification_main_column_container = 2131165293;
+			// aapt resource value: 0x7f070070
+			public const int notification_main_column_container = 2131165296;
 			
 			// aapt resource value: 0x7f07002b
 			public const int outsideInset = 2131165227;
@@ -2793,11 +4239,11 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07004e
 			public const int radio = 2131165262;
 			
-			// aapt resource value: 0x7f070073
-			public const int right_icon = 2131165299;
+			// aapt resource value: 0x7f070076
+			public const int right_icon = 2131165302;
 			
-			// aapt resource value: 0x7f07006f
-			public const int right_side = 2131165295;
+			// aapt resource value: 0x7f070072
+			public const int right_side = 2131165298;
 			
 			// aapt resource value: 0x7f07002f
 			public const int round = 2131165231;
@@ -2859,6 +4305,9 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070012
 			public const int showTitle = 2131165202;
 			
+			// aapt resource value: 0x7f070064
+			public const int slOverall = 2131165284;
+			
 			// aapt resource value: 0x7f07003d
 			public const int spacer = 2131165245;
 			
@@ -2877,8 +4326,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070019
 			public const int src_over = 2131165209;
 			
-			// aapt resource value: 0x7f07006a
-			public const int status_bar_latest_event_content = 2131165290;
+			// aapt resource value: 0x7f07006d
+			public const int status_bar_latest_event_content = 2131165293;
 			
 			// aapt resource value: 0x7f07004f
 			public const int submenuarrow = 2131165263;
@@ -2889,11 +4338,11 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
 			
-			// aapt resource value: 0x7f07007a
-			public const int text = 2131165306;
+			// aapt resource value: 0x7f07007d
+			public const int text = 2131165309;
 			
-			// aapt resource value: 0x7f070078
-			public const int text2 = 2131165304;
+			// aapt resource value: 0x7f07007b
+			public const int text2 = 2131165307;
 			
 			// aapt resource value: 0x7f070043
 			public const int textSpacerNoButtons = 2131165251;
@@ -2901,8 +4350,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070042
 			public const int textSpacerNoTitle = 2131165250;
 			
-			// aapt resource value: 0x7f070070
-			public const int time = 2131165296;
+			// aapt resource value: 0x7f070073
+			public const int time = 2131165299;
 			
 			// aapt resource value: 0x7f07003b
 			public const int title = 2131165243;
@@ -2921,6 +4370,12 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f070028
 			public const int triangle = 2131165224;
+			
+			// aapt resource value: 0x7f07007f
+			public const int tvSelTitle = 2131165311;
+			
+			// aapt resource value: 0x7f070067
+			public const int tvSelTitleItem = 2131165287;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -3057,67 +4512,85 @@ namespace Xamarin.BookReader
 			public const int abc_select_dialog_material = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int common_progress_view = 2130968603;
+			public const int activity_community_book_discussion = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
-			public const int common_toolbar = 2130968604;
+			public const int activity_community_book_help = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int notification_action = 2130968605;
+			public const int activity_community_book_review = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int notification_action_tombstone = 2130968606;
+			public const int activity_community_girl_book_discussion = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int notification_media_action = 2130968607;
+			public const int common_progress_view = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int notification_media_cancel_action = 2130968608;
+			public const int common_toolbar = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int notification_template_big_media = 2130968609;
+			public const int item_selection_view = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_template_big_media_custom = 2130968610;
+			public const int notification_action = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_template_big_media_narrow = 2130968611;
+			public const int notification_action_tombstone = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_template_big_media_narrow_custom = 2130968612;
+			public const int notification_media_action = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int notification_template_custom_big = 2130968613;
+			public const int notification_media_cancel_action = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int notification_template_icon_group = 2130968614;
+			public const int notification_template_big_media = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int notification_template_lines_media = 2130968615;
+			public const int notification_template_big_media_custom = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int notification_template_media = 2130968616;
+			public const int notification_template_big_media_narrow = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int notification_template_media_custom = 2130968617;
+			public const int notification_template_big_media_narrow_custom = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int notification_template_part_chronometer = 2130968618;
+			public const int notification_template_custom_big = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int notification_template_part_time = 2130968619;
+			public const int notification_template_icon_group = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int select_dialog_item_material = 2130968620;
+			public const int notification_template_lines_media = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int select_dialog_multichoice_material = 2130968621;
+			public const int notification_template_media = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int select_dialog_singlechoice_material = 2130968622;
+			public const int notification_template_media_custom = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int support_simple_spinner_dropdown_item = 2130968623;
+			public const int notification_template_part_chronometer = 2130968623;
+			
+			// aapt resource value: 0x7f040030
+			public const int notification_template_part_time = 2130968624;
+			
+			// aapt resource value: 0x7f040031
+			public const int select_dialog_item_material = 2130968625;
+			
+			// aapt resource value: 0x7f040032
+			public const int select_dialog_multichoice_material = 2130968626;
+			
+			// aapt resource value: 0x7f040033
+			public const int select_dialog_singlechoice_material = 2130968627;
+			
+			// aapt resource value: 0x7f040034
+			public const int support_simple_spinner_dropdown_item = 2130968628;
+			
+			// aapt resource value: 0x7f040035
+			public const int view_selection = 2130968629;
 			
 			static Layout()
 			{

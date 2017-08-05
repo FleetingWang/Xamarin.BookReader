@@ -22,8 +22,8 @@
 
     <include layout="@layout/common_toolbar" />
 
-    <com.justwayward.reader.view.SelectionLayout
-        android:id="@+id/slOverall"
+  <xamarin.bookreader.views.SelectionLayout
+      android:id="@+id/slOverall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
