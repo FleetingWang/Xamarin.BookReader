@@ -15,7 +15,12 @@ using Android.Support.V7.App;
 
 namespace Xamarin.BookReader
 {
-    [Application]
+    [Application(
+        AllowBackup = true,
+        Icon = "@mipmap/icon",
+        Label = "@string/app_name",
+        Theme = "@style/AppTheme.NoActionBar"
+        )]
     public class ReaderApplication: Application
     {
         private static ReaderApplication sInstance;

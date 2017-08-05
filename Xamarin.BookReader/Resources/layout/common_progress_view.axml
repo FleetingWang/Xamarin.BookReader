@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<com.justwayward.reader.view.loadding.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
+<xamarin.bookreader.views.loading.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:loadingView="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

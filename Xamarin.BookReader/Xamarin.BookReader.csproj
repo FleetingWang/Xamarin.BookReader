@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bases\BaseActivity.cs" />
     <Compile Include="Bases\Constant.cs" />
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="MainActivity.cs" />
@@ -156,6 +157,9 @@
     <Compile Include="Models\Support\RefreshCollectionIconEvent.cs" />
     <Compile Include="Models\Support\RefreshCollectionListEvent.cs" />
     <Compile Include="Models\Support\SelectionEvent.cs" />
+    <Compile Include="Models\Support\SubEvent.cs" />
+    <Compile Include="Models\Support\TagEvent.cs" />
+    <Compile Include="Models\Support\UserSexChooseFinishedEvent.cs" />
     <Compile Include="Models\User\Following.cs" />
     <Compile Include="Models\User\Login.cs" />
     <Compile Include="Models\User\LoginReq.cs" />
@@ -168,7 +172,10 @@
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\LogUtils.cs" />
     <Compile Include="Utils\SharedPreferencesUtil.cs" />
+    <Compile Include="Utils\StatusBarCompat.cs" />
     <Compile Include="Utils\ToastUtils.cs" />
+    <Compile Include="Views\Loading\CustomDialog.cs" />
+    <Compile Include="Views\Loading\LoadingView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -177,6 +184,8 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\common_progress_view.axml" />
+    <AndroidResource Include="Resources\layout\common_toolbar.axml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -783,9 +792,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values-w820dp\dimens.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\layout\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidAsset Include="Assets\uploader\bg_drag.png" />
   </ItemGroup>
