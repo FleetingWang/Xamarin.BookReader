@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace Xamarin.BookReader
 {
-    [Activity(Label = "Xamarin.BookReader", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Xamarin.BookReader", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Xamarin.BookReader.Models
+{
+    public class SearchDetail
+    {
+
+        /**
+         * _id : 55e2850dbda85d9f74e6f73b
+         * hasCp : false
+         * title : w
+         * cat : 奇幻
+         * author : w
+         * site : faloo
+         * cover : /agent/http://img.faloo.com/Novel/166x235/0/71/000071091.jpg
+         * shortIntro : 最终之海的传说，可怕的烧烧能力，危险的黑暗能力，还有恐怖的冰冰能力。  看小Down怎样找到去另一个世界的大门。本书绝对会全本，更新时间固定每周六晚 绝对大更。...
+         * lastChapter : 抢劫海贼
+         * retentionRatio : null
+         * latelyFollower : 4
+         * wordCount : 5075
+         */
+
+        public List<SearchBooks> books;
+
+        public class SearchBooks
+        {
+            public String _id;
+            public bool hasCp;
+            public String title;
+            public String cat;
+            public String author;
+            public String site;
+            public String cover;
+            public String shortIntro;
+            public String lastChapter;
+            public String retentionRatio;
+            public int latelyFollower;
+            public int wordCount;
+
+            public SearchBooks(String _id, String title, String author, String cover, String retentionRatio, int latelyFollower)
+            {
+                this._id = _id;
+                this.title = title;
+                this.author = author;
+                this.cover = cover;
+                this.retentionRatio = retentionRatio;
+                this.latelyFollower = latelyFollower;
+            }
+
+            public SearchBooks()
+            {
+            }
+        }
+    }
+}

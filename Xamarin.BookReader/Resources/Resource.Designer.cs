@@ -3567,6 +3567,9 @@ namespace Xamarin.BookReader
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f080167
+			public const int ActionButton_Overflow_Menu = 2131231079;
+			
 			// aapt resource value: 0x7f0800a3
 			public const int AlertDialog_AppCompat = 2131230883;
 			
@@ -3578,6 +3581,15 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f0800a6
 			public const int Animation_AppCompat_DropDownUp = 2131230886;
+			
+			// aapt resource value: 0x7f080163
+			public const int AppTheme = 2131231075;
+			
+			// aapt resource value: 0x7f080164
+			public const int AppTheme_NoActionBar = 2131231076;
+			
+			// aapt resource value: 0x7f080165
+			public const int AppTheme_NoActionBar_FullScreen = 2131231077;
 			
 			// aapt resource value: 0x7f0800a7
 			public const int Base_AlertDialog_AppCompat = 2131230887;
@@ -4047,6 +4059,12 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f080003
 			public const int CardView_Light = 2131230723;
 			
+			// aapt resource value: 0x7f08016f
+			public const int LoginPopup = 2131231087;
+			
+			// aapt resource value: 0x7f080168
+			public const int OverflowMenuStyle = 2131231080;
+			
 			// aapt resource value: 0x7f080022
 			public const int Platform_AppCompat = 2131230754;
 			
@@ -4130,6 +4148,21 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f080042
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131230786;
+			
+			// aapt resource value: 0x7f08016a
+			public const int TagGroup = 2131231082;
+			
+			// aapt resource value: 0x7f08016d
+			public const int TagGroup_Beauty_Red = 2131231085;
+			
+			// aapt resource value: 0x7f08016e
+			public const int TagGroup_Beauty_Red_Inverse = 2131231086;
+			
+			// aapt resource value: 0x7f08016c
+			public const int TagGroup_Large = 2131231084;
+			
+			// aapt resource value: 0x7f08016b
+			public const int TagGroup_Small = 2131231083;
 			
 			// aapt resource value: 0x7f0800d2
 			public const int TextAppearance_AppCompat = 2131230930;
@@ -4389,6 +4422,9 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f080113
 			public const int Theme_AppCompat_NoActionBar = 2131230995;
 			
+			// aapt resource value: 0x7f080166
+			public const int Theme_ToolBar_Menu = 2131231078;
+			
 			// aapt resource value: 0x7f080114
 			public const int ThemeOverlay_AppCompat = 2131230996;
 			
@@ -4631,6 +4667,15 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f080162
 			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131231074;
+			
+			// aapt resource value: 0x7f080171
+			public const int Widget_MaterialProgressBar_ProgressBar_Horizontal = 2131231089;
+			
+			// aapt resource value: 0x7f080169
+			public const int dropDownStyle = 2131231081;
+			
+			// aapt resource value: 0x7f080170
+			public const int loading_dialog = 2131231088;
 			
 			static Style()
 			{

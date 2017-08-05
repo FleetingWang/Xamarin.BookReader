@@ -53,6 +53,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Splat, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.2.0.0\lib\MonoAndroid403\Splat.dll</HintPath>
     </Reference>
@@ -112,9 +115,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bases\Constant.cs" />
+    <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\AutoComplete.cs" />
+    <Compile Include="Models\BookAtoc.cs" />
+    <Compile Include="Models\BookDetail.cs" />
+    <Compile Include="Models\BookHelp.cs" />
+    <Compile Include="Models\BookHelpList.cs" />
+    <Compile Include="Models\BookListDetail.cs" />
+    <Compile Include="Models\BookLists.cs" />
+    <Compile Include="Models\BookListTags.cs" />
+    <Compile Include="Models\BookMixAToc.cs" />
+    <Compile Include="Models\BookRead.cs" />
+    <Compile Include="Models\BookReview.cs" />
+    <Compile Include="Models\BookReviewList.cs" />
+    <Compile Include="Models\BooksByCats.cs" />
+    <Compile Include="Models\BooksByTag.cs" />
+    <Compile Include="Models\BookSource.cs" />
+    <Compile Include="Models\CategoryList.cs" />
+    <Compile Include="Models\CategoryListLv2.cs" />
+    <Compile Include="Models\ChapterRead.cs" />
+    <Compile Include="Models\CommentList.cs" />
+    <Compile Include="Models\DiscussionList.cs" />
+    <Compile Include="Models\Disscussion.cs" />
+    <Compile Include="Models\HotReview.cs" />
+    <Compile Include="Models\HotWord.cs" />
+    <Compile Include="Models\PostCount.cs" />
+    <Compile Include="Models\RankingList.cs" />
+    <Compile Include="Models\Rankings.cs" />
+    <Compile Include="Models\Recommend.cs" />
+    <Compile Include="Models\RecommendBookList.cs" />
+    <Compile Include="Models\SearchDetail.cs" />
+    <Compile Include="Models\Support\BookMark.cs" />
+    <Compile Include="Models\Support\DownloadMessage.cs" />
+    <Compile Include="Models\Support\DownloadProgress.cs" />
+    <Compile Include="Models\Support\DownloadQueue.cs" />
+    <Compile Include="Models\Support\FindBean.cs" />
+    <Compile Include="Models\Support\ReadTheme.cs" />
+    <Compile Include="Models\Support\RefreshCollectionIconEvent.cs" />
+    <Compile Include="Models\Support\RefreshCollectionListEvent.cs" />
+    <Compile Include="Models\Support\SelectionEvent.cs" />
+    <Compile Include="Models\User\Following.cs" />
+    <Compile Include="Models\User\Login.cs" />
+    <Compile Include="Models\User\LoginReq.cs" />
+    <Compile Include="Models\User\TencentLoginResult.cs" />
+    <Compile Include="ReaderApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DownloadBookService.cs" />
+    <Compile Include="Utils\AppUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\LogUtils.cs" />
+    <Compile Include="Utils\SharedPreferencesUtil.cs" />
+    <Compile Include="Utils\ToastUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
