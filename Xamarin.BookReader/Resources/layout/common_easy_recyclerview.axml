@@ -20,8 +20,8 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg">
 
-    <com.justwayward.reader.view.recyclerview.EasyRecyclerView
-        android:id="@+id/recyclerview"
+  <xamarin.bookreader.views.recyclerviews.EasyRecyclerView
+      android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_empty="@layout/common_empty_view"

@@ -118,6 +118,7 @@
     <Compile Include="Bases\BaseActivity.cs" />
     <Compile Include="Bases\BaseCommunitActivity.cs" />
     <Compile Include="Bases\BaseFragment.cs" />
+    <Compile Include="Bases\BaseRVActivity.cs" />
     <Compile Include="Bases\Constant.cs" />
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="MainActivity.cs" />
@@ -173,12 +174,44 @@
     <Compile Include="Utils\AppUtils.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\LogUtils.cs" />
+    <Compile Include="Utils\NetworkUtils.cs" />
+    <Compile Include="Utils\ScreenUtils.cs" />
     <Compile Include="Utils\SharedPreferencesUtil.cs" />
     <Compile Include="Utils\StatusBarCompat.cs" />
     <Compile Include="Utils\ToastUtils.cs" />
+    <Compile Include="Views\BookContentTextView.cs" />
+    <Compile Include="Views\CustomExpandableListView.cs" />
+    <Compile Include="Views\CustomTextView.cs" />
+    <Compile Include="Views\DrawableCenterButton.cs" />
+    <Compile Include="Views\GenderPopupWindow.cs" />
+    <Compile Include="Views\LetterView.cs" />
     <Compile Include="Views\Loading\CustomDialog.cs" />
     <Compile Include="Views\Loading\LoadingView.cs" />
+    <Compile Include="Views\LoginPopupWindow.cs" />
+    <Compile Include="Views\MyScrollview.cs" />
+    <Compile Include="Views\ProgressWebView.cs" />
+    <Compile Include="Views\ReboundScrollView.cs" />
+    <Compile Include="Views\RecyclerViews\Adapters\BaseViewHolder.cs" />
+    <Compile Include="Views\RecyclerViews\Adapters\DefaultEventDelegate.cs" />
+    <Compile Include="Views\RecyclerViews\Adapters\IEventDelegate.cs" />
+    <Compile Include="Views\RecyclerViews\Adapters\IOnLoadMoreListener.cs" />
+    <Compile Include="Views\RecyclerViews\Adapters\RecyclerArrayAdapter.cs" />
+    <Compile Include="Views\RecyclerViews\Decorations\DividerDecoration.cs" />
+    <Compile Include="Views\RecyclerViews\Decorations\SpaceDecoration.cs" />
+    <Compile Include="Views\RecyclerViews\EasyRecyclerView.cs" />
+    <Compile Include="Views\RecyclerViews\Swipes\CircleImageView.cs" />
+    <Compile Include="Views\RecyclerViews\Swipes\IOnRefreshListener.cs" />
+    <Compile Include="Views\RecyclerViews\Swipes\MaterialProgressDrawable.cs" />
+    <Compile Include="Views\RecyclerViews\Swipes\SwipeRefreshLayout.cs" />
+    <Compile Include="Views\RVPIndicator.cs" />
     <Compile Include="Views\SelectionLayout.cs" />
+    <Compile Include="Views\SupportDividerItemDecoration.cs" />
+    <Compile Include="Views\SupportGridItemDecoration.cs" />
+    <Compile Include="Views\SupportRecyclerView.cs" />
+    <Compile Include="Views\TagColor.cs" />
+    <Compile Include="Views\TagGroup.cs" />
+    <Compile Include="Views\TypeTextView.cs" />
+    <Compile Include="Views\XLHRatingBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -195,6 +228,17 @@
     <AndroidResource Include="Resources\layout\activity_community_book_help.axml" />
     <AndroidResource Include="Resources\layout\activity_community_book_review.axml" />
     <AndroidResource Include="Resources\layout\activity_community_girl_book_discussion.axml" />
+    <AndroidResource Include="Resources\layout\common_nomore_view.axml" />
+    <AndroidResource Include="Resources\layout\common_easy_recyclerview.axml" />
+    <AndroidResource Include="Resources\layout\common_empty_view.axml" />
+    <AndroidResource Include="Resources\layout\common_error_view.axml" />
+    <AndroidResource Include="Resources\layout\common_more_view.axml" />
+    <AndroidResource Include="Resources\layout\common_net_error_view.axml" />
+    <AndroidResource Include="Resources\layout\foot_view_shelf.axml" />
+    <AndroidResource Include="Resources\layout\layout_login_popup_window.axml" />
+    <AndroidResource Include="Resources\layout\layout_gender_popup_window.axml" />
+    <AndroidResource Include="Resources\layout\layout_battery_progress.axml" />
+    <AndroidResource Include="Resources\layout\layout_web_progress.axml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

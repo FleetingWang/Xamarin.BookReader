@@ -3960,8 +3960,8 @@ namespace Xamarin.BookReader
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07006b
-			public const int action0 = 2131165291;
+			// aapt resource value: 0x7f07007b
+			public const int action0 = 2131165307;
 			
 			// aapt resource value: 0x7f070055
 			public const int action_bar = 2131165269;
@@ -3984,23 +3984,23 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070032
 			public const int action_bar_title = 2131165234;
 			
-			// aapt resource value: 0x7f070068
-			public const int action_container = 2131165288;
+			// aapt resource value: 0x7f070078
+			public const int action_container = 2131165304;
 			
 			// aapt resource value: 0x7f070056
 			public const int action_context_bar = 2131165270;
 			
-			// aapt resource value: 0x7f07006f
-			public const int action_divider = 2131165295;
+			// aapt resource value: 0x7f07007f
+			public const int action_divider = 2131165311;
 			
-			// aapt resource value: 0x7f070089
-			public const int action_feedback = 2131165321;
+			// aapt resource value: 0x7f070099
+			public const int action_feedback = 2131165337;
 			
-			// aapt resource value: 0x7f070069
-			public const int action_image = 2131165289;
+			// aapt resource value: 0x7f070079
+			public const int action_image = 2131165305;
 			
-			// aapt resource value: 0x7f070084
-			public const int action_login = 2131165316;
+			// aapt resource value: 0x7f070094
+			public const int action_login = 2131165332;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -4017,35 +4017,35 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070034
 			public const int action_mode_close_button = 2131165236;
 			
-			// aapt resource value: 0x7f070085
-			public const int action_my_message = 2131165317;
+			// aapt resource value: 0x7f070095
+			public const int action_my_message = 2131165333;
 			
-			// aapt resource value: 0x7f07008a
-			public const int action_night_mode = 2131165322;
+			// aapt resource value: 0x7f07009a
+			public const int action_night_mode = 2131165338;
 			
-			// aapt resource value: 0x7f070087
-			public const int action_scan_local_book = 2131165319;
+			// aapt resource value: 0x7f070097
+			public const int action_scan_local_book = 2131165335;
 			
-			// aapt resource value: 0x7f070083
-			public const int action_search = 2131165315;
+			// aapt resource value: 0x7f070093
+			public const int action_search = 2131165331;
 			
-			// aapt resource value: 0x7f07008b
-			public const int action_settings = 2131165323;
+			// aapt resource value: 0x7f07009b
+			public const int action_settings = 2131165339;
 			
-			// aapt resource value: 0x7f070082
-			public const int action_sort = 2131165314;
+			// aapt resource value: 0x7f070092
+			public const int action_sort = 2131165330;
 			
-			// aapt resource value: 0x7f070086
-			public const int action_sync_bookshelf = 2131165318;
+			// aapt resource value: 0x7f070096
+			public const int action_sync_bookshelf = 2131165334;
 			
-			// aapt resource value: 0x7f07006a
-			public const int action_text = 2131165290;
+			// aapt resource value: 0x7f07007a
+			public const int action_text = 2131165306;
+			
+			// aapt resource value: 0x7f070098
+			public const int action_wifi_book = 2131165336;
 			
 			// aapt resource value: 0x7f070088
-			public const int action_wifi_book = 2131165320;
-			
-			// aapt resource value: 0x7f070078
-			public const int actions = 2131165304;
+			public const int actions = 2131165320;
 			
 			// aapt resource value: 0x7f070035
 			public const int activity_chooser_view_content = 2131165237;
@@ -4071,20 +4071,20 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003c
 			public const int buttonPanel = 2131165244;
 			
-			// aapt resource value: 0x7f07006c
-			public const int cancel_action = 2131165292;
+			// aapt resource value: 0x7f07007c
+			public const int cancel_action = 2131165308;
 			
 			// aapt resource value: 0x7f07004c
 			public const int checkbox = 2131165260;
 			
-			// aapt resource value: 0x7f070074
-			public const int chronometer = 2131165300;
+			// aapt resource value: 0x7f070084
+			public const int chronometer = 2131165316;
 			
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
-			// aapt resource value: 0x7f070066
-			public const int common_toolbar = 2131165286;
+			// aapt resource value: 0x7f07006a
+			public const int common_toolbar = 2131165290;
 			
 			// aapt resource value: 0x7f07003f
 			public const int contentPanel = 2131165247;
@@ -4110,8 +4110,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07001c
 			public const int end = 2131165212;
 			
-			// aapt resource value: 0x7f07007e
-			public const int end_padder = 2131165310;
+			// aapt resource value: 0x7f07008e
+			public const int end_padder = 2131165326;
 			
 			// aapt resource value: 0x7f070036
 			public const int expand_activities_button = 2131165238;
@@ -4134,8 +4134,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003a
 			public const int icon = 2131165242;
 			
-			// aapt resource value: 0x7f070079
-			public const int icon_group = 2131165305;
+			// aapt resource value: 0x7f070089
+			public const int icon_group = 2131165321;
 			
 			// aapt resource value: 0x7f070020
 			public const int ifRoom = 2131165216;
@@ -4143,8 +4143,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070037
 			public const int image = 2131165239;
 			
-			// aapt resource value: 0x7f070075
-			public const int info = 2131165301;
+			// aapt resource value: 0x7f070085
+			public const int info = 2131165317;
 			
 			// aapt resource value: 0x7f070029
 			public const int insideInset = 2131165225;
@@ -4155,17 +4155,29 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
-			// aapt resource value: 0x7f070080
-			public const int ivSelArrow = 2131165312;
+			// aapt resource value: 0x7f070068
+			public const int ivEmptyView = 2131165288;
+			
+			// aapt resource value: 0x7f070073
+			public const int ivQQ = 2131165299;
+			
+			// aapt resource value: 0x7f070090
+			public const int ivSelArrow = 2131165328;
+			
+			// aapt resource value: 0x7f070075
+			public const int ivWechat = 2131165301;
+			
+			// aapt resource value: 0x7f070074
+			public const int ivWeibo = 2131165300;
 			
 			// aapt resource value: 0x7f070026
 			public const int line = 2131165222;
 			
-			// aapt resource value: 0x7f07007a
-			public const int line1 = 2131165306;
+			// aapt resource value: 0x7f07008a
+			public const int line1 = 2131165322;
 			
-			// aapt resource value: 0x7f07007c
-			public const int line3 = 2131165308;
+			// aapt resource value: 0x7f07008c
+			public const int line3 = 2131165324;
 			
 			// aapt resource value: 0x7f070030
 			public const int linear = 2131165232;
@@ -4176,26 +4188,44 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070039
 			public const int list_item = 2131165241;
 			
+			// aapt resource value: 0x7f070072
+			public const int mBtnFemale = 2131165298;
+			
+			// aapt resource value: 0x7f070071
+			public const int mBtnMale = 2131165297;
+			
+			// aapt resource value: 0x7f07006d
+			public const int mIvClose = 2131165293;
+			
+			// aapt resource value: 0x7f07006e
+			public const int mIvGender = 2131165294;
+			
+			// aapt resource value: 0x7f07006f
+			public const int mTvContent = 2131165295;
+			
+			// aapt resource value: 0x7f070070
+			public const int mTvSelect = 2131165296;
+			
 			// aapt resource value: 0x7f070031
 			public const int material = 2131165233;
 			
-			// aapt resource value: 0x7f07006e
-			public const int media_actions = 2131165294;
+			// aapt resource value: 0x7f07007e
+			public const int media_actions = 2131165310;
 			
-			// aapt resource value: 0x7f07008f
-			public const int menu_collect = 2131165327;
+			// aapt resource value: 0x7f07009f
+			public const int menu_collect = 2131165343;
 			
-			// aapt resource value: 0x7f07008c
-			public const int menu_major = 2131165324;
+			// aapt resource value: 0x7f07009c
+			public const int menu_major = 2131165340;
 			
-			// aapt resource value: 0x7f07008e
-			public const int menu_my_book_list = 2131165326;
+			// aapt resource value: 0x7f07009e
+			public const int menu_my_book_list = 2131165342;
 			
-			// aapt resource value: 0x7f070081
-			public const int menu_search = 2131165313;
+			// aapt resource value: 0x7f070091
+			public const int menu_search = 2131165329;
 			
-			// aapt resource value: 0x7f07008d
-			public const int menu_tags = 2131165325;
+			// aapt resource value: 0x7f07009d
+			public const int menu_tags = 2131165341;
 			
 			// aapt resource value: 0x7f07001d
 			public const int middle = 2131165213;
@@ -4212,14 +4242,14 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000b
 			public const int normal = 2131165195;
 			
-			// aapt resource value: 0x7f070077
-			public const int notification_background = 2131165303;
+			// aapt resource value: 0x7f070087
+			public const int notification_background = 2131165319;
 			
-			// aapt resource value: 0x7f070071
-			public const int notification_main_column = 2131165297;
+			// aapt resource value: 0x7f070081
+			public const int notification_main_column = 2131165313;
 			
-			// aapt resource value: 0x7f070070
-			public const int notification_main_column_container = 2131165296;
+			// aapt resource value: 0x7f070080
+			public const int notification_main_column_container = 2131165312;
 			
 			// aapt resource value: 0x7f07002b
 			public const int outsideInset = 2131165227;
@@ -4230,6 +4260,12 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003e
 			public const int parentPanel = 2131165246;
 			
+			// aapt resource value: 0x7f07006c
+			public const int progreebar_battery = 2131165292;
+			
+			// aapt resource value: 0x7f070076
+			public const int progress_bar = 2131165302;
+			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
 			
@@ -4239,11 +4275,17 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07004e
 			public const int radio = 2131165262;
 			
-			// aapt resource value: 0x7f070076
-			public const int right_icon = 2131165302;
+			// aapt resource value: 0x7f070066
+			public const int recyclerview = 2131165286;
 			
-			// aapt resource value: 0x7f070072
-			public const int right_side = 2131165298;
+			// aapt resource value: 0x7f070086
+			public const int right_icon = 2131165318;
+			
+			// aapt resource value: 0x7f070082
+			public const int right_side = 2131165314;
+			
+			// aapt resource value: 0x7f070067
+			public const int rl_empty_view = 2131165287;
 			
 			// aapt resource value: 0x7f07002f
 			public const int round = 2131165231;
@@ -4326,8 +4368,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070019
 			public const int src_over = 2131165209;
 			
-			// aapt resource value: 0x7f07006d
-			public const int status_bar_latest_event_content = 2131165293;
+			// aapt resource value: 0x7f07007d
+			public const int status_bar_latest_event_content = 2131165309;
 			
 			// aapt resource value: 0x7f07004f
 			public const int submenuarrow = 2131165263;
@@ -4338,11 +4380,11 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
 			
-			// aapt resource value: 0x7f07007d
-			public const int text = 2131165309;
+			// aapt resource value: 0x7f07008d
+			public const int text = 2131165325;
 			
-			// aapt resource value: 0x7f07007b
-			public const int text2 = 2131165307;
+			// aapt resource value: 0x7f07008b
+			public const int text2 = 2131165323;
 			
 			// aapt resource value: 0x7f070043
 			public const int textSpacerNoButtons = 2131165251;
@@ -4350,8 +4392,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070042
 			public const int textSpacerNoTitle = 2131165250;
 			
-			// aapt resource value: 0x7f070073
-			public const int time = 2131165299;
+			// aapt resource value: 0x7f070083
+			public const int time = 2131165315;
 			
 			// aapt resource value: 0x7f07003b
 			public const int title = 2131165243;
@@ -4371,11 +4413,14 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070028
 			public const int triangle = 2131165224;
 			
-			// aapt resource value: 0x7f07007f
-			public const int tvSelTitle = 2131165311;
+			// aapt resource value: 0x7f070069
+			public const int tvEmptyView = 2131165289;
 			
-			// aapt resource value: 0x7f070067
-			public const int tvSelTitleItem = 2131165287;
+			// aapt resource value: 0x7f07008f
+			public const int tvSelTitle = 2131165327;
+			
+			// aapt resource value: 0x7f07006b
+			public const int tvSelTitleItem = 2131165291;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -4385,6 +4430,9 @@ namespace Xamarin.BookReader
 			
 			// aapt resource value: 0x7f07002e
 			public const int vertical = 2131165230;
+			
+			// aapt resource value: 0x7f070077
+			public const int web_view = 2131165303;
 			
 			// aapt resource value: 0x7f070022
 			public const int withText = 2131165218;
@@ -4524,73 +4572,106 @@ namespace Xamarin.BookReader
 			public const int activity_community_girl_book_discussion = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int common_progress_view = 2130968607;
+			public const int common_easy_recyclerview = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int common_toolbar = 2130968608;
+			public const int common_empty_view = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int item_selection_view = 2130968609;
+			public const int common_error_view = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_action = 2130968610;
+			public const int common_more_view = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_action_tombstone = 2130968611;
+			public const int common_net_error_view = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_media_action = 2130968612;
+			public const int common_nomore_view = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int notification_media_cancel_action = 2130968613;
+			public const int common_progress_view = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int notification_template_big_media = 2130968614;
+			public const int common_toolbar = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int notification_template_big_media_custom = 2130968615;
+			public const int foot_view_shelf = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int notification_template_big_media_narrow = 2130968616;
+			public const int item_selection_view = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int notification_template_big_media_narrow_custom = 2130968617;
+			public const int layout_battery_progress = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int notification_template_custom_big = 2130968618;
+			public const int layout_gender_popup_window = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int notification_template_icon_group = 2130968619;
+			public const int layout_login_popup_window = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int notification_template_lines_media = 2130968620;
+			public const int layout_web_progress = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_template_media = 2130968621;
+			public const int notification_action = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_template_media_custom = 2130968622;
+			public const int notification_action_tombstone = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_template_part_chronometer = 2130968623;
+			public const int notification_media_action = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_template_part_time = 2130968624;
+			public const int notification_media_cancel_action = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int select_dialog_item_material = 2130968625;
+			public const int notification_template_big_media = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int select_dialog_multichoice_material = 2130968626;
+			public const int notification_template_big_media_custom = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int select_dialog_singlechoice_material = 2130968627;
+			public const int notification_template_big_media_narrow = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int support_simple_spinner_dropdown_item = 2130968628;
+			public const int notification_template_big_media_narrow_custom = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int view_selection = 2130968629;
+			public const int notification_template_custom_big = 2130968629;
+			
+			// aapt resource value: 0x7f040036
+			public const int notification_template_icon_group = 2130968630;
+			
+			// aapt resource value: 0x7f040037
+			public const int notification_template_lines_media = 2130968631;
+			
+			// aapt resource value: 0x7f040038
+			public const int notification_template_media = 2130968632;
+			
+			// aapt resource value: 0x7f040039
+			public const int notification_template_media_custom = 2130968633;
+			
+			// aapt resource value: 0x7f04003a
+			public const int notification_template_part_chronometer = 2130968634;
+			
+			// aapt resource value: 0x7f04003b
+			public const int notification_template_part_time = 2130968635;
+			
+			// aapt resource value: 0x7f04003c
+			public const int select_dialog_item_material = 2130968636;
+			
+			// aapt resource value: 0x7f04003d
+			public const int select_dialog_multichoice_material = 2130968637;
+			
+			// aapt resource value: 0x7f04003e
+			public const int select_dialog_singlechoice_material = 2130968638;
+			
+			// aapt resource value: 0x7f04003f
+			public const int support_simple_spinner_dropdown_item = 2130968639;
+			
+			// aapt resource value: 0x7f040040
+			public const int view_selection = 2130968640;
 			
 			static Layout()
 			{
