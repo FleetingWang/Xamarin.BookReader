@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Xamarin.BookReader.Models.Support
 {
-    public class RefreshCollectionIconEvent
+    public class RefreshCollectionIconEvent : Java.Lang.Object
     {
     }
 }

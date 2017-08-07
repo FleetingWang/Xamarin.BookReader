@@ -13,6 +13,7 @@ using Android.Widget;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Xamarin.BookReader.Bases;
+using Xamarin.BookReader.Managers;
 
 namespace Xamarin.BookReader.Views
 {

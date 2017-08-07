@@ -18,6 +18,7 @@ using Java.Lang;
 using Android.Content.Res;
 using Android.Support.V7.Widget;
 using AndroidResource = Android.Resource;
+using Android.Support.V4.Content;
 
 namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 {
@@ -79,7 +80,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
     private bool mReturningToStart;
     private DecelerateInterpolator mDecelerateInterpolator;
     private static int[] LAYOUT_ATTRS = new int[] {
-        Android.Resource.Attr.enabled
+        AndroidResource.Attribute.Enabled
     };
 
     private CircleImageView mCircleView;
@@ -113,46 +114,46 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 
     // Whether the client has set a custom starting position;
     private bool mUsingCustomStart;
-
+    private IAnimationListener mRefreshListener;
     //private IAnimationListener mRefreshListener = new AnimationListener() {
     //    @Override
     //    public void onAnimationStart(Animation animation) {
     //    }
 
-    //    @Override
-    //    public void onAnimationRepeat(Animation animation) {
-    //    }
+        //    @Override
+        //    public void onAnimationRepeat(Animation animation) {
+        //    }
 
-    //    @Override
-    //    public void onAnimationEnd(Animation animation) {
-    //        if (mRefreshing) {
-    //            // Make sure the progress view is fully visible
-    //            mProgress.setAlpha(MAX_ALPHA);
-    //            mProgress.start();
-    //            if (mNotify) {
-    //                if (mListener != null) {
-    //                    mListener.onRefresh();
-    //                }
-    //            }
-    //        } else {
-    //            mProgress.stop();
-    //            mCircleView.setVisibility(View.ViewStates.Gone);
-    //            setColorViewAlpha(MAX_ALPHA);
-    //            // Return the circle to its start position
-    //            if (mScale) {
-    //                setAnimationProgress(0 /* animation complete and view is hidden */);
-    //            } else {
-    //                setTargetOffsetTopAndBottom(mOriginalOffsetTop - mCurrentTargetOffsetTop,
-    //                        true /* requires update */);
-    //            }
-    //        }
-    //        mCurrentTargetOffsetTop = mCircleView.Top;
-    //    }
-    //};
+        //    @Override
+        //    public void onAnimationEnd(Animation animation) {
+        //        if (mRefreshing) {
+        //            // Make sure the progress view is fully visible
+        //            mProgress.setAlpha(MAX_ALPHA);
+        //            mProgress.start();
+        //            if (mNotify) {
+        //                if (mListener != null) {
+        //                    mListener.onRefresh();
+        //                }
+        //            }
+        //        } else {
+        //            mProgress.stop();
+        //            mCircleView.setVisibility(View.ViewStates.Gone);
+        //            setColorViewAlpha(MAX_ALPHA);
+        //            // Return the circle to its start position
+        //            if (mScale) {
+        //                setAnimationProgress(0 /* animation complete and view is hidden */);
+        //            } else {
+        //                setTargetOffsetTopAndBottom(mOriginalOffsetTop - mCurrentTargetOffsetTop,
+        //                        true /* requires update */);
+        //            }
+        //        }
+        //        mCurrentTargetOffsetTop = mCircleView.Top;
+        //    }
+        //};
 
-    private void setColorViewAlpha(int targetAlpha) {
-        mCircleView.getBackground().setAlpha(targetAlpha);
-        mProgress.setAlpha(targetAlpha);
+        private void setColorViewAlpha(int targetAlpha) {
+        mCircleView.Background.SetAlpha(targetAlpha);
+        mProgress.SetAlpha(targetAlpha);
     }
 
     /**
@@ -171,11 +172,11 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
      */
     public void setProgressViewOffset(bool scale, int start, int end) {
         mScale = scale;
-        mCircleView.setVisibility(View.ViewStates.Gone);
+            mCircleView.Visibility = ViewStates.Gone;
         mOriginalOffsetTop = mCurrentTargetOffsetTop = start;
         mSpinnerFinalOffset = end;
         mUsingCustomStart = true;
-        mCircleView.invalidate();
+        mCircleView.Invalidate();
     }
 
     /**
@@ -193,7 +194,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
     public void setProgressViewEndTarget(bool scale, int end) {
         mSpinnerFinalOffset = end;
         mScale = scale;
-        mCircleView.invalidate();
+        mCircleView.Invalidate();
     }
 
     /**
@@ -203,18 +204,18 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         if (size != MaterialProgressDrawable.LARGE && size != MaterialProgressDrawable.DEFAULT) {
             return;
         }
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        DisplayMetrics metrics = Resources.DisplayMetrics;
         if (size == MaterialProgressDrawable.LARGE) {
-            mCircleHeight = mCircleWidth = (int) (CIRCLE_DIAMETER_LARGE * metrics.density);
+            mCircleHeight = mCircleWidth = (int) (CIRCLE_DIAMETER_LARGE * metrics.Density);
         } else {
-            mCircleHeight = mCircleWidth = (int) (CIRCLE_DIAMETER * metrics.density);
+            mCircleHeight = mCircleWidth = (int) (CIRCLE_DIAMETER * metrics.Density);
         }
         // force the bounds of the progress circle inside the circle view to
         // update by setting it to null before updating its size and then
         // re-setting it
-        mCircleView.setImageDrawable(null);
+        mCircleView.SetImageDrawable(null);
         mProgress.updateSizes(size);
-        mCircleView.setImageDrawable(mProgress);
+        mCircleView.SetImageDrawable(mProgress);
     }
 
     /**
@@ -239,29 +240,29 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         {
         
 
-        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        mTouchSlop = ViewConfiguration.Get(context).ScaledTouchSlop;
 
-        mMediumAnimationDuration = getResources().getInteger(
-                AndroidResource.integer.config_mediumAnimTime);
+        mMediumAnimationDuration = Resources.GetInteger(
+                AndroidResource.Integer.ConfigMediumAnimTime);
 
-        setWillNotDraw(false);
+        SetWillNotDraw(false);
         mDecelerateInterpolator = new DecelerateInterpolator(DECELERATE_INTERPOLATION_FACTOR);
 
         TypedArray a = context.ObtainStyledAttributes(attrs, LAYOUT_ATTRS);
-        setEnabled(a.GetBoolean(0, true));
+        Enabled = (a.GetBoolean(0, true));
         a.Recycle();
 
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        mCircleWidth = (int) (CIRCLE_DIAMETER * metrics.density);
-        mCircleHeight = (int) (CIRCLE_DIAMETER * metrics.density);
+        DisplayMetrics metrics = Resources.DisplayMetrics;
+        mCircleWidth = (int) (CIRCLE_DIAMETER * metrics.Density);
+        mCircleHeight = (int) (CIRCLE_DIAMETER * metrics.Density);
 
         createProgressView();
-        ViewCompat.setChildrenDrawingOrderEnabled(this, true);
+        ViewCompat.SetChildrenDrawingOrderEnabled(this, true);
         // the absolute offset has to take into account that the circle starts at an offset
-        mSpinnerFinalOffset = DEFAULT_CIRCLE_TARGET * metrics.density;
+        mSpinnerFinalOffset = DEFAULT_CIRCLE_TARGET * metrics.Density;
         mTotalDragDistance = mSpinnerFinalOffset;
 
-        requestDisallowInterceptTouchEvent(true);
+        RequestDisallowInterceptTouchEvent(true);
     }
 
     protected int getChildDrawingOrder(int childCount, int i) {
@@ -280,12 +281,12 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
     }
 
     private void createProgressView() {
-        mCircleView = new CircleImageView(getContext(), CIRCLE_BG_LIGHT, CIRCLE_DIAMETER/2);
-        mProgress = new MaterialProgressDrawable(getContext(), this);
+        mCircleView = new CircleImageView(Context, CIRCLE_BG_LIGHT, CIRCLE_DIAMETER/2);
+        mProgress = new MaterialProgressDrawable(Context, this);
         mProgress.setBackgroundColor(CIRCLE_BG_LIGHT);
-        mCircleView.setImageDrawable(mProgress);
-        mCircleView.setVisibility(View.ViewStates.Gone);
-        addView(mCircleView);
+        mCircleView.SetImageDrawable(mProgress);
+            mCircleView.Visibility = ViewStates.Gone;
+        AddView(mCircleView);
     }
 
     /**
@@ -328,13 +329,14 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         }
     }
 
-    private void startScaleUpAnimation(AnimationListener listener) {
-        mCircleView.setVisibility(View.VISIBLE);
-        if (Build.VERSION.SdkInt >= 11) {
-            // Pre API 11, alpha is used in place of scale up to show the
-            // progress circle appearing.
-            // Don't adjust the alpha during appearance otherwise.
-            mProgress.setAlpha(MAX_ALPHA);
+    private void startScaleUpAnimation(IAnimationListener listener) {
+        mCircleView.Visibility = ViewStates.Visible;
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.Honeycomb)
+            { // 11
+              // Pre API 11, alpha is used in place of scale up to show the
+              // progress circle appearing.
+              // Don't adjust the alpha during appearance otherwise.
+                mProgress.SetAlpha(MAX_ALPHA);
         }
         //mScaleAnimation = new Animation() {
         //    @Override
@@ -342,12 +344,12 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         //        setAnimationProgress(interpolatedTime);
         //    }
         //};
-        mScaleAnimation.setDuration(mMediumAnimationDuration);
+        mScaleAnimation.Duration = (mMediumAnimationDuration);
         if (listener != null) {
             mCircleView.setAnimationListener(listener);
         }
-        mCircleView.clearAnimation();
-        mCircleView.startAnimation(mScaleAnimation);
+        mCircleView.ClearAnimation();
+        mCircleView.StartAnimation(mScaleAnimation);
     }
 
     /**
@@ -358,8 +360,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         if (isAlphaUsedForScale()) {
             setColorViewAlpha((int) (progress * MAX_ALPHA));
         } else {
-            ViewCompat.setScaleX(mCircleView, progress);
-            ViewCompat.setScaleY(mCircleView, progress);
+            ViewCompat.SetScaleX(mCircleView, progress);
+            ViewCompat.SetScaleY(mCircleView, progress);
         }
     }
 
@@ -376,25 +378,25 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         }
     }
 
-    private void startScaleDownAnimation(AnimationListener listener) {
+    private void startScaleDownAnimation(IAnimationListener listener) {
         //mScaleDownAnimation = new Animation() {
         //    @Override
         //    public void applyTransformation(float interpolatedTime, Transformation t) {
         //        setAnimationProgress(1 - interpolatedTime);
         //    }
         //};
-        mScaleDownAnimation.setDuration(SCALE_DOWN_DURATION);
+        mScaleDownAnimation.Duration = (SCALE_DOWN_DURATION);
         mCircleView.setAnimationListener(listener);
-        mCircleView.clearAnimation();
-        mCircleView.startAnimation(mScaleDownAnimation);
+        mCircleView.ClearAnimation();
+        mCircleView.StartAnimation(mScaleDownAnimation);
     }
 
     private void startProgressAlphaStartAnimation() {
-        mAlphaStartAnimation = startAlphaAnimation(mProgress.getAlpha(), STARTING_PROGRESS_ALPHA);
+        mAlphaStartAnimation = startAlphaAnimation(mProgress.Alpha, STARTING_PROGRESS_ALPHA);
     }
 
     private void startProgressAlphaMaxAnimation() {
-        mAlphaMaxAnimation = startAlphaAnimation(mProgress.getAlpha(), MAX_ALPHA);
+        mAlphaMaxAnimation = startAlphaAnimation(mProgress.Alpha, MAX_ALPHA);
     }
 
     private Animation startAlphaAnimation(int startingAlpha, int endingAlpha) {
@@ -403,19 +405,20 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         if (mScale && isAlphaUsedForScale()) {
             return null;
         }
-        //Animation alpha = new Animation() {
-        //    @Override
-        //    public void applyTransformation(float interpolatedTime, Transformation t) {
-        //        mProgress
-        //                .setAlpha((int) (startingAlpha+ ((endingAlpha - startingAlpha)
-        //                        * interpolatedTime)));
-        //    }
-        //};
-        alpha.setDuration(ALPHA_ANIMATION_DURATION);
+            Animation alpha = null;
+            //Animation alpha = new Animation() {
+            //    @Override
+            //    public void applyTransformation(float interpolatedTime, Transformation t) {
+            //        mProgress
+            //                .setAlpha((int) (startingAlpha+ ((endingAlpha - startingAlpha)
+            //                        * interpolatedTime)));
+            //    }
+            //};
+            alpha.Duration = (ALPHA_ANIMATION_DURATION);
         // Clear out the previous animation listeners.
         mCircleView.setAnimationListener(null);
-        mCircleView.clearAnimation();
-        mCircleView.startAnimation(alpha);
+        mCircleView.ClearAnimation();
+        mCircleView.StartAnimation(alpha);
         return alpha;
     }
 
@@ -433,7 +436,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
      * @param colorRes Resource id of the color.
      */
     public void setProgressBackgroundColorSchemeResource(int colorRes) {
-        setProgressBackgroundColorSchemeColor(getResources().GetColor(colorRes));
+        setProgressBackgroundColorSchemeColor(ContextCompat.GetColor(Context, colorRes));
     }
 
     /**
@@ -442,7 +445,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
      * @param color
      */
     public void setProgressBackgroundColorSchemeColor(int color) {
-        mCircleView.setBackgroundColor(color);
+        mCircleView.SetBackgroundColor(color);
         mProgress.setBackgroundColor(color);
     }
 
@@ -462,10 +465,9 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
      * @param colorResIds
      */
     public void setColorSchemeResources(int[] colorResIds) {
-        Resources res = getResources();
-        int[] colorRes = new int[colorResIds.length];
-        for (int i = 0; i < colorResIds.length; i++) {
-            colorRes[i] = res.GetColor(colorResIds[i]);
+        int[] colorRes = new int[colorResIds.Length];
+        for (int i = 0; i < colorResIds.Length; i++) {
+            colorRes[i] = ContextCompat.GetColor(Context, colorResIds[i]);
         }
         setColorSchemeColors(colorRes);
     }
@@ -496,7 +498,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         if (mTarget == null) {
             for (int i = 0; i < ChildCount; i++) {
                 View child = GetChildAt(i);
-                if (child.getClass().isAssignableFrom(RecyclerView.class)) {
+                if (child.GetType().IsAssignableFrom(typeof(RecyclerView))) {
                     mTarget = child;
                     break;
                 }
@@ -513,9 +515,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         mTotalDragDistance = distance;
     }
 
-    @Override
-    protected void onLayout(bool changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed,left,top,right,bottom);
+    protected override void OnLayout(bool changed, int left, int top, int right, int bottom) {
+        base.OnLayout(changed,left,top,right,bottom);
         int width = MeasuredWidth;
         int height = MeasuredHeight;
         if (ChildCount == 0) {
@@ -539,21 +540,20 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 (width / 2 + circleWidth / 2), mCurrentTargetOffsetTop + circleHeight);
     }
 
-    @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
         if (mTarget == null) {
             ensureTarget();
         }
         if (mTarget == null) {
             return;
         }
-        mTarget.measure(MeasureSpec.makeMeasureSpec(
+        mTarget.Measure(MeasureSpec.MakeMeasureSpec(
                 MeasuredWidth - PaddingLeft - PaddingRight,
-                MeasureSpecMode.Exactly), MeasureSpec.makeMeasureSpec(
+                MeasureSpecMode.Exactly), MeasureSpec.MakeMeasureSpec(
                 MeasuredHeight - PaddingTop - PaddingBottom, MeasureSpecMode.Exactly));
-        mCircleView.measure(MeasureSpec.makeMeasureSpec(mCircleWidth, MeasureSpecMode.Exactly),
-                MeasureSpec.makeMeasureSpec(mCircleHeight, MeasureSpecMode.Exactly));
+        mCircleView.Measure(MeasureSpec.MakeMeasureSpec(mCircleWidth, MeasureSpecMode.Exactly),
+                MeasureSpec.MakeMeasureSpec(mCircleHeight, MeasureSpecMode.Exactly));
         if (!mUsingCustomStart && !mOriginalOffsetCalculated) {
             mOriginalOffsetCalculated = true;
             mCurrentTargetOffsetTop = mOriginalOffsetTop = -mCircleView.MeasuredHeight;
@@ -586,41 +586,40 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
     public bool canChildScrollUp() {
 //        //For make it can work when my recycler view is in Gone.
 //        return false;
-        if (Build.VERSION.SdkInt < 14) {
-            if (mTarget is AbsListView) {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.IceCreamSandwich)
+            {// 14
+                if (mTarget is AbsListView) {
                 AbsListView absListView = (AbsListView) mTarget;
                 return absListView.ChildCount > 0
-                        && (absListView.getFirstVisiblePosition() > 0 || absListView.GetChildAt(0)
+                        && (absListView.FirstVisiblePosition > 0 || absListView.GetChildAt(0)
                                 .Top < absListView.PaddingTop);
             } else {
-                return ViewCompat.canScrollVertically(mTarget, -1) || mTarget.getScrollY() > 0;
+                return ViewCompat.CanScrollVertically(mTarget, -1) || mTarget.ScrollY > 0;
             }
         } else {
-            return ViewCompat.canScrollVertically(mTarget, -1);
+            return ViewCompat.CanScrollVertically(mTarget, -1);
         }
     }
 
-    @Override
-    public bool dispatchTouchEvent(MotionEvent ev) {
-        return super.dispatchTouchEvent(ev);
+    public override bool DispatchTouchEvent(MotionEvent ev) {
+        return base.DispatchTouchEvent(ev);
     }
 
-    @Override
-    public bool onInterceptTouchEvent(MotionEvent ev) {
+    public override bool OnInterceptTouchEvent(MotionEvent ev) {
         ensureTarget();
 
-        int action = MotionEventCompat.getActionMasked(ev);
-        if (mReturningToStart && action == MotionEvent.ACTION_DOWN) {
+        MotionEventActions action = ev.Action;
+        if (mReturningToStart && action == MotionEventActions.Down) {
             mReturningToStart = false;
         }
-        if (!isEnabled() || mReturningToStart || canChildScrollUp() || mRefreshing) {
+        if (!Enabled || mReturningToStart || canChildScrollUp() || mRefreshing) {
             // Fail fast if we're not in a state where a swipe is possible
             return false;
         }
         switch (action) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEventActions.Down:
                 setTargetOffsetTopAndBottom(mOriginalOffsetTop - mCircleView.Top, true);
-                mActivePointerId = MotionEventCompat.getPointerId(ev, 0);
+                mActivePointerId = ev.GetPointerId(0);
                 mIsBeingDragged = false;
                 float initialDownY = getMotionEventY(ev, mActivePointerId);
                 if (initialDownY == -1) {
@@ -629,9 +628,9 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 mInitialDownY = initialDownY;
                 break;
 
-            case MotionEvent.ACTION_MOVE:
+            case MotionEventActions.Move:
                 if (mActivePointerId == INVALID_POINTER) {
-                    Log.e(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
+                    Log.Error(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
                     return false;
                 }
 
@@ -643,16 +642,16 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 if (yDiff > mTouchSlop && !mIsBeingDragged) {
                     mInitialMotionY = mInitialDownY + mTouchSlop;
                     mIsBeingDragged = true;
-                    mProgress.setAlpha(STARTING_PROGRESS_ALPHA);
+                    mProgress.SetAlpha(STARTING_PROGRESS_ALPHA);
                 }
                 break;
 
-            case MotionEventCompat.ACTION_POINTER_UP:
+            case MotionEventActions.PointerUp:
                 onSecondaryPointerUp(ev);
                 break;
 
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
+            case MotionEventActions.Up:
+            case MotionEventActions.Cancel:
                 mIsBeingDragged = false;
                 mActivePointerId = INVALID_POINTER;
                 break;
@@ -661,51 +660,49 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
     }
 
     private float getMotionEventY(MotionEvent ev, int activePointerId) {
-        int index = MotionEventCompat.findPointerIndex(ev, activePointerId);
+        int index = ev.FindPointerIndex(activePointerId);
         if (index < 0) {
             return -1;
         }
-        return MotionEventCompat.getY(ev, index);
+        return ev.GetY(index);
     }
 
-    @Override
-    public void requestDisallowInterceptTouchEvent(bool b) {
+    public override void RequestDisallowInterceptTouchEvent(bool b) {
         // Nope.
         //Why Nope?
-        super.requestDisallowInterceptTouchEvent(b);
+        base.RequestDisallowInterceptTouchEvent(b);
     }
 
     private bool isAnimationRunning(Animation animation) {
-        return animation != null && animation.hasStarted() && !animation.hasEnded();
+        return animation != null && animation.HasStarted && !animation.HasEnded;
     }
 
-    @Override
-    public bool onTouchEvent(MotionEvent ev) {
-        int action = MotionEventCompat.getActionMasked(ev);
+    public override bool OnTouchEvent(MotionEvent ev) {
+            MotionEventActions action = ev.Action;
 
-        if (mReturningToStart && action == MotionEvent.ACTION_DOWN) {
+        if (mReturningToStart && action == MotionEventActions.Down) {
             mReturningToStart = false;
         }
 
-        if (!isEnabled() || mReturningToStart || canChildScrollUp()) {
+        if (!Enabled || mReturningToStart || canChildScrollUp()) {
             // Fail fast if we're not in a state where a swipe is possible
             return false;
         }
 
         switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                mActivePointerId = MotionEventCompat.getPointerId(ev, 0);
+            case MotionEventActions.Down:
+                mActivePointerId = ev.GetPointerId(0);
                 mIsBeingDragged = false;
                 break;
 
-            case MotionEvent.ACTION_MOVE: {
-                int pointerIndex = MotionEventCompat.findPointerIndex(ev, mActivePointerId);
+            case MotionEventActions.Move:
+                int pointerIndex = ev.FindPointerIndex(mActivePointerId);
                 if (pointerIndex < 0) {
-                    Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
+                    Log.Error(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
 
-                float y = MotionEventCompat.getY(ev, pointerIndex);
+                float y = ev.GetY(pointerIndex);
                 float overscrollTop = (y - mInitialMotionY) * DRAG_RATE;
                 if (mIsBeingDragged) {
 
@@ -714,41 +711,41 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                     if (originalDragPercent < 0) {
                         return false;
                     }
-                    float dragPercent = Math.min(1f, Math.abs(originalDragPercent));
-                    float adjustedPercent = (float) Math.Max(dragPercent - .4, 0) * 5 / 3;
-                    float extraOS = Math.abs(overscrollTop) - mTotalDragDistance;
+                    float dragPercent = System.Math.Min(1f, System.Math.Abs(originalDragPercent));
+                    float adjustedPercent = (float)System.Math.Max(dragPercent - .4, 0) * 5 / 3;
+                    float extraOS = System.Math.Abs(overscrollTop) - mTotalDragDistance;
                     float slingshotDist = mUsingCustomStart ? mSpinnerFinalOffset
                             - mOriginalOffsetTop : mSpinnerFinalOffset;
-                    float tensionSlingshotPercent = Math.Max(0,
-                            Math.min(extraOS, slingshotDist * 2) / slingshotDist);
-                    float tensionPercent = (float) ((tensionSlingshotPercent / 4) - Math.pow(
+                    float tensionSlingshotPercent = System.Math.Max(0,
+                            System.Math.Min(extraOS, slingshotDist * 2) / slingshotDist);
+                    float tensionPercent = (float) ((tensionSlingshotPercent / 4) - System.Math.Pow(
                             (tensionSlingshotPercent / 4), 2)) * 2f;
                     float extraMove = (slingshotDist) * tensionPercent * 2;
 
                     int targetY = mOriginalOffsetTop
                             + (int) ((slingshotDist * dragPercent) + extraMove);
                     // where 1.0f is a full circle
-                    if (mCircleView.Visibility != View.VISIBLE) {
-                        mCircleView.setVisibility(View.VISIBLE);
+                    if (mCircleView.Visibility != ViewStates.Visible) {
+                        mCircleView.Visibility = ViewStates.Visible;
                     }
                     if (!mScale) {
-                        ViewCompat.setScaleX(mCircleView, 1f);
-                        ViewCompat.setScaleY(mCircleView, 1f);
+                        ViewCompat.SetScaleX(mCircleView, 1f);
+                        ViewCompat.SetScaleY(mCircleView, 1f);
                     }
                     if (overscrollTop < mTotalDragDistance) {
                         if (mScale) {
                             setAnimationProgress(overscrollTop / mTotalDragDistance);
                         }
-                        if (mProgress.getAlpha() > STARTING_PROGRESS_ALPHA
+                        if (mProgress.Alpha > STARTING_PROGRESS_ALPHA
                                 && !isAnimationRunning(mAlphaStartAnimation)) {
                             // Animate the alpha
                             startProgressAlphaStartAnimation();
                         }
                         float strokeStart = adjustedPercent * .8f;
-                        mProgress.setStartEndTrim(0f, Math.min(MAX_PROGRESS_ANGLE, strokeStart));
-                        mProgress.setArrowScale(Math.min(1f, adjustedPercent));
+                        mProgress.setStartEndTrim(0f, System.Math.Min(MAX_PROGRESS_ANGLE, strokeStart));
+                        mProgress.setArrowScale(System.Math.Min(1f, adjustedPercent));
                     } else {
-                        if (mProgress.getAlpha() < MAX_ALPHA
+                        if (mProgress.Alpha < MAX_ALPHA
                                 && !isAnimationRunning(mAlphaMaxAnimation)) {
                             // Animate the alpha
                             startProgressAlphaMaxAnimation();
@@ -760,55 +757,55 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                             true /* requires update */);
                 }
                 break;
-            }
-            case MotionEventCompat.ACTION_POINTER_DOWN: {
-                int index = MotionEventCompat.getActionIndex(ev);
-                mActivePointerId = MotionEventCompat.getPointerId(ev, index);
-                break;
-            }
+            
+            //case MotionEventActions.Down: 
+            //    int index = ev.ActionIndex;
+            //    mActivePointerId = ev.GetPointerId(index);
+            //    break;
+            
 
-            case MotionEventCompat.ACTION_POINTER_UP:
+            case MotionEventActions.PointerUp:
                 onSecondaryPointerUp(ev);
                 break;
 
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL: {
+            case MotionEventActions.Up:
+            case MotionEventActions.Cancel: {
                 if (mActivePointerId == INVALID_POINTER) {
-                    if (action == MotionEvent.ACTION_UP) {
-                        Log.e(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
+                    if (action == MotionEventActions.Up) {
+                        Log.Error(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
                     }
                     return false;
                 }
-                int pointerIndex = MotionEventCompat.findPointerIndex(ev, mActivePointerId);
-                float y = MotionEventCompat.getY(ev, pointerIndex);
-                float overscrollTop = (y - mInitialMotionY) * DRAG_RATE;
+                int pointerIndex0 = ev.FindPointerIndex(mActivePointerId);
+                float y0 = ev.GetY(pointerIndex0);
+                float overscrollTop0 = (y0 - mInitialMotionY) * DRAG_RATE;
                 mIsBeingDragged = false;
-                if (overscrollTop > mTotalDragDistance) {
+                if (overscrollTop0 > mTotalDragDistance) {
                     setRefreshing(true, true /* notify */);
                 } else {
                     // cancel refresh
                     mRefreshing = false;
                     mProgress.setStartEndTrim(0f, 0f);
-                    AnimationListener listener = null;
+                    IAnimationListener listener = null;
                     if (!mScale) {
-                        listener = new AnimationListener() {
+                        //listener = new AnimationListener() {
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                            }
+                        //    @Override
+                        //    public void onAnimationStart(Animation animation) {
+                        //    }
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-                                if (!mScale) {
-                                    startScaleDownAnimation(null);
-                                }
-                            }
+                        //    @Override
+                        //    public void onAnimationEnd(Animation animation) {
+                        //        if (!mScale) {
+                        //            startScaleDownAnimation(null);
+                        //        }
+                        //    }
 
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-                            }
+                        //    @Override
+                        //    public void onAnimationRepeat(Animation animation) {
+                        //    }
 
-                        };
+                        //};
                     }
                     animateOffsetToStartPosition(mCurrentTargetOffsetTop, listener);
                     mProgress.showArrow(false);
@@ -820,107 +817,107 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         return true;
     }
 
-    private void animateOffsetToCorrectPosition(int from, AnimationListener listener) {
+    private void animateOffsetToCorrectPosition(int from, IAnimationListener listener) {
         mFrom = from;
-        mAnimateToCorrectPosition.reset();
-        mAnimateToCorrectPosition.setDuration(ANIMATE_TO_TRIGGER_DURATION);
-        mAnimateToCorrectPosition.setInterpolator(mDecelerateInterpolator);
+        mAnimateToCorrectPosition.Reset();
+        mAnimateToCorrectPosition.Duration = (ANIMATE_TO_TRIGGER_DURATION);
+        mAnimateToCorrectPosition.Interpolator = (mDecelerateInterpolator);
         if (listener != null) {
             mCircleView.setAnimationListener(listener);
         }
-        mCircleView.clearAnimation();
-        mCircleView.startAnimation(mAnimateToCorrectPosition);
+        mCircleView.ClearAnimation();
+        mCircleView.StartAnimation(mAnimateToCorrectPosition);
     }
 
-    private void animateOffsetToStartPosition(int from, AnimationListener listener) {
+    private void animateOffsetToStartPosition(int from, IAnimationListener listener) {
         if (mScale) {
             // Scale the item back down
             startScaleDownReturnToStartAnimation(from, listener);
         } else {
             mFrom = from;
-            mAnimateToStartPosition.reset();
-            mAnimateToStartPosition.setDuration(ANIMATE_TO_START_DURATION);
-            mAnimateToStartPosition.setInterpolator(mDecelerateInterpolator);
+            mAnimateToStartPosition.Reset();
+            mAnimateToStartPosition.Duration = (ANIMATE_TO_START_DURATION);
+            mAnimateToStartPosition.Interpolator = (mDecelerateInterpolator);
             if (listener != null) {
                 mCircleView.setAnimationListener(listener);
             }
-            mCircleView.clearAnimation();
-            mCircleView.startAnimation(mAnimateToStartPosition);
+            mCircleView.ClearAnimation();
+            mCircleView.StartAnimation(mAnimateToStartPosition);
         }
     }
+        private Animation mAnimateToCorrectPosition;
+    //private Animation mAnimateToCorrectPosition = new Animation() {
+    //    @Override
+    //    public void applyTransformation(float interpolatedTime, Transformation t) {
+    //        int targetTop = 0;
+    //        int endTarget = 0;
+    //        if (!mUsingCustomStart) {
+    //            endTarget = (int) (mSpinnerFinalOffset - Math.abs(mOriginalOffsetTop));
+    //        } else {
+    //            endTarget = (int) mSpinnerFinalOffset;
+    //        }
+    //        targetTop = (mFrom + (int) ((endTarget - mFrom) * interpolatedTime));
+    //        int offset = targetTop - mCircleView.Top;
+    //        setTargetOffsetTopAndBottom(offset, false /* requires update */);
+    //        mProgress.setArrowScale(1 - interpolatedTime);
+    //    }
+    //};
 
-    private Animation mAnimateToCorrectPosition = new Animation() {
-        @Override
-        public void applyTransformation(float interpolatedTime, Transformation t) {
-            int targetTop = 0;
-            int endTarget = 0;
-            if (!mUsingCustomStart) {
-                endTarget = (int) (mSpinnerFinalOffset - Math.abs(mOriginalOffsetTop));
-            } else {
-                endTarget = (int) mSpinnerFinalOffset;
-            }
-            targetTop = (mFrom + (int) ((endTarget - mFrom) * interpolatedTime));
-            int offset = targetTop - mCircleView.Top;
-            setTargetOffsetTopAndBottom(offset, false /* requires update */);
-            mProgress.setArrowScale(1 - interpolatedTime);
-        }
-    };
-
-    private void moveToStart(float interpolatedTime) {
+        private void moveToStart(float interpolatedTime) {
         int targetTop = 0;
         targetTop = (mFrom + (int) ((mOriginalOffsetTop - mFrom) * interpolatedTime));
         int offset = targetTop - mCircleView.Top;
         setTargetOffsetTopAndBottom(offset, false /* requires update */);
     }
+        private Animation mAnimateToStartPosition;
+    //private Animation mAnimateToStartPosition = new Animation() {
+    //    @Override
+    //    public void applyTransformation(float interpolatedTime, Transformation t) {
+    //        moveToStart(interpolatedTime);
+    //    }
+    //};
 
-    private Animation mAnimateToStartPosition = new Animation() {
-        @Override
-        public void applyTransformation(float interpolatedTime, Transformation t) {
-            moveToStart(interpolatedTime);
-        }
-    };
-
-    private void startScaleDownReturnToStartAnimation(int from,
-            AnimationListener listener) {
+        private void startScaleDownReturnToStartAnimation(int from,
+            IAnimationListener listener) {
         mFrom = from;
         if (isAlphaUsedForScale()) {
-            mStartingScale = mProgress.getAlpha();
+            mStartingScale = mProgress.Alpha;
         } else {
-            mStartingScale = ViewCompat.getScaleX(mCircleView);
+            mStartingScale = ViewCompat.GetScaleX(mCircleView);
         }
-        mScaleDownToStartAnimation = new Animation() {
-            @Override
-            public void applyTransformation(float interpolatedTime, Transformation t) {
-                float targetScale = (mStartingScale + (-mStartingScale  * interpolatedTime));
-                setAnimationProgress(targetScale);
-                moveToStart(interpolatedTime);
-            }
-        };
-        mScaleDownToStartAnimation.setDuration(SCALE_DOWN_DURATION);
+        //mScaleDownToStartAnimation = new Animation() {
+        //    @Override
+        //    public void applyTransformation(float interpolatedTime, Transformation t) {
+        //        float targetScale = (mStartingScale + (-mStartingScale  * interpolatedTime));
+        //        setAnimationProgress(targetScale);
+        //        moveToStart(interpolatedTime);
+        //    }
+        //};
+        mScaleDownToStartAnimation.Duration = (SCALE_DOWN_DURATION);
         if (listener != null) {
             mCircleView.setAnimationListener(listener);
         }
-        mCircleView.clearAnimation();
-        mCircleView.startAnimation(mScaleDownToStartAnimation);
+        mCircleView.ClearAnimation();
+        mCircleView.StartAnimation(mScaleDownToStartAnimation);
     }
 
     private void setTargetOffsetTopAndBottom(int offset, bool requiresUpdate) {
-        mCircleView.bringToFront();
-        mCircleView.offsetTopAndBottom(offset);
+        mCircleView.BringToFront();
+        mCircleView.OffsetTopAndBottom(offset);
         mCurrentTargetOffsetTop = mCircleView.Top;
-        if (requiresUpdate && Build.VERSION.SdkInt < 11) {
-            invalidate();
+        if (requiresUpdate && Build.VERSION.SdkInt < BuildVersionCodes.Honeycomb) {
+            Invalidate();
         }
     }
 
     private void onSecondaryPointerUp(MotionEvent ev) {
-        int pointerIndex = MotionEventCompat.getActionIndex(ev);
-        int pointerId = MotionEventCompat.getPointerId(ev, pointerIndex);
+        int pointerIndex = ev.ActionIndex;
+        int pointerId = ev.GetPointerId(pointerIndex);
         if (pointerId == mActivePointerId) {
             // This was our active pointer going up. Choose a new
             // active pointer and adjust accordingly.
             int newPointerIndex = pointerIndex == 0 ? 1 : 0;
-            mActivePointerId = MotionEventCompat.getPointerId(ev, newPointerIndex);
+            mActivePointerId = ev.GetPointerId(newPointerIndex);
         }
     }
     }

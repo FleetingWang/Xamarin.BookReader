@@ -13,7 +13,7 @@ using Android.Util;
 
 namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
 {
-    public class DefaultEventDelegate<T> : Java.Lang.Object, IEventDelegate
+    public class DefaultEventDelegate<T> : Java.Lang.Object, IEventDelegate where T:class
     {
         private Adapters.RecyclerArrayAdapter<T> adapter;
         private EventFooter footer;

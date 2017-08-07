@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Xamarin.BookReader.Models.Support
 {
-    public class SubEvent
+    public class SubEvent: Java.Lang.Object
     {
         public String minor;
 
