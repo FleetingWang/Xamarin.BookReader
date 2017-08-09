@@ -116,7 +116,7 @@
                     android:layout_below="@id/ivBookCover"
                     android:layout_marginTop="10dp">
 
-                    <com.justwayward.reader.view.DrawableCenterButton
+                    <xamarin.bookreader.views.DrawableCenterButton
                         android:id="@+id/btnJoinCollection"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                         android:text="@string/book_detail_join_collection"
                         android:textColor="@color/white" />
 
-                    <com.justwayward.reader.view.DrawableCenterButton
+                    <xamarin.bookreader.views.DrawableCenterButton
                         android:id="@+id/btnRead"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                 android:layout_margin="10dp"
                 android:background="@color/common_divider_narrow" />
 
-            <com.justwayward.reader.view.TagGroup
+            <xamarin.bookreader.views.TagGroup
                 android:id="@+id/tag_group"
                 style="@style/TagGroup"
                 android:layout_marginLeft="15dp"

@@ -23,7 +23,7 @@
 
     <include layout="@layout/common_toolbar" />
 
-    <com.justwayward.reader.view.recyclerview.EasyRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <xamarin.bookreader.views.recyclerviews.EasyRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

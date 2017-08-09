@@ -21,7 +21,7 @@
     android:orientation="horizontal"
     android:padding="5dp">
 
-    <com.justwayward.reader.view.LetterView
+    <xamarin.bookreader.views.LetterView
         android:id="@+id/letter_view"
         android:layout_width="40dp"
         android:layout_height="40dp" />

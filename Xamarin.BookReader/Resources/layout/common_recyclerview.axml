@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<com.justwayward.reader.view.recyclerview.swipe.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<xamarin.bookreader.views.recyclerviews.swipes.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ptr_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -55,4 +55,4 @@
         android:textColor="@color/white"
         android:visibility="gone"/>
 
-</com.justwayward.reader.view.recyclerview.swipe.SwipeRefreshLayout>
+</xamarin.bookreader.views.recyclerviews.swipes.SwipeRefreshLayout>

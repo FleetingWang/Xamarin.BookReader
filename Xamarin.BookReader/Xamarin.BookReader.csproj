@@ -254,6 +254,63 @@
     <AndroidResource Include="Resources\layout\layout_gender_popup_window.axml" />
     <AndroidResource Include="Resources\layout\layout_battery_progress.axml" />
     <AndroidResource Include="Resources\layout\layout_web_progress.axml" />
+    <AndroidResource Include="Resources\layout\activity_book_detail.axml" />
+    <AndroidResource Include="Resources\layout\activity_book_detail_community.axml" />
+    <AndroidResource Include="Resources\layout\activity_books_by_tag.axml" />
+    <AndroidResource Include="Resources\layout\activity_common_recyclerview.axml" />
+    <AndroidResource Include="Resources\layout\activity_community_book_discussion_detail.axml" />
+    <AndroidResource Include="Resources\layout\activity_feedback.axml" />
+    <AndroidResource Include="Resources\layout\activity_main.axml" />
+    <AndroidResource Include="Resources\layout\activity_read.axml" />
+    <AndroidResource Include="Resources\layout\activity_read_chm.axml" />
+    <AndroidResource Include="Resources\layout\activity_read_pdf.axml" />
+    <AndroidResource Include="Resources\layout\activity_scan_local_book.axml" />
+    <AndroidResource Include="Resources\layout\activity_search.axml" />
+    <AndroidResource Include="Resources\layout\activity_setting.axml" />
+    <AndroidResource Include="Resources\layout\activity_splash.axml" />
+    <AndroidResource Include="Resources\layout\activity_sub_category_list.axml" />
+    <AndroidResource Include="Resources\layout\activity_sub_rank.axml" />
+    <AndroidResource Include="Resources\layout\activity_subject_book_list_detail.axml" />
+    <AndroidResource Include="Resources\layout\activity_subject_book_list_tag.axml" />
+    <AndroidResource Include="Resources\layout\activity_top_category_list.axml" />
+    <AndroidResource Include="Resources\layout\activity_top_rank.axml" />
+    <AndroidResource Include="Resources\layout\activity_wifi_book.axml" />
+    <AndroidResource Include="Resources\layout\bookshelf_empty_view.axml" />
+    <AndroidResource Include="Resources\layout\common_recyclerview.axml" />
+    <AndroidResource Include="Resources\layout\fragment_find.axml" />
+    <AndroidResource Include="Resources\layout\fragment_recommend.axml" />
+    <AndroidResource Include="Resources\layout\header_view_book_discussion_detail.axml" />
+    <AndroidResource Include="Resources\layout\header_view_book_list_detail.axml" />
+    <AndroidResource Include="Resources\layout\header_view_book_review_detail.axml" />
+    <AndroidResource Include="Resources\layout\item_auto_complete_list.axml" />
+    <AndroidResource Include="Resources\layout\item_book_detai_hot_review_list.axml" />
+    <AndroidResource Include="Resources\layout\item_book_detail_recommend_book_list.axml" />
+    <AndroidResource Include="Resources\layout\item_book_read_toc_list.axml" />
+    <AndroidResource Include="Resources\layout\item_book_source.axml" />
+    <AndroidResource Include="Resources\layout\item_comment_best_list.axml" />
+    <AndroidResource Include="Resources\layout\item_comment_list.axml" />
+    <AndroidResource Include="Resources\layout\item_community_book_discussion_list.axml" />
+    <AndroidResource Include="Resources\layout\item_community_book_help_list.axml" />
+    <AndroidResource Include="Resources\layout\item_community_book_review_list.axml" />
+    <AndroidResource Include="Resources\layout\item_find.axml" />
+    <AndroidResource Include="Resources\layout\item_minor_list.axml" />
+    <AndroidResource Include="Resources\layout\item_read_mark.axml" />
+    <AndroidResource Include="Resources\layout\item_read_theme.axml" />
+    <AndroidResource Include="Resources\layout\item_recommend_list.axml" />
+    <AndroidResource Include="Resources\layout\item_scan_local_book.axml" />
+    <AndroidResource Include="Resources\layout\item_search_history.axml" />
+    <AndroidResource Include="Resources\layout\item_search_result_list.axml" />
+    <AndroidResource Include="Resources\layout\item_sub_category_list.axml" />
+    <AndroidResource Include="Resources\layout\item_subject_book_list_detail.axml" />
+    <AndroidResource Include="Resources\layout\item_subject_tag_list.axml" />
+    <AndroidResource Include="Resources\layout\item_subject_tags_list.axml" />
+    <AndroidResource Include="Resources\layout\item_tag_book_list.axml" />
+    <AndroidResource Include="Resources\layout\item_top_category_list.axml" />
+    <AndroidResource Include="Resources\layout\item_top_rank_child.axml" />
+    <AndroidResource Include="Resources\layout\item_top_rank_group.axml" />
+    <AndroidResource Include="Resources\layout\layout_read_aa_set.axml" />
+    <AndroidResource Include="Resources\layout\layout_read_mark.axml" />
+    <AndroidResource Include="Resources\layout\view_pdf_page.axml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -866,7 +923,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values-w820dp\dimens.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UI\Activities\" />
+    <Folder Include="UI\Adapters\" />
+    <Folder Include="UI\EasyAdapters\" />
+    <Folder Include="UI\Fragments\" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\uploader\bg_drag.png" />
   </ItemGroup>

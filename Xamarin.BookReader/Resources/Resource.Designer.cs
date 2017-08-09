@@ -3960,8 +3960,11 @@ namespace Xamarin.BookReader
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07007b
-			public const int action0 = 2131165307;
+			// aapt resource value: 0x7f0700ac
+			public const int aboutUs = 2131165356;
+			
+			// aapt resource value: 0x7f070135
+			public const int action0 = 2131165493;
 			
 			// aapt resource value: 0x7f070055
 			public const int action_bar = 2131165269;
@@ -3984,23 +3987,23 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070032
 			public const int action_bar_title = 2131165234;
 			
-			// aapt resource value: 0x7f070078
-			public const int action_container = 2131165304;
+			// aapt resource value: 0x7f070132
+			public const int action_container = 2131165490;
 			
 			// aapt resource value: 0x7f070056
 			public const int action_context_bar = 2131165270;
 			
-			// aapt resource value: 0x7f07007f
-			public const int action_divider = 2131165311;
+			// aapt resource value: 0x7f070139
+			public const int action_divider = 2131165497;
 			
-			// aapt resource value: 0x7f070099
-			public const int action_feedback = 2131165337;
+			// aapt resource value: 0x7f070155
+			public const int action_feedback = 2131165525;
 			
-			// aapt resource value: 0x7f070079
-			public const int action_image = 2131165305;
+			// aapt resource value: 0x7f070133
+			public const int action_image = 2131165491;
 			
-			// aapt resource value: 0x7f070094
-			public const int action_login = 2131165332;
+			// aapt resource value: 0x7f070150
+			public const int action_login = 2131165520;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -4017,38 +4020,41 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070034
 			public const int action_mode_close_button = 2131165236;
 			
-			// aapt resource value: 0x7f070095
-			public const int action_my_message = 2131165333;
+			// aapt resource value: 0x7f070151
+			public const int action_my_message = 2131165521;
 			
-			// aapt resource value: 0x7f07009a
-			public const int action_night_mode = 2131165338;
+			// aapt resource value: 0x7f070156
+			public const int action_night_mode = 2131165526;
 			
-			// aapt resource value: 0x7f070097
-			public const int action_scan_local_book = 2131165335;
+			// aapt resource value: 0x7f070153
+			public const int action_scan_local_book = 2131165523;
 			
-			// aapt resource value: 0x7f070093
-			public const int action_search = 2131165331;
+			// aapt resource value: 0x7f07014f
+			public const int action_search = 2131165519;
 			
-			// aapt resource value: 0x7f07009b
-			public const int action_settings = 2131165339;
+			// aapt resource value: 0x7f070157
+			public const int action_settings = 2131165527;
 			
-			// aapt resource value: 0x7f070092
-			public const int action_sort = 2131165330;
+			// aapt resource value: 0x7f07014e
+			public const int action_sort = 2131165518;
 			
-			// aapt resource value: 0x7f070096
-			public const int action_sync_bookshelf = 2131165334;
+			// aapt resource value: 0x7f070152
+			public const int action_sync_bookshelf = 2131165522;
 			
-			// aapt resource value: 0x7f07007a
-			public const int action_text = 2131165306;
+			// aapt resource value: 0x7f070134
+			public const int action_text = 2131165492;
 			
-			// aapt resource value: 0x7f070098
-			public const int action_wifi_book = 2131165336;
+			// aapt resource value: 0x7f070154
+			public const int action_wifi_book = 2131165524;
 			
-			// aapt resource value: 0x7f070088
-			public const int actions = 2131165320;
+			// aapt resource value: 0x7f070142
+			public const int actions = 2131165506;
 			
 			// aapt resource value: 0x7f070035
 			public const int activity_chooser_view_content = 2131165237;
+			
+			// aapt resource value: 0x7f070091
+			public const int activity_main = 2131165329;
 			
 			// aapt resource value: 0x7f070014
 			public const int add = 2131165204;
@@ -4065,26 +4071,53 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070025
 			public const int bitmap = 2131165221;
 			
+			// aapt resource value: 0x7f07009f
+			public const int bookshelfSort = 2131165343;
+			
 			// aapt resource value: 0x7f070023
 			public const int bottom = 2131165219;
+			
+			// aapt resource value: 0x7f07006a
+			public const int btnJoinCollection = 2131165290;
+			
+			// aapt resource value: 0x7f07006b
+			public const int btnRead = 2131165291;
+			
+			// aapt resource value: 0x7f0700dc
+			public const int btnShare = 2131165404;
+			
+			// aapt resource value: 0x7f0700c5
+			public const int btnToAdd = 2131165381;
 			
 			// aapt resource value: 0x7f07003c
 			public const int buttonPanel = 2131165244;
 			
-			// aapt resource value: 0x7f07007c
-			public const int cancel_action = 2131165308;
+			// aapt resource value: 0x7f070136
+			public const int cancel_action = 2131165494;
+			
+			// aapt resource value: 0x7f07012b
+			public const int cbAutoBrightness = 2131165483;
+			
+			// aapt resource value: 0x7f07012a
+			public const int cbVolume = 2131165482;
 			
 			// aapt resource value: 0x7f07004c
 			public const int checkbox = 2131165260;
 			
-			// aapt resource value: 0x7f070084
-			public const int chronometer = 2131165316;
+			// aapt resource value: 0x7f07013e
+			public const int chronometer = 2131165502;
+			
+			// aapt resource value: 0x7f070100
+			public const int ckBoxSelect = 2131165440;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int cleanCache = 2131165360;
 			
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
-			// aapt resource value: 0x7f07006a
-			public const int common_toolbar = 2131165290;
+			// aapt resource value: 0x7f07009d
+			public const int common_toolbar = 2131165341;
 			
 			// aapt resource value: 0x7f07003f
 			public const int contentPanel = 2131165247;
@@ -4104,14 +4137,29 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000d
 			public const int disableHome = 2131165197;
 			
+			// aapt resource value: 0x7f0700aa
+			public const int disclaimer = 2131165354;
+			
 			// aapt resource value: 0x7f070057
 			public const int edit_query = 2131165271;
+			
+			// aapt resource value: 0x7f0700bc
+			public const int elvFeMale = 2131165372;
+			
+			// aapt resource value: 0x7f0700bb
+			public const int elvMale = 2131165371;
+			
+			// aapt resource value: 0x7f0700c7
+			public const int empty = 2131165383;
 			
 			// aapt resource value: 0x7f07001c
 			public const int end = 2131165212;
 			
-			// aapt resource value: 0x7f07008e
-			public const int end_padder = 2131165326;
+			// aapt resource value: 0x7f070148
+			public const int end_padder = 2131165512;
+			
+			// aapt resource value: 0x7f0700c9
+			public const int error = 2131165385;
 			
 			// aapt resource value: 0x7f070036
 			public const int expand_activities_button = 2131165238;
@@ -4119,8 +4167,20 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07004b
 			public const int expanded_menu = 2131165259;
 			
-			// aapt resource value: 0x7f070065
-			public const int fragmentCO = 2131165285;
+			// aapt resource value: 0x7f0700ae
+			public const int feedBack = 2131165358;
+			
+			// aapt resource value: 0x7f07007e
+			public const int feedbackView = 2131165310;
+			
+			// aapt resource value: 0x7f070082
+			public const int flReadWidget = 2131165314;
+			
+			// aapt resource value: 0x7f07007d
+			public const int fragmentCO = 2131165309;
+			
+			// aapt resource value: 0x7f07012c
+			public const int gvTheme = 2131165484;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -4134,8 +4194,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003a
 			public const int icon = 2131165242;
 			
-			// aapt resource value: 0x7f070089
-			public const int icon_group = 2131165321;
+			// aapt resource value: 0x7f070143
+			public const int icon_group = 2131165507;
 			
 			// aapt resource value: 0x7f070020
 			public const int ifRoom = 2131165216;
@@ -4143,8 +4203,23 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070037
 			public const int image = 2131165239;
 			
-			// aapt resource value: 0x7f070085
-			public const int info = 2131165317;
+			// aapt resource value: 0x7f07014a
+			public const int imageView = 2131165514;
+			
+			// aapt resource value: 0x7f07007f
+			public const int indicator = 2131165311;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int indicatorSub = 2131165363;
+			
+			// aapt resource value: 0x7f070078
+			public const int indicatorSubRank = 2131165304;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int indicatorSubject = 2131165365;
+			
+			// aapt resource value: 0x7f07013f
+			public const int info = 2131165503;
 			
 			// aapt resource value: 0x7f070029
 			public const int insideInset = 2131165225;
@@ -4155,29 +4230,95 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
-			// aapt resource value: 0x7f070068
-			public const int ivEmptyView = 2131165288;
+			// aapt resource value: 0x7f0700da
+			public const int ivAuthorAvatar = 2131165402;
 			
-			// aapt resource value: 0x7f070073
-			public const int ivQQ = 2131165299;
+			// aapt resource value: 0x7f070084
+			public const int ivBack = 2131165316;
 			
-			// aapt resource value: 0x7f070090
-			public const int ivSelArrow = 2131165328;
+			// aapt resource value: 0x7f070064
+			public const int ivBookCover = 2131165284;
 			
-			// aapt resource value: 0x7f070075
-			public const int ivWechat = 2131165301;
+			// aapt resource value: 0x7f0700e9
+			public const int ivBookListCover = 2131165417;
 			
-			// aapt resource value: 0x7f070074
-			public const int ivWeibo = 2131165300;
+			// aapt resource value: 0x7f070124
+			public const int ivBrightnessMinus = 2131165476;
+			
+			// aapt resource value: 0x7f070126
+			public const int ivBrightnessPlus = 2131165478;
+			
+			// aapt resource value: 0x7f0700c3
+			public const int ivEmptyView = 2131165379;
+			
+			// aapt resource value: 0x7f0700f6
+			public const int ivIcon = 2131165430;
+			
+			// aapt resource value: 0x7f0700e6
+			public const int ivIconSeach = 2131165414;
+			
+			// aapt resource value: 0x7f0700f8
+			public const int ivMinorChecked = 2131165432;
+			
+			// aapt resource value: 0x7f0700d3
+			public const int ivMore = 2131165395;
+			
+			// aapt resource value: 0x7f070120
+			public const int ivQQ = 2131165472;
+			
+			// aapt resource value: 0x7f070118
+			public const int ivRankArrow = 2131165464;
+			
+			// aapt resource value: 0x7f070116
+			public const int ivRankCover = 2131165462;
+			
+			// aapt resource value: 0x7f0700fc
+			public const int ivRecommendCover = 2131165436;
+			
+			// aapt resource value: 0x7f07014c
+			public const int ivSelArrow = 2131165516;
+			
+			// aapt resource value: 0x7f0700fb
+			public const int ivSelected = 2131165435;
+			
+			// aapt resource value: 0x7f0700d4
+			public const int ivShare = 2131165396;
+			
+			// aapt resource value: 0x7f070105
+			public const int ivSubCateCover = 2131165445;
+			
+			// aapt resource value: 0x7f0700fa
+			public const int ivThemeBg = 2131165434;
+			
+			// aapt resource value: 0x7f0700ff
+			public const int ivTopLabel = 2131165439;
+			
+			// aapt resource value: 0x7f070101
+			public const int ivUnReadDot = 2131165441;
+			
+			// aapt resource value: 0x7f070122
+			public const int ivWechat = 2131165474;
+			
+			// aapt resource value: 0x7f070121
+			public const int ivWeibo = 2131165473;
+			
+			// aapt resource value: 0x7f0700bd
+			public const int iv_pc_and_phone = 2131165373;
+			
+			// aapt resource value: 0x7f070096
+			public const int layoutHotWord = 2131165334;
+			
+			// aapt resource value: 0x7f0700ed
+			public const int letter_view = 2131165421;
 			
 			// aapt resource value: 0x7f070026
 			public const int line = 2131165222;
 			
-			// aapt resource value: 0x7f07008a
-			public const int line1 = 2131165322;
+			// aapt resource value: 0x7f070144
+			public const int line1 = 2131165508;
 			
-			// aapt resource value: 0x7f07008c
-			public const int line3 = 2131165324;
+			// aapt resource value: 0x7f070146
+			public const int line3 = 2131165510;
 			
 			// aapt resource value: 0x7f070030
 			public const int linear = 2131165232;
@@ -4188,44 +4329,74 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070039
 			public const int list_item = 2131165241;
 			
-			// aapt resource value: 0x7f070072
-			public const int mBtnFemale = 2131165298;
+			// aapt resource value: 0x7f0700cb
+			public const int llBatchManagement = 2131165387;
 			
-			// aapt resource value: 0x7f070071
-			public const int mBtnMale = 2131165297;
+			// aapt resource value: 0x7f0700d8
+			public const int llBookDetail = 2131165400;
 			
-			// aapt resource value: 0x7f07006d
-			public const int mIvClose = 2131165293;
+			// aapt resource value: 0x7f07008b
+			public const int llBookReadBottom = 2131165323;
 			
-			// aapt resource value: 0x7f07006e
-			public const int mIvGender = 2131165294;
+			// aapt resource value: 0x7f070083
+			public const int llBookReadTop = 2131165315;
 			
-			// aapt resource value: 0x7f07006f
-			public const int mTvContent = 2131165295;
+			// aapt resource value: 0x7f070094
+			public const int llPdfRoot = 2131165332;
 			
-			// aapt resource value: 0x7f070070
-			public const int mTvSelect = 2131165296;
+			// aapt resource value: 0x7f07012f
+			public const int lvMark = 2131165487;
+			
+			// aapt resource value: 0x7f07009b
+			public const int lvSearchHistory = 2131165339;
+			
+			// aapt resource value: 0x7f07011f
+			public const int mBtnFemale = 2131165471;
+			
+			// aapt resource value: 0x7f07011e
+			public const int mBtnMale = 2131165470;
+			
+			// aapt resource value: 0x7f07011a
+			public const int mIvClose = 2131165466;
+			
+			// aapt resource value: 0x7f07011b
+			public const int mIvGender = 2131165467;
+			
+			// aapt resource value: 0x7f07011c
+			public const int mTvContent = 2131165468;
+			
+			// aapt resource value: 0x7f07011d
+			public const int mTvSelect = 2131165469;
+			
+			// aapt resource value: 0x7f0700a0
+			public const int mTvSort = 2131165344;
+			
+			// aapt resource value: 0x7f0700bf
+			public const int mTvWifiIp = 2131165375;
+			
+			// aapt resource value: 0x7f0700c1
+			public const int mTvWifiName = 2131165377;
 			
 			// aapt resource value: 0x7f070031
 			public const int material = 2131165233;
 			
-			// aapt resource value: 0x7f07007e
-			public const int media_actions = 2131165310;
+			// aapt resource value: 0x7f070138
+			public const int media_actions = 2131165496;
 			
-			// aapt resource value: 0x7f07009f
-			public const int menu_collect = 2131165343;
+			// aapt resource value: 0x7f07015b
+			public const int menu_collect = 2131165531;
 			
-			// aapt resource value: 0x7f07009c
-			public const int menu_major = 2131165340;
+			// aapt resource value: 0x7f070158
+			public const int menu_major = 2131165528;
 			
-			// aapt resource value: 0x7f07009e
-			public const int menu_my_book_list = 2131165342;
+			// aapt resource value: 0x7f07015a
+			public const int menu_my_book_list = 2131165530;
 			
-			// aapt resource value: 0x7f070091
-			public const int menu_search = 2131165329;
+			// aapt resource value: 0x7f07014d
+			public const int menu_search = 2131165517;
 			
-			// aapt resource value: 0x7f07009d
-			public const int menu_tags = 2131165341;
+			// aapt resource value: 0x7f070159
+			public const int menu_tags = 2131165529;
 			
 			// aapt resource value: 0x7f07001d
 			public const int middle = 2131165213;
@@ -4239,17 +4410,20 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000f
 			public const int none = 2131165199;
 			
+			// aapt resource value: 0x7f0700a5
+			public const int noneCoverCompat = 2131165349;
+			
 			// aapt resource value: 0x7f07000b
 			public const int normal = 2131165195;
 			
-			// aapt resource value: 0x7f070087
-			public const int notification_background = 2131165319;
+			// aapt resource value: 0x7f070141
+			public const int notification_background = 2131165505;
 			
-			// aapt resource value: 0x7f070081
-			public const int notification_main_column = 2131165313;
+			// aapt resource value: 0x7f07013b
+			public const int notification_main_column = 2131165499;
 			
-			// aapt resource value: 0x7f070080
-			public const int notification_main_column_container = 2131165312;
+			// aapt resource value: 0x7f07013a
+			public const int notification_main_column_container = 2131165498;
 			
 			// aapt resource value: 0x7f07002b
 			public const int outsideInset = 2131165227;
@@ -4260,11 +4434,20 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07003e
 			public const int parentPanel = 2131165246;
 			
-			// aapt resource value: 0x7f07006c
-			public const int progreebar_battery = 2131165292;
+			// aapt resource value: 0x7f070149
+			public const int pdf_page_container = 2131165513;
 			
-			// aapt resource value: 0x7f070076
-			public const int progress_bar = 2131165302;
+			// aapt resource value: 0x7f070119
+			public const int progreebar_battery = 2131165465;
+			
+			// aapt resource value: 0x7f0700c8
+			public const int progress = 2131165384;
+			
+			// aapt resource value: 0x7f070092
+			public const int progressBar = 2131165330;
+			
+			// aapt resource value: 0x7f070130
+			public const int progress_bar = 2131165488;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -4272,23 +4455,86 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070007
 			public const int progress_horizontal = 2131165191;
 			
+			// aapt resource value: 0x7f0700a4
+			public const int provincialTraffic = 2131165348;
+			
+			// aapt resource value: 0x7f0700c6
+			public const int ptr_layout = 2131165382;
+			
 			// aapt resource value: 0x7f07004e
 			public const int radio = 2131165262;
 			
-			// aapt resource value: 0x7f070066
-			public const int recyclerview = 2131165286;
+			// aapt resource value: 0x7f0700e0
+			public const int rating = 2131165408;
 			
-			// aapt resource value: 0x7f070086
-			public const int right_icon = 2131165318;
+			// aapt resource value: 0x7f07007b
+			public const int recyclerview = 2131165307;
 			
-			// aapt resource value: 0x7f070082
-			public const int right_side = 2131165314;
+			// aapt resource value: 0x7f07007a
+			public const int refreshLayout = 2131165306;
 			
-			// aapt resource value: 0x7f070067
-			public const int rl_empty_view = 2131165287;
+			// aapt resource value: 0x7f070140
+			public const int right_icon = 2131165504;
+			
+			// aapt resource value: 0x7f07013c
+			public const int right_side = 2131165500;
+			
+			// aapt resource value: 0x7f0700de
+			public const int rlBookInfo = 2131165406;
+			
+			// aapt resource value: 0x7f07010a
+			public const int rlBookListDetail = 2131165450;
+			
+			// aapt resource value: 0x7f070081
+			public const int rlBookReadRoot = 2131165313;
+			
+			// aapt resource value: 0x7f070073
+			public const int rlCommunity = 2131165299;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int rlFlipStyle = 2131165351;
+			
+			// aapt resource value: 0x7f070098
+			public const int rlHistory = 2131165336;
+			
+			// aapt resource value: 0x7f070123
+			public const int rlReadAaSet = 2131165475;
+			
+			// aapt resource value: 0x7f07012d
+			public const int rlReadMark = 2131165485;
+			
+			// aapt resource value: 0x7f0700c2
+			public const int rl_empty_view = 2131165378;
+			
+			// aapt resource value: 0x7f070095
+			public const int rootLayout = 2131165333;
 			
 			// aapt resource value: 0x7f07002f
 			public const int round = 2131165231;
+			
+			// aapt resource value: 0x7f0700b7
+			public const int rsvTags = 2131165367;
+			
+			// aapt resource value: 0x7f0700d6
+			public const int rvBestComments = 2131165398;
+			
+			// aapt resource value: 0x7f0700ba
+			public const int rvFemaleCategory = 2131165370;
+			
+			// aapt resource value: 0x7f070072
+			public const int rvHotReview = 2131165298;
+			
+			// aapt resource value: 0x7f0700b9
+			public const int rvMaleCategory = 2131165369;
+			
+			// aapt resource value: 0x7f070077
+			public const int rvRecommendBoookList = 2131165303;
+			
+			// aapt resource value: 0x7f0700b8
+			public const int rvTags = 2131165368;
+			
+			// aapt resource value: 0x7f070111
+			public const int rvTagsItem = 2131165457;
 			
 			// aapt resource value: 0x7f070016
 			public const int screen = 2131165206;
@@ -4332,6 +4578,12 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070062
 			public const int search_voice_btn = 2131165282;
 			
+			// aapt resource value: 0x7f070128
+			public const int seekbarFontSize = 2131165480;
+			
+			// aapt resource value: 0x7f070125
+			public const int seekbarLightness = 2131165477;
+			
 			// aapt resource value: 0x7f070063
 			public const int select_dialog_listview = 2131165283;
 			
@@ -4347,8 +4599,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070012
 			public const int showTitle = 2131165202;
 			
-			// aapt resource value: 0x7f070064
-			public const int slOverall = 2131165284;
+			// aapt resource value: 0x7f07007c
+			public const int slOverall = 2131165308;
 			
 			// aapt resource value: 0x7f07003d
 			public const int spacer = 2131165245;
@@ -4368,8 +4620,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070019
 			public const int src_over = 2131165209;
 			
-			// aapt resource value: 0x7f07007d
-			public const int status_bar_latest_event_content = 2131165309;
+			// aapt resource value: 0x7f070137
+			public const int status_bar_latest_event_content = 2131165495;
 			
 			// aapt resource value: 0x7f07004f
 			public const int submenuarrow = 2131165263;
@@ -4380,11 +4632,14 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
 			
-			// aapt resource value: 0x7f07008d
-			public const int text = 2131165325;
+			// aapt resource value: 0x7f07006f
+			public const int tag_group = 2131165295;
 			
-			// aapt resource value: 0x7f07008b
-			public const int text2 = 2131165323;
+			// aapt resource value: 0x7f070147
+			public const int text = 2131165511;
+			
+			// aapt resource value: 0x7f070145
+			public const int text2 = 2131165509;
 			
 			// aapt resource value: 0x7f070043
 			public const int textSpacerNoButtons = 2131165251;
@@ -4392,8 +4647,8 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070042
 			public const int textSpacerNoTitle = 2131165250;
 			
-			// aapt resource value: 0x7f070083
-			public const int time = 2131165315;
+			// aapt resource value: 0x7f07013d
+			public const int time = 2131165501;
 			
 			// aapt resource value: 0x7f07003b
 			public const int title = 2131165243;
@@ -4413,17 +4668,290 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f070028
 			public const int triangle = 2131165224;
 			
-			// aapt resource value: 0x7f070069
-			public const int tvEmptyView = 2131165289;
+			// aapt resource value: 0x7f07012e
+			public const int tvAddMark = 2131165486;
+			
+			// aapt resource value: 0x7f0700e7
+			public const int tvAutoCompleteItem = 2131165415;
+			
+			// aapt resource value: 0x7f0700d5
+			public const int tvBestComments = 2131165397;
+			
+			// aapt resource value: 0x7f0700dd
+			public const int tvBookAuthor = 2131165405;
+			
+			// aapt resource value: 0x7f0700ea
+			public const int tvBookCount = 2131165418;
+			
+			// aapt resource value: 0x7f07010e
+			public const int tvBookDetail = 2131165454;
+			
+			// aapt resource value: 0x7f07010b
+			public const int tvBookLatelyFollower = 2131165451;
+			
+			// aapt resource value: 0x7f070066
+			public const int tvBookListAuthor = 2131165286;
+			
+			// aapt resource value: 0x7f0700d9
+			public const int tvBookListDesc = 2131165401;
+			
+			// aapt resource value: 0x7f070065
+			public const int tvBookListTitle = 2131165285;
 			
 			// aapt resource value: 0x7f07008f
-			public const int tvSelTitle = 2131165327;
+			public const int tvBookMark = 2131165327;
 			
-			// aapt resource value: 0x7f07006b
-			public const int tvSelTitleItem = 2131165291;
+			// aapt resource value: 0x7f070087
+			public const int tvBookReadCommunity = 2131165319;
+			
+			// aapt resource value: 0x7f07008e
+			public const int tvBookReadDownload = 2131165326;
+			
+			// aapt resource value: 0x7f070088
+			public const int tvBookReadIntroduce = 2131165320;
+			
+			// aapt resource value: 0x7f07008c
+			public const int tvBookReadMode = 2131165324;
+			
+			// aapt resource value: 0x7f070086
+			public const int tvBookReadReading = 2131165318;
+			
+			// aapt resource value: 0x7f07008d
+			public const int tvBookReadSettings = 2131165325;
+			
+			// aapt resource value: 0x7f070089
+			public const int tvBookReadSource = 2131165321;
+			
+			// aapt resource value: 0x7f070090
+			public const int tvBookReadToc = 2131165328;
+			
+			// aapt resource value: 0x7f070085
+			public const int tvBookReadTocTitle = 2131165317;
+			
+			// aapt resource value: 0x7f0700ce
+			public const int tvBookTitle = 2131165390;
+			
+			// aapt resource value: 0x7f0700e8
+			public const int tvBookType = 2131165416;
+			
+			// aapt resource value: 0x7f07010c
+			public const int tvBookWordCount = 2131165452;
+			
+			// aapt resource value: 0x7f07009c
+			public const int tvBottom = 2131165340;
+			
+			// aapt resource value: 0x7f0700b1
+			public const int tvCacheSize = 2131165361;
+			
+			// aapt resource value: 0x7f070067
+			public const int tvCatgory = 2131165287;
+			
+			// aapt resource value: 0x7f070097
+			public const int tvChangeWords = 2131165335;
+			
+			// aapt resource value: 0x7f07009a
+			public const int tvClear = 2131165338;
+			
+			// aapt resource value: 0x7f0700eb
+			public const int tvCollectorCount = 2131165419;
+			
+			// aapt resource value: 0x7f0700d7
+			public const int tvCommentCount = 2131165399;
+			
+			// aapt resource value: 0x7f070074
+			public const int tvCommunity = 2131165300;
+			
+			// aapt resource value: 0x7f0700d1
+			public const int tvContent = 2131165393;
+			
+			// aapt resource value: 0x7f0700db
+			public const int tvCreate = 2131165403;
+			
+			// aapt resource value: 0x7f0700cd
+			public const int tvDelete = 2131165389;
+			
+			// aapt resource value: 0x7f0700f5
+			public const int tvDistillate = 2131165429;
+			
+			// aapt resource value: 0x7f07008a
+			public const int tvDownloadProgress = 2131165322;
+			
+			// aapt resource value: 0x7f0700c4
+			public const int tvEmptyView = 2131165380;
+			
+			// aapt resource value: 0x7f0700a8
+			public const int tvFlipStyle = 2131165352;
+			
+			// aapt resource value: 0x7f0700f0
+			public const int tvFloor = 2131165424;
+			
+			// aapt resource value: 0x7f070127
+			public const int tvFontsizeMinus = 2131165479;
+			
+			// aapt resource value: 0x7f070129
+			public const int tvFontsizePlus = 2131165481;
+			
+			// aapt resource value: 0x7f070075
+			public const int tvHelpfulYes = 2131165301;
+			
+			// aapt resource value: 0x7f0700e5
+			public const int tvHelpfullNo = 2131165413;
+			
+			// aapt resource value: 0x7f0700e4
+			public const int tvHelpfullNoCount = 2131165412;
+			
+			// aapt resource value: 0x7f0700e3
+			public const int tvHelpfullYes = 2131165411;
+			
+			// aapt resource value: 0x7f0700e2
+			public const int tvHelpfullYesCount = 2131165410;
+			
+			// aapt resource value: 0x7f0700f4
+			public const int tvHot = 2131165428;
+			
+			// aapt resource value: 0x7f07006c
+			public const int tvLatelyFollower = 2131165292;
+			
+			// aapt resource value: 0x7f070069
+			public const int tvLatelyUpdate = 2131165289;
+			
+			// aapt resource value: 0x7f0700d2
+			public const int tvLike = 2131165394;
+			
+			// aapt resource value: 0x7f0700f1
+			public const int tvLikeCount = 2131165425;
+			
+			// aapt resource value: 0x7f0700f9
+			public const int tvMarkItem = 2131165433;
+			
+			// aapt resource value: 0x7f0700f7
+			public const int tvMinorItem = 2131165431;
+			
+			// aapt resource value: 0x7f070071
+			public const int tvMoreReview = 2131165297;
+			
+			// aapt resource value: 0x7f070114
+			public const int tvName = 2131165460;
+			
+			// aapt resource value: 0x7f070115
+			public const int tvRankChildName = 2131165461;
+			
+			// aapt resource value: 0x7f070117
+			public const int tvRankGroupName = 2131165463;
+			
+			// aapt resource value: 0x7f070076
+			public const int tvRecommendBookList = 2131165302;
+			
+			// aapt resource value: 0x7f0700fe
+			public const int tvRecommendShort = 2131165438;
+			
+			// aapt resource value: 0x7f0700fd
+			public const int tvRecommendTitle = 2131165437;
+			
+			// aapt resource value: 0x7f0700f3
+			public const int tvReplyFloor = 2131165427;
+			
+			// aapt resource value: 0x7f0700f2
+			public const int tvReplyNickName = 2131165426;
+			
+			// aapt resource value: 0x7f07006d
+			public const int tvRetentionRatio = 2131165293;
+			
+			// aapt resource value: 0x7f0700c0
+			public const int tvRetry = 2131165376;
+			
+			// aapt resource value: 0x7f070103
+			public const int tvScanBookPreview = 2131165443;
+			
+			// aapt resource value: 0x7f070102
+			public const int tvScanBookTitle = 2131165442;
+			
+			// aapt resource value: 0x7f0700df
+			public const int tvScore = 2131165407;
+			
+			// aapt resource value: 0x7f070099
+			public const int tvSearchHistory = 2131165337;
+			
+			// aapt resource value: 0x7f07014b
+			public const int tvSelTitle = 2131165515;
+			
+			// aapt resource value: 0x7f070104
+			public const int tvSelTitleItem = 2131165444;
+			
+			// aapt resource value: 0x7f0700cc
+			public const int tvSelectAll = 2131165388;
+			
+			// aapt resource value: 0x7f07006e
+			public const int tvSerializeWordCount = 2131165294;
+			
+			// aapt resource value: 0x7f070112
+			public const int tvShortIntro = 2131165458;
+			
+			// aapt resource value: 0x7f0700b2
+			public const int tvSkip = 2131165362;
+			
+			// aapt resource value: 0x7f070107
+			public const int tvSubCateAuthor = 2131165447;
+			
+			// aapt resource value: 0x7f070109
+			public const int tvSubCateMsg = 2131165449;
+			
+			// aapt resource value: 0x7f070108
+			public const int tvSubCateShort = 2131165448;
+			
+			// aapt resource value: 0x7f070106
+			public const int tvSubCateTitle = 2131165446;
+			
+			// aapt resource value: 0x7f070110
+			public const int tvTagGroupName = 2131165456;
+			
+			// aapt resource value: 0x7f07010f
+			public const int tvTagName = 2131165455;
+			
+			// aapt resource value: 0x7f070113
+			public const int tvTags = 2131165459;
+			
+			// aapt resource value: 0x7f0700cf
+			public const int tvTime = 2131165391;
+			
+			// aapt resource value: 0x7f0700ca
+			public const int tvTip = 2131165386;
+			
+			// aapt resource value: 0x7f0700d0
+			public const int tvTitle = 2131165392;
+			
+			// aapt resource value: 0x7f0700e1
+			public const int tvToReviewTheScoring = 2131165409;
+			
+			// aapt resource value: 0x7f0700ec
+			public const int tvTocItem = 2131165420;
+			
+			// aapt resource value: 0x7f070068
+			public const int tvWordCount = 2131165288;
+			
+			// aapt resource value: 0x7f0700be
+			public const int tv_content = 2131165374;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int tv_more = 2131165353;
+			
+			// aapt resource value: 0x7f07009e
+			public const int tv_setting = 2131165342;
+			
+			// aapt resource value: 0x7f0700ef
+			public const int tv_source_content = 2131165423;
+			
+			// aapt resource value: 0x7f0700ee
+			public const int tv_source_title = 2131165422;
+			
+			// aapt resource value: 0x7f070070
+			public const int tvlongIntro = 2131165296;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int updateNotification = 2131165346;
 			
 			// aapt resource value: 0x7f070013
 			public const int useLogo = 2131165203;
@@ -4431,8 +4959,44 @@ namespace Xamarin.BookReader
 			// aapt resource value: 0x7f07002e
 			public const int vertical = 2131165230;
 			
-			// aapt resource value: 0x7f070077
-			public const int web_view = 2131165303;
+			// aapt resource value: 0x7f07010d
+			public const int view_line1 = 2131165453;
+			
+			// aapt resource value: 0x7f0700a1
+			public const int view_line_1 = 2131165345;
+			
+			// aapt resource value: 0x7f0700a3
+			public const int view_line_2 = 2131165347;
+			
+			// aapt resource value: 0x7f0700ab
+			public const int view_line_3 = 2131165355;
+			
+			// aapt resource value: 0x7f0700ad
+			public const int view_line_4 = 2131165357;
+			
+			// aapt resource value: 0x7f0700af
+			public const int view_line_5 = 2131165359;
+			
+			// aapt resource value: 0x7f0700a6
+			public const int view_line_6 = 2131165350;
+			
+			// aapt resource value: 0x7f070080
+			public const int viewpager = 2131165312;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int viewpagerSub = 2131165364;
+			
+			// aapt resource value: 0x7f070079
+			public const int viewpagerSubRank = 2131165305;
+			
+			// aapt resource value: 0x7f0700b6
+			public const int viewpagerSubject = 2131165366;
+			
+			// aapt resource value: 0x7f070131
+			public const int web_view = 2131165489;
+			
+			// aapt resource value: 0x7f070093
+			public const int webview = 2131165331;
 			
 			// aapt resource value: 0x7f070022
 			public const int withText = 2131165218;
@@ -4560,118 +5124,289 @@ namespace Xamarin.BookReader
 			public const int abc_select_dialog_material = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int activity_community_book_discussion = 2130968603;
+			public const int activity_book_detail = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
-			public const int activity_community_book_help = 2130968604;
+			public const int activity_book_detail_community = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int activity_community_book_review = 2130968605;
+			public const int activity_books_by_tag = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int activity_community_girl_book_discussion = 2130968606;
+			public const int activity_common_recyclerview = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int common_easy_recyclerview = 2130968607;
+			public const int activity_community_book_discussion = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int common_empty_view = 2130968608;
+			public const int activity_community_book_discussion_detail = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int common_error_view = 2130968609;
+			public const int activity_community_book_help = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int common_more_view = 2130968610;
+			public const int activity_community_book_review = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int common_net_error_view = 2130968611;
+			public const int activity_community_girl_book_discussion = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int common_nomore_view = 2130968612;
+			public const int activity_feedback = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int common_progress_view = 2130968613;
+			public const int activity_main = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int common_toolbar = 2130968614;
+			public const int activity_read = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int foot_view_shelf = 2130968615;
+			public const int activity_read_chm = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int item_selection_view = 2130968616;
+			public const int activity_read_pdf = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int layout_battery_progress = 2130968617;
+			public const int activity_scan_local_book = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int layout_gender_popup_window = 2130968618;
+			public const int activity_search = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int layout_login_popup_window = 2130968619;
+			public const int activity_setting = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int layout_web_progress = 2130968620;
+			public const int activity_splash = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_action = 2130968621;
+			public const int activity_sub_category_list = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_action_tombstone = 2130968622;
+			public const int activity_sub_rank = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_media_action = 2130968623;
+			public const int activity_subject_book_list_detail = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_media_cancel_action = 2130968624;
+			public const int activity_subject_book_list_tag = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_template_big_media = 2130968625;
+			public const int activity_top_category_list = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_template_big_media_custom = 2130968626;
+			public const int activity_top_rank = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int notification_template_big_media_narrow = 2130968627;
+			public const int activity_wifi_book = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_template_big_media_narrow_custom = 2130968628;
+			public const int bookshelf_empty_view = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_template_custom_big = 2130968629;
+			public const int common_easy_recyclerview = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_template_icon_group = 2130968630;
+			public const int common_empty_view = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_lines_media = 2130968631;
+			public const int common_error_view = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_media = 2130968632;
+			public const int common_more_view = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_media_custom = 2130968633;
+			public const int common_net_error_view = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_part_chronometer = 2130968634;
+			public const int common_nomore_view = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int notification_template_part_time = 2130968635;
+			public const int common_progress_view = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_item_material = 2130968636;
+			public const int common_recyclerview = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int select_dialog_multichoice_material = 2130968637;
+			public const int common_toolbar = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_singlechoice_material = 2130968638;
+			public const int foot_view_shelf = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int support_simple_spinner_dropdown_item = 2130968639;
+			public const int fragment_find = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int view_selection = 2130968640;
+			public const int fragment_recommend = 2130968640;
+			
+			// aapt resource value: 0x7f040041
+			public const int header_view_book_discussion_detail = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int header_view_book_list_detail = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int header_view_book_review_detail = 2130968643;
+			
+			// aapt resource value: 0x7f040044
+			public const int item_auto_complete_list = 2130968644;
+			
+			// aapt resource value: 0x7f040045
+			public const int item_book_detai_hot_review_list = 2130968645;
+			
+			// aapt resource value: 0x7f040046
+			public const int item_book_detail_recommend_book_list = 2130968646;
+			
+			// aapt resource value: 0x7f040047
+			public const int item_book_read_toc_list = 2130968647;
+			
+			// aapt resource value: 0x7f040048
+			public const int item_book_source = 2130968648;
+			
+			// aapt resource value: 0x7f040049
+			public const int item_comment_best_list = 2130968649;
+			
+			// aapt resource value: 0x7f04004a
+			public const int item_comment_list = 2130968650;
+			
+			// aapt resource value: 0x7f04004b
+			public const int item_community_book_discussion_list = 2130968651;
+			
+			// aapt resource value: 0x7f04004c
+			public const int item_community_book_help_list = 2130968652;
+			
+			// aapt resource value: 0x7f04004d
+			public const int item_community_book_review_list = 2130968653;
+			
+			// aapt resource value: 0x7f04004e
+			public const int item_find = 2130968654;
+			
+			// aapt resource value: 0x7f04004f
+			public const int item_minor_list = 2130968655;
+			
+			// aapt resource value: 0x7f040050
+			public const int item_read_mark = 2130968656;
+			
+			// aapt resource value: 0x7f040051
+			public const int item_read_theme = 2130968657;
+			
+			// aapt resource value: 0x7f040052
+			public const int item_recommend_list = 2130968658;
+			
+			// aapt resource value: 0x7f040053
+			public const int item_scan_local_book = 2130968659;
+			
+			// aapt resource value: 0x7f040054
+			public const int item_search_history = 2130968660;
+			
+			// aapt resource value: 0x7f040055
+			public const int item_search_result_list = 2130968661;
+			
+			// aapt resource value: 0x7f040056
+			public const int item_selection_view = 2130968662;
+			
+			// aapt resource value: 0x7f040057
+			public const int item_sub_category_list = 2130968663;
+			
+			// aapt resource value: 0x7f040058
+			public const int item_subject_book_list_detail = 2130968664;
+			
+			// aapt resource value: 0x7f040059
+			public const int item_subject_tag_list = 2130968665;
+			
+			// aapt resource value: 0x7f04005a
+			public const int item_subject_tags_list = 2130968666;
+			
+			// aapt resource value: 0x7f04005b
+			public const int item_tag_book_list = 2130968667;
+			
+			// aapt resource value: 0x7f04005c
+			public const int item_top_category_list = 2130968668;
+			
+			// aapt resource value: 0x7f04005d
+			public const int item_top_rank_child = 2130968669;
+			
+			// aapt resource value: 0x7f04005e
+			public const int item_top_rank_group = 2130968670;
+			
+			// aapt resource value: 0x7f04005f
+			public const int layout_battery_progress = 2130968671;
+			
+			// aapt resource value: 0x7f040060
+			public const int layout_gender_popup_window = 2130968672;
+			
+			// aapt resource value: 0x7f040061
+			public const int layout_login_popup_window = 2130968673;
+			
+			// aapt resource value: 0x7f040062
+			public const int layout_read_aa_set = 2130968674;
+			
+			// aapt resource value: 0x7f040063
+			public const int layout_read_mark = 2130968675;
+			
+			// aapt resource value: 0x7f040064
+			public const int layout_web_progress = 2130968676;
+			
+			// aapt resource value: 0x7f040065
+			public const int notification_action = 2130968677;
+			
+			// aapt resource value: 0x7f040066
+			public const int notification_action_tombstone = 2130968678;
+			
+			// aapt resource value: 0x7f040067
+			public const int notification_media_action = 2130968679;
+			
+			// aapt resource value: 0x7f040068
+			public const int notification_media_cancel_action = 2130968680;
+			
+			// aapt resource value: 0x7f040069
+			public const int notification_template_big_media = 2130968681;
+			
+			// aapt resource value: 0x7f04006a
+			public const int notification_template_big_media_custom = 2130968682;
+			
+			// aapt resource value: 0x7f04006b
+			public const int notification_template_big_media_narrow = 2130968683;
+			
+			// aapt resource value: 0x7f04006c
+			public const int notification_template_big_media_narrow_custom = 2130968684;
+			
+			// aapt resource value: 0x7f04006d
+			public const int notification_template_custom_big = 2130968685;
+			
+			// aapt resource value: 0x7f04006e
+			public const int notification_template_icon_group = 2130968686;
+			
+			// aapt resource value: 0x7f04006f
+			public const int notification_template_lines_media = 2130968687;
+			
+			// aapt resource value: 0x7f040070
+			public const int notification_template_media = 2130968688;
+			
+			// aapt resource value: 0x7f040071
+			public const int notification_template_media_custom = 2130968689;
+			
+			// aapt resource value: 0x7f040072
+			public const int notification_template_part_chronometer = 2130968690;
+			
+			// aapt resource value: 0x7f040073
+			public const int notification_template_part_time = 2130968691;
+			
+			// aapt resource value: 0x7f040074
+			public const int select_dialog_item_material = 2130968692;
+			
+			// aapt resource value: 0x7f040075
+			public const int select_dialog_multichoice_material = 2130968693;
+			
+			// aapt resource value: 0x7f040076
+			public const int select_dialog_singlechoice_material = 2130968694;
+			
+			// aapt resource value: 0x7f040077
+			public const int support_simple_spinner_dropdown_item = 2130968695;
+			
+			// aapt resource value: 0x7f040078
+			public const int view_pdf_page = 2130968696;
+			
+			// aapt resource value: 0x7f040079
+			public const int view_selection = 2130968697;
 			
 			static Layout()
 			{

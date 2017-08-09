@@ -22,7 +22,7 @@
 
     <include layout="@layout/common_toolbar" />
 
-    <com.justwayward.reader.view.ProgressWebView
+    <xamarin.bookreader.views.ProgressWebView
         android:id="@+id/feedbackView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

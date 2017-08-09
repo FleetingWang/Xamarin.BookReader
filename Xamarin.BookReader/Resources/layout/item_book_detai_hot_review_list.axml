@@ -65,7 +65,7 @@
         android:textColor="@color/common_h1"
         tools:text="越到后面越索然无味" />
 
-    <com.justwayward.reader.view.XLHRatingBar xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
+    <xamarin.bookreader.views.XLHRatingBar xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
         android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

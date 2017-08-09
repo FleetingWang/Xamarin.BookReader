@@ -45,7 +45,7 @@
             android:textColor="@color/common_h2"
             android:textSize="16sp"/>
 
-        <com.justwayward.reader.view.DrawableCenterButton
+        <xamarin.bookreader.views.DrawableCenterButton
             android:id="@+id/btnToAdd"
             android:layout_width="150dp"
             android:layout_height="wrap_content"

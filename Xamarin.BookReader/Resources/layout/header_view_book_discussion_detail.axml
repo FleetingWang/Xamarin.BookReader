@@ -73,7 +73,7 @@
         android:textColor="@color/common_h1"
         android:textSize="16dp" />
 
-    <com.justwayward.reader.view.BookContentTextView
+    <xamarin.bookreader.views.BookContentTextView
         android:id="@+id/tvContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

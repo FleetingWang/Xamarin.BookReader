@@ -24,7 +24,7 @@
 
     <include layout="@layout/common_toolbar" />
 
-    <com.justwayward.reader.view.ReboundScrollView
+    <xamarin.bookreader.views.ReboundScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -63,5 +63,5 @@
                 android:layout_gravity="center" />
 
         </LinearLayout>
-    </com.justwayward.reader.view.ReboundScrollView>
+    </xamarin.bookreader.views.ReboundScrollView>
 </LinearLayout>

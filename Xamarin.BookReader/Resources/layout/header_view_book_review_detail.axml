@@ -72,7 +72,7 @@
         android:textColor="@color/common_h1"
         android:textSize="16dp" />
 
-    <com.justwayward.reader.view.BookContentTextView
+    <xamarin.bookreader.views.BookContentTextView
         android:id="@+id/tvContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                     android:textColor="@color/common_h2"
                     android:textSize="13sp" />
 
-                <com.justwayward.reader.view.XLHRatingBar
+                <xamarin.bookreader.views.XLHRatingBar
                     android:id="@+id/rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

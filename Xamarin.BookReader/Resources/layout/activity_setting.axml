@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
 
-    <com.justwayward.reader.view.ReboundScrollView
+    <xamarin.bookreader.views.ReboundScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tvBottom"
@@ -288,7 +288,7 @@
                     android:textColor="@color/common_h2" />
             </RelativeLayout>
         </RelativeLayout>
-    </com.justwayward.reader.view.ReboundScrollView>
+    </xamarin.bookreader.views.ReboundScrollView>
 
     <TextView
         android:id="@+id/tvBottom"

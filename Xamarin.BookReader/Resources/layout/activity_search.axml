@@ -47,7 +47,7 @@
             android:text="@string/search_change_a_lot" />
     </RelativeLayout>
 
-    <com.justwayward.reader.view.TagGroup
+    <xamarin.bookreader.views.TagGroup
         android:id="@+id/tag_group"
         style="@style/TagGroup"
         android:layout_marginLeft="15dp"
@@ -93,7 +93,7 @@
 
     </RelativeLayout>
 
-    <com.justwayward.reader.view.recyclerview.EasyRecyclerView
+    <xamarin.bookreader.views.recyclerviews.EasyRecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

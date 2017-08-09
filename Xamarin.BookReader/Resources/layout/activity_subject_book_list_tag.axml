@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.justwayward.reader.view.RVPIndicator
+            <xamarin.bookreader.views.RVPIndicator
                 android:id="@+id/indicatorSubject"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -52,7 +52,7 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
-        <com.justwayward.reader.view.ReboundScrollView
+        <xamarin.bookreader.views.ReboundScrollView
             android:id="@+id/rsvTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/common_gray_bg"
                 android:paddingTop="10dp" />
-        </com.justwayward.reader.view.ReboundScrollView>
+        </xamarin.bookreader.views.ReboundScrollView>
     </FrameLayout>
 
 </LinearLayout>

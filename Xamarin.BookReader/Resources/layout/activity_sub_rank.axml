@@ -23,7 +23,7 @@
 
     <include layout="@layout/common_toolbar" />
 
-    <com.justwayward.reader.view.RVPIndicator
+    <xamarin.bookreader.views.RVPIndicator
         android:id="@+id/indicatorSubRank"
         android:layout_width="match_parent"
         android:layout_height="55dp"
