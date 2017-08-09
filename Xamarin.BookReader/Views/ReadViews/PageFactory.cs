@@ -9,6 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
+using Xamarin.BookReader.Utils;
+using Java.IO;
+using Xamarin.BookReader.Models;
+using Java.Text;
+using Android.Support.V4.Content;
+using Java.Util;
+using Java.Nio.Channels;
+using Java.Nio;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
@@ -52,7 +61,7 @@ namespace Xamarin.BookReader.Views.ReadViews
      */
     private int curEndPos = 0, curBeginPos = 0, tempBeginPos, tempEndPos;
     private int currentChapter, tempChapter;
-    private Vector<String> mLines = new Vector<>();
+    private Vector mLines = new Vector();
 
     private Paint mPaint;
     private Paint mTitlePaint;
@@ -68,22 +77,24 @@ namespace Xamarin.BookReader.Views.ReadViews
     private Bitmap batteryBitmap;
 
     private string bookId;
-    private List<BookMixAToc.mixToc.Chapters> chaptersList;
+    private List<BookMixAToc.MixToc.Chapters> chaptersList;
     private int chapterSize = 0;
     private int currentPage = 1;
 
-    private OnReadStateChangeListener listener;
+    private IOnReadStateChangeListener listener;
     private string charset = "UTF-8";
 
-    public PageFactory(Context context, string bookId, List<BookMixAToc.mixToc.Chapters> chaptersList) {
-        this(context, ScreenUtils.getScreenWidth(), ScreenUtils.getScreenHeight(),
-                //SettingManager.getInstance().getReadFontSize(bookId),
-                SettingManager.getInstance().getReadFontSize(),
-                bookId, chaptersList);
+    public PageFactory(Context context, string bookId, List<BookMixAToc.MixToc.Chapters> chaptersList)
+        : this(context, ScreenUtils.getScreenWidth(), ScreenUtils.getScreenHeight(),
+                //TODO: SettingManager.getInstance().getReadFontSize(bookId),
+                0, //TODO: SettingManager.getInstance().getReadFontSize(),
+                bookId, chaptersList)
+        {
+        
     }
 
     public PageFactory(Context context, int width, int height, int fontSize, string bookId,
-                       List<BookMixAToc.mixToc.Chapters> chaptersList) {
+                       List<BookMixAToc.MixToc.Chapters> chaptersList) {
         mContext = context;
         mWidth = width;
         mHeight = height;
@@ -97,15 +108,15 @@ namespace Xamarin.BookReader.Views.ReadViews
         mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
         rectF = new Rect(0, 0, mWidth, mHeight);
 
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setTextSize(mFontSize);
-        mPaint.setTextSize(ContextCompat.getColor(context, R.color.chapter_content_day));
-        mPaint.setColor(Color.BLACK);
-        mTitlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTitlePaint.setTextSize(mNumFontSize);
-        mTitlePaint.setColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.chapter_title_day));
-        timeLen = (int) mTitlePaint.measureText("00:00");
-        percentLen = (int) mTitlePaint.measureText("00.00%");
+        mPaint = new Paint() { Flags = PaintFlags.AntiAlias };
+        mPaint.TextSize = (mFontSize);
+        //mPaint.SetTextSize(ContextCompat.GetColor(context, Resource.Color.chapter_content_day));
+        mPaint.Color = (Color.Black);
+        mTitlePaint = new Paint() { Flags = PaintFlags.AntiAlias };
+        mTitlePaint.TextSize = (mNumFontSize);
+        mTitlePaint.Color = new Color(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.chapter_title_day));
+        timeLen = (int) mTitlePaint.MeasureText("00:00");
+        percentLen = (int) mTitlePaint.MeasureText("00.00%");
         // Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/FZBYSK.TTF");
         // mPaint.setTypeface(typeface);
         // mNumPaint.setTypeface(typeface);
@@ -113,14 +124,14 @@ namespace Xamarin.BookReader.Views.ReadViews
         this.bookId = bookId;
         this.chaptersList = chaptersList;
 
-        time = dateFormat.format(new Date());
+        time = dateFormat.Format(new Date());
     }
 
     public File getBookFile(int chapter) {
         File file = FileUtils.getChapterFile(bookId, chapter);
-        if (file != null && file.length() > 10) {
+        if (file != null && file.Length() > 10) {
             // 解决空文件造成编码错误的问题
-            charset = FileUtils.getCharset(file.getAbsolutePath());
+            charset = FileUtils.getCharset(file.AbsolutePath);
         }
         LogUtils.i("charset=" + charset);
         return file;
@@ -143,27 +154,27 @@ namespace Xamarin.BookReader.Views.ReadViews
      */
     public int openBook(int chapter, int[] position) {
         this.currentChapter = chapter;
-        this.chapterSize = chaptersList.size();
+        this.chapterSize = chaptersList.Count();
         if (currentChapter > chapterSize)
             currentChapter = chapterSize;
-        string path = getBookFile(currentChapter).getPath();
+        string path = getBookFile(currentChapter).Path;
         try {
             File file = new File(path);
-            long length = file.length();
+            long length = file.Length();
             if (length > 10) {
                 mbBufferLen = (int) length;
                 // 创建文件通道，映射为MappedByteBuffer
                 mbBuff = new RandomAccessFile(file, "r")
-                        .getChannel()
-                        .map(FileChannel.MapMode.READ_ONLY, 0, length);
+                        .Channel
+                        .Map(FileChannel.MapMode.ReadOnly, 0, length);
                 curBeginPos = position[0];
                 curEndPos = position[1];
                 onChapterChanged(chapter);
-                mLines.clear();
+                mLines.Clear();
                 return 1;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.PrintStackTrace();
         }
         return 0;
     }
@@ -173,48 +184,48 @@ namespace Xamarin.BookReader.Views.ReadViews
      *
      * @param canvas
      */
-    public synchronized void onDraw(Canvas canvas) {
-        if (mLines.size() == 0) {
+    public /*synchronized*/ void onDraw(Canvas canvas) {
+        if (mLines.Size() == 0) {
             curEndPos = curBeginPos;
             mLines = pageDown();
         }
-        if (mLines.size() > 0) {
+        if (mLines.Size() > 0) {
             int y = marginHeight + (mLineSpace << 1);
             // 绘制背景
             if (mBookPageBg != null) {
-                canvas.drawBitmap(mBookPageBg, null, rectF, null);
+                canvas.DrawBitmap(mBookPageBg, null, rectF, null);
             } else {
-                canvas.drawColor(Color.WHITE);
+                canvas.DrawColor(Color.White);
             }
             // 绘制标题
-            canvas.drawText(chaptersList.get(currentChapter - 1).title, marginWidth, y, mTitlePaint);
+            canvas.DrawText(chaptersList[currentChapter - 1].title, marginWidth, y, mTitlePaint);
             y += mLineSpace + mNumFontSize;
             // 绘制阅读页面文字
-            for (string line : mLines) {
+            foreach (string line in mLines.ToEnumerable()) {
                 y += mLineSpace;
-                if (line.endsWith("@")) {
-                    canvas.drawText(line.substring(0, line.length() - 1), marginWidth, y, mPaint);
+                if (line.EndsWith("@")) {
+                    canvas.DrawText(line.Substring(0, line.Count() - 1), marginWidth, y, mPaint);
                     y += mLineSpace;
                 } else {
-                    canvas.drawText(line, marginWidth, y, mPaint);
+                    canvas.DrawText(line, marginWidth, y, mPaint);
                 }
                 y += mFontSize;
             }
             // 绘制提示内容
             if (batteryBitmap != null) {
-                canvas.drawBitmap(batteryBitmap, marginWidth + 2,
+                canvas.DrawBitmap(batteryBitmap, marginWidth + 2,
                         mHeight - marginHeight - ScreenUtils.dpToPxInt(12), mTitlePaint);
             }
 
             float percent = (float) currentChapter * 100 / chapterSize;
-            canvas.drawText(decimalFormat.format(percent) + "%", (mWidth - percentLen) / 2,
+            canvas.DrawText(decimalFormat.Format(percent) + "%", (mWidth - percentLen) / 2,
                     mHeight - marginHeight, mTitlePaint);
 
-            string mTime = dateFormat.format(new Date());
-            canvas.drawText(mTime, mWidth - marginWidth - timeLen, mHeight - marginHeight, mTitlePaint);
+            string mTime = dateFormat.Format(new Date());
+            canvas.DrawText(mTime, mWidth - marginWidth - timeLen, mHeight - marginHeight, mTitlePaint);
 
             // 保存阅读进度
-            SettingManager.getInstance().saveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
+            // TODO: SettingManager.getInstance().saveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
         }
     }
 
@@ -222,36 +233,36 @@ namespace Xamarin.BookReader.Views.ReadViews
      * 指针移到上一页页首
      */
     private void pageUp() {
-        string strParagraph = "";
-        Vector<String> lines = new Vector<>(); // 页面行
+            Java.Lang.String strParagraph = new Java.Lang.String();
+        Vector lines = new Vector(); // 页面行
         int paraSpace = 0;
         mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
-        while ((lines.size() < mPageLineCount) && (curBeginPos > 0)) {
-            Vector<String> paraLines = new Vector<>(); // 段落行
+        while ((lines.Size() < mPageLineCount) && (curBeginPos > 0)) {
+            Vector paraLines = new Vector(); // 段落行
             byte[] parabuffer = readParagraphBack(curBeginPos); // 1.读取上一个段落
 
-            curBeginPos -= parabuffer.length; // 2.变换起始位置指针
+            curBeginPos -= parabuffer.Length; // 2.变换起始位置指针
             try {
-                strParagraph = new String(parabuffer, charset);
+                strParagraph = new Java.Lang.String(parabuffer, charset);
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                e.PrintStackTrace();
             }
-            strParagraph = strParagraph.replaceAll("\r\n", "  ");
-            strParagraph = strParagraph.replaceAll("\n", " ");
+            strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\r\n", "  "));
+            strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\n", " "));
 
-            while (strParagraph.length() > 0) { // 3.逐行添加到lines
-                int paintSize = mPaint.breakText(strParagraph, true, mVisibleWidth, null);
-                paraLines.add(strParagraph.substring(0, paintSize));
-                strParagraph = strParagraph.substring(paintSize);
+            while (strParagraph.Length() > 0) { // 3.逐行添加到lines
+                int paintSize = mPaint.BreakText(strParagraph.ToString(), true, mVisibleWidth, null);
+                paraLines.Add(strParagraph.Substring(0, paintSize));
+                strParagraph = new Java.Lang.String(strParagraph.Substring(paintSize));
             }
-            lines.addAll(0, paraLines);
+            lines.AddAll(0, paraLines.ToArray());
 
-            while (lines.size() > mPageLineCount) { // 4.如果段落添加完，但是超出一页，则超出部分需删减
+            while (lines.Size() > mPageLineCount) { // 4.如果段落添加完，但是超出一页，则超出部分需删减
                 try {
-                    curBeginPos += lines.get(0).getBytes(charset).length; // 5.删减行数同时起始位置指针也要跟着偏移
-                    lines.remove(0);
+                    curBeginPos += ((Java.Lang.String)lines.Get(0)).GetBytes(charset).Length; // 5.删减行数同时起始位置指针也要跟着偏移
+                    lines.Remove(0);
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                    e.PrintStackTrace();
                 }
             }
             curEndPos = curBeginPos; // 6.最后结束指针指向下一段的开始处
@@ -265,36 +276,36 @@ namespace Xamarin.BookReader.Views.ReadViews
      *
      * @return
      */
-    private Vector<String> pageDown() {
-        string strParagraph = "";
-        Vector<String> lines = new Vector<>();
+    private Vector pageDown() {
+            Java.Lang.String strParagraph = new Java.Lang.String();
+        Vector lines = new Vector();
         int paraSpace = 0;
         mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
-        while ((lines.size() < mPageLineCount) && (curEndPos < mbBufferLen)) {
+        while ((lines.Size() < mPageLineCount) && (curEndPos < mbBufferLen)) {
             byte[] parabuffer = readParagraphForward(curEndPos);
-            curEndPos += parabuffer.length;
+            curEndPos += parabuffer.Length;
             try {
-                strParagraph = new String(parabuffer, charset);
+                strParagraph = new Java.Lang.String(parabuffer, charset);
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                e.PrintStackTrace();
             }
-            strParagraph = strParagraph.replaceAll("\r\n", "  ")
-                    .replaceAll("\n", " "); // 段落中的换行符去掉，绘制的时候再换行
+                strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\r\n", "  "));
+                strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\n", " ")); // 段落中的换行符去掉，绘制的时候再换行
 
-            while (strParagraph.length() > 0) {
-                int paintSize = mPaint.breakText(strParagraph, true, mVisibleWidth, null);
-                lines.add(strParagraph.substring(0, paintSize));
-                strParagraph = strParagraph.substring(paintSize);
-                if (lines.size() >= mPageLineCount) {
+            while (strParagraph.Length() > 0) {
+                int paintSize = mPaint.BreakText(strParagraph.ToString(), true, mVisibleWidth, null);
+                lines.Add(strParagraph.Substring(0, paintSize));
+                strParagraph = new Java.Lang.String( strParagraph.Substring(paintSize));
+                if (lines.Size() >= mPageLineCount) {
                     break;
                 }
             }
-            lines.set(lines.size() - 1, lines.get(lines.size() - 1) + "@");
-            if (strParagraph.length() != 0) {
+            lines.Set(lines.Size() - 1, lines.Get(lines.Size() - 1) + "@");
+            if (strParagraph.Length() != 0) {
                 try {
-                    curEndPos -= (strParagraph).getBytes(charset).length;
+                    curEndPos -= (strParagraph).GetBytes(charset).Length;
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                    e.PrintStackTrace();
                 }
             }
             paraSpace += mLineSpace;
@@ -308,47 +319,47 @@ namespace Xamarin.BookReader.Views.ReadViews
      *
      * @return
      */
-    public Vector<String> pageLast() {
-        string strParagraph = "";
-        Vector<String> lines = new Vector<>();
+    public Vector pageLast() {
+        Java.Lang.String strParagraph = new Java.Lang.String();
+        Vector lines = new Vector();
         currentPage = 0;
         while (curEndPos < mbBufferLen) {
             int paraSpace = 0;
             mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
             curBeginPos = curEndPos;
-            while ((lines.size() < mPageLineCount) && (curEndPos < mbBufferLen)) {
+            while ((lines.Size() < mPageLineCount) && (curEndPos < mbBufferLen)) {
                 byte[] parabuffer = readParagraphForward(curEndPos);
-                curEndPos += parabuffer.length;
+                curEndPos += parabuffer.Length;
                 try {
-                    strParagraph = new String(parabuffer, charset);
+                    strParagraph = new Java.Lang.String(parabuffer, charset);
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                    e.PrintStackTrace();
                 }
-                strParagraph = strParagraph.replaceAll("\r\n", "  ");
-                strParagraph = strParagraph.replaceAll("\n", " "); // 段落中的换行符去掉，绘制的时候再换行
+                strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\r\n", "  "));
+                strParagraph = new Java.Lang.String(strParagraph.ReplaceAll("\n", " ")); // 段落中的换行符去掉，绘制的时候再换行
 
-                while (strParagraph.length() > 0) {
-                    int paintSize = mPaint.breakText(strParagraph, true, mVisibleWidth, null);
-                    lines.add(strParagraph.substring(0, paintSize));
-                    strParagraph = strParagraph.substring(paintSize);
-                    if (lines.size() >= mPageLineCount) {
+                while (strParagraph.Length() > 0) {
+                    int paintSize = mPaint.BreakText(strParagraph.ToString(), true, mVisibleWidth, null);
+                    lines.Add(strParagraph.Substring(0, paintSize));
+                    strParagraph = new Java.Lang.String(strParagraph.Substring(paintSize));
+                    if (lines.Size() >= mPageLineCount) {
                         break;
                     }
                 }
-                lines.set(lines.size() - 1, lines.get(lines.size() - 1) + "@");
+                lines.Set(lines.Size() - 1, lines.Get(lines.Size() - 1) + "@");
 
-                if (strParagraph.length() != 0) {
+                if (strParagraph.Length() != 0) {
                     try {
-                        curEndPos -= (strParagraph).getBytes(charset).length;
+                        curEndPos -= (strParagraph).GetBytes(charset).Length;
                     } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
+                        e.PrintStackTrace();
                     }
                 }
                 paraSpace += mLineSpace;
                 mPageLineCount = (mVisibleHeight - paraSpace) / (mFontSize + mLineSpace);
             }
             if (curEndPos < mbBufferLen) {
-                lines.clear();
+                lines.Clear();
             }
             currentPage++;
         }
@@ -366,7 +377,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         byte b0;
         int i = curEndPos;
         while (i < mbBufferLen) {
-            b0 = mbBuff.get(i++);
+            b0 = Convert.ToByte(mbBuff.Get(i++));
             if (b0 == 0x0a) {
                 break;
             }
@@ -374,7 +385,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         int nParaSize = i - curEndPos;
         byte[] buf = new byte[nParaSize];
         for (i = 0; i < nParaSize; i++) {
-            buf[i] = mbBuff.get(curEndPos + i);
+            buf[i] = Convert.ToByte(mbBuff.Get(curEndPos + i));
         }
         return buf;
     }
@@ -389,7 +400,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         byte b0;
         int i = curBeginPos - 1;
         while (i > 0) {
-            b0 = mbBuff.get(i);
+            b0 = Convert.ToByte(mbBuff.Get(i));
             if (b0 == 0x0a && i != curBeginPos - 1) {
                 i++;
                 break;
@@ -399,13 +410,13 @@ namespace Xamarin.BookReader.Views.ReadViews
         int nParaSize = curBeginPos - i;
         byte[] buf = new byte[nParaSize];
         for (int j = 0; j < nParaSize; j++) {
-            buf[j] = mbBuff.get(i + j);
+            buf[j] = Convert.ToByte(mbBuff.Get(i + j));
         }
         return buf;
     }
 
     public bool hasNextPage() {
-        return currentChapter < chaptersList.size() || curEndPos < mbBufferLen;
+        return currentChapter < chaptersList.Count() || curEndPos < mbBufferLen;
     }
 
     public bool hasPrePage() {
@@ -438,7 +449,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             } else {
                 curBeginPos = curEndPos; // 起始指针移到结束位置
             }
-            mLines.clear();
+            mLines.Clear();
             mLines = pageDown(); // 读取一页内容
             onPageChanged(currentChapter, ++currentPage);
         }
@@ -464,14 +475,14 @@ namespace Xamarin.BookReader.Views.ReadViews
                     currentChapter++;
                     return BookStatus.PRE_CHAPTER_LOAD_FAILURE;
                 } else { // 跳转到上一章的最后一页
-                    mLines.clear();
+                    mLines.Clear();
                     mLines = pageLast();
                     onChapterChanged(currentChapter);
                     onPageChanged(currentChapter, currentPage);
                     return BookStatus.LOAD_SUCCESS;
                 }
             }
-            mLines.clear();
+            mLines.Clear();
             pageUp(); // 起始指针移到上一页开始处
             mLines = pageDown(); // 读取一页内容
             onPageChanged(currentChapter, --currentPage);
@@ -489,7 +500,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             onLoadChapterFailure(currentChapter);
             return;
         }
-        mLines.clear();
+        mLines.Clear();
         mLines = pageDown();
     }
 
@@ -503,8 +514,8 @@ namespace Xamarin.BookReader.Views.ReadViews
     }
 
     public string getHeadLineStr() {
-        if (mLines != null && mLines.size() > 1) {
-            return mLines.get(0);
+        if (mLines != null && mLines.Size() > 1) {
+            return mLines.Get(0).ToString();
         }
         return "";
     }
@@ -518,7 +529,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         LogUtils.i("fontSize=" + fontsize);
         mFontSize = fontsize;
         mLineSpace = mFontSize / 5 * 2;
-        mPaint.setTextSize(mFontSize);
+        mPaint.TextSize = mFontSize;
         mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
         curEndPos = curBeginPos;
         nextPage();
@@ -531,8 +542,8 @@ namespace Xamarin.BookReader.Views.ReadViews
      * @param titleColor
      */
     public void setTextColor(int textColor, int titleColor) {
-        mPaint.setColor(textColor);
-        mTitlePaint.setColor(titleColor);
+        mPaint.Color = new Color(textColor);
+        mTitlePaint.Color = new Color(titleColor);
     }
 
     public int getTextFont() {
@@ -560,7 +571,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         mBookPageBg = BG;
     }
 
-    public void setOnReadStateChangeListener(OnReadStateChangeListener listener) {
+    public void setOnReadStateChangeListener(IOnReadStateChangeListener listener) {
         this.listener = listener;
     }
 
@@ -580,21 +591,21 @@ namespace Xamarin.BookReader.Views.ReadViews
     }
 
     public void convertBetteryBitmap() {
-        batteryView = (ProgressBar) LayoutInflater.from(mContext).inflate(R.layout.layout_battery_progress, null);
-        batteryView.setProgressDrawable(ContextCompat.getDrawable(mContext,
-                SettingManager.getInstance().getReadTheme() < 4 ?
-                        R.drawable.seekbar_battery_bg : R.drawable.seekbar_battery_night_bg));
-        batteryView.setProgress(battery);
-        batteryView.setDrawingCacheEnabled(true);
-        batteryView.measure(View.MeasureSpec.makeMeasureSpec(ScreenUtils.dpToPxInt(26), View.MeasureSpec.EXACTLY),
-                View.MeasureSpec.makeMeasureSpec(ScreenUtils.dpToPxInt(14), View.MeasureSpec.EXACTLY));
-        batteryView.layout(0, 0, batteryView.getMeasuredWidth(), batteryView.getMeasuredHeight());
-        batteryView.buildDrawingCache();
+        batteryView = (ProgressBar) LayoutInflater.From(mContext).Inflate(Resource.Layout.layout_battery_progress, null);
+        batteryView.ProgressDrawable = (ContextCompat.GetDrawable(mContext,
+                true ?// TODO: SettingManager.getInstance().getReadTheme() < 4 ? 
+                        Resource.Drawable.seekbar_battery_bg : Resource.Drawable.seekbar_battery_night_bg));
+        batteryView.Progress = (battery);
+        batteryView.DrawingCacheEnabled = (true);
+        batteryView.Measure(View.MeasureSpec.MakeMeasureSpec(ScreenUtils.dpToPxInt(26), MeasureSpecMode.Exactly),
+                View.MeasureSpec.MakeMeasureSpec(ScreenUtils.dpToPxInt(14), MeasureSpecMode.Exactly));
+        batteryView.Layout(0, 0, batteryView.MeasuredWidth, batteryView.MeasuredHeight);
+        batteryView.BuildDrawingCache();
         //batteryBitmap = batteryView.getDrawingCache();
         // tips: @link{https://github.com/JustWayward/BookReader/issues/109}
-        batteryBitmap = Bitmap.createBitmap(batteryView.getDrawingCache());
-        batteryView.setDrawingCacheEnabled(false);
-        batteryView.destroyDrawingCache();
+        batteryBitmap = Bitmap.CreateBitmap(batteryView.DrawingCache);
+        batteryView.DrawingCacheEnabled = (false);
+        batteryView.DestroyDrawingCache();
     }
 
     public void setBattery(int battery) {
@@ -607,14 +618,14 @@ namespace Xamarin.BookReader.Views.ReadViews
     }
 
     public void recycle() {
-        if (mBookPageBg != null && !mBookPageBg.isRecycled()) {
-            mBookPageBg.recycle();
+        if (mBookPageBg != null && !mBookPageBg.IsRecycled) {
+            mBookPageBg.Recycle();
             mBookPageBg = null;
             LogUtils.d("mBookPageBg recycle");
         }
 
-        if (batteryBitmap != null && !batteryBitmap.isRecycled()) {
-            batteryBitmap.recycle();
+        if (batteryBitmap != null && !batteryBitmap.IsRecycled) {
+            batteryBitmap.Recycle();
             batteryBitmap = null;
             LogUtils.d("batteryBitmap recycle");
         }

@@ -51,14 +51,14 @@ namespace Xamarin.BookReader.Views
 
             mBtnMale.Click += (sender, e) =>
             {
-                SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Male);
+                // TODO: SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Male);
                 Dismiss();
             };
 
             mBtnFemale = (Button)mContentView.FindViewById(Resource.Id.mBtnFemale);
             mBtnFemale.Click += (sender, e) =>
             {
-                SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Female);
+                // TODO: SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Female);
                 Dismiss();
             };
 

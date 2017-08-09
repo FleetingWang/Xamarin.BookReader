@@ -10,12 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Views;
+using Org.Greenrobot.Eventbus;
+using Xamarin.BookReader.Models.Support;
 
 namespace Xamarin.BookReader.Bases
 {
     public abstract class BaseCommunitActivity : BaseActivity, SelectionLayout.OnSelectListener
     {
-        // TODO: @Bind(R.id.slOverall)
         SelectionLayout slOverall;
 
         protected List<List<String>> list;
@@ -117,7 +118,7 @@ namespace Xamarin.BookReader.Bases
             }
 
             // TODO: EventBus
-            // EventBus.getDefault().post(new SelectionEvent(distillate, type, sort));
+            EventBus.Default.Post(new SelectionEvent(distillate, type, sort));
         }
     }
 }

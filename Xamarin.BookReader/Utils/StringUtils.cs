@@ -9,19 +9,21 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Xamarin.BookReader.Extensions;
+using System.Text.RegularExpressions;
 
 namespace Xamarin.BookReader.Utils
 {
     public class StringUtils
     {
-        public static string creatAcacheKey(params Object[] param)
+        public static string creatAcacheKey(params object[] param)
         {
             string key = "";
-            for (Object o : param)
+            foreach (object o in param)
             {
                 key += "-" + o;
             }
-            return key.replaceFirst("-", "");
+            return key.ReplaceFirst("-", "");
         }
 
         /**
@@ -35,10 +37,10 @@ namespace Xamarin.BookReader.Utils
          */
         public static string formatContent(string str)
         {
-            str = str.replaceAll("[ ]*", "");//替换来自服务器上的，特殊空格
-            str = str.replaceAll("[ ]*", "");//
-            str = str.replace("\n\n", "\n");
-            str = str.replace("\n", "\n" + getTwoSpaces());
+            str = Regex.Replace(str, "[ ]*", "");//替换来自服务器上的，特殊空格
+            str = Regex.Replace(str, "[ ]*", "");//
+            str = str.Replace("\n\n", "\n");
+            str = str.Replace("\n", "\n" + getTwoSpaces());
             str = getTwoSpaces() + str;
             //        str = convertToSBC(str);
             return str;

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
-    public interface OnReadStateChangeListener
+    public interface IOnReadStateChangeListener
     {
         void onChapterChanged(int chapter);
 

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Annotation;
+using Android.Views.InputMethods;
 
 namespace Xamarin.BookReader.Utils
 {
@@ -24,60 +25,68 @@ namespace Xamarin.BookReader.Utils
      *
      * @param context
      */
-    public static void toggleSoftInput(Context context) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    /**
-     * 显示键盘
-     *
-     * @param view
-     * @return
-     */
-    public static bool showSoftInput(View view) {
-        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        return imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
-    }
-
-    public static bool showSoftInput(Activity activity) {
-        View view = activity.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(
-                    Context.INPUT_METHOD_SERVICE);
-            return imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+        public static void toggleSoftInput(Context context)
+        {
+            InputMethodManager imm = (InputMethodManager)context.GetSystemService(Context.InputMethodService);
+            imm.ToggleSoftInput(0, HideSoftInputFlags.NotAlways);
         }
-        return false;
-    }
 
-    /**
-     * 隐藏键盘
-     *
-     * @param view
-     * @return
-     */
-    public static bool hideSoftInput(View view) {
-        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        return imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    public static bool hideSoftInput(Activity activity) {
-        if (activity.getCurrentFocus() != null) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            return imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+        /**
+         * 显示键盘
+         *
+         * @param view
+         * @return
+         */
+        public static bool showSoftInput(View view)
+        {
+            InputMethodManager imm = (InputMethodManager)view.Context.GetSystemService(Context.InputMethodService);
+            return imm.ShowSoftInput(view, ShowFlags.Forced);
         }
-        return false;
-    }
 
-    /**
-     * 判断键盘是否打开
-     *
-     * @param context
-     * @return
-     */
-    public static bool isActive(Context context) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        return imm.isActive();
-    }
+        public static bool showSoftInput(Activity activity)
+        {
+            View view = activity.CurrentFocus;
+            if (view != null)
+            {
+                InputMethodManager imm = (InputMethodManager)view.Context.GetSystemService(
+                        Context.InputMethodService);
+                return imm.ShowSoftInput(view, ShowFlags.Forced);
+            }
+            return false;
+        }
+
+        /**
+         * 隐藏键盘
+         *
+         * @param view
+         * @return
+         */
+        public static bool hideSoftInput(View view)
+        {
+            InputMethodManager imm = (InputMethodManager)view.Context.GetSystemService(Context.InputMethodService);
+            return imm.HideSoftInputFromWindow(view.WindowToken, 0);
+        }
+
+        public static bool hideSoftInput(Activity activity)
+        {
+            if (activity.CurrentFocus != null)
+            {
+                InputMethodManager imm = (InputMethodManager)activity.GetSystemService(Context.InputMethodService);
+                return imm.HideSoftInputFromWindow(activity.CurrentFocus.WindowToken, 0);
+            }
+            return false;
+        }
+
+        /**
+         * 判断键盘是否打开
+         *
+         * @param context
+         * @return
+         */
+        public static bool isActive(Context context)
+        {
+            InputMethodManager imm = (InputMethodManager)context.GetSystemService(Context.InputMethodService);
+            return imm.IsActive;
+        }
     }
 }

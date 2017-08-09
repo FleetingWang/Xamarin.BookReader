@@ -9,6 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
+using Xamarin.BookReader.Managers;
+using Android.Graphics.Drawables;
+using Xamarin.BookReader.Models;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
@@ -55,25 +59,25 @@ namespace Xamarin.BookReader.Views.ReadViews
     Paint mPaint;
 
     public PageWidget(Context context, string bookId,
-                      List<BookMixAToc.mixToc.Chapters> chaptersList,
-                      OnReadStateChangeListener listener) {
-        super(context, bookId, chaptersList, listener);
+                      List<BookMixAToc.MixToc.Chapters> chaptersList,
+                      IOnReadStateChangeListener listener):base(context, bookId, chaptersList, listener) {
+        
         mPath0 = new Path();
         mPath1 = new Path();
-        mMaxLength = (float) Math.hypot(mScreenWidth, mScreenHeight);
+        mMaxLength = (float) Java.Lang.Math.Hypot(mScreenWidth, mScreenHeight);
         mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.SetStyle(Paint.Style.Fill);
 
         createDrawable();
 
         ColorMatrix cm = new ColorMatrix();//设置颜色数组
-        float array[] = {0.55f, 0, 0, 0, 80.0f, 0, 0.55f, 0, 0, 80.0f, 0, 0, 0.55f, 0, 80.0f, 0, 0, 0, 0.2f, 0};
-        cm.set(array);
+        float[] array = {0.55f, 0, 0, 0, 80.0f, 0, 0.55f, 0, 0, 80.0f, 0, 0, 0.55f, 0, 80.0f, 0, 0, 0, 0.2f, 0};
+        cm.Set(array);
         mColorMatrixFilter = new ColorMatrixColorFilter(cm);
         mMatrix = new Matrix();
 
-        mTouch.x = 0.01f; // 不让x,y为0,否则在点计算时会有问题
-        mTouch.y = 0.01f;
+        mTouch.X = 0.01f; // 不让x,y为0,否则在点计算时会有问题
+        mTouch.Y = 0.01f;
     }
 
     /**
@@ -82,8 +86,7 @@ namespace Xamarin.BookReader.Views.ReadViews
      * @param x 触摸点x坐标
      * @param y 触摸点y坐标
      */
-    @Override
-    public void calcCornerXY(float x, float y) {
+    protected override void calcCornerXY(float x, float y) {
         if (x <= mScreenWidth / 2)
             mCornerX = 0;
         else
@@ -101,147 +104,144 @@ namespace Xamarin.BookReader.Views.ReadViews
      */
     public PointF getCross(PointF P1, PointF P2, PointF P3, PointF P4) {
         PointF CrossP = new PointF();
-        float a1 = (P2.y - P1.y) / (P2.x - P1.x);
-        float b1 = ((P1.x * P2.y) - (P2.x * P1.y)) / (P1.x - P2.x);
-        float a2 = (P4.y - P3.y) / (P4.x - P3.x);
-        float b2 = ((P3.x * P4.y) - (P4.x * P3.y)) / (P3.x - P4.x);
-        CrossP.x = (b2 - b1) / (a1 - a2);
-        CrossP.y = a1 * CrossP.x + b1;
+        float a1 = (P2.Y - P1.Y) / (P2.X - P1.X);
+        float b1 = ((P1.X * P2.Y) - (P2.X * P1.Y)) / (P1.X - P2.X);
+        float a2 = (P4.Y - P3.Y) / (P4.X - P3.X);
+        float b2 = ((P3.X * P4.Y) - (P4.X * P3.Y)) / (P3.X - P4.X);
+        CrossP.X = (b2 - b1) / (a1 - a2);
+        CrossP.Y = a1 * CrossP.X + b1;
         return CrossP;
     }
 
-    @Override
-    protected void calcPoints() {
-        mMiddleX = (mTouch.x + mCornerX) / 2;
-        mMiddleY = (mTouch.y + mCornerY) / 2;
-        mBezierControl1.x = mMiddleX - (mCornerY - mMiddleY) * (mCornerY - mMiddleY) / (mCornerX - mMiddleX);
-        mBezierControl1.y = mCornerY;
-        mBezierControl2.x = mCornerX;
-        //mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
+    protected override void calcPoints() {
+        mMiddleX = (mTouch.X + mCornerX) / 2;
+        mMiddleY = (mTouch.Y + mCornerY) / 2;
+        mBezierControl1.X = mMiddleX - (mCornerY - mMiddleY) * (mCornerY - mMiddleY) / (mCornerX - mMiddleX);
+        mBezierControl1.Y = mCornerY;
+        mBezierControl2.X = mCornerX;
+        //mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
 
         float f4 = mCornerY - mMiddleY;
         if (f4 == 0) {
-            mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / 0.1f;
+            mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / 0.1f;
         } else {
-            mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
+            mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
         }
 
-        mBezierStart1.x = mBezierControl1.x - (mCornerX - mBezierControl1.x) / 2;
-        mBezierStart1.y = mCornerY;
+        mBezierStart1.X = mBezierControl1.X - (mCornerX - mBezierControl1.X) / 2;
+        mBezierStart1.Y = mCornerY;
 
-        // 当mBezierStart1.x < 0或者mBezierStart1.x > 480时
+        // 当mBezierStart1.X < 0或者mBezierStart1.X > 480时
         // 如果继续翻页，会出现BUG故在此限制
-        if (mTouch.x > 0 && mTouch.x < mScreenWidth) {
-            if (mBezierStart1.x < 0 || mBezierStart1.x > mScreenWidth) {
-                if (mBezierStart1.x < 0)
-                    mBezierStart1.x = mScreenWidth - mBezierStart1.x;
+        if (mTouch.X > 0 && mTouch.X < mScreenWidth) {
+            if (mBezierStart1.X < 0 || mBezierStart1.X > mScreenWidth) {
+                if (mBezierStart1.X < 0)
+                    mBezierStart1.X = mScreenWidth - mBezierStart1.X;
 
-                float f1 = Math.abs(mCornerX - mTouch.x);
-                float f2 = mScreenWidth * f1 / mBezierStart1.x;
-                mTouch.x = Math.abs(mCornerX - f2);
+                float f1 = System.Math.Abs(mCornerX - mTouch.X);
+                float f2 = mScreenWidth * f1 / mBezierStart1.X;
+                mTouch.X = System.Math.Abs(mCornerX - f2);
 
-                float f3 = Math.abs(mCornerX - mTouch.x)
-                        * Math.abs(mCornerY - mTouch.y) / f1;
-                mTouch.y = Math.abs(mCornerY - f3);
+                float f3 = System.Math.Abs(mCornerX - mTouch.X)
+                        * System.Math.Abs(mCornerY - mTouch.Y) / f1;
+                mTouch.Y = System.Math.Abs(mCornerY - f3);
 
-                mMiddleX = (mTouch.x + mCornerX) / 2;
-                mMiddleY = (mTouch.y + mCornerY) / 2;
+                mMiddleX = (mTouch.X + mCornerX) / 2;
+                mMiddleY = (mTouch.Y + mCornerY) / 2;
 
-                mBezierControl1.x = mMiddleX - (mCornerY - mMiddleY) * (mCornerY - mMiddleY) / (mCornerX - mMiddleX);
-                mBezierControl1.y = mCornerY;
+                mBezierControl1.X = mMiddleX - (mCornerY - mMiddleY) * (mCornerY - mMiddleY) / (mCornerX - mMiddleX);
+                mBezierControl1.Y = mCornerY;
 
-                mBezierControl2.x = mCornerX;
-                //mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
+                mBezierControl2.X = mCornerX;
+                //mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
 
                 float f5 = mCornerY - mMiddleY;
                 if (f5 == 0) {
-                    mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / 0.1f;
+                    mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / 0.1f;
                 } else {
-                    mBezierControl2.y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
+                    mBezierControl2.Y = mMiddleY - (mCornerX - mMiddleX) * (mCornerX - mMiddleX) / (mCornerY - mMiddleY);
                 }
-                mBezierStart1.x = mBezierControl1.x - (mCornerX - mBezierControl1.x) / 2;
+                mBezierStart1.X = mBezierControl1.X - (mCornerX - mBezierControl1.X) / 2;
             }
         }
-        mBezierStart2.x = mCornerX;
-        mBezierStart2.y = mBezierControl2.y - (mCornerY - mBezierControl2.y) / 2;
+        mBezierStart2.X = mCornerX;
+        mBezierStart2.Y = mBezierControl2.Y - (mCornerY - mBezierControl2.Y) / 2;
 
-        mTouchToCornerDis = (float) Math.hypot((mTouch.x - mCornerX), (mTouch.y - mCornerY));
+        mTouchToCornerDis = (float) Java.Lang.Math.Hypot((mTouch.X - mCornerX), (mTouch.Y - mCornerY));
 
         mBezierEnd1 = getCross(mTouch, mBezierControl1, mBezierStart1, mBezierStart2);
         mBezierEnd2 = getCross(mTouch, mBezierControl2, mBezierStart1, mBezierStart2);
 
 		/*
-         * mBeziervertex1.x 推导
-		 * ((mBezierStart1.x+mBezierEnd1.x)/2+mBezierControl1.x)/2 化简等价于
-		 * (mBezierStart1.x+ 2*mBezierControl1.x+mBezierEnd1.x) / 4
+         * mBeziervertex1.X 推导
+		 * ((mBezierStart1.x+mBezierEnd1.X)/2+mBezierControl1.X)/2 化简等价于
+		 * (mBezierStart1.x+ 2*mBezierControl1.x+mBezierEnd1.X) / 4
 		 */
-        mBeziervertex1.x = (mBezierStart1.x + 2 * mBezierControl1.x + mBezierEnd1.x) / 4;
-        mBeziervertex1.y = (2 * mBezierControl1.y + mBezierStart1.y + mBezierEnd1.y) / 4;
-        mBeziervertex2.x = (mBezierStart2.x + 2 * mBezierControl2.x + mBezierEnd2.x) / 4;
-        mBeziervertex2.y = (2 * mBezierControl2.y + mBezierStart2.y + mBezierEnd2.y) / 4;
+        mBeziervertex1.X = (mBezierStart1.X + 2 * mBezierControl1.X + mBezierEnd1.X) / 4;
+        mBeziervertex1.Y = (2 * mBezierControl1.Y + mBezierStart1.Y + mBezierEnd1.Y) / 4;
+        mBeziervertex2.X = (mBezierStart2.X + 2 * mBezierControl2.X + mBezierEnd2.X) / 4;
+        mBeziervertex2.Y = (2 * mBezierControl2.Y + mBezierStart2.Y + mBezierEnd2.Y) / 4;
     }
 
-    @Override
-    protected void drawCurrentPageArea(Canvas canvas) {
-        mPath0.reset();
-        mPath0.moveTo(mBezierStart1.x, mBezierStart1.y);
-        mPath0.quadTo(mBezierControl1.x, mBezierControl1.y, mBezierEnd1.x, mBezierEnd1.y);
-        mPath0.lineTo(mTouch.x, mTouch.y);
-        mPath0.lineTo(mBezierEnd2.x, mBezierEnd2.y);
-        mPath0.quadTo(mBezierControl2.x, mBezierControl2.y, mBezierStart2.x, mBezierStart2.y);
-        mPath0.lineTo(mCornerX, mCornerY);
-        mPath0.close();
+    protected override void drawCurrentPageArea(Canvas canvas) {
+        mPath0.Reset();
+        mPath0.MoveTo(mBezierStart1.X, mBezierStart1.Y);
+        mPath0.QuadTo(mBezierControl1.X, mBezierControl1.Y, mBezierEnd1.X, mBezierEnd1.Y);
+        mPath0.LineTo(mTouch.X, mTouch.Y);
+        mPath0.LineTo(mBezierEnd2.X, mBezierEnd2.Y);
+        mPath0.QuadTo(mBezierControl2.X, mBezierControl2.Y, mBezierStart2.X, mBezierStart2.Y);
+        mPath0.LineTo(mCornerX, mCornerY);
+        mPath0.Close();
 
-        canvas.save();
-        canvas.clipPath(mPath0, Region.Op.XOR);
-        canvas.drawBitmap(mCurPageBitmap, 0, 0, null);
+        canvas.Save();
+        canvas.ClipPath(mPath0, Region.Op.Xor);
+        canvas.DrawBitmap(mCurPageBitmap, 0, 0, null);
         try {
-            canvas.restore();
+            canvas.Restore();
         } catch (Exception e) {
 
         }
     }
 
-    @Override
-    protected void drawNextPageAreaAndShadow(Canvas canvas) {
-        mPath1.reset();
-        mPath1.moveTo(mBezierStart1.x, mBezierStart1.y);
-        mPath1.lineTo(mBeziervertex1.x, mBeziervertex1.y);
-        mPath1.lineTo(mBeziervertex2.x, mBeziervertex2.y);
-        mPath1.lineTo(mBezierStart2.x, mBezierStart2.y);
-        mPath1.lineTo(mCornerX, mCornerY);
-        mPath1.close();
+    protected override void drawNextPageAreaAndShadow(Canvas canvas) {
+        mPath1.Reset();
+        mPath1.MoveTo(mBezierStart1.X, mBezierStart1.Y);
+        mPath1.LineTo(mBeziervertex1.X, mBeziervertex1.Y);
+        mPath1.LineTo(mBeziervertex2.X, mBeziervertex2.Y);
+        mPath1.LineTo(mBezierStart2.X, mBezierStart2.Y);
+        mPath1.LineTo(mCornerX, mCornerY);
+        mPath1.Close();
 
-        mDegrees = (float) Math.toDegrees(Math.atan2(mBezierControl1.x - mCornerX, mBezierControl2.y - mCornerY));
+        mDegrees = (float) Java.Lang.Math.ToDegrees(Java.Lang.Math.Atan2(mBezierControl1.X - mCornerX, mBezierControl2.Y - mCornerY));
         int leftx;
         int rightx;
         GradientDrawable mBackShadowDrawable;
         if (mIsRTandLB) {  //左下及右上
-            leftx = (int) (mBezierStart1.x);
-            rightx = (int) (mBezierStart1.x + mTouchToCornerDis / 4);
+            leftx = (int) (mBezierStart1.X);
+            rightx = (int) (mBezierStart1.X + mTouchToCornerDis / 4);
             mBackShadowDrawable = mBackShadowDrawableLR;
         } else {
-            leftx = (int) (mBezierStart1.x - mTouchToCornerDis / 4);
-            rightx = (int) mBezierStart1.x;
+            leftx = (int) (mBezierStart1.X - mTouchToCornerDis / 4);
+            rightx = (int) mBezierStart1.X;
             mBackShadowDrawable = mBackShadowDrawableRL;
         }
-        canvas.save();
+        canvas.Save();
         try {
-            canvas.clipPath(mPath0);
-            canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            canvas.ClipPath(mPath0);
+            canvas.ClipPath(mPath1, Region.Op.Intersect);
         } catch (Exception e) {
         }
 
 
-        canvas.drawBitmap(mNextPageBitmap, 0, 0, null);
-        canvas.rotate(mDegrees, mBezierStart1.x, mBezierStart1.y);
-        mBackShadowDrawable.setBounds(leftx, (int) mBezierStart1.y,
-                rightx, (int) (mMaxLength + mBezierStart1.y));//左上及右下角的xy坐标值,构成一个矩形
-        mBackShadowDrawable.draw(canvas);
-        canvas.restore();
+        canvas.DrawBitmap(mNextPageBitmap, 0, 0, null);
+        canvas.Rotate(mDegrees, mBezierStart1.X, mBezierStart1.Y);
+        mBackShadowDrawable.SetBounds(leftx, (int) mBezierStart1.Y,
+                rightx, (int) (mMaxLength + mBezierStart1.Y));//左上及右下角的xy坐标值,构成一个矩形
+        mBackShadowDrawable.Draw(canvas);
+        canvas.Restore();
     }
 
-    public void setBitmaps(Bitmap bm1, Bitmap bm2) {
+    protected override void setBitmaps(Bitmap bm1, Bitmap bm2) {
         mCurPageBitmap = bm1;
         mNextPageBitmap = bm2;
     }
@@ -250,31 +250,32 @@ namespace Xamarin.BookReader.Views.ReadViews
      * 创建阴影的GradientDrawable
      */
     private void createDrawable() {
-        int[] color = {0x333333, 0xb0333333};
-        mFolderShadowDrawableRL = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, color);
-        mFolderShadowDrawableRL.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+            var uintValue = 0xb0333333;
+        int[] color = {0x333333, (int)uintValue};
+        mFolderShadowDrawableRL = new GradientDrawable(GradientDrawable.Orientation.RightLeft, color);
+        mFolderShadowDrawableRL.SetGradientType(GradientType.LinearGradient);
 
-        mFolderShadowDrawableLR = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, color);
-        mFolderShadowDrawableLR.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        mFolderShadowDrawableLR = new GradientDrawable(GradientDrawable.Orientation.LeftRight, color);
+        mFolderShadowDrawableLR.SetGradientType(GradientType.LinearGradient);
+            var uintValue2 = 0xff111111;
+        mBackShadowColors = new int[]{(int)uintValue2, 0x111111};
+        mBackShadowDrawableRL = new GradientDrawable(GradientDrawable.Orientation.RightLeft, mBackShadowColors);
+        mBackShadowDrawableRL.SetGradientType(GradientType.LinearGradient);
 
-        mBackShadowColors = new int[]{0xff111111, 0x111111};
-        mBackShadowDrawableRL = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, mBackShadowColors);
-        mBackShadowDrawableRL.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        mBackShadowDrawableLR = new GradientDrawable(GradientDrawable.Orientation.LeftRight, mBackShadowColors);
+        mBackShadowDrawableLR.SetGradientType(GradientType.LinearGradient);
+            var uintValue3 = 0x80111111;
+            mFrontShadowColors = new int[]{ (int)uintValue3, 0x111111};
+        mFrontShadowDrawableVLR = new GradientDrawable(GradientDrawable.Orientation.LeftRight, mFrontShadowColors);
+        mFrontShadowDrawableVLR.SetGradientType(GradientType.LinearGradient);
+        mFrontShadowDrawableVRL = new GradientDrawable(GradientDrawable.Orientation.RightLeft, mFrontShadowColors);
+        mFrontShadowDrawableVRL.SetGradientType(GradientType.LinearGradient);
 
-        mBackShadowDrawableLR = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, mBackShadowColors);
-        mBackShadowDrawableLR.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        mFrontShadowDrawableHTB = new GradientDrawable(GradientDrawable.Orientation.TopBottom, mFrontShadowColors);
+        mFrontShadowDrawableHTB.SetGradientType(GradientType.LinearGradient);
 
-        mFrontShadowColors = new int[]{0x80111111, 0x111111};
-        mFrontShadowDrawableVLR = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, mFrontShadowColors);
-        mFrontShadowDrawableVLR.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        mFrontShadowDrawableVRL = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, mFrontShadowColors);
-        mFrontShadowDrawableVRL.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-
-        mFrontShadowDrawableHTB = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, mFrontShadowColors);
-        mFrontShadowDrawableHTB.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-
-        mFrontShadowDrawableHBT = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, mFrontShadowColors);
-        mFrontShadowDrawableHBT.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        mFrontShadowDrawableHBT = new GradientDrawable(GradientDrawable.Orientation.BottomTop, mFrontShadowColors);
+        mFrontShadowDrawableHBT.SetGradientType(GradientType.LinearGradient);
     }
 
     /**
@@ -282,34 +283,34 @@ namespace Xamarin.BookReader.Views.ReadViews
      *
      * @param canvas
      */
-    public void drawCurrentPageShadow(Canvas canvas) {
+    protected override void drawCurrentPageShadow(Canvas canvas) {
         double degree;
         if (mIsRTandLB) {
-            degree = Math.PI / 4 - Math.atan2(mBezierControl1.y - mTouch.y, mTouch.x - mBezierControl1.x);
+            degree = Math.PI / 4 - Java.Lang.Math.Atan2(mBezierControl1.Y - mTouch.Y, mTouch.X - mBezierControl1.X);
         } else {
-            degree = Math.PI / 4 - Math.atan2(mTouch.y - mBezierControl1.y, mTouch.x - mBezierControl1.x);
+            degree = Math.PI / 4 - Java.Lang.Math.Atan2(mTouch.Y - mBezierControl1.Y, mTouch.X - mBezierControl1.X);
         }
         // 翻起页阴影顶点与touch点的距离
-        double d1 = (float) 25 * 1.414 * Math.cos(degree);
-        double d2 = (float) 25 * 1.414 * Math.sin(degree);
-        float x = (float) (mTouch.x + d1);
+        double d1 = (float) 25 * 1.414 * Math.Cos(degree);
+        double d2 = (float) 25 * 1.414 * Math.Sin(degree);
+        float x = (float) (mTouch.X + d1);
         float y;
         if (mIsRTandLB) {
-            y = (float) (mTouch.y + d2);
+            y = (float) (mTouch.Y + d2);
         } else {
-            y = (float) (mTouch.y - d2);
+            y = (float) (mTouch.Y - d2);
         }
-        mPath1.reset();
-        mPath1.moveTo(x, y);
-        mPath1.lineTo(mTouch.x, mTouch.y);
-        mPath1.lineTo(mBezierControl1.x, mBezierControl1.y);
-        mPath1.lineTo(mBezierStart1.x, mBezierStart1.y);
-        mPath1.close();
+        mPath1.Reset();
+        mPath1.MoveTo(x, y);
+        mPath1.LineTo(mTouch.X, mTouch.Y);
+        mPath1.LineTo(mBezierControl1.X, mBezierControl1.Y);
+        mPath1.LineTo(mBezierStart1.X, mBezierStart1.Y);
+        mPath1.Close();
         float rotateDegrees;
-        canvas.save();
+        canvas.Save();
         try {
-            canvas.clipPath(mPath0, Region.Op.XOR);
-            canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            canvas.ClipPath(mPath0, Region.Op.Xor);
+            canvas.ClipPath(mPath1, Region.Op.Intersect);
         } catch (Exception e) {
         }
 
@@ -317,177 +318,171 @@ namespace Xamarin.BookReader.Views.ReadViews
         int rightx;
         GradientDrawable mCurrentPageShadow;
         if (mIsRTandLB) {
-            leftx = (int) (mBezierControl1.x);
-            rightx = (int) mBezierControl1.x + 25;
+            leftx = (int) (mBezierControl1.X);
+            rightx = (int) mBezierControl1.X + 25;
             mCurrentPageShadow = mFrontShadowDrawableVLR;
         } else {
-            leftx = (int) (mBezierControl1.x - 25);
-            rightx = (int) mBezierControl1.x + 1;
+            leftx = (int) (mBezierControl1.X - 25);
+            rightx = (int) mBezierControl1.X + 1;
             mCurrentPageShadow = mFrontShadowDrawableVRL;
         }
 
-        rotateDegrees = (float) Math.toDegrees(Math.atan2(mTouch.x - mBezierControl1.x,
-                mBezierControl1.y - mTouch.y));
-        canvas.rotate(rotateDegrees, mBezierControl1.x, mBezierControl1.y);
-        mCurrentPageShadow.setBounds(leftx, (int) (mBezierControl1.y - mMaxLength),
-                rightx, (int) (mBezierControl1.y));
-        mCurrentPageShadow.draw(canvas);
-        canvas.restore();
+        rotateDegrees = (float)Java.Lang.Math.ToDegrees(Java.Lang.Math.Atan2(mTouch.X - mBezierControl1.X,
+                mBezierControl1.Y - mTouch.Y));
+        canvas.Rotate(rotateDegrees, mBezierControl1.X, mBezierControl1.Y);
+        mCurrentPageShadow.SetBounds(leftx, (int) (mBezierControl1.Y - mMaxLength),
+                rightx, (int) (mBezierControl1.Y));
+        mCurrentPageShadow.Draw(canvas);
+        canvas.Restore();
 
-        mPath1.reset();
-        mPath1.moveTo(x, y);
-        mPath1.lineTo(mTouch.x, mTouch.y);
-        mPath1.lineTo(mBezierControl2.x, mBezierControl2.y);
-        mPath1.lineTo(mBezierStart2.x, mBezierStart2.y);
-        mPath1.close();
-        canvas.save();
+        mPath1.Reset();
+        mPath1.MoveTo(x, y);
+        mPath1.LineTo(mTouch.X, mTouch.Y);
+        mPath1.LineTo(mBezierControl2.X, mBezierControl2.Y);
+        mPath1.LineTo(mBezierStart2.X, mBezierStart2.Y);
+        mPath1.Close();
+        canvas.Save();
         try {
-            canvas.clipPath(mPath0, Region.Op.XOR);
-            canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            canvas.ClipPath(mPath0, Region.Op.Xor);
+            canvas.ClipPath(mPath1, Region.Op.Intersect);
         } catch (Exception e) {
         }
 
         if (mIsRTandLB) {
-            leftx = (int) (mBezierControl2.y);
-            rightx = (int) (mBezierControl2.y + 25);
+            leftx = (int) (mBezierControl2.Y);
+            rightx = (int) (mBezierControl2.Y + 25);
             mCurrentPageShadow = mFrontShadowDrawableHTB;
         } else {
-            leftx = (int) (mBezierControl2.y - 25);
-            rightx = (int) (mBezierControl2.y + 1);
+            leftx = (int) (mBezierControl2.Y - 25);
+            rightx = (int) (mBezierControl2.Y + 1);
             mCurrentPageShadow = mFrontShadowDrawableHBT;
         }
-        rotateDegrees = (float) Math.toDegrees(Math.atan2(mBezierControl2.y - mTouch.y, mBezierControl2.x - mTouch.x));
-        canvas.rotate(rotateDegrees, mBezierControl2.x, mBezierControl2.y);
+        rotateDegrees = (float)Java.Lang.Math.ToDegrees(Java.Lang.Math.Atan2(mBezierControl2.Y - mTouch.Y, mBezierControl2.X - mTouch.X));
+        canvas.Rotate(rotateDegrees, mBezierControl2.X, mBezierControl2.Y);
         float temp;
-        if (mBezierControl2.y < 0)
-            temp = mBezierControl2.y - mScreenHeight;
+        if (mBezierControl2.Y < 0)
+            temp = mBezierControl2.Y - mScreenHeight;
         else
-            temp = mBezierControl2.y;
+            temp = mBezierControl2.Y;
 
-        int hmg = (int) Math.hypot(mBezierControl2.x, temp);
+        int hmg = (int)Java.Lang.Math.Hypot(mBezierControl2.X, temp);
         if (hmg > mMaxLength) {
-            mCurrentPageShadow.setBounds((int) (mBezierControl2.x - 25) - hmg, leftx,
-                    (int) (mBezierControl2.x + mMaxLength) - hmg, rightx);
+            mCurrentPageShadow.SetBounds((int) (mBezierControl2.X - 25) - hmg, leftx,
+                    (int) (mBezierControl2.X + mMaxLength) - hmg, rightx);
         } else {
-            mCurrentPageShadow.setBounds((int) (mBezierControl2.x - mMaxLength), leftx,
-                    (int) (mBezierControl2.x), rightx);
+            mCurrentPageShadow.SetBounds((int) (mBezierControl2.X - mMaxLength), leftx,
+                    (int) (mBezierControl2.X), rightx);
         }
-        mCurrentPageShadow.draw(canvas);
-        canvas.restore();
+        mCurrentPageShadow.Draw(canvas);
+        canvas.Restore();
     }
 
-    @Override
-    protected void drawCurrentBackArea(Canvas canvas) {
-        int i = (int) (mBezierStart1.x + mBezierControl1.x) / 2;
-        float f1 = Math.abs(i - mBezierControl1.x);
-        int i1 = (int) (mBezierStart2.y + mBezierControl2.y) / 2;
-        float f2 = Math.abs(i1 - mBezierControl2.y);
-        float f3 = Math.min(f1, f2);
-        mPath1.reset();
-        mPath1.moveTo(mBeziervertex2.x, mBeziervertex2.y);
-        mPath1.lineTo(mBeziervertex1.x, mBeziervertex1.y);
-        mPath1.lineTo(mBezierEnd1.x, mBezierEnd1.y);
-        mPath1.lineTo(mTouch.x, mTouch.y);
-        mPath1.lineTo(mBezierEnd2.x, mBezierEnd2.y);
-        mPath1.close();
+    protected override void drawCurrentBackArea(Canvas canvas) {
+        int i = (int) (mBezierStart1.X + mBezierControl1.X) / 2;
+        float f1 = System.Math.Abs(i - mBezierControl1.X);
+        int i1 = (int) (mBezierStart2.Y + mBezierControl2.Y) / 2;
+        float f2 = System.Math.Abs(i1 - mBezierControl2.Y);
+        float f3 = Math.Min(f1, f2);
+        mPath1.Reset();
+        mPath1.MoveTo(mBeziervertex2.X, mBeziervertex2.Y);
+        mPath1.LineTo(mBeziervertex1.X, mBeziervertex1.Y);
+        mPath1.LineTo(mBezierEnd1.X, mBezierEnd1.Y);
+        mPath1.LineTo(mTouch.X, mTouch.Y);
+        mPath1.LineTo(mBezierEnd2.X, mBezierEnd2.Y);
+        mPath1.Close();
         GradientDrawable mFolderShadowDrawable;
         int left;
         int right;
         if (mIsRTandLB) {
-            left = (int) (mBezierStart1.x - 1);
-            right = (int) (mBezierStart1.x + f3 + 1);
+            left = (int) (mBezierStart1.X - 1);
+            right = (int) (mBezierStart1.X + f3 + 1);
             mFolderShadowDrawable = mFolderShadowDrawableLR;
         } else {
-            left = (int) (mBezierStart1.x - f3 - 1);
-            right = (int) (mBezierStart1.x + 1);
+            left = (int) (mBezierStart1.X - f3 - 1);
+            right = (int) (mBezierStart1.X + 1);
             mFolderShadowDrawable = mFolderShadowDrawableRL;
         }
-        canvas.save();
+        canvas.Save();
         try {
-            canvas.clipPath(mPath0);
-            canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            canvas.ClipPath(mPath0);
+            canvas.ClipPath(mPath1, Region.Op.Intersect);
         } catch (Exception e) {
         }
 
-        mPaint.setColorFilter(mColorMatrixFilter);
+        mPaint.SetColorFilter(mColorMatrixFilter);
 
-        float dis = (float) Math.hypot(mCornerX - mBezierControl1.x,
-                mBezierControl2.y - mCornerY);
-        float f8 = (mCornerX - mBezierControl1.x) / dis;
-        float f9 = (mBezierControl2.y - mCornerY) / dis;
+        float dis = (float) Java.Lang.Math.Hypot(mCornerX - mBezierControl1.X,
+                mBezierControl2.Y - mCornerY);
+        float f8 = (mCornerX - mBezierControl1.X) / dis;
+        float f9 = (mBezierControl2.Y - mCornerY) / dis;
         mMatrixArray[0] = 1 - 2 * f9 * f9;
         mMatrixArray[1] = 2 * f8 * f9;
         mMatrixArray[3] = mMatrixArray[1];
         mMatrixArray[4] = 1 - 2 * f8 * f8;
-        mMatrix.reset();
-        mMatrix.setValues(mMatrixArray);
-        mMatrix.preTranslate(-mBezierControl1.x, -mBezierControl1.y);
-        mMatrix.postTranslate(mBezierControl1.x, mBezierControl1.y);
-        canvas.drawBitmap(mCurPageBitmap, mMatrix, mPaint);
-        // canvas.drawBitmap(bitmap, mMatrix, null);
-        mPaint.setColorFilter(null);
-        canvas.rotate(mDegrees, mBezierStart1.x, mBezierStart1.y);
-        mFolderShadowDrawable.setBounds(left, (int) mBezierStart1.y, right,
-                (int) (mBezierStart1.y + mMaxLength));
-        mFolderShadowDrawable.draw(canvas);
-        canvas.restore();
+        mMatrix.Reset();
+        mMatrix.SetValues(mMatrixArray);
+        mMatrix.PreTranslate(-mBezierControl1.X, -mBezierControl1.Y);
+        mMatrix.PostTranslate(mBezierControl1.X, mBezierControl1.Y);
+        canvas.DrawBitmap(mCurPageBitmap, mMatrix, mPaint);
+        // canvas.DrawBitmap(bitmap, mMatrix, null);
+        mPaint.SetColorFilter(null);
+        canvas.Rotate(mDegrees, mBezierStart1.X, mBezierStart1.Y);
+        mFolderShadowDrawable.SetBounds(left, (int) mBezierStart1.Y, right,
+                (int) (mBezierStart1.Y + mMaxLength));
+        mFolderShadowDrawable.Draw(canvas);
+        canvas.Restore();
     }
 
-    @Override
-    public void computeScroll() {
-        super.computeScroll();
-        if (mScroller.computeScrollOffset()) {
-            float x = mScroller.getCurrX();
-            float y = mScroller.getCurrY();
-            mTouch.x = x;
-            mTouch.y = y;
-            postInvalidate();
+    public override void ComputeScroll() {
+        base.ComputeScroll();
+        if (mScroller.ComputeScrollOffset()) {
+            float x = mScroller.CurrX;
+            float y = mScroller.CurrY;
+            mTouch.X = x;
+            mTouch.Y = y;
+            PostInvalidate();
         }
     }
 
-    @Override
-    protected void startAnimation() {
+    protected override void startAnimation() {
         int dx, dy;
         if (mCornerX > 0) {
-            dx = -(int) (mScreenWidth + mTouch.x);
+            dx = -(int) (mScreenWidth + mTouch.X);
         } else {
-            dx = (int) (mScreenWidth - mTouch.x + mScreenWidth);
+            dx = (int) (mScreenWidth - mTouch.X + mScreenWidth);
         }
         if (mCornerY > 0) {
-            dy = (int) (mScreenHeight - mTouch.y);
+            dy = (int) (mScreenHeight - mTouch.Y);
         } else {
-            dy = (int) (1 - mTouch.y); // 防止mTouch.y最终变为0
+            dy = (int) (1 - mTouch.Y); // 防止mTouch.y最终变为0
         }
-        mScroller.startScroll((int) mTouch.x, (int) mTouch.y, dx, dy, 700);
+        mScroller.StartScroll((int) mTouch.X, (int) mTouch.Y, dx, dy, 700);
     }
 
-    @Override
-    public void abortAnimation() {
-        if (!mScroller.isFinished()) {
-            mScroller.abortAnimation();
+    protected override void abortAnimation() {
+        if (!mScroller.IsFinished) {
+            mScroller.AbortAnimation();
         }
     }
 
-    @Override
-    public void restoreAnimation() {
+        protected override void restoreAnimation() {
         int dx, dy;
         if (mCornerX > 0) {
-            dx = (int) (mScreenWidth - mTouch.x);
+            dx = (int) (mScreenWidth - mTouch.X);
         } else {
-            dx = (int) (-mTouch.x);
+            dx = (int) (-mTouch.X);
         }
         if (mCornerY > 0) {
-            dy = (int) (mScreenHeight - mTouch.y);
+            dy = (int) (mScreenHeight - mTouch.Y);
         } else {
-            dy = (int) (1 - mTouch.y);
+            dy = (int) (1 - mTouch.Y);
         }
-        mScroller.startScroll((int) mTouch.x, (int) mTouch.y, dx, dy, 300);
+        mScroller.StartScroll((int) mTouch.X, (int) mTouch.Y, dx, dy, 300);
     }
 
-    @Override
-    public synchronized void setTheme(int theme) {
+    public /*synchronized*/ override void setTheme(int theme) {
         resetTouchPoint();
-        calcCornerXY(mTouch.x, mTouch.y);
+        calcCornerXY(mTouch.X, mTouch.Y);
         Bitmap bg = ThemeManager.getThemeDrawable(theme);
         if (bg != null) {
             pagefactory.setBgBitmap(bg);
@@ -495,18 +490,17 @@ namespace Xamarin.BookReader.Views.ReadViews
             if (isPrepared) {
                 pagefactory.onDraw(mCurrentPageCanvas);
                 pagefactory.onDraw(mNextPageCanvas);
-                postInvalidate();
+                PostInvalidate();
             }
         }
         if (theme < 5) {
-            SettingManager.getInstance().saveReadTheme(theme);
+            // TODO: SettingManager.getInstance().saveReadTheme(theme);
         }
     }
 
-    @Override
-    public void jumpToChapter(int chapter) {
-        calcCornerXY(mTouch.x, mTouch.y);
-        super.jumpToChapter(chapter);
+    public override void jumpToChapter(int chapter) {
+        calcCornerXY(mTouch.X, mTouch.Y);
+        base.jumpToChapter(chapter);
     }
     }
 }

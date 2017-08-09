@@ -9,6 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
+using Xamarin.BookReader.Utils;
+using Android.Support.V4.Content;
+using Xamarin.BookReader.Models.Support;
 
 namespace Xamarin.BookReader.Managers
 {
@@ -26,22 +30,22 @@ namespace Xamarin.BookReader.Managers
             switch (theme)
             {
                 case NORMAL:
-                    view.setBackgroundResource(R.drawable.theme_white_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_white_bg);
                     break;
                 case YELLOW:
-                    view.setBackgroundResource(R.drawable.theme_yellow_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_yellow_bg);
                     break;
                 case GREEN:
-                    view.setBackgroundResource(R.drawable.theme_green_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_green_bg);
                     break;
                 case LEATHER:
-                    view.setBackgroundResource(R.drawable.theme_leather_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_leather_bg);
                     break;
                 case GRAY:
-                    view.setBackgroundResource(R.drawable.theme_gray_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_gray_bg);
                     break;
                 case NIGHT:
-                    view.setBackgroundResource(R.drawable.theme_night_bg);
+                    view.SetBackgroundResource(Resource.Drawable.theme_night_bg);
                     break;
                 default:
                     break;
@@ -50,26 +54,26 @@ namespace Xamarin.BookReader.Managers
 
         public static Bitmap getThemeDrawable(int theme)
         {
-            Bitmap bmp = Bitmap.createBitmap(ScreenUtils.getScreenWidth(), ScreenUtils.getScreenHeight(), Bitmap.Config.ARGB_8888);
+            Bitmap bmp = Bitmap.CreateBitmap(ScreenUtils.getScreenWidth(), ScreenUtils.getScreenHeight(), Bitmap.Config.Argb8888);
             switch (theme)
             {
                 case NORMAL:
-                    bmp.eraseColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.read_theme_white));
+                    bmp.EraseColor(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.read_theme_white));
                     break;
                 case YELLOW:
-                    bmp.eraseColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.read_theme_yellow));
+                    bmp.EraseColor(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.read_theme_yellow));
                     break;
                 case GREEN:
-                    bmp.eraseColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.read_theme_green));
+                    bmp.EraseColor(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.read_theme_green));
                     break;
                 case LEATHER:
-                    bmp = BitmapFactory.decodeResource(AppUtils.getAppContext().getResources(), R.drawable.theme_leather_bg);
+                    bmp = BitmapFactory.DecodeResource(AppUtils.getAppContext().Resources, Resource.Drawable.theme_leather_bg);
                     break;
                 case GRAY:
-                    bmp.eraseColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.read_theme_gray));
+                    bmp.EraseColor(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.read_theme_gray));
                     break;
                 case NIGHT:
-                    bmp.eraseColor(ContextCompat.getColor(AppUtils.getAppContext(), R.color.read_theme_night));
+                    bmp.EraseColor(ContextCompat.GetColor(AppUtils.getAppContext(), Resource.Color.read_theme_night));
                     break;
                 default:
                     break;
@@ -80,13 +84,13 @@ namespace Xamarin.BookReader.Managers
         public static List<ReadTheme> getReaderThemeData(int curTheme)
         {
             int[] themes = { NORMAL, YELLOW, GREEN, LEATHER, GRAY, NIGHT };
-            List<ReadTheme> list = new ArrayList<>();
+            List<ReadTheme> list = new List<ReadTheme>();
             ReadTheme theme;
-            for (int i = 0; i < themes.length; i++)
+            for (int i = 0; i < themes.Length; i++)
             {
                 theme = new ReadTheme();
                 theme.theme = themes[i];
-                list.add(theme);
+                list.Add(theme);
             }
             return list;
         }

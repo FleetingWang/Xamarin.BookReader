@@ -9,10 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
+using Xamarin.BookReader.Models;
+using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Managers;
+using Java.Lang;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
-    public class BaseReadView:View
+    public abstract class BaseReadView:View
     {
         protected int mScreenWidth;
     protected int mScreenHeight;
@@ -25,47 +30,48 @@ namespace Xamarin.BookReader.Views.ReadViews
     protected Canvas mCurrentPageCanvas, mNextPageCanvas;
     protected PageFactory pagefactory = null;
 
-    protected OnReadStateChangeListener listener;
+    protected IOnReadStateChangeListener listener;
     protected string bookId;
     public bool isPrepared = false;
 
-    Scroller mScroller;
+    public Scroller mScroller;
 
-    public BaseReadView(Context context, string bookId, List<BookMixAToc.mixToc.Chapters> chaptersList,
-                        OnReadStateChangeListener listener) {
-        super(context);
+    public BaseReadView(Context context, string bookId, List<BookMixAToc.MixToc.Chapters> chaptersList,
+                        IOnReadStateChangeListener listener):base(context) {
+        
         this.listener = listener;
         this.bookId = bookId;
 
         mScreenWidth = ScreenUtils.getScreenWidth();
         mScreenHeight = ScreenUtils.getScreenHeight();
 
-        mCurPageBitmap = Bitmap.createBitmap(mScreenWidth, mScreenHeight, Bitmap.Config.ARGB_8888);
-        mNextPageBitmap = Bitmap.createBitmap(mScreenWidth, mScreenHeight, Bitmap.Config.ARGB_8888);
+        mCurPageBitmap = Bitmap.CreateBitmap(mScreenWidth, mScreenHeight, Bitmap.Config.Argb8888);
+        mNextPageBitmap = Bitmap.CreateBitmap(mScreenWidth, mScreenHeight, Bitmap.Config.Argb8888);
         mCurrentPageCanvas = new Canvas(mCurPageBitmap);
         mNextPageCanvas = new Canvas(mNextPageBitmap);
 
-        mScroller = new Scroller(getContext());
+        mScroller = new Scroller(Context);
 
-        pagefactory = new PageFactory(getContext(), bookId, chaptersList);
+        pagefactory = new PageFactory(Context, bookId, chaptersList);
         pagefactory.setOnReadStateChangeListener(listener);
     }
 
-    public synchronized void init(int theme) {
+    public /*synchronized*/ void init(int theme) {
         if (!isPrepared) {
             try {
                 pagefactory.setBgBitmap(ThemeManager.getThemeDrawable(theme));
-                // 自动跳转到上次阅读位置
-                int pos[] = SettingManager.getInstance().getReadProgress(bookId);
-                int ret = pagefactory.openBook(pos[0], new int[]{pos[1], pos[2]});
+                    // 自动跳转到上次阅读位置
+                    int[] pos = new List<int>().ToArray();
+                    // TODO：int pos[] = SettingManager.getInstance().getReadProgress(bookId);
+                    int ret = pagefactory.openBook(pos[0], new int[]{pos[1], pos[2]});
                 LogUtils.i("上次阅读位置：chapter=" + pos[0] + " startPos=" + pos[1] + " endPos=" + pos[2]);
                 if (ret == 0) {
                     listener.onLoadChapterFailure(pos[0]);
                     return;
                 }
                 pagefactory.onDraw(mCurrentPageCanvas);
-                postInvalidate();
-            } catch (Exception e) {
+                PostInvalidate();
+            } catch (Java.Lang.Exception e) {
             }
             isPrepared = true;
         }
@@ -76,15 +82,14 @@ namespace Xamarin.BookReader.Views.ReadViews
     private bool cancel = false;
     private bool center = false;
 
-    @Override
-    public bool onTouchEvent(MotionEvent e) {
-        switch (e.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                et = System.currentTimeMillis();
-                dx = (int) e.getX();
-                dy = (int) e.getY();
-                mTouch.x = dx;
-                mTouch.y = dy;
+    public override bool OnTouchEvent(MotionEvent e) {
+        switch (e.Action) {
+            case MotionEventActions.Down:
+                et = JavaSystem.CurrentTimeMillis();
+                dx = (int) e.GetX();
+                dy = (int) e.GetY();
+                mTouch.X = dx;
+                mTouch.Y = dy;
                 actiondownX = dx;
                 actiondownY = dy;
                 touch_down = 0;
@@ -122,50 +127,50 @@ namespace Xamarin.BookReader.Views.ReadViews
                     setBitmaps(mCurPageBitmap, mNextPageBitmap);
                 }
                 break;
-            case MotionEvent.ACTION_MOVE:
+            case MotionEventActions.Move:
                 if (center)
                     break;
-                int mx = (int) e.getX();
-                int my = (int) e.getY();
-                cancel = (actiondownX < mScreenWidth / 2 && mx < mTouch.x) || (actiondownX > mScreenWidth / 2 && mx > mTouch.x);
-                mTouch.x = mx;
-                mTouch.y = my;
-                touch_down = mTouch.x - actiondownX;
-                this.postInvalidate();
+                int mx = (int) e.GetX();
+                int my = (int) e.GetY();
+                cancel = (actiondownX < mScreenWidth / 2 && mx < mTouch.X) || (actiondownX > mScreenWidth / 2 && mx > mTouch.X);
+                mTouch.X = mx;
+                mTouch.Y = my;
+                touch_down = mTouch.X - actiondownX;
+                this.PostInvalidate();
                 break;
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
+            case MotionEventActions.Up:
+            case MotionEventActions.Cancel:
 
-                long t = System.currentTimeMillis();
-                int ux = (int) e.getX();
-                int uy = (int) e.getY();
+                long t = JavaSystem.CurrentTimeMillis();
+                int ux = (int) e.GetX();
+                int uy = (int) e.GetY();
 
                 if (center) { // ACTION_DOWN的位置在中间，则不响应滑动事件
                     resetTouchPoint();
-                    if (Math.abs(ux - actiondownX) < 5 && Math.abs(uy - actiondownY) < 5) {
+                    if (System.Math.Abs(ux - actiondownX) < 5 && System.Math.Abs(uy - actiondownY) < 5) {
                         listener.onCenterClick();
                         return false;
                     }
                     break;
                 }
 
-                if ((Math.abs(ux - dx) < 10) && (Math.abs(uy - dy) < 10)) {
+                if ((System.Math.Abs(ux - dx) < 10) && (System.Math.Abs(uy - dy) < 10)) {
                     if ((t - et < 1000)) { // 单击
                         startAnimation();
                     } else { // 长按
                         pagefactory.cancelPage();
                         restoreAnimation();
                     }
-                    postInvalidate();
+                    PostInvalidate();
                     return true;
                 }
                 if (cancel) {
                     pagefactory.cancelPage();
                     restoreAnimation();
-                    postInvalidate();
+                    PostInvalidate();
                 } else {
                     startAnimation();
-                    postInvalidate();
+                    PostInvalidate();
                 }
                 cancel = false;
                 center = false;
@@ -176,8 +181,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         return true;
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
+    protected override void OnDraw(Canvas canvas) {
         calcPoints();
         drawCurrentPageArea(canvas);
         drawNextPageAreaAndShadow(canvas);
@@ -220,18 +224,18 @@ namespace Xamarin.BookReader.Views.ReadViews
      * 复位触摸点位
      */
     protected void resetTouchPoint() {
-        mTouch.x = 0.1f;
-        mTouch.y = 0.1f;
+        mTouch.X = 0.1f;
+        mTouch.Y = 0.1f;
         touch_down = 0;
-        calcCornerXY(mTouch.x, mTouch.y);
+        calcCornerXY(mTouch.X, mTouch.Y);
     }
 
-    public void jumpToChapter(int chapter) {
+    public virtual void jumpToChapter(int chapter) {
         resetTouchPoint();
         pagefactory.openBook(chapter, new int[]{0, 0});
         pagefactory.onDraw(mCurrentPageCanvas);
         pagefactory.onDraw(mNextPageCanvas);
-        postInvalidate();
+        PostInvalidate();
     }
 
     public void nextPage() {
@@ -243,7 +247,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             if (isPrepared) {
                 pagefactory.onDraw(mCurrentPageCanvas);
                 pagefactory.onDraw(mNextPageCanvas);
-                postInvalidate();
+                PostInvalidate();
             }
         } else {
             return;
@@ -260,32 +264,31 @@ namespace Xamarin.BookReader.Views.ReadViews
             if (isPrepared) {
                 pagefactory.onDraw(mCurrentPageCanvas);
                 pagefactory.onDraw(mNextPageCanvas);
-                postInvalidate();
+                PostInvalidate();
             }
         } else {
             return;
         }
     }
 
-    public synchronized void setFontSize(final int fontSizePx) {
+    public /*synchronized*/ void setFontSize(int fontSizePx) {
         resetTouchPoint();
         pagefactory.setTextFont(fontSizePx);
         if (isPrepared) {
             pagefactory.onDraw(mCurrentPageCanvas);
             pagefactory.onDraw(mNextPageCanvas);
-            //SettingManager.getInstance().saveFontSize(bookId, fontSizePx);
-            SettingManager.getInstance().saveFontSize(fontSizePx);
-            postInvalidate();
+            // TODO: SettingManager.getInstance().saveFontSize(fontSizePx);
+            PostInvalidate();
         }
     }
 
-    public synchronized void setTextColor(int textColor, int titleColor) {
+    public /*synchronized*/ void setTextColor(int textColor, int titleColor) {
         resetTouchPoint();
         pagefactory.setTextColor(textColor, titleColor);
         if (isPrepared) {
             pagefactory.onDraw(mCurrentPageCanvas);
             pagefactory.onDraw(mNextPageCanvas);
-            postInvalidate();
+            PostInvalidate();
         }
     }
 
@@ -293,7 +296,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         pagefactory.setBattery(battery);
         if (isPrepared) {
             pagefactory.onDraw(mCurrentPageCanvas);
-            postInvalidate();
+            PostInvalidate();
         }
     }
 
@@ -308,7 +311,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             return;
         }
         pagefactory.onDraw(mCurrentPageCanvas);
-        postInvalidate();
+        PostInvalidate();
     }
 
     public int[] getReadPos() {
@@ -316,24 +319,23 @@ namespace Xamarin.BookReader.Views.ReadViews
     }
 
     public string getHeadLine() {
-        return pagefactory.getHeadLineStr().replaceAll("@", "");
+        return pagefactory.getHeadLineStr().Replace("@", "");
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
+    protected override void OnDetachedFromWindow() {
+        base.OnDetachedFromWindow();
         if (pagefactory != null) {
             pagefactory.recycle();
         }
 
-        if (mCurPageBitmap != null && !mCurPageBitmap.isRecycled()) {
-            mCurPageBitmap.recycle();
+        if (mCurPageBitmap != null && !mCurPageBitmap.IsRecycled) {
+            mCurPageBitmap.Recycle();
             mCurPageBitmap = null;
             LogUtils.d("mCurPageBitmap recycle");
         }
 
-        if (mNextPageBitmap != null && !mNextPageBitmap.isRecycled()) {
-            mNextPageBitmap.recycle();
+        if (mNextPageBitmap != null && !mNextPageBitmap.IsRecycled) {
+            mNextPageBitmap.Recycle();
             mNextPageBitmap = null;
             LogUtils.d("mNextPageBitmap recycle");
         }
