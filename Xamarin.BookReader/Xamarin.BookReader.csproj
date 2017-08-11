@@ -119,6 +119,7 @@
     <Compile Include="Bases\BaseCommunitActivity.cs" />
     <Compile Include="Bases\BaseFragment.cs" />
     <Compile Include="Bases\BaseRVActivity.cs" />
+    <Compile Include="Bases\BaseRVFragment.cs" />
     <Compile Include="Bases\Constant.cs" />
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="Extensions\StringExtensionMethods.cs" />
@@ -175,6 +176,8 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DownloadBookService.cs" />
+    <Compile Include="UI\EasyAdapters\RecommendAdapter.cs" />
+    <Compile Include="UI\Fragments\RecommendFragment.cs" />
     <Compile Include="Utils\AppUtils.cs" />
     <Compile Include="Utils\DeviceUtils.cs" />
     <Compile Include="Utils\FileUtils.cs" />
@@ -926,8 +929,6 @@
   <ItemGroup>
     <Folder Include="UI\Activities\" />
     <Folder Include="UI\Adapters\" />
-    <Folder Include="UI\EasyAdapters\" />
-    <Folder Include="UI\Fragments\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\uploader\bg_drag.png" />

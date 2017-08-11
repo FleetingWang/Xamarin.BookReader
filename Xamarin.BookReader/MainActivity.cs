@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Content;
 using Xamarin.BookReader.Utils;
 using Android.Support.V7.App;
+using Xamarin.BookReader.UI.Fragments;
 
 namespace Xamarin.BookReader
 {
@@ -62,8 +63,8 @@ namespace Xamarin.BookReader
             mDatas = Resources.GetStringArray(Resource.Array.home_tabs).ToList();
             mTabContents = new List<Fragment>();
             mTabContents.Add(new RecommendFragment());
-            mTabContents.Add(new CommunityFragment());
-            mTabContents.Add(new FindFragment());
+            //mTabContents.Add(new CommunityFragment());
+            //mTabContents.Add(new FindFragment());
 
             // TODO: mAdapter
             mAdapter = null;

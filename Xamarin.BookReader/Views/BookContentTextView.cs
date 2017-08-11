@@ -83,7 +83,7 @@ namespace Xamarin.BookReader.Views
 
             public override void OnClick(View v)
             {
-                SearchActivity.startActivity(context, name.Replace("》", "").Replace("《", ""));
+                // TODO: SearchActivity.startActivity(context, name.Replace("》", "").Replace("《", ""));
             }
         }
     }

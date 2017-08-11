@@ -10,8 +10,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
-using Android.Support.V4.Widget;
-using static Android.Support.V4.Widget.SwipeRefreshLayout;
 using Android.Util;
 using Android.Content.Res;
 using AndroidResource = Android.Resource;
@@ -20,6 +18,7 @@ using Android.Views.Animations;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Views.RecyclerViews.Decorations;
 using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Views.RecyclerViews.Swipes;
 
 namespace Xamarin.BookReader.Views.RecyclerViews
 {
@@ -113,7 +112,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews
         //生成主View
         View v = LayoutInflater.From(Context).Inflate(Resource.Layout.common_recyclerview, this);
         mPtrLayout = (SwipeRefreshLayout) v.FindViewById(Resource.Id.ptr_layout);
-        mPtrLayout.SetEnabled(false);
+        mPtrLayout.Enabled = false;
 
         mProgressView = (ViewGroup) v.FindViewById(Resource.Id.progress);
         if (mProgressId != 0) LayoutInflater.From(Context).Inflate(mProgressId, mProgressView);
@@ -466,8 +465,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews
      * @param listener
      */
     public void setRefreshListener(IOnRefreshListener listener) {
-        mPtrLayout.SetEnabled(true);
-        mPtrLayout.SetOnRefreshListener(listener);
+        mPtrLayout.Enabled = true;
+        mPtrLayout.setOnRefreshListener(listener);
         this.mRefreshListener = listener;
     }
 
@@ -477,16 +476,16 @@ namespace Xamarin.BookReader.Views.RecyclerViews
             { // 避免刷新的loadding和progressview 同时显示
                 mProgressView.Visibility = ViewStates.Gone;
             }
-            mPtrLayout.Refreshing = isRefreshing;
+            mPtrLayout.setRefreshing(isRefreshing);
         });
     }
 
     public void setRefreshing(bool isRefreshing, bool isCallbackListener) {
         mPtrLayout.Post(() => {
-            mPtrLayout.Refreshing = isRefreshing;
+            mPtrLayout.setRefreshing(isRefreshing);
             if (isRefreshing && isCallbackListener && mRefreshListener != null)
             {
-                mRefreshListener.OnRefresh();
+                mRefreshListener.onRefresh();
             }
         });
     }
@@ -497,7 +496,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews
      * @param colRes
      */
     public void setRefreshingColorResources(int[] colRes) {
-        mPtrLayout.SetColorSchemeResources(colRes);
+        mPtrLayout.setColorSchemeResources(colRes);
     }
 
     /**
@@ -506,7 +505,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews
      * @param col
      */
     public void setRefreshingColor(int[] col) {
-        mPtrLayout.SetColorSchemeColors(col);
+        mPtrLayout.setColorSchemeColors(col);
     }
 
     /**

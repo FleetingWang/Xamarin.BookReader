@@ -48,7 +48,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
         mContext = mConvertView.Context;
     }
 
-    public void setData(M item) {
+    public virtual void setData(M item) {
 
     }
 

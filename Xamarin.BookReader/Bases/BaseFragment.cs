@@ -10,95 +10,42 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.App;
 using Xamarin.BookReader.Views.Loading;
-using Activity = Android.App.Activity;
 
 namespace Xamarin.BookReader.Bases
 {
     public abstract class BaseFragment : Fragment
     {
-        protected View parentView;
-        protected FragmentActivity activity;
-        protected LayoutInflater inflater;
-
-        protected Context mContext;
-
         private CustomDialog dialog;
 
-        public abstract int getLayoutResId();
-
+        public abstract int LayoutResId { get; }
+        protected View ParentView { get; private set; }
+        protected LayoutInflater LayoutInflater { get; private set; }
         // TODO: AppComponent protected abstract void setupActivityComponent(AppComponent appComponent);
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle state)
         {
-            parentView = inflater.Inflate(getLayoutResId(), container, false);
-            activity = getSupportActivity();
-            mContext = activity;
-            this.inflater = inflater;
-            return parentView;
+            ParentView = inflater.Inflate(LayoutResId, container, false);
+            LayoutInflater = inflater;
+            return ParentView;
         }
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            // TODO: ButterKnife.bind(this, view);
-            // TODO: setupActivityComponent(ReaderApplication.getsInstance().getAppComponent());
-            attachView();
-            initDatas();
-            configViews();
+            //TODO: ButterKnife.bind(this, view);
+            //TODO: setupActivityComponent(ReaderApplication.getsInstance().getAppComponent());
+            InitDatas();
+            ConfigViews();
         }
 
-        public abstract void attachView();
-
-        public abstract void initDatas();
+        public abstract void InitDatas();
 
         /**
          * 对各种控件进行设置、适配、填充数据
          */
-        public abstract void configViews();
+        public abstract void ConfigViews();
 
-        public override void OnAttach(Context context)
-        {
-            base.OnAttach(context);
-            if (context is FragmentActivity fragmentActivity)
-            {
-                activity = fragmentActivity;
-            }
-        }
-
-        public override void OnDetach()
-        {
-            base.OnDetach();
-            this.activity = null;
-        }
-
-        public override void OnDestroyView()
-        {
-            base.OnDestroyView();
-            // TODO: ButterKnife.unbind(this);
-        }
-
-        public FragmentActivity getSupportActivity()
-        {
-            return base.Activity;
-        }
-
-        public Context getApplicationContext()
-        {
-            return this.activity == null ? (Activity == null ? null : Activity
-                    .ApplicationContext) : this.activity.ApplicationContext;
-        }
-
-        protected LayoutInflater getLayoutInflater()
-        {
-            return inflater;
-        }
-
-        protected View getParentView()
-        {
-            return parentView;
-        }
-
-        public CustomDialog getDialog()
+        public CustomDialog GetDialog()
         {
             if (dialog == null)
             {
@@ -108,18 +55,17 @@ namespace Xamarin.BookReader.Bases
             return dialog;
         }
 
-        public void hideDialog()
+        public void HideDialog()
         {
-            if (dialog != null)
-                dialog.Hide();
+            dialog?.Hide();
         }
 
-        public void showDialog()
+        public void ShowDialog()
         {
-            getDialog().Show();
+            GetDialog().Show();
         }
 
-        public void dismissDialog()
+        public void DismissDialog()
         {
             if (dialog != null)
             {
@@ -128,7 +74,7 @@ namespace Xamarin.BookReader.Bases
             }
         }
 
-        protected void gone(View[] views)
+        protected void Gone(params View[] views)
         {
             if (views != null && views.Length > 0)
             {
@@ -142,7 +88,7 @@ namespace Xamarin.BookReader.Bases
             }
         }
 
-        protected void visible(View[] views)
+        protected void Visible(params View[] views)
         {
             if (views != null && views.Length > 0)
             {
@@ -154,10 +100,9 @@ namespace Xamarin.BookReader.Bases
                     }
                 }
             }
-
         }
 
-        protected bool isVisible(View view)
+        protected bool IsViewVisible(View view)
         {
             return view.Visibility == ViewStates.Visible;
         }

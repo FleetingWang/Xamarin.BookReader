@@ -8,13 +8,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using static Android.Support.V4.Widget.SwipeRefreshLayout;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Views.RecyclerViews;
 using Xamarin.BookReader.Utils;
 using Android.Support.V7.Widget;
 using Android.Support.V4.Content;
 using System;
+using Xamarin.BookReader.Views.RecyclerViews.Swipes;
 
 namespace Xamarin.BookReader.Bases
 {
@@ -89,16 +89,6 @@ namespace Xamarin.BookReader.Bases
             }
         }
 
-        public void OnRefresh()
-        {
-            start = 0;
-            if (!NetworkUtils.isConnected(ApplicationContext))
-            {
-                mAdapter.pauseMore();
-                return;
-            }
-        }
-
         protected void loaddingError()
         {
             mAdapter.clear();
@@ -109,6 +99,16 @@ namespace Xamarin.BookReader.Bases
         public void onItemClick(int position)
         {
 
+        }
+
+        public void onRefresh()
+        {
+            start = 0;
+            if (!NetworkUtils.isConnected(ApplicationContext))
+            {
+                mAdapter.pauseMore();
+                return;
+            }
         }
     }
 }
