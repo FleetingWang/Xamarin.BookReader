@@ -117,8 +117,7 @@ namespace Xamarin.BookReader.Bases
                     break;
             }
 
-            // TODO: EventBus
-            EventBus.Default.Post(new SelectionEvent(distillate, type, sort));
+            //TODO: EventBus.Default.Post(new SelectionEvent(distillate, type, sort));
         }
     }
 }

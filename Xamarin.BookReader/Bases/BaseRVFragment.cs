@@ -30,6 +30,13 @@ namespace Xamarin.BookReader.Bases
 
         public override int LayoutResId => throw new NotImplementedException();
 
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle state)
+        {
+            var parent = base.OnCreateView(inflater, container, state);
+            mRecyclerView = parent.FindViewById<EasyRecyclerView>(Resource.Id.recyclerview);
+            return parent;
+        }
+
         protected void initAdapter(bool refreshable, bool loadmoreable)
         {
             if (mRecyclerView != null)

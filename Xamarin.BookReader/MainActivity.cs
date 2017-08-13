@@ -47,10 +47,8 @@ namespace Xamarin.BookReader
 
         public override int getLayoutId() => Resource.Layout.activity_main;
 
-        protected override void OnCreate(Bundle bundle)
+        public override void bindViews()
         {
-            base.OnCreate(bundle);
-
             mIndicator = FindViewById<RVPIndicator>(Resource.Id.indicator);
             mViewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
         }
@@ -66,8 +64,7 @@ namespace Xamarin.BookReader
             mTabContents.Add(new CommunityFragment());
             mTabContents.Add(new FindFragment());
 
-            // TODO: mAdapter
-            mAdapter = null;
+            mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
 
         public override void configViews()
@@ -170,7 +167,32 @@ namespace Xamarin.BookReader
 
         public void onLogin(ImageView view, string type)
         {
-            throw new NotImplementedException();
+            if (type.Equals("QQ"))
+            {
+                //if (!mTencent.isSessionValid())
+                //{
+                //    if (loginListener == null) loginListener = new BaseUIListener();
+                //    mTencent.login(this, "all", loginListener);
+                //}
+            }
+            //4f45e920ff5d1a0e29d997986cd97181
+        }
+
+        class CustomFragmentPagerAdapter: FragmentPagerAdapter
+        {
+            private List<Fragment> _mTabContents;
+            public CustomFragmentPagerAdapter(FragmentManager fm, List<Fragment> mTabContents)
+                :base(fm)
+            {
+                _mTabContents = mTabContents;
+            }
+
+            public override int Count => _mTabContents.Count();
+
+            public override Fragment GetItem(int position)
+            {
+                return _mTabContents[position];
+            }
         }
     }
 }

@@ -325,41 +325,7 @@ namespace Xamarin.BookReader.Views
         {
             this.mViewPager = viewPager;
 
-            //mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            //    @Override
-            //    public void onPageSelected(int position) {
-            //        // 设置文本高亮
-            //        setHighLightTextView(position);
-
-            //        // 回调
-            //        if (onPageChangeListener != null) {
-            //            onPageChangeListener.onPageSelected(position);
-            //        }
-            //    }
-
-            //    @Override
-            //    public void onPageScrolled(int position, float positionOffset,
-            //                               int positionOffsetPixels) {
-
-            //        // scoll
-            //        onScoll(position, positionOffset);
-
-            //        // 回调
-            //        if (onPageChangeListener != null) {
-            //            onPageChangeListener.onPageScrolled(position,
-            //                    positionOffset, positionOffsetPixels);
-            //        }
-            //    }
-
-            //    @Override
-            //    public void onPageScrollStateChanged(int state) {
-            //        // 回调
-            //        if (onPageChangeListener != null) {
-            //            onPageChangeListener.onPageScrollStateChanged(state);
-            //        }
-            //    }
-            //});
+            mViewPager.SetOnPageChangeListener(new CustomOnPageChangeListener(this));
 
             // 设置当前页
             mViewPager.CurrentItem = pos;
@@ -517,6 +483,51 @@ namespace Xamarin.BookReader.Views
         public void setOnPageChangeListener(PageChangeListener pageChangeListener)
         {
             this.onPageChangeListener = pageChangeListener;
+        }
+
+        class CustomOnPageChangeListener : Java.Lang.Object, ViewPager.IOnPageChangeListener
+        {
+            private RVPIndicator rVPIndicator;
+
+            public CustomOnPageChangeListener(RVPIndicator rVPIndicator)
+            {
+                this.rVPIndicator = rVPIndicator;
+            }
+
+            public void OnPageSelected(int position)
+            {
+                // 设置文本高亮
+                rVPIndicator.setHighLightTextView(position);
+
+                // 回调
+                if (rVPIndicator.onPageChangeListener != null)
+                {
+                    rVPIndicator.onPageChangeListener.onPageSelected(position);
+                }
+            }
+
+            public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+                // scoll
+                rVPIndicator.onScoll(position, positionOffset);
+
+                // 回调
+                if (rVPIndicator.onPageChangeListener != null)
+                {
+                    rVPIndicator.onPageChangeListener.onPageScrolled(position,
+                            positionOffset, positionOffsetPixels);
+                }
+            }
+
+            public void OnPageScrollStateChanged(int state)
+            {
+                // 回调
+                if (rVPIndicator.onPageChangeListener != null)
+                {
+                    rVPIndicator.onPageChangeListener.onPageScrollStateChanged(state);
+                }
+            }
+
         }
     }
 }

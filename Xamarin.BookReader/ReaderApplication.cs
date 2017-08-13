@@ -21,7 +21,8 @@ namespace Xamarin.BookReader
         Label = "@string/app_name",
         Theme = "@style/AppTheme.NoActionBar"
         )]
-    public class ReaderApplication: Application
+    [Register("xamarin.bookreader.ReaderApplication")]
+    public class ReaderApplication : Application
     {
         private static ReaderApplication sInstance;
         //TODO: 依赖注入 private AppComponent appComponent;
@@ -34,49 +35,62 @@ namespace Xamarin.BookReader
         //    return application.refWatcher;
         //}
 
-        public override void OnCreate() {
-        base.OnCreate();
-        //refWatcher = LeakCanary.install(this);
-        sInstance = this;
-        initCompoent();
-        AppUtils.init(this);
-        CrashHandler.getInstance().init(this);
-        initPrefs();
-        initNightMode();
-        //initHciCloud();
-    }
-
-    public static ReaderApplication getsInstance() {
-        return sInstance;
-    }
-
-    private void initCompoent() {
-        //appComponent = DaggerAppComponent.builder()
-        //        .bookApiModule(new BookApiModule())
-        //        .appModule(new AppModule(this))
-        //        .build();
-    }
-
-    //public AppComponent getAppComponent() {
-    //    return appComponent;
-    //}
-
-    /**
-     * 初始化SharedPreference
-     */
-    protected void initPrefs() {
-        SharedPreferencesUtil.init(ApplicationContext, PackageName + "_preference", FileCreationMode.MultiProcess);
-    }
-
-    protected void initNightMode() {
-        bool isNight = SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT, false);
-        LogUtils.d("isNight=" + isNight);
-        if (isNight) {
-            AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightYes);
-        } else {
-            AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightNo);
+        public ReaderApplication(IntPtr handle, JniHandleOwnership transer)
+          : base(handle, transer)
+        {
         }
-    }
+
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            //refWatcher = LeakCanary.install(this);
+            sInstance = this;
+            initCompoent();
+            AppUtils.init(this);
+            CrashHandler.getInstance().init(this);
+            initPrefs();
+            initNightMode();
+            //initHciCloud();
+        }
+
+        public static ReaderApplication getsInstance()
+        {
+            return sInstance;
+        }
+
+        private void initCompoent()
+        {
+            //appComponent = DaggerAppComponent.builder()
+            //        .bookApiModule(new BookApiModule())
+            //        .appModule(new AppModule(this))
+            //        .build();
+        }
+
+        //public AppComponent getAppComponent() {
+        //    return appComponent;
+        //}
+
+        /**
+         * 初始化SharedPreference
+         */
+        protected void initPrefs()
+        {
+            SharedPreferencesUtil.init(ApplicationContext, PackageName + "_preference", FileCreationMode.MultiProcess);
+        }
+
+        protected void initNightMode()
+        {
+            bool isNight = SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT, false);
+            LogUtils.d("isNight=" + isNight);
+            if (isNight)
+            {
+                AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightYes);
+            }
+            else
+            {
+                AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightNo);
+            }
+        }
 
         // TODO: HciCloud
         //protected void initHciCloud() {

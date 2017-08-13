@@ -18,17 +18,17 @@ namespace Xamarin.BookReader.Managers
     {
         public static void refreshCollectionList()
         {
-            EventBus.Default.Post(new RefreshCollectionListEvent());
+            //TODO: EventBus.Default.Post(new RefreshCollectionListEvent());
         }
 
         public static void refreshCollectionIcon()
         {
-            EventBus.Default.Post(new RefreshCollectionIconEvent());
+            //TODO: EventBus.Default.Post(new RefreshCollectionIconEvent());
         }
 
         public static void refreshSubCategory(String minor, String type)
         {
-            EventBus.Default.Post(new SubEvent(minor, type));
+            //TODO: EventBus.Default.Post(new SubEvent(minor, type));
         }
     }
 }

@@ -13,6 +13,7 @@ using Android.Support.V4.Content;
 
 namespace Xamarin.BookReader.Views.Loading
 {
+    [Register("xamarin.bookreader.views.loading.CustomDialog")]
     public class CustomDialog: Dialog
     {
         public CustomDialog(Context context)

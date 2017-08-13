@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 
 using Android.Util;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.Views
 {
@@ -19,40 +20,26 @@ namespace Xamarin.BookReader.Views
     {
         private View emptyView;
         private AdapterDataObserver emptyObserver;
-        //private AdapterDataObserver emptyObserver = new AdapterDataObserver() {
-        //    @Override
-        //    public void onChanged() {
-        //        LogUtils.i("adapter changed");
-        //        Adapter adapter = getAdapter();
-        //        if (adapter != null && emptyView != null) {
-        //            if (adapter.getItemCount() == 0) {
-        //                LogUtils.i("adapter visible");
-        //                emptyView.setVisibility(View.VISIBLE);
-        //                SupportRecyclerView.this.setVisibility(View.GONE);
-        //            } else {
-        //                LogUtils.i("adapter gone");
-        //                emptyView.setVisibility(View.GONE);
-        //                SupportRecyclerView.this.setVisibility(View.VISIBLE);
-        //            }
-        //        }
-
-        //    }
-        //};
 
         public SupportRecyclerView(Context context) : base(context)
         {
-
+            CommonConstructor();
         }
 
         public SupportRecyclerView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
-
+            CommonConstructor();
         }
 
         public SupportRecyclerView(Context context, IAttributeSet attrs, int defStyle)
                 : base(context, attrs, defStyle)
         {
+            CommonConstructor();
+        }
 
+        private void CommonConstructor()
+        {
+            emptyObserver = new CustomAdapterDataObserver(this);
         }
 
         public void setAdapter(Adapter adapter)
@@ -79,6 +66,37 @@ namespace Xamarin.BookReader.Views
         public void setEmptyView(View emptyView)
         {
             this.emptyView = emptyView;
+        }
+
+        class CustomAdapterDataObserver : AdapterDataObserver
+        {
+            private SupportRecyclerView supportRecyclerView;
+
+            public CustomAdapterDataObserver(SupportRecyclerView supportRecyclerView)
+            {
+                this.supportRecyclerView = supportRecyclerView;
+            }
+
+            public override void OnChanged()
+            {
+                LogUtils.i("adapter changed");
+                Adapter adapter = supportRecyclerView.GetAdapter();
+                if (adapter != null && supportRecyclerView.emptyView != null)
+                {
+                    if (adapter.ItemCount == 0)
+                    {
+                        LogUtils.i("adapter visible");
+                        supportRecyclerView.emptyView.Visibility = ViewStates.Visible;
+                        supportRecyclerView.Visibility = ViewStates.Gone;
+                    }
+                    else
+                    {
+                        LogUtils.i("adapter gone");
+                        supportRecyclerView.emptyView.Visibility = ViewStates.Gone;
+                        supportRecyclerView.Visibility = ViewStates.Visible;
+                    }
+                }
+            }
         }
     }
 }

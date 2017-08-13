@@ -76,7 +76,7 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <InputJar Include="eventbus-3.0.0.jar" />
+    <EmbeddedJar Include="eventbus-3.0.0.jar" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GeneratedBindingInfo.txt" />

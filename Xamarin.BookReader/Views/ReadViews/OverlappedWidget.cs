@@ -16,6 +16,7 @@ using Xamarin.BookReader.Models;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
+    [Register("xamarin.bookreader.views.readviews.OverlappedWidget")]
     public class OverlappedWidget : BaseReadView
     {
         private Path mPath0;

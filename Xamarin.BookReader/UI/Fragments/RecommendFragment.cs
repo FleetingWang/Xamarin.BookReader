@@ -24,9 +24,9 @@ using Android.Support.V4.App;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
+    [Register("xamarin.bookreader.ui.fragments.RecommendFragment")]
     public class RecommendFragment : BaseRVFragment<Recommend.RecommendBooks>,
         RecyclerArrayAdapter<Recommend.RecommendBooks>.OnItemLongClickListener
-
     {
         LinearLayout llBatchManagement;
         TextView tvSelectAll;
@@ -53,7 +53,7 @@ namespace Xamarin.BookReader.UI.Fragments
 
         public override void InitDatas()
         {
-            EventBus.Default.Register(this);
+            //TODO: EventBus.Default.Register(this);
         }
 
         public override void ConfigViews()
@@ -268,7 +268,7 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void OnDestroyView()
         {
             base.OnDestroyView();
-            EventBus.Default.Unregister(this);
+            //TODO: EventBus.Default.Unregister(this);
         }
 
         private bool isForeground()

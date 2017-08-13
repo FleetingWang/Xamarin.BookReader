@@ -19,6 +19,7 @@ using static Android.Animation.Animator;
 
 namespace Xamarin.BookReader.Views.Loading
 {
+    [Register("xamarin.bookreader.views.loading.LoadingView")]
     public class LoadingView : View
     {
         //the size in wrap_content model
@@ -176,7 +177,8 @@ namespace Xamarin.BookReader.Views.Loading
             valueAnimator.SetDuration(ANIMATOR_DURATION);
             valueAnimator.RepeatCount = -1;
             valueAnimator.SetInterpolator(new LinearInterpolator());
-            valueAnimator.Update += (sender, e) => {
+            valueAnimator.Update += (sender, e) =>
+            {
                 mRotation = (float)valueAnimator.AnimatedValue;
                 Invalidate();
             };
@@ -281,7 +283,8 @@ namespace Xamarin.BookReader.Views.Loading
             ValueAnimator increment = ValueAnimator.OfFloat(0, MAX_PROGRESS_ARC - MIN_PROGRESS_ARC);
             increment.SetDuration(ANIMATOR_DURATION / 2);
             increment.SetInterpolator(new LinearInterpolator());
-            increment.Update += (sender, e) => {
+            increment.Update += (sender, e) =>
+            {
                 float sweeping = ring.sweeping;
                 float value = (float)e.Animation.AnimatedValue;
                 ring.sweep = sweeping + value;
@@ -291,7 +294,8 @@ namespace Xamarin.BookReader.Views.Loading
             ValueAnimator reduce = ValueAnimator.OfFloat(0, MAX_PROGRESS_ARC - MIN_PROGRESS_ARC);
             reduce.SetDuration(ANIMATOR_DURATION / 2);
             reduce.SetInterpolator(interpolator);
-            reduce.Update += (sender, e) => {
+            reduce.Update += (sender, e) =>
+            {
                 float sweeping = ring.sweeping;
                 float starting = ring.starting;
                 float value = (float)e.Animation.AnimatedValue;
@@ -523,9 +527,12 @@ namespace Xamarin.BookReader.Views.Loading
             public void OnAnimationEnd(Animator animation)
             {
                 if (_loadingView.mIsAnimatorCancel) return;
-                if (animation is ValueAnimator) {
+                if (animation is ValueAnimator)
+                {
                     _loadingView.mRing.sweeping = _loadingView.mRing.sweep;
-                } else if (animation is AnimatorSet) {
+                }
+                else if (animation is AnimatorSet)
+                {
                     _loadingView.mRing.restore();
                     _loadingView.animatorSet.Start();
                 }

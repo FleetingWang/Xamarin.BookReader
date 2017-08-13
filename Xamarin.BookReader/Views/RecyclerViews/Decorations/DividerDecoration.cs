@@ -55,7 +55,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Decorations
             int headerCount = 0, footerCount = 0;
             var adapterObj = parent.GetAdapter();
             var adapterType = adapterObj.GetType();
-            if (adapterType.GetGenericTypeDefinition() == typeof(RecyclerArrayAdapter<>))
+            if (adapterType.IsAssignableFrom(typeof(RecyclerArrayAdapter<>)))
             {
                 headerCount = (int)adapterType.GetMethod("GetHeaderCount").Invoke(adapterObj, null);
                 footerCount = (int)adapterType.GetMethod("GetFooterCount").Invoke(adapterObj, null);
@@ -96,7 +96,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Decorations
             int headerCount = 0, footerCount = 0, dataCount;
             var adapterObj = parent.GetAdapter();
             var adapterType = adapterObj.GetType();
-            if (adapterType.GetGenericTypeDefinition() == typeof(RecyclerArrayAdapter<>))
+            if (adapterType.IsAssignableFrom(typeof(RecyclerArrayAdapter<>)))
             {
                 headerCount = (int)adapterType.GetMethod("GetHeaderCount").Invoke(adapterObj, null);
                 footerCount = (int)adapterType.GetMethod("GetFooterCount").Invoke(adapterObj, null);

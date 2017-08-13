@@ -18,6 +18,7 @@ using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
+    [Register("xamarin.bookreader.ui.fragments.CommunityFragment")]
     public class CommunityFragment : BaseFragment, IOnRvItemClickListener<FindBean>
     {
         RecyclerView mRecyclerView;

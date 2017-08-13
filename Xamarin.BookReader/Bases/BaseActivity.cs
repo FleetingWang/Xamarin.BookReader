@@ -51,6 +51,7 @@ namespace Xamarin.BookReader.Bases
                 initToolBar();
                 SetSupportActionBar(mCommonToolbar);
             }
+            bindViews();
             initDatas();
             configViews();
             mNowMode = SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT);
@@ -104,6 +105,8 @@ namespace Xamarin.BookReader.Bases
         //protected abstract void setupActivityComponent(AppComponent appComponent);
 
         public abstract void initToolBar();
+
+        public abstract void bindViews();
 
         public abstract void initDatas();
 

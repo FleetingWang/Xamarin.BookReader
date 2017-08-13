@@ -18,6 +18,7 @@ using Android.Support.V4.Content;
 
 namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 {
+    [Register("xamarin.bookreader.views.recyclerviews.swipes.CircleImageView")]
     public class CircleImageView : ImageView
     {
         private static int KEY_SHADOW_COLOR = 0x1E000000;

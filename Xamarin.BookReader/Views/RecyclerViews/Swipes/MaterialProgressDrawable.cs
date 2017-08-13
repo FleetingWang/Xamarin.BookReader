@@ -21,6 +21,7 @@ using static Android.Graphics.Drawables.Drawable;
 
 namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 {
+    [Register("xamarin.bookreader.views.recyclerviews.swipes.MaterialProgressDrawable")]
     public class MaterialProgressDrawable : Drawable, IAnimatable
     {
         private static IInterpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -46,8 +47,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         private static float STROKE_WIDTH_LARGE = 3f;
 
         private int[] COLORS = new int[] {
-        Color.Black
-    };
+            Color.Black
+        };
 
         /**
          * The value in the linear interpolator for animating the drawable at which
@@ -88,11 +89,13 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         private double mWidth;
         private double mHeight;
         bool mFinishing;
+        private ICallback mCallback;
 
-        public MaterialProgressDrawable(Context context, View parent) {
+        public MaterialProgressDrawable(Context context, View parent)
+        {
             mParent = parent;
             mResources = context.Resources;
-
+            mCallback = new CustomCallback(this);
             mRing = new Ring(mCallback);
             mRing.setColors(COLORS);
 
@@ -100,8 +103,15 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             setupAnimators();
         }
 
+        public MaterialProgressDrawable(IntPtr javaReference, JniHandleOwnership transfer)
+            :base(javaReference, transfer)
+        {
+
+        }
+
         private void setSizeParameters(double progressCircleWidth, double progressCircleHeight,
-                double centerRadius, double strokeWidth, float arrowWidth, float arrowHeight) {
+                double centerRadius, double strokeWidth, float arrowWidth, float arrowHeight)
+        {
             Ring ring = mRing;
             DisplayMetrics metrics = mResources.DisplayMetrics;
             float screenDensity = metrics.Density;
@@ -123,11 +133,15 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          *            {MaterialProgressDrawable.DEFAULT}
          */
         //@ProgressDrawableSize
-        public void updateSizes(int size) {
-            if (size == LARGE) {
+        public void updateSizes(int size)
+        {
+            if (size == LARGE)
+            {
                 setSizeParameters(CIRCLE_DIAMETER_LARGE, CIRCLE_DIAMETER_LARGE, CENTER_RADIUS_LARGE,
                         STROKE_WIDTH_LARGE, ARROW_WIDTH_LARGE, ARROW_HEIGHT_LARGE);
-            } else {
+            }
+            else
+            {
                 setSizeParameters(CIRCLE_DIAMETER, CIRCLE_DIAMETER, CENTER_RADIUS, STROKE_WIDTH,
                         ARROW_WIDTH, ARROW_HEIGHT);
             }
@@ -136,14 +150,16 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         /**
          * @param show Set to true to display the arrowhead on the progress spinner.
          */
-        public void showArrow(bool show) {
+        public void showArrow(bool show)
+        {
             mRing.setShowArrow(show);
         }
 
         /**
          * @param scale Set the scale of the arrowhead for the spinner.
          */
-        public void setArrowScale(float scale) {
+        public void setArrowScale(float scale)
+        {
             mRing.setArrowScale(scale);
         }
 
@@ -153,7 +169,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          * @param startAngle start angle
          * @param endAngle end angle
          */
-        public void setStartEndTrim(float startAngle, float endAngle) {
+        public void setStartEndTrim(float startAngle, float endAngle)
+        {
             mRing.setStartTrim(startAngle);
             mRing.setEndTrim(endAngle);
         }
@@ -163,14 +180,16 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          *
          * @param rotation Rotation is from [0..1]
          */
-        public void setProgressRotation(float rotation) {
+        public void setProgressRotation(float rotation)
+        {
             mRing.setRotation(rotation);
         }
 
         /**
          * Update the background color of the circle image view.
          */
-        public void setBackgroundColor(int color) {
+        public void setBackgroundColor(int color)
+        {
             mRing.setBackgroundColor(color);
         }
 
@@ -181,7 +200,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          *
          * @param colors
          */
-        public void setColorSchemeColors(params int[] colors) {
+        public void setColorSchemeColors(params int[] colors)
+        {
             mRing.setColors(colors);
             mRing.setColorIndex(0);
         }
@@ -192,7 +212,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 
         public override int Alpha { get => mRing.getAlpha(); set => mRing.setAlpha(value); }
 
-        public override void SetColorFilter(ColorFilter colorFilter) {
+        public override void SetColorFilter(ColorFilter colorFilter)
+        {
             mRing.setColorFilter(colorFilter);
         }
 
@@ -209,13 +230,15 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             return mRotation;
         }
 
-        private float getMinProgressArc(Ring ring) {
+        private float getMinProgressArc(Ring ring)
+        {
             return (float)Java.Lang.Math.ToRadians(
                     ring.getStrokeWidth() / (2 * Math.PI * ring.getCenterRadius()));
         }
 
         // Adapted from ArgbEvaluator.java
-        private int evaluateColorChange(float fraction, int startValue, int endValue) {
+        private int evaluateColorChange(float fraction, int startValue, int endValue)
+        {
             int startInt = startValue;
             int startA = (startInt >> 24) & 0xff;
             int startR = (startInt >> 16) & 0xff;
@@ -239,8 +262,10 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          * The new ring color will be a translation from the starting ring color to
          * the next color.
          */
-        private void updateRingColor(float interpolatedTime, Ring ring) {
-            if (interpolatedTime > COLOR_START_DELAY_OFFSET) {
+        private void updateRingColor(float interpolatedTime, Ring ring)
+        {
+            if (interpolatedTime > COLOR_START_DELAY_OFFSET)
+            {
                 // scale the interpolatedTime so that the full
                 // transformation from 0 - 1 takes place in the
                 // remaining time
@@ -250,7 +275,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             }
         }
 
-        private void applyFinishTranslation(float interpolatedTime, Ring ring) {
+        private void applyFinishTranslation(float interpolatedTime, Ring ring)
+        {
             // shrink back down and complete a full rotation before
             // starting other circles
             // Rotation goes between [0..1].
@@ -268,92 +294,16 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             ring.setRotation(rotation);
         }
 
-        private void setupAnimators() {
+        private void setupAnimators()
+        {
             Ring ring = mRing;
-            Animation animation = null;
-            //Animation animation = new Animation() {
-            //        @Override
-            //    public void applyTransformation(float interpolatedTime, Transformation t) {
-            //        if (mFinishing) {
-            //            applyFinishTranslation(interpolatedTime, ring);
-            //        } else {
-            //            // The minProgressArc is calculated from 0 to create an
-            //            // angle that matches the stroke width.
-            //            float minProgressArc = getMinProgressArc(ring);
-            //            float startingEndTrim = ring.getStartingEndTrim();
-            //            float startingTrim = ring.getStartingStartTrim();
-            //            float startingRotation = ring.getStartingRotation();
-
-            //            updateRingColor(interpolatedTime, ring);
-
-            //            // Moving the start trim only occurs in the first 50% of a
-            //            // single ring animation
-            //            if (interpolatedTime <= START_TRIM_DURATION_OFFSET) {
-            //                // scale the interpolatedTime so that the full
-            //                // transformation from 0 - 1 takes place in the
-            //                // remaining time
-            //                float scaledTime = (interpolatedTime)
-            //                        / (1.0f - START_TRIM_DURATION_OFFSET);
-            //                float startTrim = startingTrim
-            //                        + ((MAX_PROGRESS_ARC - minProgressArc) * MATERIAL_INTERPOLATOR
-            //                                .getInterpolation(scaledTime));
-            //                ring.setStartTrim(startTrim);
-            //            }
-
-            //            // Moving the end trim starts after 50% of a single ring
-            //            // animation completes
-            //            if (interpolatedTime > END_TRIM_START_DELAY_OFFSET) {
-            //                // scale the interpolatedTime so that the full
-            //                // transformation from 0 - 1 takes place in the
-            //                // remaining time
-            //                float minArc = MAX_PROGRESS_ARC - minProgressArc;
-            //                float scaledTime = (interpolatedTime - START_TRIM_DURATION_OFFSET)
-            //                        / (1.0f - START_TRIM_DURATION_OFFSET);
-            //                float endTrim = startingEndTrim
-            //                        + (minArc * MATERIAL_INTERPOLATOR.getInterpolation(scaledTime));
-            //                ring.setEndTrim(endTrim);
-            //            }
-
-            //            float rotation = startingRotation + (0.25f * interpolatedTime);
-            //            ring.setRotation(rotation);
-
-            //            float groupRotation = ((FULL_ROTATION / NUM_POINTS) * interpolatedTime)
-            //                    + (FULL_ROTATION * (mRotationCount / NUM_POINTS));
-            //            setRotation(groupRotation);
-            //        }
-            //    }
-            //};
+            Animation animation = new CustomAnimation(this);
+            
             animation.RepeatCount = Animation.Infinite;
             animation.RepeatMode = RepeatMode.Restart;
             animation.Interpolator = LINEAR_INTERPOLATOR;
-            //animation.setAnimationListener(new Animation.IAnimationListener() {
-
-            //        @Override
-            //    public void onAnimationStart(Animation animation) {
-            //        mRotationCount = 0;
-            //    }
-
-            //        @Override
-            //    public void onAnimationEnd(Animation animation) {
-            //        // do nothing
-            //    }
-
-            //        @Override
-            //    public void onAnimationRepeat(Animation animation) {
-            //        ring.storeOriginals();
-            //        ring.goToNextColor();
-            //        ring.setStartTrim(ring.getEndTrim());
-            //        if (mFinishing) {
-            //            // finished closing the last ring from the swipe gesture; go
-            //            // into progress mode
-            //            mFinishing = false;
-            //            animation.setDuration(ANIMATION_DURATION);
-            //            ring.setShowArrow(false);
-            //        } else {
-            //            mRotationCount = (mRotationCount + 1) % (NUM_POINTS);
-            //        }
-            //    }
-            //});
+            animation.SetAnimationListener(new CustomAnimationListener(this));
+            
             mAnimation = animation;
         }
 
@@ -400,25 +350,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             mRing.setAlpha(alpha);
         }
 
-        private ICallback mCallback;
-        //private Callback mCallback = new Callback() {
-        //    @Override
-        //    public void invalidateDrawable(Drawable d) {
-        //        invalidateSelf();
-        //    }
-
-        //    @Override
-        //    public void scheduleDrawable(Drawable d, Runnable what, long when) {
-        //        scheduleSelf(what, when);
-        //    }
-
-        //    @Override
-        //    public void unscheduleDrawable(Drawable d, Runnable what) {
-        //        unscheduleSelf(what);
-        //    }
-        //};
-
-        private class Ring {
+        private class Ring
+        {
             private RectF mTempBounds = new RectF();
             private Paint mPaint = new Paint();
             private Paint mArrowPaint = new Paint();
@@ -450,7 +383,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             private int mBackgroundColor;
             private int mCurrentColor;
 
-            public Ring(ICallback callback) {
+            public Ring(ICallback callback)
+            {
                 mCallback = callback;
 
                 mPaint.StrokeCap = Paint.Cap.Square;
@@ -461,7 +395,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 mArrowPaint.AntiAlias = (true);
             }
 
-            public void setBackgroundColor(int color) {
+            public void setBackgroundColor(int color)
+            {
                 mBackgroundColor = color;
             }
 
@@ -471,7 +406,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              * @param width Width of the hypotenuse of the arrow head
              * @param height Height of the arrow point
              */
-            public void setArrowDimensions(float width, float height) {
+            public void setArrowDimensions(float width, float height)
+            {
                 mArrowWidth = (int)width;
                 mArrowHeight = (int)height;
             }
@@ -479,7 +415,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * Draw the progress spinner
              */
-            public void draw(Canvas c, Rect bounds) {
+            public void draw(Canvas c, Rect bounds)
+            {
                 RectF arcBounds = mTempBounds;
                 arcBounds.Set(bounds);
                 arcBounds.Inset(mStrokeInset, mStrokeInset);
@@ -493,7 +430,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
 
                 drawTriangle(c, startAngle, sweepAngle, bounds);
 
-                if (mAlpha < 255) {
+                if (mAlpha < 255)
+                {
                     mCirclePaint.Color = new Color(mBackgroundColor);
                     mCirclePaint.Alpha = (255 - mAlpha);
                     c.DrawCircle(bounds.ExactCenterX(), bounds.ExactCenterY(), bounds.Width() / 2,
@@ -501,12 +439,17 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 }
             }
 
-            private void drawTriangle(Canvas c, float startAngle, float sweepAngle, Rect bounds) {
-                if (mShowArrow) {
-                    if (mArrow == null) {
+            private void drawTriangle(Canvas c, float startAngle, float sweepAngle, Rect bounds)
+            {
+                if (mShowArrow)
+                {
+                    if (mArrow == null)
+                    {
                         mArrow = new Path();
                         mArrow.SetFillType(Path.FillType.EvenOdd);
-                    } else {
+                    }
+                    else
+                    {
                         mArrow.Reset();
                     }
 
@@ -539,7 +482,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              *
              * @param colors Array of integers describing the colors. Must be non-<code>null</code>.
              */
-            public void setColors(int[] colors) {
+            public void setColors(int[] colors)
+            {
                 mColors = colors;
                 // if colors are reset, make sure to reset the color index as well
                 setColorIndex(0);
@@ -552,7 +496,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              *
              * @param color int describing the color.
              */
-            public void setColor(int color) {
+            public void setColor(int color)
+            {
                 mCurrentColor = color;
             }
 
@@ -560,7 +505,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              * @param index Index into the color array of the color to display in
              *            the progress spinner.
              */
-            public void setColorIndex(int index) {
+            public void setColorIndex(int index)
+            {
                 mColorIndex = index;
                 mCurrentColor = mColors[mColorIndex];
             }
@@ -568,11 +514,13 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * @return int describing the next color the progress spinner should use when drawing.
              */
-            public int getNextColor() {
+            public int getNextColor()
+            {
                 return mColors[getNextColorIndex()];
             }
 
-            private int getNextColorIndex() {
+            private int getNextColorIndex()
+            {
                 return (mColorIndex + 1) % (mColors.Length);
             }
 
@@ -580,11 +528,13 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              * Proceed to the next available ring color. This will automatically
              * wrap back to the beginning of colors.
              */
-            public void goToNextColor() {
+            public void goToNextColor()
+            {
                 setColorIndex(getNextColorIndex());
             }
 
-            public void setColorFilter(ColorFilter filter) {
+            public void setColorFilter(ColorFilter filter)
+            {
                 mPaint.SetColorFilter(filter);
                 invalidateSelf();
             }
@@ -592,82 +542,99 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * @param alpha Set the alpha of the progress spinner and associated arrowhead.
              */
-            public void setAlpha(int alpha) {
+            public void setAlpha(int alpha)
+            {
                 mAlpha = alpha;
             }
 
             /**
              * @return Current alpha of the progress spinner and arrowhead.
              */
-            public int getAlpha() {
+            public int getAlpha()
+            {
                 return mAlpha;
             }
 
             /**
              * @param strokeWidth Set the stroke width of the progress spinner in pixels.
              */
-            public void setStrokeWidth(float strokeWidth) {
+            public void setStrokeWidth(float strokeWidth)
+            {
                 mStrokeWidth = strokeWidth;
                 mPaint.StrokeWidth = strokeWidth;
                 invalidateSelf();
             }
 
             //TODO：@SuppressWarnings("unused")
-            public float getStrokeWidth() {
+            public float getStrokeWidth()
+            {
                 return mStrokeWidth;
             }
 
             //TODO：@SuppressWarnings("unused")
-            public void setStartTrim(float startTrim) {
+            public void setStartTrim(float startTrim)
+            {
                 mStartTrim = startTrim;
                 invalidateSelf();
             }
 
             //TODO：@SuppressWarnings("unused")
-            public float getStartTrim() {
+            public float getStartTrim()
+            {
                 return mStartTrim;
             }
 
-            public float getStartingStartTrim() {
+            public float getStartingStartTrim()
+            {
                 return mStartingStartTrim;
             }
 
-            public float getStartingEndTrim() {
+            public float getStartingEndTrim()
+            {
                 return mStartingEndTrim;
             }
 
-            public int getStartingColor() {
+            public int getStartingColor()
+            {
                 return mColors[mColorIndex];
             }
 
             //TODO：@SuppressWarnings("unused")
-            public void setEndTrim(float endTrim) {
+            public void setEndTrim(float endTrim)
+            {
                 mEndTrim = endTrim;
                 invalidateSelf();
             }
 
             //TODO：@SuppressWarnings("unused")
-            public float getEndTrim() {
+            public float getEndTrim()
+            {
                 return mEndTrim;
             }
 
             //TODO：@SuppressWarnings("unused")
-            public void setRotation(float rotation) {
+            public void setRotation(float rotation)
+            {
                 mRotation = rotation;
                 invalidateSelf();
             }
 
             //TODO：@SuppressWarnings("unused")
-            public float getRotation() {
+            public float getRotation()
+            {
                 return mRotation;
             }
 
-            public void setInsets(int width, int height) {
+            public void setInsets(int width, int height)
+            {
                 float minEdge = (float)Math.Min(width, height);
                 float insets;
-                if (mRingCenterRadius <= 0 || minEdge < 0) {
+                if (mRingCenterRadius <= 0 || minEdge < 0)
+                {
                     insets = (float)Math.Ceiling(mStrokeWidth / 2.0f);
-                } else {
+                }
+                else
+                {
                     insets = (float)(minEdge / 2.0f - mRingCenterRadius);
                 }
                 mStrokeInset = insets;
@@ -682,19 +649,23 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              * @param centerRadius Inner radius in px of the circle the progress
              *            spinner arc traces.
              */
-            public void setCenterRadius(double centerRadius) {
+            public void setCenterRadius(double centerRadius)
+            {
                 mRingCenterRadius = centerRadius;
             }
 
-            public double getCenterRadius() {
+            public double getCenterRadius()
+            {
                 return mRingCenterRadius;
             }
 
             /**
              * @param show Set to true to show the arrow head on the progress spinner.
              */
-            public void setShowArrow(bool show) {
-                if (mShowArrow != show) {
+            public void setShowArrow(bool show)
+            {
+                if (mShowArrow != show)
+                {
                     mShowArrow = show;
                     invalidateSelf();
                 }
@@ -703,8 +674,10 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * @param scale Set the scale of the arrowhead for the spinner.
              */
-            public void setArrowScale(float scale) {
-                if (scale != mArrowScale) {
+            public void setArrowScale(float scale)
+            {
+                if (scale != mArrowScale)
+                {
                     mArrowScale = scale;
                     invalidateSelf();
                 }
@@ -713,7 +686,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * @return The amount the progress spinner is currently rotated, between [0..1].
              */
-            public float getStartingRotation() {
+            public float getStartingRotation()
+            {
                 return mStartingRotation;
             }
 
@@ -721,7 +695,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
              * If the start / end trim are offset to begin with, store them so that
              * animation starts from that offset.
              */
-            public void storeOriginals() {
+            public void storeOriginals()
+            {
                 mStartingStartTrim = mStartTrim;
                 mStartingEndTrim = mEndTrim;
                 mStartingRotation = mRotation;
@@ -730,7 +705,8 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             /**
              * Reset the progress spinner to default rotation, start and end angles.
              */
-            public void resetOriginals() {
+            public void resetOriginals()
+            {
                 mStartingStartTrim = 0;
                 mStartingEndTrim = 0;
                 mStartingRotation = 0;
@@ -739,16 +715,149 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 setRotation(0);
             }
 
-            private void invalidateSelf() {
+            private void invalidateSelf()
+            {
                 mCallback.InvalidateDrawable(null);
             }
         }
 
+        class CustomCallback: Java.Lang.Object, ICallback
+        {
+            private MaterialProgressDrawable materialProgressDrawable;
+
+            public CustomCallback(MaterialProgressDrawable materialProgressDrawable)
+            {
+                this.materialProgressDrawable = materialProgressDrawable;
+            }
+
+            public void InvalidateDrawable(Drawable who)
+            {
+                materialProgressDrawable.InvalidateSelf();
+            }
+            public void ScheduleDrawable(Drawable who, Java.Lang.IRunnable what, long when)
+            {
+                materialProgressDrawable.ScheduleSelf(what, when);
+            }
+            public void UnscheduleDrawable(Drawable who, Java.Lang.IRunnable what)
+            {
+                materialProgressDrawable.UnscheduleSelf(what);
+            }
+        }
+
+        class CustomAnimation: Animation
+        {
+            private MaterialProgressDrawable materialProgressDrawable;
+
+            public CustomAnimation(MaterialProgressDrawable materialProgressDrawable)
+            {
+                this.materialProgressDrawable = materialProgressDrawable;
+            }
+
+            protected override void ApplyTransformation(float interpolatedTime, Transformation t)
+            {
+                var ring = materialProgressDrawable.mRing;
+                if (materialProgressDrawable.mFinishing)
+                {
+                    materialProgressDrawable.applyFinishTranslation(interpolatedTime, ring);
+                }
+                else
+                {
+                    // The minProgressArc is calculated from 0 to create an
+                    // angle that matches the stroke width.
+                    float minProgressArc = materialProgressDrawable.getMinProgressArc(ring);
+                    float startingEndTrim = ring.getStartingEndTrim();
+                    float startingTrim = ring.getStartingStartTrim();
+                    float startingRotation = ring.getStartingRotation();
+
+                    materialProgressDrawable.updateRingColor(interpolatedTime, ring);
+
+                    // Moving the start trim only occurs in the first 50% of a
+                    // single ring animation
+                    if (interpolatedTime <= START_TRIM_DURATION_OFFSET)
+                    {
+                        // scale the interpolatedTime so that the full
+                        // transformation from 0 - 1 takes place in the
+                        // remaining time
+                        float scaledTime = (interpolatedTime)
+                                / (1.0f - START_TRIM_DURATION_OFFSET);
+                        float startTrim = startingTrim
+                                + ((MAX_PROGRESS_ARC - minProgressArc) * MATERIAL_INTERPOLATOR
+                                        .GetInterpolation(scaledTime));
+                        ring.setStartTrim(startTrim);
+                    }
+
+                    // Moving the end trim starts after 50% of a single ring
+                    // animation completes
+                    if (interpolatedTime > END_TRIM_START_DELAY_OFFSET)
+                    {
+                        // scale the interpolatedTime so that the full
+                        // transformation from 0 - 1 takes place in the
+                        // remaining time
+                        float minArc = MAX_PROGRESS_ARC - minProgressArc;
+                        float scaledTime = (interpolatedTime - START_TRIM_DURATION_OFFSET)
+                                / (1.0f - START_TRIM_DURATION_OFFSET);
+                        float endTrim = startingEndTrim
+                                + (minArc * MATERIAL_INTERPOLATOR.GetInterpolation(scaledTime));
+                        ring.setEndTrim(endTrim);
+                    }
+
+                    float rotation = startingRotation + (0.25f * interpolatedTime);
+                    ring.setRotation(rotation);
+
+                    float groupRotation = ((FULL_ROTATION / NUM_POINTS) * interpolatedTime)
+                            + (FULL_ROTATION * (materialProgressDrawable.mRotationCount / NUM_POINTS));
+                    materialProgressDrawable.setRotation(groupRotation);
+                }
+            }
+        }
+
+        class CustomAnimationListener : Java.Lang.Object, Animation.IAnimationListener
+        {
+            private MaterialProgressDrawable materialProgressDrawable;
+
+            public CustomAnimationListener(MaterialProgressDrawable materialProgressDrawable)
+            {
+                this.materialProgressDrawable = materialProgressDrawable;
+            }
+
+            public void OnAnimationStart(Animation animation)
+            {
+                materialProgressDrawable.mRotationCount = 0;
+            }
+
+            public void OnAnimationEnd(Animation animation)
+            {
+                // do nothing
+            }
+
+            public void OnAnimationRepeat(Animation animation)
+            {
+                Ring ring = materialProgressDrawable.mRing;
+                ring.storeOriginals();
+                ring.goToNextColor();
+                ring.setStartTrim(ring.getEndTrim());
+                if (materialProgressDrawable.mFinishing)
+                {
+                    // finished closing the last ring from the swipe gesture; go
+                    // into progress mode
+                    materialProgressDrawable.mFinishing = false;
+                    animation.Duration = (ANIMATION_DURATION);
+                    ring.setShowArrow(false);
+                }
+                else
+                {
+                    materialProgressDrawable.mRotationCount = (materialProgressDrawable.mRotationCount + 1) % (NUM_POINTS);
+                }
+            }
+
+        }
 
         public override int Opacity => (int)Format.Transparent;
 
-        public bool IsRunning {
-            get {
+        public bool IsRunning
+        {
+            get
+            {
                 List<Animation> animators = mAnimators;
                 int N = animators.Count();
                 for (int i = 0; i < N; i++)
