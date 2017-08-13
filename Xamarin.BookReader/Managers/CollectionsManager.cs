@@ -16,6 +16,7 @@ using Java.Util;
 using Android.Text;
 using Java.IO;
 using Java.Lang;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Managers
 {
@@ -185,7 +186,7 @@ namespace Xamarin.BookReader.Managers
                         // 移除目录缓存
                         // TODO: CacheManager.getInstance().removeTocList(AppUtils.getAppContext(), book._id);
                         // 移除阅读进度
-                        // TODO: SettingManager.getInstance().removeReadProgress(book._id);
+                        Settings.RemoveReadProgress(book._id);
                     }
                     catch (IOException e)
                     {

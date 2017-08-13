@@ -198,7 +198,7 @@ namespace Xamarin.BookReader.Utils
             }
         }
 
-        public T getObject<T>(string key, Class clazz) where T:Java.Lang.Object
+        public T getObject<T>(string key) where T:Java.Lang.Object
         {
             if (prefs.Contains(key))
             {

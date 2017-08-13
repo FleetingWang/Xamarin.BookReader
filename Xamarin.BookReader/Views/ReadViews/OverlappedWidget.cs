@@ -13,6 +13,7 @@ using Android.Graphics;
 using Xamarin.BookReader.Managers;
 using Android.Graphics.Drawables;
 using Xamarin.BookReader.Models;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
@@ -224,7 +225,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             }
             if (theme < 5)
             {
-                // TODO: SettingManager.getInstance().saveReadTheme(theme);
+                Settings.ReadTheme = theme;
             }
         }
     }

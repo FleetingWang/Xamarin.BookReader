@@ -13,6 +13,7 @@ using Android.Content;
 using Xamarin.BookReader.Utils;
 using Android.Support.V7.App;
 using Xamarin.BookReader.UI.Fragments;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader
 {
@@ -88,7 +89,7 @@ namespace Xamarin.BookReader
                 genderPopupWindow = new GenderPopupWindow(this);
             }
             if (
-                //TODO: !SettingManager.getInstance().isUserChooseSex() && 
+                !Settings.IsUserChooseSex && 
                     !genderPopupWindow.IsShowing)
             {
                 genderPopupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);

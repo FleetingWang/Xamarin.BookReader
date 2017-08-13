@@ -14,6 +14,7 @@ using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.Managers;
 using Java.Lang;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
@@ -61,8 +62,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             try {
                 pagefactory.setBgBitmap(ThemeManager.getThemeDrawable(theme));
                     // 自动跳转到上次阅读位置
-                    int[] pos = new List<int>().ToArray();
-                    // TODO：int pos[] = SettingManager.getInstance().getReadProgress(bookId);
+                    int[] pos = Settings.GetReadProgress(bookId);
                     int ret = pagefactory.openBook(pos[0], new int[]{pos[1], pos[2]});
                 LogUtils.i("上次阅读位置：chapter=" + pos[0] + " startPos=" + pos[1] + " endPos=" + pos[2]);
                 if (ret == 0) {
@@ -277,7 +277,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         if (isPrepared) {
             pagefactory.onDraw(mCurrentPageCanvas);
             pagefactory.onDraw(mNextPageCanvas);
-            // TODO: SettingManager.getInstance().saveFontSize(fontSizePx);
+            Settings.FontSize = fontSizePx;
             PostInvalidate();
         }
     }

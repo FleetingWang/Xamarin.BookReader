@@ -18,6 +18,7 @@ using Android.Support.V4.Content;
 using Java.Util;
 using Java.Nio.Channels;
 using Java.Nio;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Views.ReadViews
 {
@@ -86,8 +87,8 @@ namespace Xamarin.BookReader.Views.ReadViews
 
         public PageFactory(Context context, string bookId, List<BookMixAToc.MixToc.Chapters> chaptersList)
             : this(context, ScreenUtils.getScreenWidth(), ScreenUtils.getScreenHeight(),
-                    //TODO: SettingManager.getInstance().getReadFontSize(bookId),
-                    0, //TODO: SettingManager.getInstance().getReadFontSize(),
+                    //Settings.GetFontSize(bookId),
+                    Settings.FontSize,
                     bookId, chaptersList)
         {
 
@@ -246,7 +247,7 @@ namespace Xamarin.BookReader.Views.ReadViews
                 canvas.DrawText(mTime, mWidth - marginWidth - timeLen, mHeight - marginHeight, mTitlePaint);
 
                 // 保存阅读进度
-                // TODO: SettingManager.getInstance().saveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
+                Settings.SaveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
             }
         }
 
@@ -418,7 +419,7 @@ namespace Xamarin.BookReader.Views.ReadViews
                 }
                 currentPage++;
             }
-            //SettingManager.getInstance().saveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
+            Settings.SaveReadProgress(bookId, currentChapter, curBeginPos, curEndPos);
             return lines;
         }
 
@@ -694,7 +695,7 @@ namespace Xamarin.BookReader.Views.ReadViews
         {
             batteryView = (ProgressBar)LayoutInflater.From(mContext).Inflate(Resource.Layout.layout_battery_progress, null);
             batteryView.ProgressDrawable = (ContextCompat.GetDrawable(mContext,
-                    true ?// TODO: SettingManager.getInstance().getReadTheme() < 4 ? 
+                    Settings.ReadTheme < 4 ? 
                             Resource.Drawable.seekbar_battery_bg : Resource.Drawable.seekbar_battery_night_bg));
             batteryView.Progress = (battery);
             batteryView.DrawingCacheEnabled = (true);

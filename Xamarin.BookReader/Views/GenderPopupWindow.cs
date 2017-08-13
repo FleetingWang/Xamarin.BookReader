@@ -16,6 +16,7 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Managers;
 using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Views
 {
@@ -53,14 +54,14 @@ namespace Xamarin.BookReader.Views
 
             mBtnMale.Click += (sender, e) =>
             {
-                // TODO: SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Male);
+                Settings.UserChooseSex = Constant.Gender.Male;
                 Dismiss();
             };
 
             mBtnFemale = (Button)mContentView.FindViewById(Resource.Id.mBtnFemale);
             mBtnFemale.Click += (sender, e) =>
             {
-                // TODO: SettingManager.getInstance().saveUserChooseSex(Constant.Gender.Female);
+                Settings.UserChooseSex = Constant.Gender.Female;
                 Dismiss();
             };
 

@@ -56,6 +56,12 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Settings, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\MonoAndroid10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\MonoAndroid10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Splat, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.2.0.0\lib\MonoAndroid403\Splat.dll</HintPath>
     </Reference>
@@ -123,6 +129,7 @@
     <Compile Include="Bases\Constant.cs" />
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="Extensions\StringExtensionMethods.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Managers\CollectionsManager.cs" />
     <Compile Include="Managers\EventManager.cs" />

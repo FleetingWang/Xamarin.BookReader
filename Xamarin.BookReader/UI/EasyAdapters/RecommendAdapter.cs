@@ -15,6 +15,7 @@ using Android.Text;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.Bases;
 using Java.Text;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.UI.EasyAdapters
 {
@@ -63,16 +64,12 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                     holder.setImageResource(Resource.Id.ivRecommendCover, Resource.Drawable.ic_shelf_txt);
                     long fileLen = FileUtils.getChapterFile(item._id, 1).Length();
                     if (fileLen > 10) {
-                        //TODO: Settings double progress = ((double) SettingManager.getInstance().getReadProgress(item._id)[2]) / fileLen;
-                        double progress = 0;
+                        double progress = ((double)Settings.GetReadProgress(item._id)[2]) / fileLen;
                         NumberFormat fmt = NumberFormat.PercentInstance;
                         fmt.MaximumFractionDigits = 2;
                         holder.setText(Resource.Id.tvRecommendShort, "当前阅读进度：" + fmt.Format(progress));
                     }
-                } else if (
-                    true
-                    //TODO: !SettingManager.getInstance().isNoneCover()
-                    ) {
+                } else if (Settings.IsNoneCover) {
                     holder.setRoundImageUrl(Resource.Id.ivRecommendCover, Constant.IMG_BASE_URL + item.cover,
                             Resource.Drawable.cover_default);
                 } else {
