@@ -14,6 +14,8 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Managers;
+using DSoft.Messaging;
+using Xamarin.BookReader.Models.Support;
 
 namespace Xamarin.BookReader.Views
 {
@@ -44,7 +46,7 @@ namespace Xamarin.BookReader.Views
             DismissEvent += (sender, e) =>
             {
                 lighton();
-                // TODO: EventBus.getDefault().post(new UserSexChooseFinishedEvent());
+                MessageBus.Default.Post(new UserSexChooseFinishedEvent());
             };
 
             mBtnMale = (Button)mContentView.FindViewById(Resource.Id.mBtnMale);

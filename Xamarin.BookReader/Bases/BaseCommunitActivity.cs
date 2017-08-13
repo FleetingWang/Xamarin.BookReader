@@ -10,8 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Views;
-using Org.Greenrobot.Eventbus;
+//using Org.Greenrobot.Eventbus;
 using Xamarin.BookReader.Models.Support;
+using DSoft.Messaging;
 
 namespace Xamarin.BookReader.Bases
 {
@@ -116,8 +117,7 @@ namespace Xamarin.BookReader.Bases
                 default:
                     break;
             }
-
-            //TODO: EventBus.Default.Post(new SelectionEvent(distillate, type, sort));
+            MessageBus.Default.Post(new SelectionEvent(distillate, type, sort));
         }
     }
 }

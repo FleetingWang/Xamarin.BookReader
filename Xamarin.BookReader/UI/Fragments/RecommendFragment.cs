@@ -12,7 +12,7 @@ using Android.Widget;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
-using Org.Greenrobot.Eventbus;
+//using Org.Greenrobot.Eventbus;
 using Xamarin.BookReader.Views.RecyclerViews;
 using Android.Support.V7.Widget;
 using Android.Support.V4.Content;
@@ -21,6 +21,7 @@ using Xamarin.BookReader.Managers;
 using Xamarin.BookReader.Services;
 using Xamarin.BookReader.Models.Support;
 using Android.Support.V4.App;
+using DSoft.Messaging;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -53,7 +54,10 @@ namespace Xamarin.BookReader.UI.Fragments
 
         public override void InitDatas()
         {
-            //TODO: EventBus.Default.Register(this);
+            MessageBus.Default.Register<DownloadMessage>(DownloadMessageEventHandler);
+            MessageBus.Default.Register<DownloadProgress>(DownloadProgressEventHandler);
+            MessageBus.Default.Register<RefreshCollectionListEvent>(RefreshCollectionListEventHandler);
+            MessageBus.Default.Register<UserSexChooseFinishedEvent>(UserSexChooseFinishedEventHandler);
         }
 
         public override void ConfigViews()
@@ -88,20 +92,28 @@ namespace Xamarin.BookReader.UI.Fragments
             DismissDialog();
         }
 
-        //TODO: @Subscribe(threadMode = ThreadMode.MAIN)
-        public void downloadMessage(DownloadMessage msg)
+        public void DownloadMessageEventHandler(object sender, MessageBusEvent evnt)
         {
-            mRecyclerView.setTipViewText(msg.message);
-            if (msg.isComplete)
+            if (evnt is DownloadMessage msg)
             {
-                mRecyclerView.hideTipView(2200);
+                Activity.RunOnUiThread(() => {
+                    mRecyclerView.setTipViewText(msg.message);
+                    if (msg.isComplete)
+                    {
+                        mRecyclerView.hideTipView(2200);
+                    }
+                });
             }
         }
 
-        //TODO: @Subscribe(threadMode = ThreadMode.MAIN)
-        public void showDownProgress(DownloadProgress progress)
+        public void DownloadProgressEventHandler(object sender, MessageBusEvent evnt)
         {
-            mRecyclerView.setTipViewText(progress.message);
+            if (evnt is DownloadMessage progress)
+            {
+                Activity.RunOnUiThread(() => {
+                    mRecyclerView.setTipViewText(progress.message);
+                });
+            }
         }
 
         public override void onItemClick(int position)
@@ -207,18 +219,20 @@ namespace Xamarin.BookReader.UI.Fragments
             mRecyclerView.setRefreshing(false);
         }
 
-        // TODO: @Subscribe(threadMode = ThreadMode.MAIN)
-        public void RefreshCollectionList(RefreshCollectionListEvent e)
+        public void RefreshCollectionListEventHandler(object sender, MessageBusEvent evnt)
         {
-            mRecyclerView.setRefreshing(true);
-            onRefresh();
+            Activity.RunOnUiThread(() => {
+                mRecyclerView.setRefreshing(true);
+                onRefresh();
+            });
         }
 
-        // TODO: @Subscribe(threadMode = ThreadMode.MAIN)
-        public void UserSexChooseFinished(UserSexChooseFinishedEvent e)
+        public void UserSexChooseFinishedEventHandler(object sender, MessageBusEvent evnt)
         {
-            //首次进入APP，选择性别后，获取推荐列表
-            // TODO: mPresenter.getRecommendList();
+            Activity.RunOnUiThread(() => {
+                //首次进入APP，选择性别后，获取推荐列表
+                // TODO: mPresenter.getRecommendList();
+            });
         }
 
         public void showError()
@@ -268,7 +282,10 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void OnDestroyView()
         {
             base.OnDestroyView();
-            //TODO: EventBus.Default.Unregister(this);
+            MessageBus.Default.DeRegister<DownloadMessage>(DownloadMessageEventHandler);
+            MessageBus.Default.DeRegister<DownloadProgress>(DownloadProgressEventHandler);
+            MessageBus.Default.DeRegister<RefreshCollectionListEvent>(RefreshCollectionListEventHandler);
+            MessageBus.Default.DeRegister<UserSexChooseFinishedEvent>(UserSexChooseFinishedEventHandler);
         }
 
         private bool isForeground()

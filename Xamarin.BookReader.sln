@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.BookReader", "Xamarin.BookReader\Xamarin.BookReader.csproj", "{DFAC8E5E-00F6-43D7-B179-2A147D7900DB}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding_PhotoView", "Xamarin.BookReader\AndroidBindings\Binding_PhotoView\Binding_PhotoView.csproj", "{3495710E-61F4-438F-B3D1-27261401C241}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding_Tagsoup", "Xamarin.BookReader\AndroidBindings\Binding_Tagsoup\Binding_Tagsoup.csproj", "{F5E4B6AD-16C7-4A0A-B090-D6EC2C2051EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSoft.Messaging", "DSoft.Messaging\DSoft.Messaging.csproj", "{59BFF815-1B16-485D-BA2A-22ADF9B4C8F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{F5E4B6AD-16C7-4A0A-B090-D6EC2C2051EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E4B6AD-16C7-4A0A-B090-D6EC2C2051EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E4B6AD-16C7-4A0A-B090-D6EC2C2051EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BFF815-1B16-485D-BA2A-22ADF9B4C8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BFF815-1B16-485D-BA2A-22ADF9B4C8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BFF815-1B16-485D-BA2A-22ADF9B4C8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BFF815-1B16-485D-BA2A-22ADF9B4C8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,8 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Org.Greenrobot.Eventbus;
+//using Org.Greenrobot.Eventbus;
 using Xamarin.BookReader.Models.Support;
+using DSoft.Messaging;
 
 namespace Xamarin.BookReader.Managers
 {
@@ -18,17 +19,17 @@ namespace Xamarin.BookReader.Managers
     {
         public static void refreshCollectionList()
         {
-            //TODO: EventBus.Default.Post(new RefreshCollectionListEvent());
+            MessageBus.Default.Post(new RefreshCollectionListEvent());
         }
 
         public static void refreshCollectionIcon()
         {
-            //TODO: EventBus.Default.Post(new RefreshCollectionIconEvent());
+            MessageBus.Default.Post(new RefreshCollectionIconEvent());
         }
 
         public static void refreshSubCategory(String minor, String type)
         {
-            //TODO: EventBus.Default.Post(new SubEvent(minor, type));
+            MessageBus.Default.Post(new SubEvent(minor, type));
         }
     }
 }

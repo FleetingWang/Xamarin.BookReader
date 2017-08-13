@@ -325,13 +325,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DSoft.Messaging\DSoft.Messaging.csproj">
+      <Project>{59bff815-1b16-485d-ba2a-22adf9b4c8f7}</Project>
+      <Name>DSoft.Messaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EasyAdapterLibrary\EasyAdapterLibrary.csproj">
       <Project>{E3549BD2-D270-4DDA-9ABA-175CA7824205}</Project>
       <Name>EasyAdapterLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="AndroidBindings\Binding_Eventbus\Binding_Eventbus.csproj">
-      <Project>{CC0D43A0-EEFD-4B2F-9FA4-D6100236492A}</Project>
-      <Name>Binding_Eventbus</Name>
     </ProjectReference>
     <ProjectReference Include="AndroidBindings\Binding_PhotoView\Binding_PhotoView.csproj">
       <Project>{3495710E-61F4-438F-B3D1-27261401C241}</Project>
