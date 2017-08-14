@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
@@ -129,26 +130,21 @@ namespace Xamarin.BookReader.Helpers
         private static string getBookMarksKey(string bookId) => "marks_" + bookId;
         public static bool AddBookMark(string bookId, BookMark mark)
         {
-            // TODO: AddBookMark
-            //List<BookMark> marks = SharedPreferencesUtil.getInstance().getObject<List<BookMark>>(getBookMarksKey(bookId));
-            //if (marks != null && marks.size() > 0) {
-            //    for (BookMark item : marks) {
-            //        if (item.chapter == mark.chapter && item.startPos == mark.startPos) {
-            //            return false;
-            //        }
-            //    }
-            //} else {
-            //    marks = new ArrayList<>();
-            //}
-            //marks.add(mark);
-            //SharedPreferencesUtil.getInstance().putObject(getBookMarksKey(bookId), marks);
+            List<BookMark> marks = GetValueOrDefault(getBookMarksKey(bookId), new List<BookMark>());
+            foreach(var item in marks)
+            {
+                if(item.chapter == mark.chapter && item.startPos == mark.startPos)
+                {
+                    return false;
+                }
+            }
+            marks.Add(mark);
+            AddOrUpdateValue(getBookMarksKey(bookId), marks);
             return true;
         }
         public static List<BookMark> GetBookMarks(string bookId)
         {
-            // TODO: getBookMarks
-            //return SharedPreferencesUtil.getInstance().getObject(getBookMarksKey(bookId));
-            return null;
+            return GetValueOrDefault(getBookMarksKey(bookId), new List<BookMark>());
         }
 
         public static void ClearBookMarks(string bookId)
@@ -251,5 +247,25 @@ namespace Xamarin.BookReader.Helpers
             }
         }
         #endregion
+
+        private static T GetValueOrDefault<T>(string key, T defaultValue) where T:new()
+        {
+            var json = AppSettings.GetValueOrDefault(key, null);
+            if (string.IsNullOrEmpty(json))
+            {
+                return defaultValue;
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+        }
+
+        private static void AddOrUpdateValue<T>(string key, T value) where T: new()
+        {
+            var json = JsonConvert.SerializeObject(value);
+            AppSettings.AddOrUpdateValue(key, json);
+        }
+
     }
 }
