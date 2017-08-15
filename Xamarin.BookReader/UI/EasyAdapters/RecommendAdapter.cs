@@ -69,7 +69,7 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                         fmt.MaximumFractionDigits = 2;
                         holder.setText(Resource.Id.tvRecommendShort, "当前阅读进度：" + fmt.Format(progress));
                     }
-                } else if (Settings.IsNoneCover) {
+                } else if (!Settings.IsNoneCover) {
                     holder.setRoundImageUrl(Resource.Id.ivRecommendCover, Constant.IMG_BASE_URL + item.cover,
                             Resource.Drawable.cover_default);
                 } else {

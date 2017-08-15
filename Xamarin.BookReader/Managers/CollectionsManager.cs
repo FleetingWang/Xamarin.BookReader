@@ -17,6 +17,8 @@ using Android.Text;
 using Java.IO;
 using Java.Lang;
 using Settings = Xamarin.BookReader.Helpers.Settings;
+using Akavache;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.Managers
 {
@@ -55,15 +57,21 @@ namespace Xamarin.BookReader.Managers
          */
         public List<Recommend.RecommendBooks> getCollectionList()
         {
-            List<Recommend.RecommendBooks> list = new List<Recommend.RecommendBooks>();
-            // TODO: Cache
-            // (List<Recommend.RecommendBooks>) ACache.get(new File(Constant.PATH_COLLECT)).getAsObject("collection");
-            return list == null ? null : list;
+            List<Recommend.RecommendBooks> list;
+            try
+            {
+                list = BlobCache.LocalMachine.GetObject<List<Recommend.RecommendBooks>>("RecommendBooks").Wait();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                list = new List<Recommend.RecommendBooks>();
+            }
+            return list;
         }
 
-        public void putCollectionList(List<Recommend.RecommendBooks> list)
+        public async void putCollectionList(List<Recommend.RecommendBooks> list)
         {
-            // TODO: ACache.get(new File(Constant.PATH_COLLECT)).put("collection", (Serializable) list);
+            await BlobCache.LocalMachine.InsertObject("RecommendBooks", list);
         }
 
         /**

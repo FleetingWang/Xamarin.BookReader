@@ -41,10 +41,7 @@ namespace Xamarin.BookReader.Datas
 
         [Get("/btoc/{bookId}")]
         Task<BookMixAToc> getBookBToc(string bookId, string view);
-
-        [Get("http://chapter2.zhuishushenqi.com/chapter/{url}")]
-        Task<ChapterRead> getChapterRead(string url);
-
+        
         [Get("/post/post-count-by-book")]
         Task<PostCount> postCountByBook(string bookId);
 
@@ -116,7 +113,7 @@ namespace Xamarin.BookReader.Datas
          * @return
          */
         [Get("/ranking/{rankingId}")]
-        Task<Rankings> getRanking(string rankingId);
+        Task<Rankings> getRankingById(string rankingId);
 
         /**
          * 获取主题书单列表

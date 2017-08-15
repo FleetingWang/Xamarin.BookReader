@@ -22,6 +22,8 @@ using Xamarin.BookReader.Services;
 using Xamarin.BookReader.Models.Support;
 using Android.Support.V4.App;
 using DSoft.Messaging;
+using Xamarin.BookReader.Datas;
+using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -229,10 +231,20 @@ namespace Xamarin.BookReader.UI.Fragments
 
         public void UserSexChooseFinishedEventHandler(object sender, MessageBusEvent evnt)
         {
-            Activity.RunOnUiThread(() => {
-                //首次进入APP，选择性别后，获取推荐列表
-                // TODO: mPresenter.getRecommendList();
-            });
+            //首次进入APP，选择性别后，获取推荐列表
+            BookApi.Instance.getRecommend(Settings.UserChooseSex.ToString())
+            .Subscribe(recommend => {
+                if (recommend != null)
+                {
+                    Activity.RunOnUiThread(() => {
+                        List<Recommend.RecommendBooks> list = recommend.books;
+                        if (list != null && list.Any())
+                        {
+                            showRecommendList(list);
+                        }
+                    });
+                }
+            }, e => showError(), complete);
         }
 
         public void showError()
