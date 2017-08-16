@@ -173,6 +173,7 @@
     <Compile Include="Bases\CrashHandler.cs" />
     <Compile Include="Datas\BookApi.cs" />
     <Compile Include="Datas\BookApiService.cs" />
+    <Compile Include="Datas\CacheManager.cs" />
     <Compile Include="Datas\ChapterReadApiService.cs" />
     <Compile Include="Extensions\StringExtensionMethods.cs" />
     <Compile Include="Helpers\Settings.cs" />

@@ -81,7 +81,7 @@ namespace Xamarin.BookReader.UI.Fragments
             // 推荐列表默认加入收藏
             foreach (var bean in list)
             {
-                //TODO 此处可优化：批量加入收藏->加入前需先判断是否收藏过
+                //TO DO 此处可优化：批量加入收藏->加入前需先判断是否收藏过
                 CollectionsManager.getInstance().add(bean);
             }
         }
@@ -90,7 +90,7 @@ namespace Xamarin.BookReader.UI.Fragments
         {
             chaptersList.Clear();
             chaptersList.AddRange(list);
-            //DownloadBookService.post(new DownloadQueue(bookId, list, 1, list.Count()));
+            DownloadBookService.Post(new DownloadQueue(bookId, list, 1, list.Count()));
             DismissDialog();
         }
 

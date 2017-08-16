@@ -149,13 +149,19 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
 
     public BaseViewHolder<M> setCircleImageUrl(int viewId, String imgUrl, int placeHolderRes) {
         ImageView view = getView<ImageView>(viewId);
-            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes).Transform(new GlideRoundTransform(mContext)).Into(view);
+            Glide.With(mContext).Load(imgUrl)
+                .Placeholder(placeHolderRes)
+                .Transform(new GlideRoundTransform(mContext))
+                .Into(view);
             return this;
     }
 
     public BaseViewHolder<M> setRoundImageUrl(int viewId, String imgUrl, int placeHolderRes) {
         ImageView view = getView<ImageView>(viewId);
-        Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes).Transform(new GlideRoundTransform(mContext)).Into(view);
+        Glide.With(mContext).Load(imgUrl)
+                .Placeholder(placeHolderRes)
+                .Transform(new GlideRoundTransform(mContext))
+                .Into(view);
         return this;
     }
 

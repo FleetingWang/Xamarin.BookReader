@@ -19,6 +19,7 @@ using Java.Lang;
 using Settings = Xamarin.BookReader.Helpers.Settings;
 using Akavache;
 using System.Reactive.Linq;
+using Xamarin.BookReader.Datas;
 
 namespace Xamarin.BookReader.Managers
 {
@@ -192,7 +193,7 @@ namespace Xamarin.BookReader.Managers
                         // 移除章节文件
                         FileUtils.deleteFileOrDirectory(FileUtils.getBookDir(book._id));
                         // 移除目录缓存
-                        // TODO: CacheManager.getInstance().removeTocList(AppUtils.getAppContext(), book._id);
+                        CacheManager.RemoveTocList(book._id);
                         // 移除阅读进度
                         Settings.RemoveReadProgress(book._id);
                     }

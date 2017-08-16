@@ -474,7 +474,7 @@ namespace Xamarin.BookReader.Utils
          * @param fileLen 单位B
          * @return
          */
-        public static string formatFileSizeTostring(long fileLen)
+        public static string formatFileSizeToString(long fileLen)
         {
             DecimalFormat df = new DecimalFormat("0.00");
             string fileSizestring = "";
@@ -605,7 +605,7 @@ namespace Xamarin.BookReader.Utils
          * @param path
          * @return
          */
-        public static string getFileOutputstring(string path, string charset)
+        public static string getFileOutputString(string path, string charset)
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSoft.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace Xamarin.BookReader.Models.Support
     /// <summary>
     /// 下载队列实体
     /// </summary>
-    public class DownloadQueue
+    public class DownloadQueue : MessageBusEvent
     {
         public String bookId;
 
@@ -31,6 +32,8 @@ namespace Xamarin.BookReader.Models.Support
          * 是否下载完成
          */
         public bool isFinish = false;
+
+        public override string EventId => "DownloadQueue";
 
         public DownloadQueue(String bookId, List<BookMixAToc.MixToc.Chapters> list, int start, int end)
         {

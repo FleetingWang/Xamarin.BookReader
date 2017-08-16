@@ -27,9 +27,6 @@ namespace Xamarin.BookReader
         private FragmentPagerAdapter mAdapter;
         private List<String> mDatas;
 
-        // @Inject
-        // MainActivityPresenter mPresenter;
-
         // 退出时间
         private long currentBackPressedTime = 0;
         // 退出间隔
@@ -74,8 +71,6 @@ namespace Xamarin.BookReader
             mViewPager.Adapter = (mAdapter);
             mViewPager.OffscreenPageLimit = (3);
             mIndicator.setViewPager(mViewPager, 0);
-
-            //TODO: mPresenter.attachView(this);
 
             mIndicator.PostDelayed(() => {
                 showChooseSexPopupWindow();
