@@ -14,6 +14,13 @@ using Xamarin.BookReader.Utils;
 using Android.Support.V7.App;
 using Xamarin.BookReader.UI.Fragments;
 using Settings = Xamarin.BookReader.Helpers.Settings;
+using Xamarin.BookReader.Services;
+using Xamarin.BookReader.Models;
+using Xamarin.BookReader.Managers;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
+using Android.Support.V7.View.Menu;
+using System.Reactive.Concurrency;
 
 namespace Xamarin.BookReader
 {
@@ -53,7 +60,7 @@ namespace Xamarin.BookReader
 
         public override void initDatas()
         {
-            // TODO: startService(new Intent(this, DownloadBookService.class));
+            StartService(new Intent(this, typeof(DownloadBookService)));
             // TODO: mTencent = Tencent.createInstance("1105670298", MainActivity.this);
 
             mDatas = Resources.GetStringArray(Resource.Array.home_tabs).ToList();
@@ -72,7 +79,8 @@ namespace Xamarin.BookReader
             mViewPager.OffscreenPageLimit = (3);
             mIndicator.setViewPager(mViewPager, 0);
 
-            mIndicator.PostDelayed(() => {
+            mIndicator.PostDelayed(() =>
+            {
                 showChooseSexPopupWindow();
             }, 500);
         }
@@ -84,7 +92,7 @@ namespace Xamarin.BookReader
                 genderPopupWindow = new GenderPopupWindow(this);
             }
             if (
-                !Settings.IsUserChooseSex && 
+                !Settings.IsUserChooseSex &&
                     !genderPopupWindow.IsShowing)
             {
                 genderPopupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);
@@ -108,57 +116,117 @@ namespace Xamarin.BookReader
             switch (id)
             {
                 case Resource.Id.action_search:
-                StartActivity(new Intent(this, typeof(MainActivity)));
-                break;
-            case Resource.Id.action_login:
-                if (popupWindow == null) {
-                    popupWindow = new LoginPopupWindow(this);
-                    popupWindow.setLoginTypeListener(this);
-                }
-                popupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);
-                break;
-            case Resource.Id.action_my_message:
-                if (popupWindow == null) {
-                    popupWindow = new LoginPopupWindow(this);
-                    popupWindow.setLoginTypeListener(this);
-                }
-                popupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);
-                break;
-            case Resource.Id.action_sync_bookshelf:
-                showDialog();
-                // TODO：mPresenter.syncBookShelf();
-               /* if (popupWindow == null) {
-                    popupWindow = new LoginPopupWindow(this);
-                    popupWindow.setLoginTypeListener(this);
-                }
-                popupWindow.showAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);*/
-                break;
-            case Resource.Id.action_scan_local_book:
+                    StartActivity(new Intent(this, typeof(MainActivity)));
+                    break;
+                case Resource.Id.action_login:
+                    if (popupWindow == null)
+                    {
+                        popupWindow = new LoginPopupWindow(this);
+                        popupWindow.setLoginTypeListener(this);
+                    }
+                    popupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);
+                    break;
+                case Resource.Id.action_my_message:
+                    if (popupWindow == null)
+                    {
+                        popupWindow = new LoginPopupWindow(this);
+                        popupWindow.setLoginTypeListener(this);
+                    }
+                    popupWindow.ShowAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);
+                    break;
+                case Resource.Id.action_sync_bookshelf:
+                    showDialog();
+                    syncBookShelf();
+                    // TODO：mPresenter.syncBookShelf();
+                    /* if (popupWindow == null) {
+                         popupWindow = new LoginPopupWindow(this);
+                         popupWindow.setLoginTypeListener(this);
+                     }
+                     popupWindow.showAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);*/
+                    break;
+                case Resource.Id.action_scan_local_book:
                     // TODO：ScanLocalBookActivity.startActivity(this);
                     break;
-            case Resource.Id.action_wifi_book:
+                case Resource.Id.action_wifi_book:
                     // TODO：WifiBookActivity.startActivity(this);
                     break;
-            case Resource.Id.action_feedback:
+                case Resource.Id.action_feedback:
                     // TODO：FeedbackActivity.startActivity(this);
                     break;
-            case Resource.Id.action_night_mode:
-                if (SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT, false)) {
-                    SharedPreferencesUtil.getInstance().putBoolean(Constant.ISNIGHT, false);
-                    AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightNo);
-                } else {
-                    SharedPreferencesUtil.getInstance().putBoolean(Constant.ISNIGHT, true);
-                    AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightYes);
-                }
-                Recreate();
-                break;
-            case Resource.Id.action_settings:
+                case Resource.Id.action_night_mode:
+                    if (SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT, false))
+                    {
+                        SharedPreferencesUtil.getInstance().putBoolean(Constant.ISNIGHT, false);
+                        AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightNo);
+                    }
+                    else
+                    {
+                        SharedPreferencesUtil.getInstance().putBoolean(Constant.ISNIGHT, true);
+                        AppCompatDelegate.DefaultNightMode = (AppCompatDelegate.ModeNightYes);
+                    }
+                    Recreate();
+                    break;
+                case Resource.Id.action_settings:
                     // TODO：SettingActivity.startActivity(this);
                     break;
-            default:
-                break;
+                default:
+                    break;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        /// <summary>
+        /// 双击退出
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public override bool DispatchKeyEvent(KeyEvent e)
+        {
+            if (e.Action == KeyEventActions.Down
+                && e.KeyCode == Keycode.Back)
+            {
+                if (Java.Lang.JavaSystem.CurrentTimeMillis() - currentBackPressedTime > BACK_PRESSED_INTERVAL)
+                {
+                    currentBackPressedTime = Java.Lang.JavaSystem.CurrentTimeMillis();
+                    ToastUtils.showToast(GetString(Resource.String.exit_tips));
+                    return true;
+                }
+                else
+                {
+                    Finish(); // 退出
+                }
+            }
+            else if (e.KeyCode == Keycode.Menu)
+            {
+                return true;
+            }
+            return base.DispatchKeyEvent(e);
+        }
+
+        protected override bool OnPrepareOptionsPanel(View view, IMenu menu)
+        {
+            if (menu != null)
+            {
+                var menuBuilder = menu as MenuBuilder;
+                if (menuBuilder != null)
+                {
+                    try
+                    {
+                        menuBuilder.SetOptionalIconsVisible(true);
+                    }
+                    catch (Java.Lang.Exception e)
+                    {
+                        e.PrintStackTrace();
+                    }
+                }
+            }
+            return base.OnPrepareOptionsPanel(view, menu);
+        }
+
+        public void syncBookShelfCompleted()
+        {
+            dismissDialog();
+            EventManager.refreshCollectionList();
         }
 
         public void onLogin(ImageView view, string type)
@@ -174,11 +242,53 @@ namespace Xamarin.BookReader
             //4f45e920ff5d1a0e29d997986cd97181
         }
 
-        class CustomFragmentPagerAdapter: FragmentPagerAdapter
+        public void showError()
+        {
+            ToastUtils.showSingleToast("同步异常");
+            dismissDialog();
+        }
+
+        private void syncBookShelf()
+        {
+            List<Recommend.RecommendBooks> list = CollectionsManager.getInstance().getCollectionList();
+            List<IObservable<BookMixAToc.MixToc>> observables = new List<IObservable<BookMixAToc.MixToc>>();
+            if (list != null && list.Any())
+            {
+                foreach (var bean in list)
+                {
+                    if (!bean.isFromSD)
+                    {
+                        IObservable<BookMixAToc.MixToc> fromNetWork = BookApi.Instance.getBookMixAToc(bean._id, "chapters")
+                            .Select(s => s.mixToc);
+                        observables.Add(fromNetWork);
+                    }
+                }
+            }
+            else
+            {
+                ToastUtils.showSingleToast("书架空空如也...");
+                syncBookShelfCompleted();
+                return;
+            }
+            Observable.Merge(observables)
+                //.SubscribeOn(Scheduler.io)
+                //.ObserveOn(AndroidSchedulers.MainThread())
+                .Subscribe(data => {
+                    String lastChapter = data.chapters[data.chapters.Count() - 1].title;
+                    CollectionsManager.getInstance().setLastChapterAndLatelyUpdate(data.book, lastChapter, data.chaptersUpdated);
+                }, e => {
+                    LogUtils.e("onError: " + e);
+                    showError();
+                }, () => {
+                    syncBookShelfCompleted();
+                });
+        }
+
+        class CustomFragmentPagerAdapter : FragmentPagerAdapter
         {
             private List<Fragment> _mTabContents;
             public CustomFragmentPagerAdapter(FragmentManager fm, List<Fragment> mTabContents)
-                :base(fm)
+                : base(fm)
             {
                 _mTabContents = mTabContents;
             }

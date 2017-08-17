@@ -24,6 +24,7 @@ using Android.Support.V4.App;
 using DSoft.Messaging;
 using Xamarin.BookReader.Datas;
 using Settings = Xamarin.BookReader.Helpers.Settings;
+using System.Threading.Tasks;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -139,7 +140,95 @@ namespace Xamarin.BookReader.UI.Fragments
         /// <param name="position"></param>
         private void showLongClickDialog(int position)
         {
-            // TODO: 显示长按对话框
+            var isTop = CollectionsManager.getInstance().isTop(mAdapter.getItem(position)._id);
+            string[] items;
+            EventHandler<DialogClickEventArgs> handler;
+
+            if (mAdapter.getItem(position).isFromSD)
+            {
+                items = Resources.GetStringArray(Resource.Array.recommend_item_long_click_choice_local);
+                handler = (sender, e) => {
+                    var dialog = (AlertDialog)sender;
+                    var which = e.Which;
+                    switch (which)
+                    {
+                        case 0:
+                            //置顶、取消置顶
+                            CollectionsManager.getInstance().top(mAdapter.getItem(position)._id, !isTop);
+                            break;
+                        case 1:
+                            //删除
+                            List<Recommend.RecommendBooks> removeList = new List<Recommend.RecommendBooks>();
+                            removeList.Add(mAdapter.getItem(position));
+                            showDeleteCacheDialog(removeList);
+                            break;
+                        case 2:
+                            //批量管理
+                            showBatchManagementLayout();
+                            break;
+                        default:
+                            break;
+                    }
+                    dialog.Dismiss();
+                };
+            }
+            else
+            {
+                items = Resources.GetStringArray(Resource.Array.recommend_item_long_click_choice);
+                handler = (sender, e) => {
+                    var dialog = (AlertDialog)sender;
+                    var which = e.Which;
+                    switch (which)
+                    {
+                        case 0:
+                            //置顶、取消置顶
+                            CollectionsManager.getInstance().top(mAdapter.getItem(position)._id, !isTop);
+                            break;
+                        case 1:
+                            // TODO: 书籍详情
+                            //BookDetailActivity.startActivity(Activity,
+                            //        mAdapter.getItem(position)._id);
+                            break;
+                        case 2:
+                            //移入养肥区
+                            mRecyclerView.showTipViewAndDelayClose("正在拼命开发中...");
+                            break;
+                        case 3:
+                            //缓存全本
+                            if (mAdapter.getItem(position).isFromSD)
+                            {
+                                mRecyclerView.showTipViewAndDelayClose("本地文件不支持该选项哦");
+                            }
+                            else
+                            {
+                                ShowDialog();
+                                // TODO: mPresenter.getTocList(mAdapter.getItem(position)._id);
+                            }
+                            break;
+                        case 4:
+                            //删除
+                            List<Recommend.RecommendBooks> removeList = new List<Recommend.RecommendBooks>();
+                            removeList.Add(mAdapter.getItem(position));
+                            showDeleteCacheDialog(removeList);
+                            break;
+                        case 5:
+                            //批量管理
+                            showBatchManagementLayout();
+                            break;
+                        default:
+                            break;
+                    }
+                    dialog.Dismiss();
+                };
+            }
+            if (isTop) items[0] = GetString(Resource.String.cancle_top);
+            new AlertDialog.Builder(Activity)
+                .SetTitle(mAdapter.getItem(position).title)
+                .SetItems(items, handler)
+                //.SetNegativeButton(text:string.Empty, handler:(sender, e) => {
+                //    // 不干任何事情
+                //})
+                .Create().Show();
         }
 
         /// <summary>
@@ -148,7 +237,40 @@ namespace Xamarin.BookReader.UI.Fragments
         /// <param name="removeList"></param>
         private void showDeleteCacheDialog(List<Recommend.RecommendBooks> removeList)
         {
-            // TODO: 显示删除本地缓存对话框
+            bool[] selected = { true };
+            new AlertDialog.Builder(Activity)
+                .SetTitle(Activity.GetString(Resource.String.remove_selected_book))
+                .SetMultiChoiceItems(new String[] { Activity.GetString(Resource.String.delete_local_cache) }, selected,
+                    (sender, e) => {
+                        selected[0] = e.IsChecked;
+                    })
+                .SetPositiveButton(Activity.GetString(Resource.String.confirm), (sender, e) => {
+                    var dialog = sender as AlertDialog;
+                    dialog?.Dismiss();
+                    // DoInBackground
+                    ShowDialog();
+                    Task.Factory
+                    .StartNew(() =>
+                        CollectionsManager.getInstance().removeSome(removeList, selected[0])
+                    )
+                    .ContinueWith(task =>
+                        Activity.RunOnUiThread(() => {
+                                mRecyclerView.showTipViewAndDelayClose("成功移除书籍");
+                                foreach (Recommend.RecommendBooks bean in removeList)
+                                {
+                                    mAdapter.remove(bean);
+                                }
+                                if (IsViewVisible(llBatchManagement))
+                                {
+                                    //批量管理完成后，隐藏批量管理布局并刷新页面
+                                    goneBatchManagementAndRefreshUI();
+                                }
+                                HideDialog();
+                            }
+                        ));
+                })
+                .SetNegativeButton(Activity.GetString(Resource.String.cancel), (sender, e) => { })
+                .Create().Show();
         }
 
         /// <summary>

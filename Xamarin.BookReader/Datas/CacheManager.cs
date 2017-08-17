@@ -23,8 +23,6 @@ namespace Xamarin.BookReader.Datas
 {
     public static class CacheManager
     {
-        public static CacheManager Instance { get; set; } = new CacheManager();
-
         private static string searchHistoryKey = "search_history";
         public static List<string> SearchHistory
         {

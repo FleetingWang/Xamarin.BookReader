@@ -20,7 +20,6 @@ namespace Xamarin.BookReader.Bases
         public abstract int LayoutResId { get; }
         protected View ParentView { get; private set; }
         protected LayoutInflater LayoutInflater { get; private set; }
-        // TODO: AppComponent protected abstract void setupActivityComponent(AppComponent appComponent);
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle state)
         {
@@ -32,8 +31,6 @@ namespace Xamarin.BookReader.Bases
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            //TODO: ButterKnife.bind(this, view);
-            //TODO: setupActivityComponent(ReaderApplication.getsInstance().getAppComponent());
             InitDatas();
             ConfigViews();
         }

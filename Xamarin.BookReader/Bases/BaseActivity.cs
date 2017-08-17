@@ -43,7 +43,6 @@ namespace Xamarin.BookReader.Bases
             }
             transparent19and20();
             mContext = this;
-            // TODO:Component setupActivityComponent(ReaderApplication.getsInstance().getAppComponent());
             mCommonToolbar = FindViewById<Toolbar>(Resource.Id.common_toolbar);
             if (mCommonToolbar != null)
             {
