@@ -16,6 +16,7 @@ using Xamarin.BookReader.UI.Listeners;
 using Android.Support.V7.Widget;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.UI.Adapters;
+using Uri = Android.Net.Uri;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -69,7 +70,7 @@ namespace Xamarin.BookReader.UI.Fragments
                     // TODO: startActivity(new Intent(activity, TopCategoryListActivity.class));
                     break;
                 case 3:
-                    // TODO: startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://jq.qq.com/?_wv=1027&k=46qbql8")));
+                    StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://jq.qq.com/?_wv=1027&k=46qbql8")));
                     break;
                 default:
                     break;

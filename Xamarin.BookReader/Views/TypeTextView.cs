@@ -105,7 +105,7 @@ namespace Xamarin.BookReader.Views
         private void startAudioPlayer()
         {
             stopAudio();
-            //TODO playAudio(R.raw.type_in);
+            //TO DO playAudio(R.raw.type_in);
         }
 
         private void playAudio(int audioResId)

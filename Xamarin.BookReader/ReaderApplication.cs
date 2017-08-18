@@ -25,15 +25,6 @@ namespace Xamarin.BookReader
     public class ReaderApplication : Application
     {
         private static ReaderApplication sInstance;
-        //TODO: 依赖注入 private AppComponent appComponent;
-
-        // TODO: RefWatcher
-        //private RefWatcher refWatcher;
-
-        //public static RefWatcher getRefWatcher(Context context) {
-        //    ReaderApplication application = (ReaderApplication) context.getApplicationContext();
-        //    return application.refWatcher;
-        //}
 
         public ReaderApplication(IntPtr handle, JniHandleOwnership transer)
           : base(handle, transer)
@@ -43,32 +34,18 @@ namespace Xamarin.BookReader
         public override void OnCreate()
         {
             base.OnCreate();
-            //refWatcher = LeakCanary.install(this);
             sInstance = this;
-            initCompoent();
             AppUtils.init(this);
             CrashHandler.getInstance().init(this);
             initPrefs();
             initNightMode();
-            //initHciCloud();
+            //TO DO: initHciCloud();
         }
 
         public static ReaderApplication getsInstance()
         {
             return sInstance;
         }
-
-        private void initCompoent()
-        {
-            //appComponent = DaggerAppComponent.builder()
-            //        .bookApiModule(new BookApiModule())
-            //        .appModule(new AppModule(this))
-            //        .build();
-        }
-
-        //public AppComponent getAppComponent() {
-        //    return appComponent;
-        //}
 
         /**
          * 初始化SharedPreference
@@ -92,7 +69,7 @@ namespace Xamarin.BookReader
             }
         }
 
-        // TODO: HciCloud
+        // HciCloud
         //protected void initHciCloud() {
         //    InitParam initparam = new InitParam();
         //    String authDirPath = getFilesDir().getAbsolutePath();

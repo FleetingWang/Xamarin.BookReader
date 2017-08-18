@@ -160,7 +160,7 @@ namespace EasyAdapterLibrary.AbsListViews
 
         public EasyLVHolder setImageUrl(int viewId, String imgUrl)
         {
-            // TODO: Use Glide/Picasso/ImageLoader/Fresco
+            // TO DO Use Glide/Picasso/ImageLoader/Fresco
             return this;
         }
 

@@ -664,17 +664,7 @@ namespace Xamarin.BookReader.Views
          */
         class SavedState : BaseSavedState
         {
-            // TODO: Parcelable.Creator
-            //public static Parcelable.Creator<SavedState> CREATOR =
-            //        new Parcelable.Creator<SavedState>() {
-            //            public SavedState createFromParcel(Parcel in) {
-            //                return new SavedState(in);
-            //            }
-
-            //            public SavedState[] newArray(int size) {
-            //                return new SavedState[size];
-            //            }
-            //        };
+            public static IParcelableCreator CREATOR = new CustomParcelableCreator();
             int tagCount;
             public string[] tags;
             public int checkedPosition;
@@ -706,7 +696,18 @@ namespace Xamarin.BookReader.Views
             }
         }
 
+        class CustomParcelableCreator : Java.Lang.Object, IParcelableCreator
+        {
+            public Java.Lang.Object CreateFromParcel(Parcel source)
+            {
+                return new SavedState(source);
+            }
 
+            public Java.Lang.Object[] NewArray(int size)
+            {
+                return new SavedState[size];
+            }
+        }
         /**
          * The tag view which has two states can be either NORMAL or INPUT.
          */

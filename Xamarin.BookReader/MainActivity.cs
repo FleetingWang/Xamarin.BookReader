@@ -137,7 +137,6 @@ namespace Xamarin.BookReader
                 case Resource.Id.action_sync_bookshelf:
                     showDialog();
                     syncBookShelf();
-                    // TODO：mPresenter.syncBookShelf();
                     /* if (popupWindow == null) {
                          popupWindow = new LoginPopupWindow(this);
                          popupWindow.setLoginTypeListener(this);

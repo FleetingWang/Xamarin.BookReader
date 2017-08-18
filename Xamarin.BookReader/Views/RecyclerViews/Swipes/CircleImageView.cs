@@ -111,7 +111,14 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             SetBackgroundColor(ContextCompat.GetColor(Context, colorRes));
         }
 
-        // TODO: override
+        public override void SetBackgroundColor(Color color)
+        {
+            if (Background is ShapeDrawable)
+            {
+                ((ShapeDrawable)Background).Paint.Color = color;
+            }
+        }
+
         public void SetBackgroundColor(int color)
         {
             if (Background is ShapeDrawable)

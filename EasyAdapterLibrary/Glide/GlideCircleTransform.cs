@@ -37,7 +37,7 @@ namespace Com.Bumptech.Glide.Load.Resource.Bitmap
             int size = Math.Min(source.Width, source.Height);
             int x = (source.Width - size) / 2;
             int y = (source.Height - size) / 2;
-            // TODO this could be acquired from the pool too
+            // TO DO this could be acquired from the pool too
             Android.Graphics.Bitmap squared = Android.Graphics.Bitmap.CreateBitmap(source, x, y, size, size);
             Android.Graphics.Bitmap result = pool.Get(size, size, Android.Graphics.Bitmap.Config.Argb8888);
             if (result == null)

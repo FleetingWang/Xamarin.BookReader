@@ -28,9 +28,6 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
         private static IInterpolator MATERIAL_INTERPOLATOR = new FastOutSlowInInterpolator();
 
         private static float FULL_ROTATION = 1080.0f;
-        //TOOD: @Retention(RetentionPolicy.CLASS)
-        // TODO: @IntDef({LARGE, DEFAULT})
-        // TODO: public @interface ProgressDrawableSize {}
         // Maps to ProgressBar.Large style
         public static int LARGE = 0;
         // Maps to ProgressBar default style
@@ -132,7 +129,6 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
          * @param size One of {MaterialProgressDrawable.LARGE} or
          *            {MaterialProgressDrawable.DEFAULT}
          */
-        //@ProgressDrawableSize
         public void updateSizes(int size)
         {
             if (size == LARGE)
@@ -217,14 +213,14 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
             mRing.setColorFilter(colorFilter);
         }
 
-        //TODO: @SuppressWarnings("unused")
+        [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
         void setRotation(float rotation)
         {
             mRotation = rotation;
             InvalidateSelf();
         }
 
-        //TODO: @SuppressWarnings("unused")
+        [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
         private float getRotation()
         {
             return mRotation;
@@ -565,20 +561,20 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 invalidateSelf();
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public float getStrokeWidth()
             {
                 return mStrokeWidth;
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public void setStartTrim(float startTrim)
             {
                 mStartTrim = startTrim;
                 invalidateSelf();
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public float getStartTrim()
             {
                 return mStartTrim;
@@ -599,27 +595,27 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Swipes
                 return mColors[mColorIndex];
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public void setEndTrim(float endTrim)
             {
                 mEndTrim = endTrim;
                 invalidateSelf();
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public float getEndTrim()
             {
                 return mEndTrim;
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public void setRotation(float rotation)
             {
                 mRotation = rotation;
                 invalidateSelf();
             }
 
-            //TODO：@SuppressWarnings("unused")
+            [Java.Lang.SuppressWarnings( Value = new[] { "unused" })]
             public float getRotation()
             {
                 return mRotation;

@@ -319,8 +319,7 @@ namespace Xamarin.BookReader.Views
          * @param viewPager
          * @param pos
          */
-        //TODO：@SuppressWarnings("deprecation")
-        [Obsolete]
+        [Java.Lang.SuppressWarnings(Value = new[] { "deprecation" })]
         public void setViewPager(ViewPager viewPager, int pos)
         {
             this.mViewPager = viewPager;

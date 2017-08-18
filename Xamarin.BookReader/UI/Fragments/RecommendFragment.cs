@@ -25,6 +25,7 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Datas;
 using Settings = Xamarin.BookReader.Helpers.Settings;
 using System.Threading.Tasks;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -202,7 +203,7 @@ namespace Xamarin.BookReader.UI.Fragments
                             else
                             {
                                 ShowDialog();
-                                // TODO: mPresenter.getTocList(mAdapter.getItem(position)._id);
+                                getTocList(mAdapter.getItem(position)._id);
                             }
                             break;
                         case 4:
@@ -229,6 +230,27 @@ namespace Xamarin.BookReader.UI.Fragments
                 //    // 不干任何事情
                 //})
                 .Create().Show();
+        }
+
+        private void getTocList(string bookId)
+        {
+            BookApi.Instance.getBookMixAToc(bookId, "chapters")
+                //.SubscribeOn(Schedulers.io())
+                //.observeOn(AndroidSchedulers.mainThread())
+                .Subscribe(data => {
+                    List<BookMixAToc.MixToc.Chapters> list = data.mixToc.chapters;
+                    if (list != null && list.Any())
+                    {
+                        Activity.RunOnUiThread(() => {
+                            showBookToc(bookId, list);
+                        });
+                    }
+                }, e => {
+                    LogUtils.e("onError: " + e);
+                    showError();
+                }, () => {
+
+                });
         }
 
         /// <summary>
