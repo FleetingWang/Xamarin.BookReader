@@ -23,22 +23,21 @@ namespace Xamarin.BookReader.UI.Activities
             context.StartActivity(new Intent(context, typeof(BookReviewActivity)));
         }
 
-        //@Bind(R.id.slOverall)
         SelectionLayout slOverall;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_community_book_review;
+            return Resource.Layout.activity_community_book_review;
         }
         public override void bindViews()
         {
-
+            slOverall = FindViewById<SelectionLayout>(Resource.Id.slOverall);
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("书评区");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("书评区");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void configViews()
         {

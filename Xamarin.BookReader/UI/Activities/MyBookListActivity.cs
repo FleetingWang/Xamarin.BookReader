@@ -25,7 +25,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_common_recyclerview;
+            return Resource.Layout.activity_common_recyclerview;
         }
         public override void bindViews()
         {
@@ -33,8 +33,8 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle(R.string.subject_book_list_my_book_list);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.SetTitle(Resource.String.subject_book_list_my_book_list);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -60,27 +60,29 @@ namespace Xamarin.BookReader.UI.Activities
         /// 显示长按对话框
         /// </summary>
         /// <param name="position"></param>
-        private void showLongClickDialog(int position) {
-        new AlertDialog.Builder(this)
-                .setTitle(mAdapter.getItem(position).title)
-                //.setItems(getResources().getStringArray(R.array.my_book_list_item_long_click_choice),
-                //        new DialogInterface.OnClickListener() {
-                //            @Override
-                //            public void onClick(DialogInterface dialog, int which) {
-                //                switch (which) {
-                //                    case 0:
-                //                        //删除
-                //                        CacheManager.getInstance().removeCollection(mAdapter.getItem(position)._id);
-                //                        mAdapter.remove(position);
-                //                        break;
-                //                    default:
-                //                        break;
-                //                }
-                //                dialog.dismiss();
-                //            }
-                //        })
-                .setNegativeButton(null, null)
-                .create().show();
+        private void showLongClickDialog(int position)
+        {
+            new AlertDialog.Builder(this)
+                    .SetTitle(mAdapter.getItem(position).title)
+                    .SetItems(Resources.GetStringArray(Resource.Array.my_book_list_item_long_click_choice),
+                        (sender, e) =>
+                        {
+                            var dialog = sender as AlertDialog;
+                            var which = e.Which;
+                            switch (which)
+                            {
+                                case 0:
+                                //删除
+                                CacheManager.RemoveMyBookList(mAdapter.getItem(position)._id);
+                                    mAdapter.remove(position);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            dialog?.Dismiss();
+                        })
+                    .SetNegativeButton(string.Empty, (sender, e) => { })
+                    .Create().Show();
         }
 
         public override void onRefresh()

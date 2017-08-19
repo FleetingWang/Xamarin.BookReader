@@ -23,7 +23,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override int getLayoutId()
         {
-            return R.layout.activity_community_book_help;
+            return Resource.Layout.activity_community_book_help;
         }
         public override void bindViews()
         {
@@ -31,15 +31,13 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("书荒互助区");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("书荒互助区");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void configViews()
         {
         }
-
-
 
         protected override List<List<string>> getTabList()
         {

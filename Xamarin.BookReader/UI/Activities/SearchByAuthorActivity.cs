@@ -18,7 +18,8 @@ namespace Xamarin.BookReader.UI.Activities
     {
         public static String INTENT_AUTHOR = "author";
 
-        public static void startActivity(Context context, String author) {
+        public static void startActivity(Context context, String author)
+        {
             context.StartActivity(new Intent(context, typeof(SearchByAuthorActivity))
                     .PutExtra(INTENT_AUTHOR, author));
         }
@@ -27,7 +28,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_common_recyclerview;
+            return Resource.Layout.activity_common_recyclerview;
         }
         public override void bindViews()
         {
@@ -35,9 +36,9 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void initToolBar()
         {
-            author = getIntent().getStringExtra(INTENT_AUTHOR);
-            mCommonToolbar.setTitle(author);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            author = Intent.GetStringExtra(INTENT_AUTHOR);
+            mCommonToolbar.Title = (author);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -45,8 +46,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            attachView(this);
-            getSearchResultList(author);
+            //TODO: mPresenter.getSearchResultList(author);
         }
 
         public override void onItemClick(int position)
@@ -56,10 +56,10 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public void showSearchResultList(List<BooksByTag.TagBook> list)
         {
-            List<SearchDetail.SearchBooks> mList = new ArrayList<>();
-            for (BooksByTag.TagBook book : list)
+            List<SearchDetail.SearchBooks> mList = new List<SearchDetail.SearchBooks>();
+            foreach (BooksByTag.TagBook book in list)
             {
-                mList.add(new SearchDetail.SearchBooks(book._id, book.title, book.author, book.cover, book.retentionRatio, book.latelyFollower));
+                mList.Add(new SearchDetail.SearchBooks(book._id, book.title, book.author, book.cover, book.retentionRatio, book.latelyFollower));
             }
             mAdapter.clear();
             mAdapter.addAll(mList);

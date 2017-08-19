@@ -36,9 +36,9 @@ namespace Xamarin.BookReader.UI.Activities
         private String all;
         private String title;
 
-        //@Bind(R.id.indicatorSubRank)
+        //@Bind(Resource.Id.indicatorSubRank)
         RVPIndicator mIndicator;
-        //@Bind(R.id.viewpagerSubRank)
+        //@Bind(Resource.Id.viewpagerSubRank)
         ViewPager mViewPager;
 
         private List<Fragment> mTabContents;
@@ -47,18 +47,18 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_sub_rank;
+            return Resource.Layout.activity_sub_rank;
         }
 
         public override void initToolBar()
         {
-            week = getIntent().getStringExtra(INTENT_WEEK);
-            month = getIntent().getStringExtra(INTENT_MONTH);
-            all = getIntent().getStringExtra(INTENT_ALL);
+            week = Intent.GetStringExtra(INTENT_WEEK);
+            month = Intent.GetStringExtra(INTENT_MONTH);
+            all = Intent.GetStringExtra(INTENT_ALL);
 
-            title = getIntent().getStringExtra(INTENT_TITLE).split(" ")[0];
-            mCommonToolbar.setTitle(title);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            title = Intent.GetStringExtra(INTENT_TITLE).split(" ")[0];
+            mCommonToolbar.SetTitle(title);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void bindViews()
@@ -67,7 +67,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initDatas()
         {
-            mDatas = Arrays.asList(getResources().getStringArray(R.array.sub_rank_tabs));
+            mDatas = Arrays.asList(Resources.GetStringArray(Resource.Array.sub_rank_tabs));
 
             mTabContents = new ArrayList<>();
             mTabContents.add(SubRankFragment.newInstance(week));
@@ -77,7 +77,7 @@ namespace Xamarin.BookReader.UI.Activities
             //mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             //    @Override
             //    public int getCount() {
-            //        return mTabContents.size();
+            //        return mTabContents.Count();
             //    }
 
             //    @Override
@@ -90,7 +90,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void configViews()
         {
             mIndicator.setTabItemTitles(mDatas);
-            mViewPager.setAdapter(mAdapter);
+            mViewPager.SetAdapter(mAdapter);
             mViewPager.setOffscreenPageLimit(3);
             mIndicator.setViewPager(mViewPager, 0);
         }

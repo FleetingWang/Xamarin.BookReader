@@ -113,7 +113,7 @@ namespace Xamarin.BookReader.Bases
          */
         public abstract void configViews();
 
-        protected void gone(View[] views)
+        protected void gone(params View[] views)
         {
             if (views != null && views.Length > 0)
             {
@@ -127,7 +127,7 @@ namespace Xamarin.BookReader.Bases
             }
         }
 
-        protected void visible(View[] views)
+        protected void visible(params View[] views)
         {
             if (views != null && views.Length > 0)
             {

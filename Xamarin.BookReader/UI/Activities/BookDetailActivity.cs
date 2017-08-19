@@ -14,54 +14,41 @@ using Xamarin.BookReader.UI.Listeners;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Views;
 using Android.Support.V7.Widget;
+using DSoft.Messaging;
+using Xamarin.BookReader.Models.Support;
+using Com.Bumptech.Glide;
+using Com.Bumptech.Glide.Load.Resource.Bitmap;
+using Xamarin.BookReader.Utils;
+using Android.Text;
+using Xamarin.BookReader.Managers;
+using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
 
 namespace Xamarin.BookReader.UI.Activities
 {
-    public class BookDetailActivity: BaseActivity, IOnRvItemClickListener<Object>
+    public class BookDetailActivity : BaseActivity, IOnRvItemClickListener<Object>
     {
+        ImageView mIvBookCover;
+        TextView mTvBookTitle;
+        TextView mTvAuthor;
+        TextView mTvCatgory;
+        TextView mTvWordCount;
+        TextView mTvLatelyUpdate;
+        DrawableCenterButton mBtnRead;
+        DrawableCenterButton mBtnJoinCollection;
+        TextView mTvLatelyFollower;
+        TextView mTvRetentionRatio;
+        TextView mTvSerializeWordCount;
+        TagGroup mTagGroup;
+        TextView mTvlongIntro;
+        TextView mTvMoreReview;
+        RecyclerView mRvHotReview;
+        RelativeLayout mRlCommunity;
+        TextView mTvCommunity;
+        TextView mTvPostCount;
+        TextView mTvRecommendBookList;
 
-
-    //@Bind(R.id.ivBookCover)
-    ImageView mIvBookCover;
-    //@Bind(R.id.tvBookListTitle)
-    TextView mTvBookTitle;
-    //@Bind(R.id.tvBookListAuthor)
-    TextView mTvAuthor;
-    //@Bind(R.id.tvCatgory)
-    TextView mTvCatgory;
-    //@Bind(R.id.tvWordCount)
-    TextView mTvWordCount;
-    //@Bind(R.id.tvLatelyUpdate)
-    TextView mTvLatelyUpdate;
-    //@Bind(R.id.btnRead)
-    DrawableCenterButton mBtnRead;
-    //@Bind(R.id.btnJoinCollection)
-    DrawableCenterButton mBtnJoinCollection;
-    //@Bind(R.id.tvLatelyFollower)
-    TextView mTvLatelyFollower;
-    //@Bind(R.id.tvRetentionRatio)
-    TextView mTvRetentionRatio;
-    //@Bind(R.id.tvSerializeWordCount)
-    TextView mTvSerializeWordCount;
-    //@Bind(R.id.tag_group)
-    TagGroup mTagGroup;
-    //@Bind(R.id.tvlongIntro)
-    TextView mTvlongIntro;
-    //@Bind(R.id.tvMoreReview)
-    TextView mTvMoreReview;
-    //@Bind(R.id.rvHotReview)
-    RecyclerView mRvHotReview;
-    //@Bind(R.id.rlCommunity)
-    RelativeLayout mRlCommunity;
-    //@Bind(R.id.tvCommunity)
-    TextView mTvCommunity;
-    //@Bind(R.id.tvHelpfulYes)
-    TextView mTvPostCount;
-    //@Bind(R.id.tvRecommendBookList)
-    TextView mTvRecommendBookList;
-
-    //@Bind(R.id.rvRecommendBoookList)
-    RecyclerView mRvRecommendBoookList;
+        RecyclerView mRvRecommendBoookList;
 
         public static String INTENT_BOOK_ID = "bookId";
         public static void startActivity(Context context, String bookId)
@@ -79,86 +66,112 @@ namespace Xamarin.BookReader.UI.Activities
         private List<RecommendBookList.RecommendBook> mRecommendBookList = new List<RecommendBookList.RecommendBook>();
         private String bookId;
 
-        private boolean collapseLongIntro = true;
+        private bool collapseLongIntro = true;
         private Recommend.RecommendBooks recommendBooks;
-        private boolean isJoinedCollections = false;
+        private bool isJoinedCollections = false;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_book_detail;
+            return Resource.Layout.activity_book_detail;
         }
 
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mIvBookCover = FindViewById<ImageView>(Resource.Id.ivBookCover);
+            mTvBookTitle = FindViewById<TextView>(Resource.Id.tvBookListTitle);
+            mTvAuthor = FindViewById<TextView>(Resource.Id.tvBookListAuthor);
+            mTvCatgory = FindViewById<TextView>(Resource.Id.tvCatgory);
+            mTvWordCount = FindViewById<TextView>(Resource.Id.tvWordCount);
+            mTvLatelyUpdate = FindViewById<TextView>(Resource.Id.tvLatelyUpdate);
+            mBtnRead = FindViewById<DrawableCenterButton>(Resource.Id.btnRead);
+            mBtnJoinCollection = FindViewById<DrawableCenterButton>(Resource.Id.btnJoinCollection);
+            mTvLatelyFollower = FindViewById<TextView>(Resource.Id.tvLatelyFollower);
+            mTvRetentionRatio = FindViewById<TextView>(Resource.Id.tvRetentionRatio);
+            mTvSerializeWordCount = FindViewById<TextView>(Resource.Id.tvSerializeWordCount);
+            mTagGroup = FindViewById<TagGroup>(Resource.Id.tag_group);
+            mTvlongIntro = FindViewById<TextView>(Resource.Id.tvlongIntro);
+            mTvMoreReview = FindViewById<TextView>(Resource.Id.tvMoreReview);
+            mRvHotReview = FindViewById<RecyclerView>(Resource.Id.rvHotReview);
+            mRlCommunity = FindViewById<RelativeLayout>(Resource.Id.rlCommunity);
+            mTvCommunity = FindViewById<TextView>(Resource.Id.tvCommunity);
+            mTvPostCount = FindViewById<TextView>(Resource.Id.tvHelpfulYes);
+            mTvRecommendBookList = FindViewById<TextView>(Resource.Id.tvRecommendBookList);
+            mRvRecommendBoookList = FindViewById<RecyclerView>(Resource.Id.rvRecommendBoookList);
+
+            mBtnRead.Click += (sender, e) => onClickRead();
+            mBtnJoinCollection.Click += (sender, e) => onClickJoinCollection();
+            mTvAuthor.Click += (sender, e) => searchByAuthor();
+            mTvlongIntro.Click += (sender, e) => collapseLongIntroHandler();
+            mTvMoreReview.Click += (sender, e) => onClickMoreReview();
+            mRlCommunity.Click += (sender, e) => onClickCommunity();
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
-            mCommonToolbar.setTitle(R.string.book_detail);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
+            mCommonToolbar.SetTitle(Resource.String.book_detail);
         }
 
         public override void initDatas()
         {
-            bookId = getIntent().getStringExtra(INTENT_BOOK_ID);
-            EventBus.getDefault().register(this);
+            bookId = Intent.GetStringExtra(INTENT_BOOK_ID);
+            MessageBus.Default.Register<RefreshCollectionIconEvent>(RefreshCollectionIcon);
         }
 
         public override void configViews()
         {
-            mRvHotReview.setHasFixedSize(true);
-            mRvHotReview.setLayoutManager(new LinearLayoutManager(this));
+            mRvHotReview.HasFixedSize = (true);
+            mRvHotReview.SetLayoutManager(new LinearLayoutManager(this));
             mHotReviewAdapter = new HotReviewAdapter(mContext, mHotReviewList, this);
-            mRvHotReview.setAdapter(mHotReviewAdapter);
+            mRvHotReview.SetAdapter(mHotReviewAdapter);
 
-            mRvRecommendBoookList.setHasFixedSize(true);
-            mRvRecommendBoookList.setLayoutManager(new LinearLayoutManager(this));
+            mRvRecommendBoookList.HasFixedSize = (true);
+            mRvRecommendBoookList.SetLayoutManager(new LinearLayoutManager(this));
             mRecommendBookListAdapter = new RecommendBookListAdapter(mContext, mRecommendBookList, this);
-            mRvRecommendBoookList.setAdapter(mRecommendBookListAdapter);
+            mRvRecommendBoookList.SetAdapter(mRecommendBookListAdapter);
 
+            mTagGroup.setOnTagClickListener(new CustomOnTagClickListener(this));
             //mTagGroup.setOnTagClickListener(new TagGroup.OnTagClickListener() {
             //@Override
             //public void onTagClick(String tag) {
             //    startActivity(new Intent(BookDetailActivity.this, BooksByTagActivity.class)
-            //            .putExtra("tag", tag));
+            //            .PutExtra("tag", tag));
             //    }
             //});
 
-            //mPresenter.attachView(this);
-            //mPresenter.getBookDetail(bookId);
-            //mPresenter.getHotReview(bookId);
-            //mPresenter.getRecommendBookList(bookId, "3");
+            //TODO: mPresenter.getBookDetail(bookId);
+            //TODO: mPresenter.getHotReview(bookId);
+            //TODO: mPresenter.getRecommendBookList(bookId, "3");
         }
 
         public void showBookDetail(BookDetail data)
         {
-            Glide.with(mContext)
-                .load(Constant.IMG_BASE_URL + data.cover)
-                .placeholder(R.drawable.cover_default)
-                .transform(new GlideRoundTransform(mContext))
-                .into(mIvBookCover);
+            Glide.With(mContext)
+                .Load(Constant.IMG_BASE_URL + data.cover)
+                .Placeholder(Resource.Drawable.cover_default)
+                .Transform(new GlideRoundTransform(mContext))
+                .Into(mIvBookCover);
 
-            mTvBookTitle.setText(data.title);
-            mTvAuthor.setText(String.format(getString(R.string.book_detail_author), data.author));
-            mTvCatgory.setText(String.format(getString(R.string.book_detail_category), data.cat));
-            mTvWordCount.setText(FormatUtils.formatWordCount(data.wordCount));
-            mTvLatelyUpdate.setText(FormatUtils.getDescriptionTimeFromDateString(data.updated));
-            mTvLatelyFollower.setText(String.valueOf(data.latelyFollower));
-            mTvRetentionRatio.setText(TextUtils.isEmpty(data.retentionRatio) ?
-                    "-" : String.format(getString(R.string.book_detail_retention_ratio),
+            mTvBookTitle.Text = (data.title);
+            mTvAuthor.Text = (String.Format(GetString(Resource.String.book_detail_author), data.author));
+            mTvCatgory.Text = (String.Format(GetString(Resource.String.book_detail_category), data.cat));
+            mTvWordCount.Text = (FormatUtils.formatWordCount(data.wordCount));
+            mTvLatelyUpdate.Text = (FormatUtils.getDescriptionTimeFromDateString(data.updated));
+            mTvLatelyFollower.Text = data.latelyFollower.ToString();
+            mTvRetentionRatio.Text = (TextUtils.IsEmpty(data.retentionRatio) ?
+                    "-" : String.Format(GetString(Resource.String.book_detail_retention_ratio),
                     data.retentionRatio));
-            mTvSerializeWordCount.setText(data.serializeWordCount < 0 ? "-" :
-                    String.valueOf(data.serializeWordCount));
+            mTvSerializeWordCount.Text = (data.serializeWordCount < 0 ? "-" :
+                    data.serializeWordCount.ToString());
 
-            tagList.clear();
-            tagList.addAll(data.tags);
+            tagList.Clear();
+            tagList.AddRange(data.tags);
             times = 0;
             showHotWord();
 
-            mTvlongIntro.setText(data.longIntro);
-            mTvCommunity.setText(String.format(getString(R.string.book_detail_community), data.title));
-            mTvPostCount.setText(String.format(getString(R.string.book_detail_post_count), data.postCount));
+            mTvlongIntro.Text = (data.longIntro);
+            mTvCommunity.Text = (String.Format(GetString(Resource.String.book_detail_community), data.title));
+            mTvPostCount.Text = (String.Format(GetString(Resource.String.book_detail_post_count), data.postCount));
 
             recommendBooks = new Recommend.RecommendBooks();
             recommendBooks.title = data.title;
@@ -173,18 +186,25 @@ namespace Xamarin.BookReader.UI.Activities
         /// <summary>
         /// 刷新收藏图标
         /// </summary>
-        private void refreshCollectionIcon() {
-            if (CollectionsManager.getInstance().isCollected(recommendBooks._id)) {
+        private void refreshCollectionIcon()
+        {
+            if (CollectionsManager.getInstance().isCollected(recommendBooks._id))
+            {
                 initCollection(false);
-            } else {
+            }
+            else
+            {
                 initCollection(true);
             }
         }
 
-        //@Subscribe(threadMode = ThreadMode.MAIN)
-        //public void RefreshCollectionIcon(RefreshCollectionIconEvent event) {
-        //    refreshCollectionIcon();
-        //}
+        public void RefreshCollectionIcon(object sender, MessageBusEvent evnt)
+        {
+            if (evnt is RefreshCollectionIconEvent)
+            {
+                refreshCollectionIcon();
+            }
+        }
 
         /// <summary>
         /// 每次显示8个
@@ -192,57 +212,60 @@ namespace Xamarin.BookReader.UI.Activities
         private void showHotWord()
         {
             int start, end;
-            if (times < tagList.size() && times + 8 <= tagList.size())
+            if (times < tagList.Count() && times + 8 <= tagList.Count())
             {
                 start = times;
                 end = times + 8;
             }
-            else if (times < tagList.size() - 1 && times + 8 > tagList.size())
+            else if (times < tagList.Count() - 1 && times + 8 > tagList.Count())
             {
                 start = times;
-                end = tagList.size() - 1;
+                end = tagList.Count() - 1;
             }
             else
             {
                 start = 0;
-                end = tagList.size() > 8 ? 8 : tagList.size();
+                end = tagList.Count() > 8 ? 8 : tagList.Count();
             }
             times = end;
             if (end - start > 0)
             {
-                List<String> batch = tagList.subList(start, end);
-                List<TagColor> colors = TagColor.getRandomColors(batch.size());
-                mTagGroup.setTags(colors, (String[])batch.toArray(new String[batch.size()]));
+                List<String> batch = tagList.GetRange(start, end - start + 1);
+                List<TagColor> colors = TagColor.getRandomColors(batch.Count());
+                mTagGroup.setTags(colors, batch.ToArray());
             }
         }
 
         public void showHotReview(List<HotReview.Reviews> list)
         {
-            mHotReviewList.clear();
-            mHotReviewList.addAll(list);
+            mHotReviewList.Clear();
+            mHotReviewList.AddRange(list);
             mHotReviewAdapter.notifyDataSetChanged();
         }
 
         public void showRecommendBookList(List<RecommendBookList.RecommendBook> list)
         {
-            if (!list.isEmpty())
+            if (list.Any())
             {
-                mTvRecommendBookList.setVisibility(View.VISIBLE);
-                mRecommendBookList.clear();
-                mRecommendBookList.addAll(list);
+                mTvRecommendBookList.Visibility = ViewStates.Visible;
+                mRecommendBookList.Clear();
+                mRecommendBookList.AddRange(list);
                 mRecommendBookListAdapter.notifyDataSetChanged();
             }
         }
 
         public void onItemClick(View view, int position, object data)
         {
-            if (data instanceof HotReview.Reviews) {
+            if (data is HotReview.Reviews)
+            {
                 BookDiscussionDetailActivity.startActivity(this, ((HotReview.Reviews)data)._id);
-            } else if (data instanceof RecommendBookList.RecommendBook) {
+            }
+            else if (data is RecommendBookList.RecommendBook)
+            {
                 RecommendBookList.RecommendBook recommendBook = (RecommendBookList.RecommendBook)data;
 
                 BookLists bookLists = new BookLists();
-                BookLists.BookListsBean bookListsBean = bookLists.new BookListsBean();
+                BookLists.BookListsBean bookListsBean = new BookLists.BookListsBean();
                 bookListsBean._id = recommendBook.id;
                 bookListsBean.author = recommendBook.author;
                 bookListsBean.bookCount = recommendBook.bookCount;
@@ -255,7 +278,6 @@ namespace Xamarin.BookReader.UI.Activities
             }
         }
 
-        //TODO: @OnClick(R.id.btnJoinCollection)
         public void onClickJoinCollection()
         {
             if (!isJoinedCollections)
@@ -263,85 +285,78 @@ namespace Xamarin.BookReader.UI.Activities
                 if (recommendBooks != null)
                 {
                     CollectionsManager.getInstance().add(recommendBooks);
-                    ToastUtils.showToast(String.format(getString(
-                            R.string.book_detail_has_joined_the_book_shelf), recommendBooks.title));
+                    ToastUtils.showToast(String.Format(GetString(
+                            Resource.String.book_detail_has_joined_the_book_shelf), recommendBooks.title));
                     initCollection(false);
                 }
             }
             else
             {
                 CollectionsManager.getInstance().remove(recommendBooks._id);
-                ToastUtils.showToast(String.format(getString(
-                        R.string.book_detail_has_remove_the_book_shelf), recommendBooks.title));
+                ToastUtils.showToast(String.Format(GetString(
+                        Resource.String.book_detail_has_remove_the_book_shelf), recommendBooks.title));
                 initCollection(true);
             }
         }
 
-        private void initCollection(boolean coll)
+        private void initCollection(bool coll)
         {
             if (coll)
             {
-                mBtnJoinCollection.setText(R.string.book_detail_join_collection);
-                Drawable drawable = ContextCompat.getDrawable(this, R.drawable.book_detail_info_add_img);
-                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                mBtnJoinCollection.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.shape_common_btn_solid_normal));
-                mBtnJoinCollection.setCompoundDrawables(drawable, null, null, null);
-                mBtnJoinCollection.postInvalidate();
+                mBtnJoinCollection.SetText(Resource.String.book_detail_join_collection);
+                Drawable drawable = ContextCompat.GetDrawable(this, Resource.Drawable.book_detail_info_add_img);
+                drawable.SetBounds(0, 0, drawable.MinimumWidth, drawable.MinimumHeight);
+                mBtnJoinCollection.SetBackgroundDrawable(ContextCompat.GetDrawable(this, Resource.Drawable.shape_common_btn_solid_normal));
+                mBtnJoinCollection.SetCompoundDrawables(drawable, null, null, null);
+                mBtnJoinCollection.PostInvalidate();
                 isJoinedCollections = false;
             }
             else
             {
-                mBtnJoinCollection.setText(R.string.book_detail_remove_collection);
-                Drawable drawable = ContextCompat.getDrawable(this, R.drawable.book_detail_info_del_img);
-                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                mBtnJoinCollection.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.btn_join_collection_pressed));
-                mBtnJoinCollection.setCompoundDrawables(drawable, null, null, null);
-                mBtnJoinCollection.postInvalidate();
+                mBtnJoinCollection.SetText(Resource.String.book_detail_remove_collection);
+                Drawable drawable = ContextCompat.GetDrawable(this, Resource.Drawable.book_detail_info_del_img);
+                drawable.SetBounds(0, 0, drawable.MinimumWidth, drawable.MinimumHeight);
+                mBtnJoinCollection.SetBackgroundDrawable(ContextCompat.GetDrawable(this, Resource.Drawable.btn_join_collection_pressed));
+                mBtnJoinCollection.SetCompoundDrawables(drawable, null, null, null);
+                mBtnJoinCollection.PostInvalidate();
                 isJoinedCollections = true;
             }
         }
 
-
-
-        //TODO: @OnClick(R.id.btnRead)
         public void onClickRead()
         {
             if (recommendBooks == null) return;
-            ReadActivity.startActivity(this, recommendBooks);
+            // TODO: ReadActivity.startActivity(this, recommendBooks);
         }
 
-        //TODO: @OnClick(R.id.tvBookListAuthor)
         public void searchByAuthor()
         {
-            String author = mTvAuthor.getText().toString().replaceAll(" ", "");
+            String author = mTvAuthor.Text.ToString().Replace(" ", "");
             SearchByAuthorActivity.startActivity(this, author);
         }
 
-        //TODO: @OnClick(R.id.tvlongIntro)
-        public void collapseLongIntro()
+        public void collapseLongIntroHandler()
         {
             if (collapseLongIntro)
             {
-                mTvlongIntro.setMaxLines(20);
+                mTvlongIntro.SetMaxLines(20);
                 collapseLongIntro = false;
             }
             else
             {
-                mTvlongIntro.setMaxLines(4);
+                mTvlongIntro.SetMaxLines(4);
                 collapseLongIntro = true;
             }
         }
 
-        //TODO: @OnClick(R.id.tvMoreReview)
         public void onClickMoreReview()
         {
-            BookDetailCommunityActivity.startActivity(this, bookId, mTvBookTitle.getText().toString(), 1);
+            BookDetailCommunityActivity.startActivity(this, bookId, mTvBookTitle.Text.ToString(), 1);
         }
 
-        //TODO: @OnClick(R.id.rlCommunity)
         public void onClickCommunity()
         {
-            BookDetailCommunityActivity.startActivity(this, bookId, mTvBookTitle.getText().toString(), 0);
+            BookDetailCommunityActivity.startActivity(this, bookId, mTvBookTitle.Text.ToString(), 0);
         }
 
         public void showError()
@@ -357,7 +372,23 @@ namespace Xamarin.BookReader.UI.Activities
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            EventBus.getDefault().unregister(this);
+            MessageBus.Default.DeRegister<RefreshCollectionIconEvent>(RefreshCollectionIcon);
+        }
+
+        class CustomOnTagClickListener : Java.Lang.Object, TagGroup.OnTagClickListener
+        {
+            private BookDetailActivity bookDetailActivity;
+
+            public CustomOnTagClickListener(BookDetailActivity bookDetailActivity)
+            {
+                this.bookDetailActivity = bookDetailActivity;
+            }
+
+            public void onTagClick(string tag)
+            {
+                bookDetailActivity.StartActivity(new Intent(bookDetailActivity, typeof(BooksByTagActivity))
+                        .PutExtra("tag", tag));
+            }
         }
     }
 }

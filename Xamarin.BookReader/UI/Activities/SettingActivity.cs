@@ -13,6 +13,8 @@ using Xamarin.BookReader.Bases;
 using Android.Support.V7.Widget;
 using System.Threading.Tasks;
 using Xamarin.BookReader.Datas;
+using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Helpers;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -22,29 +24,38 @@ namespace Xamarin.BookReader.UI.Activities
         {
             context.StartActivity(new Intent(context, typeof(SettingActivity)));
         }
-        //@Bind(R.id.mTvSort)
+
         TextView mTvSort;
-        //@Bind(R.id.tvFlipStyle)
         TextView mTvFlipStyle;
-        //@Bind(R.id.tvCacheSize)
         TextView mTvCacheSize;
-        //@Bind(R.id.noneCoverCompat)
         SwitchCompat noneCoverCompat;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_setting;
+            return Resource.Layout.activity_setting;
         }
 
         public override void bindViews()
         {
+            mTvSort = FindViewById<TextView>(Resource.Id.mTvSort);
+            mTvFlipStyle = FindViewById<TextView>(Resource.Id.tvFlipStyle);
+            mTvCacheSize = FindViewById<TextView>(Resource.Id.tvCacheSize);
+            noneCoverCompat = FindViewById<SwitchCompat>(Resource.Id.noneCoverCompat);
 
+            var bookshelfSort = FindViewById(Resource.Id.bookshelfSort);
+            bookshelfSort.Click += (sender, e) => onClickBookShelfSort();
+            var rlFlipStyle = FindViewById(Resource.Id.rlFlipStyle);
+            rlFlipStyle.Click += (sender, e) => onClickFlipStyle();
+            var feedBack = FindViewById(Resource.Id.feedBack);
+            feedBack.Click += (sender, e) => onClickFeedBack();
+            var cleanCache = FindViewById(Resource.Id.cleanCache);
+            cleanCache.Click += (sender, e) => onClickCleanCache();
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("设置");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("设置");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -54,72 +65,67 @@ namespace Xamarin.BookReader.UI.Activities
                     mTvCacheSize.Text = (cachesize);
                 });
             });
-            mTvSort.setText(getResources().getStringArray(R.array.setting_dialog_sort_choice)[
+            mTvSort.Text = (Resources.GetStringArray(Resource.Array.setting_dialog_sort_choice)[
                 SharedPreferencesUtil.getInstance().getBoolean(Constant.ISBYUPDATESORT, true) ? 0 : 1]);
-            mTvFlipStyle.setText(getResources().getStringArray(R.array.setting_dialog_style_choice)[
+            mTvFlipStyle.Text = (Resources.GetStringArray(Resource.Array.setting_dialog_style_choice)[
                     SharedPreferencesUtil.getInstance().getInt(Constant.FLIP_STYLE, 0)]);
         }
         public override void configViews()
         {
-            noneCoverCompat.setChecked(SettingManager.getInstance().isNoneCover());
-            //noneCoverCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            //    @Override
-            //    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            //        SettingManager.getInstance().saveNoneCover(isChecked);
-            //    }
-            //});
+            noneCoverCompat.Checked = Settings.IsNoneCover;
+            noneCoverCompat.CheckedChange += (sender, e) => {
+                Settings.IsNoneCover = e.IsChecked;
+            };
         }
-
-        //@OnClick(R.id.bookshelfSort)
+        
         public void onClickBookShelfSort() {
             new AlertDialog.Builder(mContext)
-                    .setTitle("书架排序方式")
-                    //.setSingleChoiceItems(getResources().getStringArray(R.array.setting_dialog_sort_choice),
+                    .SetTitle("书架排序方式")
+                    //.setSingleChoiceItems(Resources.GetStringArray(Resource.Array.setting_dialog_sort_choice),
                     //        SharedPreferencesUtil.getInstance().getBoolean(Constant.ISBYUPDATESORT, true) ? 0 : 1,
                     //        new DialogInterface.OnClickListener() {
                     //            @Override
                     //            public void onClick(DialogInterface dialog, int which) {
-                    //                mTvSort.setText(getResources().getStringArray(R.array.setting_dialog_sort_choice)[which]);
+                    //                mTvSort.Text = (Resources.GetStringArray(Resource.Array.setting_dialog_sort_choice)[which]);
                     //                SharedPreferencesUtil.getInstance().putBoolean(Constant.ISBYUPDATESORT, which == 0);
                     //                EventManager.refreshCollectionList();
-                    //                dialog.dismiss();
+                    //                dialog.Dismiss();
                     //            }
                     //        })
-                    .create().show();
+                    .Create().Show();
         }
 
-        //@OnClick(R.id.rlFlipStyle)
         public void onClickFlipStyle() {
             new AlertDialog.Builder(mContext)
-                    .setTitle("阅读页翻页效果")
-                    //.setSingleChoiceItems(getResources().getStringArray(R.array.setting_dialog_style_choice),
+                    .SetTitle("阅读页翻页效果")
+                    //.setSingleChoiceItems(Resources.GetStringArray(Resource.Array.setting_dialog_style_choice),
                     //        SharedPreferencesUtil.getInstance().getInt(Constant.FLIP_STYLE, 0),
                     //        new DialogInterface.OnClickListener() {
                     //            @Override
                     //            public void onClick(DialogInterface dialog, int which) {
-                    //                mTvFlipStyle.setText(getResources().getStringArray(R.array.setting_dialog_style_choice)[which]);
+                    //                mTvFlipStyle.Text = (Resources.GetStringArray(Resource.Array.setting_dialog_style_choice)[which]);
                     //                SharedPreferencesUtil.getInstance().putInt(Constant.FLIP_STYLE, which);
-                    //                dialog.dismiss();
+                    //                dialog.Dismiss();
                     //            }
                     //        })
-                    .create().show();
+                    .Create().Show();
         }
 
-        //@OnClick(R.id.feedBack)
-        public void feedBack()
+        public void onClickFeedBack()
         {
             FeedbackActivity.startActivity(this);
         }
-        //@OnClick(R.id.cleanCache)
+
         public void onClickCleanCache() {
             //默认不勾选清空书架列表，防手抖！！
-            boolean selected[] = {true, false};
+            bool[] selected = {true, false};
             new AlertDialog.Builder(mContext)
-                    .setTitle("清除缓存")
-                    .setCancelable(true)
+                    .SetTitle("清除缓存")
+                    .SetCancelable(true)
+
                     //.setMultiChoiceItems(new String[]{"删除阅读记录", "清空书架列表"}, selected, new DialogInterface.OnMultiChoiceClickListener() {
                     //    @Override
-                    //    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                    //    public void onClick(DialogInterface dialog, int which, bool isChecked) {
                     //        selected[which] = isChecked;
                     //    }
                     //})
@@ -134,22 +140,22 @@ namespace Xamarin.BookReader.UI.Activities
                     //                runOnUiThread(new Runnable() {
                     //                    @Override
                     //                    public void run() {
-                    //                        mTvCacheSize.setText(cacheSize);
+                    //                        mTvCacheSize.Text = (cacheSize);
                     //                        EventManager.refreshCollectionList();
                     //                    }
                     //                });
                     //            }
                     //        }).start();
-                    //        dialog.dismiss();
+                    //        dialog.Dismiss();
                     //    }
                     //})
-                    //.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    //.SetNegativeButton("取消", new DialogInterface.OnClickListener() {
                     //    @Override
                     //    public void onClick(DialogInterface dialog, int which) {
-                    //        dialog.dismiss();
+                    //        dialog.Dismiss();
                     //    }
                     //})
-                    .create().show();
+                    .Create().Show();
         }
 
     }

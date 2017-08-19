@@ -13,10 +13,12 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.Datas;
+using Android.Support.V4.View;
+using Android.Text;
 
 namespace Xamarin.BookReader.UI.Activities
 {
-    public class SearchActivity: BaseRVActivity<SearchDetail.SearchBooks>
+    public class SearchActivity : BaseRVActivity<SearchDetail.SearchBooks>
     {
         public static String INTENT_QUERY = "query";
 
@@ -27,31 +29,24 @@ namespace Xamarin.BookReader.UI.Activities
         }
 
 
-        //@Bind(R.id.tvChangeWords)
         TextView mTvChangeWords;
-        //@Bind(R.id.tag_group)
         TagGroup mTagGroup;
-        //@Bind(R.id.rootLayout)
         LinearLayout mRootLayout;
-        //@Bind(R.id.layoutHotWord)
         RelativeLayout mLayoutHotWord;
-        //@Bind(R.id.rlHistory)
         RelativeLayout rlHistory;
-        //@Bind(R.id.tvClear)
         TextView tvClear;
-        //@Bind(R.id.lvSearchHistory)
         ListView lvSearchHistory;
 
-        private List<String> tagList = new ArrayList<>();
+        private List<String> tagList = new List<String>();
         private int times = 0;
 
         private AutoCompleteAdapter mAutoAdapter;
-        private List<String> mAutoList = new ArrayList<>();
+        private List<String> mAutoList = new List<String>();
 
         private SearchHistoryAdapter mHisAdapter;
-        private List<String> mHisList = new ArrayList<>();
+        private List<String> mHisList = new List<String>();
         private String key;
-        private MenuItem searchMenuItem;
+        private IMenuItem searchMenuItem;
         private SearchView searchView;
 
         private ListPopupWindow mListPopupWindow;
@@ -61,32 +56,38 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_search;
+            return Resource.Layout.activity_search;
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mTvChangeWords = FindViewById<TextView>(Resource.Id.tvChangeWords);
+            mTagGroup = FindViewById<TagGroup>(Resource.Id.tag_group);
+            mRootLayout = FindViewById<LinearLayout>(Resource.Id.rootLayout);
+            mLayoutHotWord = FindViewById<RelativeLayout>(Resource.Id.layoutHotWord);
+            rlHistory = FindViewById<RelativeLayout>(Resource.Id.rlHistory);
+            tvClear = FindViewById<TextView>(Resource.Id.tvClear);
+            lvSearchHistory = FindViewById<ListView>(Resource.Id.lvSearchHistory);
+
+            tvClear.Click += (sender, e) => clearSearchHistory();
         }
 
         public override void initDatas()
         {
-            key = getIntent().getStringExtra(INTENT_QUERY);
+            key = Intent.GetStringExtra(INTENT_QUERY);
 
             mHisAdapter = new SearchHistoryAdapter(this, mHisList);
-            lvSearchHistory.setAdapter(mHisAdapter);
-            //lvSearchHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //    @Override
-            //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            //        search(mHisList.get(position));
-            //    }
-            //});
+            lvSearchHistory.SetAdapter(mHisAdapter);
+            lvSearchHistory.ItemClick += (sender, e) =>
+            {
+                search(mHisList[e.Position]);
+            };
             initSearchHistory();
         }
 
@@ -96,47 +97,38 @@ namespace Xamarin.BookReader.UI.Activities
 
             initAutoList();
 
-            //mTagGroup.setOnTagClickListener(new TagGroup.OnTagClickListener() {
-            //    @Override
-            //    public void onTagClick(String tag) {
-            //        search(tag);
-            //    }
-            //});
+            mTagGroup.setOnTagClickListener(new CustomOnTagClickListener(this));
+            mTvChangeWords.Click += (sender, e) =>
+            {
+                showHotWord();
+            };
 
-            //mTvChangeWords.setOnClickListener(new View.OnClickListener() {
-            //    @Override
-            //    public void onClick(View v) {
-            //        showHotWord();
-            //    }
-            //});
-
-            mPresenter.attachView(this);
-            mPresenter.getHotWordList();
+            //TODO: mPresenter.attachView(this);
+            //TODO: mPresenter.getHotWordList();
         }
 
-        private void initAutoList() {
+        private void initAutoList()
+        {
             mAutoAdapter = new AutoCompleteAdapter(this, mAutoList);
             mListPopupWindow = new ListPopupWindow(this);
-            mListPopupWindow.setAdapter(mAutoAdapter);
-            mListPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-            mListPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-            mListPopupWindow.setAnchorView(mCommonToolbar);
-            //mListPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //    @Override
-            //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            //        mListPopupWindow.dismiss();
-            //        TextView tv = (TextView) view.findViewById(R.id.tvAutoCompleteItem);
-            //        String str = tv.getText().toString();
-            //        search(str);
-            //    }
-            //});
+            mListPopupWindow.SetAdapter(mAutoAdapter);
+            mListPopupWindow.Width = (ViewGroup.LayoutParams.MatchParent);
+            mListPopupWindow.Height = (ViewGroup.LayoutParams.WrapContent);
+            mListPopupWindow.AnchorView = (mCommonToolbar);
+            mListPopupWindow.ItemClick += (sender, e) =>
+            {
+                mListPopupWindow.Dismiss();
+                TextView tv = e.View.FindViewById<TextView>(Resource.Id.tvAutoCompleteItem);
+                String str = tv.Text.ToString();
+                search(str);
+            };
         }
 
         public /*synchronized*/ void showHotWordList(List<String> list)
         {
             visible(mTvChangeWords);
-            tagList.clear();
-            tagList.addAll(list);
+            tagList.Clear();
+            tagList.AddRange(list);
             times = 0;
             showHotWord();
         }
@@ -147,9 +139,9 @@ namespace Xamarin.BookReader.UI.Activities
         {
             int tagSize = 8;
             String[] tags = new String[tagSize];
-            for (int j = 0; j < tagSize && j < tagList.size(); hotIndex++, j++)
+            for (int j = 0; j < tagSize && j < tagList.Count(); hotIndex++, j++)
             {
-                tags[j] = tagList.get(hotIndex % tagList.size());
+                tags[j] = tagList[hotIndex % tagList.Count()];
             }
             List<TagColor> colors = TagColor.getRandomColors(tagSize);
             mTagGroup.setTags(colors, tags);
@@ -157,70 +149,58 @@ namespace Xamarin.BookReader.UI.Activities
 
         public void showAutoCompleteList(List<String> list)
         {
-            mAutoList.clear();
-            mAutoList.addAll(list);
+            mAutoList.Clear();
+            mAutoList.AddRange(list);
 
-            if (!mListPopupWindow.isShowing())
+            if (!mListPopupWindow.IsShowing)
             {
-                mListPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
-                mListPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-                mListPopupWindow.show();
+                mListPopupWindow.InputMethodMode = ListPopupWindowInputMethodMode.Needed;
+                mListPopupWindow.SoftInputMode = SoftInput.AdjustResize;
+                mListPopupWindow.Show();
             }
             mAutoAdapter.notifyDataSetChanged();
-
         }
 
         public void showSearchResultList(List<SearchDetail.SearchBooks> list)
         {
             mAdapter.clear();
             mAdapter.addAll(list);
-            mAdapter.notifyDataSetChanged();
+            mAdapter.NotifyDataSetChanged();
             initSearchResult();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu_search, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_search, menu);
 
-            searchMenuItem = menu.findItem(R.id.action_search);//在菜单中找到对应控件的item
-            searchView = (SearchView) MenuItemCompat.getActionView(searchMenuItem);
-            //searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            //    @Override
-            //    public boolean onQueryTextSubmit(String query) {
-            //        key = query;
-            //        mPresenter.getSearchResultList(query);
-            //        saveSearchHistory(query);
-            //        return false;
-            //    }
-
-            //    @Override
-            //    public boolean onQueryTextChange(String newText) {
-            //        if (TextUtils.isEmpty(newText)) {
-            //            if (mListPopupWindow.isShowing())
-            //                mListPopupWindow.dismiss();
-            //            initTagGroup();
-            //        } else {
-            //            mPresenter.getAutoCompleteList(newText);
-            //        }
-            //        return false;
-            //    }
-            //});
+            searchMenuItem = menu.FindItem(Resource.Id.action_search);//在菜单中找到对应控件的item
+            searchView = (SearchView)MenuItemCompat.GetActionView(searchMenuItem);
+            searchView.QueryTextSubmit += (sender, e) =>
+            {
+                var query = e.Query;
+                key = query;
+                //TODO: mPresenter.getSearchResultList(query);
+                saveSearchHistory(query);
+                e.Handled = false;
+            };
+            searchView.QueryTextChange += (sender, e) =>
+            {
+                var newText = e.NewText;
+                if (TextUtils.IsEmpty(newText))
+                {
+                    if (mListPopupWindow.IsShowing)
+                        mListPopupWindow.Dismiss();
+                    initTagGroup();
+                }
+                else
+                {
+                    //TODO: mPresenter.getAutoCompleteList(newText);
+                }
+                e.Handled = false;
+            };
             search(key); // 外部调用搜索，则打开页面立即进行搜索
-            //MenuItemCompat.setOnActionExpandListener(searchMenuItem,
-            //    new MenuItemCompat.OnActionExpandListener() {//设置打开关闭动作监听
-            //        @Override
-            //        public boolean onMenuItemActionExpand(MenuItem item) {
-            //            return true;
-            //        }
+            MenuItemCompat.SetOnActionExpandListener(searchMenuItem, new CustomOnActionExpandListener(this));
 
-            //        @Override
-            //        public boolean onMenuItemActionCollapse(MenuItem item) {
-            //            initTagGroup();
-            //            return true;
-            //        }
-            //    });
             return true;
         }
 
@@ -232,49 +212,34 @@ namespace Xamarin.BookReader.UI.Activities
          */
         private void saveSearchHistory(String query)
         {
-            List<String> list = CacheManager.getInstance().getSearchHistory();
+            List<String> list = CacheManager.SearchHistory;
             if (list == null)
             {
-                list = new ArrayList<>();
-                list.add(query);
+                list = new List<String>();
+                list.Add(query);
             }
             else
             {
-                Iterator<String> iterator = list.iterator();
-                while (iterator.hasNext())
-                {
-                    String item = iterator.next();
-                    if (TextUtils.equals(query, item))
-                    {
-                        iterator.remove();
-                    }
-                }
-                list.add(0, query);
+                list.RemoveAll(s => TextUtils.Equals(query, s));
+                list.Insert(0, query);
             }
-            int size = list.size();
-            if (size > 20)
-            { // 最多保存20条
-                for (int i = size - 1; i >= 20; i--)
-                {
-                    list.remove(i);
-                }
-            }
-            CacheManager.getInstance().saveSearchHistory(list);
+            // 前20
+            CacheManager.SearchHistory = list.Take(20).ToList();
             initSearchHistory();
         }
 
         private void initSearchHistory()
         {
-            List<String> list = CacheManager.getInstance().getSearchHistory();
-            mHisAdapter.clear();
-            if (list != null && list.size() > 0)
+            List<String> list = CacheManager.SearchHistory;
+            mHisAdapter.Clear();
+            if (list != null && list.Count() > 0)
             {
-                tvClear.setEnabled(true);
-                mHisAdapter.addAll(list);
+                tvClear.Enabled = (true);
+                mHisAdapter.AddRange(list);
             }
             else
             {
-                tvClear.setEnabled(false);
+                tvClear.Enabled = (false);
             }
             mHisAdapter.notifyDataSetChanged();
         }
@@ -286,10 +251,10 @@ namespace Xamarin.BookReader.UI.Activities
          */
         private void search(String key)
         {
-            MenuItemCompat.expandActionView(searchMenuItem);
-            if (!TextUtils.isEmpty(key))
+            MenuItemCompat.ExpandActionView(searchMenuItem);
+            if (!TextUtils.IsEmpty(key))
             {
-                searchView.setQuery(key, true);
+                searchView.SetQuery(key, true);
                 saveSearchHistory(key);
             }
         }
@@ -298,16 +263,16 @@ namespace Xamarin.BookReader.UI.Activities
         {
             gone(mTagGroup, mLayoutHotWord, rlHistory);
             visible(mRecyclerView);
-            if (mListPopupWindow.isShowing())
-                mListPopupWindow.dismiss();
+            if (mListPopupWindow.IsShowing)
+                mListPopupWindow.Dismiss();
         }
 
         private void initTagGroup()
         {
             visible(mTagGroup, mLayoutHotWord, rlHistory);
             gone(mRecyclerView);
-            if (mListPopupWindow.isShowing())
-                mListPopupWindow.dismiss();
+            if (mListPopupWindow.IsShowing)
+                mListPopupWindow.Dismiss();
         }
 
         public override void onItemClick(int position)
@@ -316,8 +281,8 @@ namespace Xamarin.BookReader.UI.Activities
             BookDetailActivity.startActivity(this, data._id);
         }
 
-        //@OnClick(R.id.tvClear)
-        public void clearSearchHistory() {
+        public void clearSearchHistory()
+        {
             CacheManager.SearchHistory = (null);
             initSearchHistory();
         }
@@ -329,6 +294,42 @@ namespace Xamarin.BookReader.UI.Activities
         public void complete()
         {
             mRecyclerView.setRefreshing(false);
+        }
+
+        private class CustomOnTagClickListener : TagGroup.OnTagClickListener
+        {
+            private SearchActivity searchActivity;
+
+            public CustomOnTagClickListener(SearchActivity searchActivity)
+            {
+                this.searchActivity = searchActivity;
+            }
+
+            public void onTagClick(string tag)
+            {
+                searchActivity.search(tag);
+            }
+        }
+
+        private class CustomOnActionExpandListener : Java.Lang.Object, MenuItemCompat.IOnActionExpandListener
+        {
+            private SearchActivity searchActivity;
+
+            public CustomOnActionExpandListener(SearchActivity searchActivity)
+            {
+                this.searchActivity = searchActivity;
+            }
+
+            public bool OnMenuItemActionCollapse(IMenuItem item)
+            {
+                searchActivity.initTagGroup();
+                return true;
+            }
+
+            public bool OnMenuItemActionExpand(IMenuItem item)
+            {
+                return true;
+            }
         }
     }
 }

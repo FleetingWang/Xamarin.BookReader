@@ -22,91 +22,77 @@ namespace Xamarin.BookReader.UI.Activities
     public class BookDiscussionActivity : BaseCommunitActivity
     {
         public static String INTENT_ID = "bookId";
-    public static String INTENT_TITLE = "title";
-    public static String INTENT_INDEX = "index";
+        public static String INTENT_TITLE = "title";
+        public static String INTENT_INDEX = "index";
 
-    public static void startActivity(Context context, String bookId, String title, int index)
+        public static void startActivity(Context context, String bookId, String title, int index)
         {
             context.StartActivity(new Intent(context, typeof(BookDetailCommunityActivity))
                 .PutExtra(INTENT_ID, bookId)
                 .PutExtra(INTENT_TITLE, title)
                 .PutExtra(INTENT_INDEX, index));
-    }
+        }
 
-    private String bookId;
-    private String title;
-    private int index;
+        private String bookId;
+        private String title;
+        private int index;
 
-    //@Bind(R.id.indicatorSubRank)
-    RVPIndicator mIndicator;
-    //@Bind(R.id.viewpagerSubRank)
-    ViewPager mViewPager;
+        RVPIndicator mIndicator;
+        ViewPager mViewPager;
 
-    private List<Fragment> mTabContents;
-    private FragmentPagerAdapter mAdapter;
-    private List<String> mDatas;
+        private List<Fragment> mTabContents;
+        private FragmentPagerAdapter mAdapter;
+        private List<String> mDatas;
 
-    private AlertDialog dialog;
-    private int[] select = new int[] { 0, 0 };
+        private AlertDialog dialog;
+        private int[] select = new int[] { 0, 0 };
 
 
-    public override int getLayoutId()
+        public override int getLayoutId()
         {
-            return R.layout.activity_book_detail_community;
+            return Resource.Layout.activity_book_detail_community;
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mIndicator = FindViewById<RVPIndicator>(Resource.Id.indicatorSubRank);
+            mViewPager = FindViewById<ViewPager>(Resource.Id.viewpagerSubRank);
         }
 
         public override void initToolBar()
         {
-            bookId = getIntent().getStringExtra(INTENT_ID);
-            title = getIntent().getStringExtra(INTENT_TITLE);
-            index = getIntent().getIntExtra(INTENT_INDEX, 0);
-            mCommonToolbar.setTitle(title);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            bookId = Intent.GetStringExtra(INTENT_ID);
+            title = Intent.GetStringExtra(INTENT_TITLE);
+            index = Intent.GetIntExtra(INTENT_INDEX, 0);
+            mCommonToolbar.Title = (title);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
-            mDatas = Arrays.asList(getResources().getStringArray(R.array.bookdetail_community_tabs));
+            mDatas = Resources.GetStringArray(Resource.Array.bookdetail_community_tabs).ToList();
 
-            mTabContents = new ArrayList<>();
-            mTabContents.add(BookDetailDiscussionFragment.newInstance(bookId));
-            mTabContents.add(BookDetailReviewFragment.newInstance(bookId));
-
-            //mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            //    @Override
-            //    public int getCount()
-            //    {
-            //        return mTabContents.size();
-            //    }
-
-            //    @Override
-            //    public Fragment getItem(int position)
-            //    {
-            //        return mTabContents.get(position);
-            //    }
-            //};
+            mTabContents = new List<Fragment>();
+            mTabContents.Add(BookDetailDiscussionFragment.newInstance(bookId));
+            mTabContents.Add(BookDetailReviewFragment.newInstance(bookId));
+            mAdapter = new CustomFragmentPagerAdapter(this, SupportFragmentManager);
         }
 
         public override void configViews()
         {
             mIndicator.setTabItemTitles(mDatas);
-            mViewPager.setAdapter(mAdapter);
-            mViewPager.setOffscreenPageLimit(2);
+            mViewPager.Adapter = (mAdapter);
+            mViewPager.OffscreenPageLimit = (2);
             mIndicator.setViewPager(mViewPager, index);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            getMenuInflater().inflate(R.menu.menu_community, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_community, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.getItemId() == R.id.action_sort)
+            if (item.ItemId == Resource.Id.action_sort)
             {
                 showSortDialog();
                 return true;
@@ -114,41 +100,62 @@ namespace Xamarin.BookReader.UI.Activities
             return base.OnOptionsItemSelected(item);
         }
 
-        private void showSortDialog() {
-        int check = select[mViewPager.getCurrentItem()];
-        dialog = new AlertDialog.Builder(this)
-                .setTitle("排序")
-                //.setSingleChoiceItems(new String[]{"默认排序", "最新发布", "最多评论"},
-                //        checked, new DialogInterface.OnClickListener() {
-                //            @Override
-                //            public void onClick(DialogInterface dialog, int which) {
-                //                if (select[mViewPager.getCurrentItem()] != which) {
-                //                    select[mViewPager.getCurrentItem()] = which;
-                //                    switch (which) {
-                //                        case 0:
-                //                            EventBus.getDefault().post(new SelectionEvent(Constant.SortType.DEFAULT));
-                //                            break;
-                //                        case 1:
-                //                            EventBus.getDefault().post(new SelectionEvent(Constant.SortType.CREATED));
-                //                            break;
-                //                        case 2:
-                //                            EventBus.getDefault().post(new SelectionEvent(Constant.SortType.COMMENT_COUNT));
-                //                            break;
-                //                        default:
-                //                            break;
-                //                    }
-                //                }
-                //                dialog.dismiss();
-                //            }
-                //        })
-                .setNegativeButton("取消", null)
-                .create();
-        dialog.Show();
-    }
+        private void showSortDialog()
+        {
+            int check = select[mViewPager.CurrentItem];
+            dialog = new AlertDialog.Builder(this)
+                    .SetTitle("排序")
+                    //.setSingleChoiceItems(new String[]{"默认排序", "最新发布", "最多评论"},
+                    //        checked, new DialogInterface.OnClickListener() {
+                    //            @Override
+                    //            public void onClick(DialogInterface dialog, int which) {
+                    //                if (select[mViewPager.CurrentItem] != which) {
+                    //                    select[mViewPager.CurrentItem] = which;
+                    //                    switch (which) {
+                    //                        case 0:
+                    //                            MessageBus.Default.post(new SelectionEvent(Constant.SortType.DEFAULT));
+                    //                            break;
+                    //                        case 1:
+                    //                            MessageBus.Default.post(new SelectionEvent(Constant.SortType.CREATED));
+                    //                            break;
+                    //                        case 2:
+                    //                            MessageBus.Default.post(new SelectionEvent(Constant.SortType.COMMENT_COUNT));
+                    //                            break;
+                    //                        default:
+                    //                            break;
+                    //                    }
+                    //                }
+                    //                dialog.Dismiss();
+                    //            }
+                    //        })
+                    .SetNegativeButton("取消", (sender, e) => { })
+                    .Create();
+            dialog.Show();
+        }
 
         protected override List<List<string>> getTabList()
         {
             throw new NotImplementedException();
+        }
+
+        private class CustomFragmentPagerAdapter : FragmentPagerAdapter
+        {
+            private BookDiscussionActivity bookDiscussionActivity;
+            private FragmentManager supportFragmentManager;
+
+            public CustomFragmentPagerAdapter(BookDiscussionActivity bookDiscussionActivity, FragmentManager supportFragmentManager)
+                : base(supportFragmentManager)
+            {
+                this.bookDiscussionActivity = bookDiscussionActivity;
+                this.supportFragmentManager = supportFragmentManager;
+            }
+
+            public override int Count => bookDiscussionActivity.mTabContents.Count();
+
+            public override Fragment GetItem(int position)
+            {
+                return bookDiscussionActivity.mTabContents[position];
+            }
         }
     }
 }

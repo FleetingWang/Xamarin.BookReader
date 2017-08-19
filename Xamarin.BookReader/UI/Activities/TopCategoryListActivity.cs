@@ -18,9 +18,9 @@ namespace Xamarin.BookReader.UI.Activities
 {
     public class TopCategoryListActivity: BaseActivity
     {
-        //@Bind(R.id.rvMaleCategory)
+        //@Bind(Resource.Id.rvMaleCategory)
         RecyclerView mRvMaleCategory;
-        //@Bind(R.id.rvFemaleCategory)
+        //@Bind(Resource.Id.rvFemaleCategory)
         RecyclerView mRvFeMaleCategory;
 
         private TopCategoryListAdapter mMaleCategoryListAdapter;
@@ -30,7 +30,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_top_category_list;
+            return Resource.Layout.activity_top_category_list;
         }
         public override void bindViews()
         {
@@ -39,8 +39,8 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle(getString(R.string.category));
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.SetTitle(GetString(Resource.String.category));
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -48,16 +48,16 @@ namespace Xamarin.BookReader.UI.Activities
         public override void configViews()
         {
             showDialog();
-            mRvMaleCategory.setHasFixedSize(true);
-            mRvMaleCategory.setLayoutManager(new GridLayoutManager(this, 3));
-            mRvMaleCategory.addItemDecoration(new SupportGridItemDecoration(this));
-            mRvFeMaleCategory.setHasFixedSize(true);
-            mRvFeMaleCategory.setLayoutManager(new GridLayoutManager(this, 3));
-            mRvFeMaleCategory.addItemDecoration(new SupportGridItemDecoration(this));
+            mRvMaleCategory.HasFixedSize = (true);
+            mRvMaleCategory.SetLayoutManager(new GridLayoutManager(this, 3));
+            mRvMaleCategory.AddItemDecoration(new SupportGridItemDecoration(this));
+            mRvFeMaleCategory.HasFixedSize = (true);
+            mRvFeMaleCategory.SetLayoutManager(new GridLayoutManager(this, 3));
+            mRvFeMaleCategory.AddItemDecoration(new SupportGridItemDecoration(this));
             mMaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mMaleCategoryList, new ClickListener(Constant.Gender.MALE));
             mFemaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mFemaleCategoryList, new ClickListener(Constant.Gender.FEMALE));
-            mRvMaleCategory.setAdapter(mMaleCategoryListAdapter);
-            mRvFeMaleCategory.setAdapter(mFemaleCategoryListAdapter);
+            mRvMaleCategory.SetAdapter(mMaleCategoryListAdapter);
+            mRvFeMaleCategory.SetAdapter(mFemaleCategoryListAdapter);
 
             mPresenter.attachView(this);
             mPresenter.getCategoryList();
@@ -65,10 +65,10 @@ namespace Xamarin.BookReader.UI.Activities
 
         public void showCategoryList(CategoryList data)
         {
-            mMaleCategoryList.clear();
-            mFemaleCategoryList.clear();
-            mMaleCategoryList.addAll(data.male);
-            mFemaleCategoryList.addAll(data.female);
+            mMaleCategoryList.Clear();
+            mFemaleCategoryList.Clear();
+            mMaleCategoryList.AddRange(data.male);
+            mFemaleCategoryList.AddRange(data.female);
             mMaleCategoryListAdapter.notifyDataSetChanged();
             mFemaleCategoryListAdapter.notifyDataSetChanged();
         }

@@ -14,73 +14,73 @@ using Xamarin.BookReader.UI.Listeners;
 using Xamarin.BookReader.Models;
 using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
+using Xamarin.BookReader.Views;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     public class BooksByTagActivity : BaseActivity,
         IOnRvItemClickListener<BooksByTag.TagBook>
     {
-        //@Bind(R.id.refreshLayout)
         SwipeRefreshLayout refreshLayout;
-        //@Bind(R.id.recyclerview)
         RecyclerView mRecyclerView;
         private LinearLayoutManager linearLayoutManager;
 
         private BooksByTagAdapter mAdapter;
-        private List<BooksByTag.TagBook> mList = new ArrayList<>();
+        private List<BooksByTag.TagBook> mList = new List<BooksByTag.TagBook>();
 
         private String tag;
         private int current = 0;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_books_by_tag;
+            return Resource.Layout.activity_books_by_tag;
         }
 
         public override void bindViews()
         {
-
+            refreshLayout = FindViewById<SwipeRefreshLayout>(Resource.Id.refreshLayout);
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerview);
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle(getIntent().getStringExtra("tag"));
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = (Intent.GetStringExtra("tag"));
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void initDatas()
         {
-            tag = getIntent().getStringExtra("tag");
+            tag = Intent.GetStringExtra("tag");
         }
 
         public override void configViews()
         {
-            refreshLayout.setOnRefreshListener(new RefreshListener());
+            refreshLayout.SetOnRefreshListener(new RefreshListener(this));
 
-            mRecyclerView.setHasFixedSize(true);
+            mRecyclerView.HasFixedSize = (true);
             linearLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.setLayoutManager(linearLayoutManager);
-            mRecyclerView.addItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL));
+            mRecyclerView.SetLayoutManager(linearLayoutManager);
+            mRecyclerView.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL));
             mAdapter = new BooksByTagAdapter(mContext, mList, this);
-            mRecyclerView.setAdapter(mAdapter);
-            mRecyclerView.addOnScrollListener(new RefreshListener());
+            mRecyclerView.SetAdapter(mAdapter);
+            mRecyclerView.AddOnScrollListener(new RefreshListener(this));
 
-            mPresenter.attachView(this);
-            mPresenter.getBooksByTag(tag, current + "", (current + 10) + "");
+            //TODO: mPresenter.attachView(this);
+            //TODO: mPresenter.getBooksByTag(tag, current + "", (current + 10) + "");
         }
 
-        public void showBooksByTag(List<BooksByTag.TagBook> list, boolean isRefresh)
+        public void showBooksByTag(List<BooksByTag.TagBook> list, bool isRefresh)
         {
             if (isRefresh)
-                mList.clear();
-            mList.addAll(list);
-            current = mList.size();
+                mList.Clear();
+            mList.AddRange(list);
+            current = mList.Count();
             mAdapter.notifyDataSetChanged();
         }
 
-        public void onLoadComplete(boolean isSuccess, String msg)
+        public void onLoadComplete(bool isSuccess, String msg)
         {
-            refreshLayout.setRefreshing(false);
+            refreshLayout.Refreshing = (false);
         }
 
 
@@ -96,32 +96,39 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public void complete()
         {
-            refreshLayout.setRefreshing(false);
+            refreshLayout.Refreshing = (false);
         }
 
         class RefreshListener : RecyclerView.OnScrollListener, SwipeRefreshLayout.IOnRefreshListener
         {
+            private BooksByTagActivity booksByTagActivity;
+
+            public RefreshListener(BooksByTagActivity booksByTagActivity)
+            {
+                this.booksByTagActivity = booksByTagActivity;
+            }
+
             public void OnRefresh()
             {
-                current = 0;
-                mPresenter.getBooksByTag(tag, current + "", "10");
+                booksByTagActivity.current = 0;
+                booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
             }
 
             public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
             {
                 base.OnScrolled(recyclerView, dx, dy);
 
-                int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
-                if (lastVisibleItemPosition + 1 == mAdapter.getItemCount())
+                int lastVisibleItemPosition = booksByTagActivity.linearLayoutManager.FindLastVisibleItemPosition();
+                if (lastVisibleItemPosition + 1 == booksByTagActivity.mAdapter.getItemCount())
                 { // 滑到倒数第二项就加载更多
 
-                    boolean isRefreshing = refreshLayout.isRefreshing();
+                    bool isRefreshing = booksByTagActivity.refreshLayout.Refreshing;
                     if (isRefreshing)
                     {
-                        mAdapter.notifyItemRemoved(mAdapter.getItemCount());
+                        booksByTagActivity.mAdapter.notifyItemRemoved(booksByTagActivity.mAdapter.getItemCount());
                         return;
                     }
-                    mPresenter.getBooksByTag(tag, current + "", "10");
+                    booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
                 }
             }
 

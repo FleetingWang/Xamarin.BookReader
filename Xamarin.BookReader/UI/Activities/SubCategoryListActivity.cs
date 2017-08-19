@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -12,6 +11,10 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Views;
 using Android.Support.V4.View;
+using Xamarin.BookReader.Managers;
+using Xamarin.BookReader.Models;
+using Android.Text;
+using Android.Support.V4.App;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -24,9 +27,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         private String currentMinor = "";
 
-        //@Bind(R.id.indicatorSub)
         RVPIndicator mIndicator;
-        //@Bind(R.id.viewpagerSub)
         ViewPager mViewPager;
 
         private List<Fragment> mTabContents;
@@ -36,7 +37,12 @@ namespace Xamarin.BookReader.UI.Activities
         private List<String> mMinors = new List<String>();
         private ListPopupWindow mListPopupWindow;
         private MinorAdapter minorAdapter;
-        private String[] types = new String[] { Constant.CateType.NEW, Constant.CateType.HOT, Constant.CateType.REPUTATION, Constant.CateType.OVER };
+        private String[] types = new String[] {
+            Constant.CateType.New.ToString(),
+            Constant.CateType.Hot.ToString(),
+            Constant.CateType.Reputation.ToString(),
+            Constant.CateType.Over.ToString()
+        };
 
         private IMenuItem menuItem = null;
 
@@ -50,96 +56,75 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_sub_category_list;
+            return Resource.Layout.activity_sub_category_list;
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mIndicator = FindViewById<RVPIndicator>(Resource.Id.indicatorSub);
+            mViewPager = FindViewById<ViewPager>(Resource.Id.viewpagerSub);
         }
         public override void initToolBar()
         {
-            cate = getIntent().getStringExtra(INTENT_CATE_NAME);
+            cate = Intent.GetStringExtra(INTENT_CATE_NAME);
             if (menuItem != null)
             {
-                menuItem.setTitle(cate);
+                menuItem.SetTitle(cate);
             }
-            gender = getIntent().getStringExtra(INTENT_GENDER);
-            mCommonToolbar.setTitle(cate);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            gender = Intent.GetStringExtra(INTENT_GENDER);
+            mCommonToolbar.Title = (cate);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void initDatas()
         {
-            mDatas = Arrays.asList(getResources().getStringArray(R.array.sub_tabs));
+            mDatas = Resources.GetStringArray(Resource.Array.sub_tabs).ToList();
 
-            mPresenter.attachView(this);
-            mPresenter.getCategoryListLv2();
+            //TODO: mPresenter.attachView(this);
+            //TODO: mPresenter.getCategoryListLv2();
 
-            mTabContents = new ArrayList<>();
-            mTabContents.add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.NEW));
-            mTabContents.add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.HOT));
-            mTabContents.add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.REPUTATION));
-            mTabContents.add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.OVER));
+            mTabContents = new List<Fragment>();
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Hot));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over));
 
-            //mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            //    @Override
-            //    public int getCount() {
-            //        return mTabContents.size();
-            //    }
-
-            //    @Override
-            //    public Fragment getItem(int position) {
-            //        return mTabContents.get(position);
-            //    }
-            //};
+            mAdapter = new CustomFragmentPagerAdapter(this, SupportFragmentManager);
         }
 
         public override void configViews()
         {
             mIndicator.setTabItemTitles(mDatas);
-            mViewPager.setAdapter(mAdapter);
-            mViewPager.setOffscreenPageLimit(4);
+            mViewPager.Adapter = mAdapter;
+            mViewPager.OffscreenPageLimit = (4);
             mIndicator.setViewPager(mViewPager, 0);
-            //mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            //    @Override
-            //    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            //    }
-
-            //    @Override
-            //    public void onPageSelected(int position) {
-            //        EventManager.refreshSubCategory(currentMinor, types[position]);
-            //    }
-
-            //    @Override
-            //    public void onPageScrollStateChanged(int state) {
-
-            //    }
-            //});
+            mViewPager.PageSelected += (sender, e) =>
+            {
+                EventManager.refreshSubCategory(currentMinor, types[e.Position]);
+            };
         }
 
         public void showCategoryList(CategoryListLv2 data)
         {
-            mMinors.clear();
-            mMinors.add(cate);
-            if (gender.equals(Constant.Gender.MALE))
+            mMinors.Clear();
+            mMinors.Add(cate);
+            if (gender.Equals(Constant.Gender.Male.ToString()))
             {
-                for (CategoryListLv2.MaleBean bean : data.male)
+                foreach (CategoryListLv2.MaleBean bean in data.male)
                 {
-                    if (cate.equals(bean.major))
+                    if (cate.Equals(bean.major))
                     {
-                        mMinors.addAll(bean.mins);
+                        mMinors.AddRange(bean.mins);
                         break;
                     }
                 }
             }
             else
             {
-                for (CategoryListLv2.MaleBean bean : data.female)
+                foreach (CategoryListLv2.MaleBean bean in data.female)
                 {
-                    if (cate.equals(bean.major))
+                    if (cate.Equals(bean.major))
                     {
-                        mMinors.addAll(bean.mins);
+                        mMinors.AddRange(bean.mins);
                         break;
                     }
                 }
@@ -147,7 +132,7 @@ namespace Xamarin.BookReader.UI.Activities
             minorAdapter = new MinorAdapter(this, mMinors);
             minorAdapter.setChecked(0);
             currentMinor = "";
-            EventManager.refreshSubCategory(currentMinor, Constant.CateType.NEW);
+            EventManager.refreshSubCategory(currentMinor, Constant.CateType.New.ToString());
         }
 
         public void showError()
@@ -161,18 +146,18 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            getMenuInflater().inflate(R.menu.menu_sub_category, menu);
-            menuItem = menu.findItem(R.id.menu_major);
-            if (!TextUtils.isEmpty(cate))
+            MenuInflater.Inflate(Resource.Menu.menu_sub_category, menu);
+            menuItem = menu.FindItem(Resource.Id.menu_major);
+            if (!TextUtils.IsEmpty(cate))
             {
-                menuItem.setTitle(cate);
+                menuItem.SetTitle(cate);
             }
             return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.getItemId() == R.id.menu_major)
+            if (item.ItemId == Resource.Id.menu_major)
             {
                 showMinorPopupWindow();
                 return true;
@@ -180,35 +165,58 @@ namespace Xamarin.BookReader.UI.Activities
             return base.OnOptionsItemSelected(item);
         }
 
-        private void showMinorPopupWindow() {
-            if (mMinors.size() > 0 && minorAdapter != null) {
-                if (mListPopupWindow == null) {
+        private void showMinorPopupWindow()
+        {
+            if (mMinors.Count() > 0 && minorAdapter != null)
+            {
+                if (mListPopupWindow == null)
+                {
                     mListPopupWindow = new ListPopupWindow(this);
-                    mListPopupWindow.setAdapter(minorAdapter);
-                    mListPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-                    mListPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                    mListPopupWindow.setAnchorView(mCommonToolbar);
-                    mListPopupWindow.setModal(true);
-                    //mListPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    //    @Override
-                    //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //        minorAdapter.setChecked(position);
-                    //        if (position > 0) {
-                    //            currentMinor = mMinors.get(position);
-                    //        } else {
-                    //            currentMinor = "";
-                    //        }
-                    //        int current = mViewPager.getCurrentItem();
-                    //        EventManager.refreshSubCategory(currentMinor, types[current]);
-                    //        mListPopupWindow.dismiss();
-                    //        mCommonToolbar.setTitle(mMinors.get(position));
-                    //    }
-                    //});
+                    mListPopupWindow.SetAdapter(minorAdapter);
+                    mListPopupWindow.Width = (ViewGroup.LayoutParams.MatchParent);
+                    mListPopupWindow.Height = (ViewGroup.LayoutParams.WrapContent);
+                    mListPopupWindow.AnchorView = (mCommonToolbar);
+                    mListPopupWindow.Modal = (true);
+                    mListPopupWindow.ItemClick += (sender, e) =>
+                    {
+                        var position = e.Position;
+                        minorAdapter.SetChecked(position);
+                        if (position > 0)
+                        {
+                            currentMinor = mMinors[position];
+                        }
+                        else
+                        {
+                            currentMinor = "";
+                        }
+                        int current = mViewPager.CurrentItem;
+                        EventManager.refreshSubCategory(currentMinor, types[current]);
+                        mListPopupWindow.Dismiss();
+                        mCommonToolbar.Title = (mMinors[position]);
+                    };
                 }
-                mListPopupWindow.show();
+                mListPopupWindow.Show();
             }
         }
 
+        private class CustomFragmentPagerAdapter : FragmentPagerAdapter
+        {
+            private SubCategoryListActivity subCategoryListActivity;
+            private global::Android.Support.V4.App.FragmentManager supportFragmentManager;
 
+            public CustomFragmentPagerAdapter(SubCategoryListActivity subCategoryListActivity, global::Android.Support.V4.App.FragmentManager supportFragmentManager)
+                : base(supportFragmentManager)
+            {
+                this.subCategoryListActivity = subCategoryListActivity;
+                this.supportFragmentManager = supportFragmentManager;
+            }
+
+            public override int Count => subCategoryListActivity.mTabContents.Count();
+
+            public override global::Android.Support.V4.App.Fragment GetItem(int position)
+            {
+                return subCategoryListActivity.mTabContents[position];
+            }
+        }
     }
 }

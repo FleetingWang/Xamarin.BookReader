@@ -17,9 +17,9 @@ namespace Xamarin.BookReader.UI.Activities
 {
     public class TopRankActivity: BaseActivity
     {
-        //@Bind(R.id.elvFeMale)
+        //@Bind(Resource.Id.elvFeMale)
         ExpandableListView elvFeMale;
-        //@Bind(R.id.elvMale)
+        //@Bind(Resource.Id.elvMale)
         ExpandableListView elvMale;
 
         private List<RankingList.MaleBean> maleGroups = new List<RankingList.MaleBean>();
@@ -38,7 +38,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_top_rank;
+            return Resource.Layout.activity_top_rank;
         }
 
         public override void bindViews()
@@ -48,8 +48,8 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("排行榜");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.SetTitle("排行榜");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -61,16 +61,16 @@ namespace Xamarin.BookReader.UI.Activities
         public override void configViews()
         {
             showDialog();
-            elvMale.setAdapter(maleAdapter);
-            elvFeMale.setAdapter(femaleAdapter);
+            elvMale.SetAdapter(maleAdapter);
+            elvFeMale.SetAdapter(femaleAdapter);
 
             mPresenter.attachView(this);
             mPresenter.getRankList();
         }
         public void showRankList(RankingList rankingList)
         {
-            maleGroups.clear();
-            femaleGroups.clear();
+            maleGroups.Clear();
+            femaleGroups.Clear();
             updateMale(rankingList);
             updateFemale(rankingList);
         }
@@ -91,7 +91,7 @@ namespace Xamarin.BookReader.UI.Activities
                     maleChilds.add(new ArrayList<RankingList.MaleBean>());
                 }
             }
-            if (collapse.size() > 0)
+            if (collapse.Count() > 0)
             {
                 maleGroups.add(new RankingList.MaleBean("别人家的排行榜"));
                 maleChilds.add(collapse);
@@ -115,7 +115,7 @@ namespace Xamarin.BookReader.UI.Activities
                     femaleChilds.add(new ArrayList<RankingList.MaleBean>());
                 }
             }
-            if (collapse.size() > 0)
+            if (collapse.Count() > 0)
             {
                 femaleGroups.add(new RankingList.MaleBean("别人家的排行榜"));
                 femaleChilds.add(collapse);

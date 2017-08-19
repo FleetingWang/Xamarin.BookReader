@@ -14,9 +14,8 @@ using System.Threading.Tasks;
 
 namespace Xamarin.BookReader.UI.Activities
 {
-    public class SplashActivity: AppCompatActivity
+    public class SplashActivity : AppCompatActivity
     {
-        //@Bind(R.id.tvSkip)
         TextView tvSkip;
         private bool flag = false;
 

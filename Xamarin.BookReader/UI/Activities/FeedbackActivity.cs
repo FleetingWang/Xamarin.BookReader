@@ -21,23 +21,22 @@ namespace Xamarin.BookReader.UI.Activities
             context.StartActivity(new Intent(context, typeof(FeedbackActivity)));
         }
 
-        //@Bind(R.id.feedbackView)
         ProgressWebView feedbackView;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_feedback;
+            return Resource.Layout.activity_feedback;
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("反馈建议");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("反馈建议");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
 
         public override void bindViews()
         {
-
+            feedbackView = FindViewById<ProgressWebView>(Resource.Id.feedbackView);
         }
 
         public override void initDatas()

@@ -32,7 +32,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_subject_book_list_detail;
+            return Resource.Layout.activity_subject_book_list_detail;
         }
         public override void bindViews()
         {
@@ -41,11 +41,11 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            title = getIntent().getStringExtra(INTENT_TITLE).split(" ")[0];
-            id = getIntent().getStringExtra(BUNDLE_ID);
+            title = Intent.GetStringExtra(INTENT_TITLE).split(" ")[0];
+            id = Intent.GetStringExtra(BUNDLE_ID);
 
-            mCommonToolbar.setTitle(title);
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.SetTitle(title);
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -58,8 +58,8 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public void showRankList(BooksByCats data)
         {
-            mAdapter.clear();
-            mAdapter.addAll(data.books);
+            mAdapter.Clear();
+            mAdapter.AddRange(data.books);
         }
         public void showError()
         {

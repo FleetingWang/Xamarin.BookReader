@@ -19,31 +19,31 @@ namespace Xamarin.BookReader.UI.Activities
     /// </summary>
     public class GirlBookDiscussionActivity : BaseCommunitActivity
     {
-        public static void startActivity(Context context) {
+        public static void startActivity(Context context)
+        {
             context.StartActivity(new Intent(context, typeof(GirlBookDiscussionActivity)));
         }
 
-        //@Bind(R.id.slOverall)
         SelectionLayout slOverall;
 
         public override int getLayoutId()
         {
-            return R.layout.activity_community_girl_book_discussion;
+            return Resource.Layout.activity_community_girl_book_discussion;
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            slOverall = FindViewById<SelectionLayout>(Resource.Id.slOverall);
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("女生区");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("女生区");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void configViews()
         {
         }
-        
+
         protected override List<List<string>> getTabList()
         {
             return list1;

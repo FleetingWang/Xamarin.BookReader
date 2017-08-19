@@ -12,6 +12,12 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
+using Xamarin.BookReader.Views;
+using Android.Support.V7.Widget;
+using Xamarin.BookReader.Views.RecyclerViews.Adapters;
+using Com.Bumptech.Glide;
+using Com.Bumptech.Glide.Load.Resource.Bitmap;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -21,17 +27,18 @@ namespace Xamarin.BookReader.UI.Activities
     public class BookHelpDetailActivity : BaseRVActivity<CommentList.CommentsBean>,
         IOnRvItemClickListener<CommentList.CommentsBean>
     {
-         private static String INTENT_ID = "id";
+        private static String INTENT_ID = "id";
 
-    public static void startActivity(Context context, String id) {
-        context.StartActivity(new Intent(context, typeof(BookHelpDetailActivity))
-                .PutExtra(INTENT_ID, id));
-    }
+        public static void startActivity(Context context, String id)
+        {
+            context.StartActivity(new Intent(context, typeof(BookHelpDetailActivity))
+                    .PutExtra(INTENT_ID, id));
+        }
 
-    private String id;
-    private List<CommentList.CommentsBean> mBestCommentList = new List<CommentList.CommentsBean>();
-    private BestCommentListAdapter mBestCommentListAdapter;
-    private HeaderViewHolder headerViewHolder;
+        private String id;
+        private List<CommentList.CommentsBean> mBestCommentList = new List<CommentList.CommentsBean>();
+        private BestCommentListAdapter mBestCommentListAdapter;
+        private HeaderViewHolder headerViewHolder;
         public void showError()
         {
 
@@ -43,7 +50,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override int getLayoutId()
         {
-            return R.layout.activity_community_book_discussion_detail;
+            return Resource.Layout.activity_community_book_discussion_detail;
         }
         public override void bindViews()
         {
@@ -52,79 +59,67 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("书荒互助区详情");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("书荒互助区详情");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
-            id = getIntent().getStringExtra(INTENT_ID);
+            id = Intent.GetStringExtra(INTENT_ID);
 
-            mPresenter.attachView(this);
-            mPresenter.getBookHelpDetail(id);
-            mPresenter.getBestComments(id);
-            mPresenter.getBookHelpComments(id, start, limit);
+            //TODO: mPresenter.attachView(this);
+            //TODO: mPresenter.getBookHelpDetail(id);
+            //TODO: mPresenter.getBestComments(id);
+            //TODO: mPresenter.getBookHelpComments(id, start, limit);
         }
         public override void configViews()
         {
             initAdapter(CommentListAdapter, false, true);
-
-            //mAdapter.addHeader(new RecyclerArrayAdapter.ItemView() {
-            //    @Override
-            //    public View onCreateView(ViewGroup parent) {
-            //        View headerView = LayoutInflater.from(BookHelpDetailActivity.this).inflate(R.layout.header_view_book_discussion_detail, parent, false);
-            //        return headerView;
-            //    }
-
-            //    @Override
-            //    public void onBindView(View headerView) {
-            //        headerViewHolder = new HeaderViewHolder(headerView);
-            //    }
-            //});
+            mAdapter.addHeader(new CustomItemView(this));
         }
 
-    public void showBookHelpDetail(BookHelp data)
-    {
-        Glide.with(mContext).load(Constant.IMG_BASE_URL + data.help.author.avatar)
-                .placeholder(R.drawable.avatar_default)
-                .transform(new GlideCircleTransform(mContext))
-                .into(headerViewHolder.ivAvatar);
-
-        headerViewHolder.tvNickName.setText(data.help.author.nickname);
-        headerViewHolder.tvTime.setText(FormatUtils.getDescriptionTimeFromDateString(data.help.created));
-        headerViewHolder.tvTitle.setText(data.help.title);
-        headerViewHolder.tvContent.setText(data.help.content);
-        headerViewHolder.tvCommentCount.setText(String.format(mContext.getString(R.string.comment_comment_count), data.help.commentCount));
-    }
-
-    public void showBestComments(CommentList list)
-    {
-        if (list.comments.isEmpty())
+        public void showBookHelpDetail(BookHelp data)
         {
-            gone(headerViewHolder.tvBestComments, headerViewHolder.rvBestComments);
-        }
-        else
-        {
-            mBestCommentList.addAll(list.comments);
-            headerViewHolder.rvBestComments.setHasFixedSize(true);
-            headerViewHolder.rvBestComments.setLayoutManager(new LinearLayoutManager(this));
-            headerViewHolder.rvBestComments.addItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL, true));
-            mBestCommentListAdapter = new BestCommentListAdapter(mContext, mBestCommentList);
-            mBestCommentListAdapter.setOnItemClickListener(this);
-            headerViewHolder.rvBestComments.setAdapter(mBestCommentListAdapter);
-            visible(headerViewHolder.tvBestComments, headerViewHolder.rvBestComments);
-        }
-    }
+            Glide.With(mContext).Load(Constant.IMG_BASE_URL + data.help.author.avatar)
+                    .Placeholder(Resource.Drawable.avatar_default)
+                    .Transform(new GlideCircleTransform(mContext))
+                    .Into(headerViewHolder.ivAvatar);
 
-    public void showBookHelpComments(CommentList list)
-    {
-        mAdapter.addAll(list.comments);
-        start = start + list.comments.size();
-    }
+            headerViewHolder.tvNickName.Text = (data.help.author.nickname);
+            headerViewHolder.tvTime.Text = (FormatUtils.getDescriptionTimeFromDateString(data.help.created));
+            headerViewHolder.tvTitle.Text = (data.help.title);
+            headerViewHolder.tvContent.Text = (data.help.content);
+            headerViewHolder.tvCommentCount.Text = (String.Format(mContext.GetString(Resource.String.comment_comment_count), data.help.commentCount));
+        }
+
+        public void showBestComments(CommentList list)
+        {
+            if (!list.comments.Any())
+            {
+                gone(headerViewHolder.tvBestComments, headerViewHolder.rvBestComments);
+            }
+            else
+            {
+                mBestCommentList.AddRange(list.comments);
+                headerViewHolder.rvBestComments.HasFixedSize = (true);
+                headerViewHolder.rvBestComments.SetLayoutManager(new LinearLayoutManager(this));
+                headerViewHolder.rvBestComments.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL, true));
+                mBestCommentListAdapter = new BestCommentListAdapter(mContext, mBestCommentList);
+                mBestCommentListAdapter.setOnItemClickListener(this);
+                headerViewHolder.rvBestComments.SetAdapter(mBestCommentListAdapter);
+                visible(headerViewHolder.tvBestComments, headerViewHolder.rvBestComments);
+            }
+        }
+
+        public void showBookHelpComments(CommentList list)
+        {
+            mAdapter.addAll(list.comments);
+            start = start + list.comments.Count();
+        }
 
         public override void onLoadMore()
         {
             base.onLoadMore();
-            getBookHelpComments(id, start, limit);
+            //TODO: mPresenter.getBookHelpComments(id, start, limit);
         }
 
         public override void onItemClick(int position)
@@ -136,28 +131,49 @@ namespace Xamarin.BookReader.UI.Activities
         {
         }
 
-        //class HeaderViewHolder {
-        //    @Bind(R.id.ivBookCover)
-        //    ImageView ivAvatar;
-        //    @Bind(R.id.tvBookTitle)
-        //    TextView tvNickName;
-        //    @Bind(R.id.tvTime)
-        //    TextView tvTime;
-        //    @Bind(R.id.tvTitle)
-        //    TextView tvTitle;
-        //    @Bind(R.id.tvContent)
-        //    BookContentTextView tvContent;
-        //    @Bind(R.id.tvBestComments)
-        //    TextView tvBestComments;
-        //    @Bind(R.id.rvBestComments)
-        //    RecyclerView rvBestComments;
-        //    @Bind(R.id.tvCommentCount)
-        //    TextView tvCommentCount;
+        class HeaderViewHolder
+        {
+            public ImageView ivAvatar;
+            public TextView tvNickName;
+            public TextView tvTime;
+            public TextView tvTitle;
+            public BookContentTextView tvContent;
+            public TextView tvBestComments;
+            public RecyclerView rvBestComments;
+            public TextView tvCommentCount;
 
-        //    public HeaderViewHolder(View view) {
-        //        ButterKnife.bind(this, view);   //view绑定
-        //    }
-        //}
+            public HeaderViewHolder(View view)
+            {
+                ivAvatar = view.FindViewById<ImageView>(Resource.Id.ivBookCover);
+                tvNickName = view.FindViewById<TextView>(Resource.Id.tvBookTitle);
+                tvTime = view.FindViewById<TextView>(Resource.Id.tvTime);
+                tvTitle = view.FindViewById<TextView>(Resource.Id.tvTitle);
+                tvContent = view.FindViewById<BookContentTextView>(Resource.Id.tvContent);
+                tvBestComments = view.FindViewById<TextView>(Resource.Id.tvBestComments);
+                rvBestComments = view.FindViewById<RecyclerView>(Resource.Id.rvBestComments);
+                tvCommentCount = view.FindViewById<TextView>(Resource.Id.tvCommentCount);
+            }
+        }
 
+        private class CustomItemView : RecyclerArrayAdapter<CommentList.CommentsBean>.ItemView
+        {
+            private BookHelpDetailActivity bookHelpDetailActivity;
+
+            public CustomItemView(BookHelpDetailActivity bookHelpDetailActivity)
+            {
+                this.bookHelpDetailActivity = bookHelpDetailActivity;
+            }
+
+            public void onBindView(View headerView)
+            {
+                bookHelpDetailActivity.headerViewHolder = new HeaderViewHolder(headerView);
+            }
+
+            public View onCreateView(ViewGroup parent)
+            {
+                View headerView = LayoutInflater.From(bookHelpDetailActivity).Inflate(Resource.Layout.header_view_book_discussion_detail, parent, false);
+                return headerView;
+            }
+        }
     }
 }

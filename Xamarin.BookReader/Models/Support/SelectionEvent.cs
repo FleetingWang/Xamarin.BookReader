@@ -20,6 +20,11 @@ namespace Xamarin.BookReader.Models.Support
             this.sort = sort;
         }
 
+        public SelectionEvent(Constant.SortType sort)
+        {
+            this.sort = sort;
+        }
+
         public override string EventId => "SelectionEvent";
     }
 }

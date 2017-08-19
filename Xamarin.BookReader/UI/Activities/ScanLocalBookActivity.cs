@@ -14,6 +14,14 @@ using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.EasyAdapters;
 using Xamarin.BookReader.Views.RecyclerViews;
+using Android.Support.V7.Widget;
+using Android.Support.V4.Content;
+using Android.Provider;
+using Xamarin.BookReader.Utils;
+using Android.Database;
+using Uri = Android.Net.Uri;
+using Java.IO;
+using Xamarin.BookReader.Managers;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -27,23 +35,22 @@ namespace Xamarin.BookReader.UI.Activities
             context.StartActivity(new Intent(context, typeof(ScanLocalBookActivity)));
         }
 
-        //@Bind(R.id.recyclerview)
         EasyRecyclerView mRecyclerView;
 
         private RecommendAdapter mAdapter;
         public override int getLayoutId()
         {
-            return R.layout.activity_scan_local_book;
+            return Resource.Layout.activity_scan_local_book;
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mRecyclerView = FindViewById<EasyRecyclerView>(Resource.Id.recyclerview);
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.setTitle("扫描本地书籍");
-            mCommonToolbar.setNavigationIcon(R.drawable.ab_back);
+            mCommonToolbar.Title = ("扫描本地书籍");
+            mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
         {
@@ -51,7 +58,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void configViews()
         {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            mRecyclerView.setItemDecoration(ContextCompat.getColor(this, R.color.common_divider_narrow), 1, 0, 0);
+            mRecyclerView.setItemDecoration(ContextCompat.GetColor(this, Resource.Color.common_divider_narrow), 1, 0, 0);
 
             mAdapter = new RecommendAdapter(this);
             mAdapter.setOnItemClickListener(this);
@@ -62,57 +69,58 @@ namespace Xamarin.BookReader.UI.Activities
 
         private void queryFiles()
         {
-            String[] projection = new String[]{MediaStore.Files.FileColumns._ID,
-                MediaStore.Files.FileColumns.DATA,
-                MediaStore.Files.FileColumns.SIZE
-        };
+            String[] projection = new String[]{
+                MediaStore.Files.FileColumns.Id,
+                MediaStore.Files.FileColumns.Data,
+                MediaStore.Files.FileColumns.Size
+            };
 
             // cache
             String bookpath = FileUtils.createRootPath(AppUtils.getAppContext());
 
             // 查询后缀名为txt与pdf，并且不位于项目缓存中的文档
-            Cursor cursor = getContentResolver().query(
-                    Uri.parse("content://media/external/file"),
+            ICursor cursor = ContentResolver.Query(
+                    Uri.Parse("content://media/external/file"),
                     projection,
-                    MediaStore.Files.FileColumns.DATA + " not like ? and ("
-                            + MediaStore.Files.FileColumns.DATA + " like ? or "
-                            + MediaStore.Files.FileColumns.DATA + " like ? or "
-                            + MediaStore.Files.FileColumns.DATA + " like ? or "
-                            + MediaStore.Files.FileColumns.DATA + " like ? )",
+                    MediaStore.Files.FileColumns.Data + " not like ? and ("
+                            + MediaStore.Files.FileColumns.Data + " like ? or "
+                            + MediaStore.Files.FileColumns.Data + " like ? or "
+                            + MediaStore.Files.FileColumns.Data + " like ? or "
+                            + MediaStore.Files.FileColumns.Data + " like ? )",
                     new String[]{"%" + bookpath + "%",
                         "%" + Constant.SUFFIX_TXT,
                         "%" + Constant.SUFFIX_PDF,
                         "%" + Constant.SUFFIX_EPUB,
                         "%" + Constant.SUFFIX_CHM}, null);
 
-            if (cursor != null && cursor.moveToFirst())
+            if (cursor != null && cursor.MoveToFirst())
             {
-                int idindex = cursor.getColumnIndex(MediaStore.Files.FileColumns._ID);
-                int dataindex = cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA);
-                int sizeindex = cursor.getColumnIndex(MediaStore.Files.FileColumns.SIZE);
-                List<Recommend.RecommendBooks> list = new ArrayList<>();
+                int idindex = cursor.GetColumnIndex(MediaStore.Files.FileColumns.Id);
+                int dataindex = cursor.GetColumnIndex(MediaStore.Files.FileColumns.Data);
+                int sizeindex = cursor.GetColumnIndex(MediaStore.Files.FileColumns.Size);
+                List<Recommend.RecommendBooks> list = new List<Recommend.RecommendBooks>();
 
 
                 do
                 {
-                    String path = cursor.getString(dataindex);
+                    String path = cursor.GetString(dataindex);
 
-                    int dot = path.lastIndexOf("/");
-                    String name = path.substring(dot + 1);
-                    if (name.lastIndexOf(".") > 0)
-                        name = name.substring(0, name.lastIndexOf("."));
+                    int dot = path.LastIndexOf("/");
+                    String name = path.Substring(dot + 1);
+                    if (name.LastIndexOf(".") > 0)
+                        name = name.Substring(0, name.LastIndexOf("."));
 
                     Recommend.RecommendBooks books = new Recommend.RecommendBooks();
                     books._id = name;
                     books.path = path;
                     books.title = name;
                     books.isFromSD = true;
-                    books.lastChapter = FileUtils.formatFileSizeToString(cursor.getLong(sizeindex));
+                    books.lastChapter = FileUtils.formatFileSizeToString(cursor.GetLong(sizeindex));
 
-                    list.add(books);
-                } while (cursor.moveToNext());
+                    list.Add(books);
+                } while (cursor.MoveToNext());
 
-                cursor.close();
+                cursor.Close();
 
                 mAdapter.addAll(list);
             }
@@ -126,45 +134,54 @@ namespace Xamarin.BookReader.UI.Activities
         {
             Recommend.RecommendBooks books = mAdapter.getItem(position);
 
-            if (books.path.endsWith(Constant.SUFFIX_TXT)) {
+            if (books.path.EndsWith(Constant.SUFFIX_TXT))
+            {
                 // TXT
                 new AlertDialog.Builder(this)
-                        .setTitle("提示")
-                        .setMessage(String.format(getString(
-                                R.string.book_detail_is_joined_the_book_shelf), books.title))
-                //        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                //            @Override
-                //            public void onClick(DialogInterface dialog, int which) {
-                //                // 拷贝到缓存目录
-                //                FileUtils.fileChannelCopy(new File(books.path),
-                //                        new File(FileUtils.getChapterPath(books._id, 1)));
-                //                // 加入书架
-                //                if (CollectionsManager.getInstance().add(books)) {
-                //                    mRecyclerView.showTipViewAndDelayClose(String.format(getString(
-                //                            R.string.book_detail_has_joined_the_book_shelf), books.title));
-                //                    // 通知
-                //                    EventManager.refreshCollectionList();
-                //                } else {
-                //                    mRecyclerView.showTipViewAndDelayClose("书籍已存在");
-                //                }
-                //                dialog.dismiss();
-                //            }
-                //        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                //    @Override
-                //    public void onClick(DialogInterface dialog, int which) {
-                //        dialog.dismiss();
-                //    }
-                //})
-            .show();
-            } else if (books.path.endsWith(Constant.SUFFIX_PDF)) {
+                    .SetTitle("提示")
+                    .SetMessage(String.Format(GetString(
+                            Resource.String.book_detail_is_joined_the_book_shelf), books.title))
+                    .SetPositiveButton("确定", (sender, e) =>
+                    {
+                        // 拷贝到缓存目录
+                        FileUtils.fileChannelCopy(new File(books.path),
+                                new File(FileUtils.getChapterPath(books._id, 1)));
+                        // 加入书架
+                        if (CollectionsManager.getInstance().add(books))
+                        {
+                            mRecyclerView.showTipViewAndDelayClose(String.Format(GetString(
+                                    Resource.String.book_detail_has_joined_the_book_shelf), books.title));
+                            // 通知
+                            EventManager.refreshCollectionList();
+                        }
+                        else
+                        {
+                            mRecyclerView.showTipViewAndDelayClose("书籍已存在");
+                        }
+                        var dialog = sender as AlertDialog;
+                        dialog?.Dismiss();
+                    })
+                    .SetNegativeButton("取消", (sender, e) =>
+                    {
+                        var dialog = sender as AlertDialog;
+                        dialog?.Dismiss();
+                    })
+                    .Show();
+            }
+            else if (books.path.EndsWith(Constant.SUFFIX_PDF))
+            {
                 // PDF
-                ReadPDFActivity.start(this, books.path);
-            } else if (books.path.endsWith(Constant.SUFFIX_EPUB)) {
+                // TODO: ReadPDFActivity.start(this, books.path);
+            }
+            else if (books.path.EndsWith(Constant.SUFFIX_EPUB))
+            {
                 // EPub
-                ReadEPubActivity.start(this, books.path);
-            } else if (books.path.endsWith(Constant.SUFFIX_CHM)) {
+                // TODO: ReadEPubActivity.start(this, books.path);
+            }
+            else if (books.path.EndsWith(Constant.SUFFIX_CHM))
+            {
                 // CHM
-                ReadCHMActivity.start(this, books.path);
+                // TODO: ReadCHMActivity.start(this, books.path);
             }
         }
     }
