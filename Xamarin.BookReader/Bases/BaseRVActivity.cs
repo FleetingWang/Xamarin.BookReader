@@ -80,7 +80,7 @@ namespace Xamarin.BookReader.Bases
         //    return obj;
         //}
 
-        public void onLoadMore()
+        public virtual void onLoadMore()
         {
             if (!NetworkUtils.isConnected(ApplicationContext))
             {
@@ -96,12 +96,12 @@ namespace Xamarin.BookReader.Bases
             mRecyclerView.setRefreshing(false);
         }
 
-        public void onItemClick(int position)
+        public virtual void onItemClick(int position)
         {
 
         }
 
-        public void onRefresh()
+        public virtual void onRefresh()
         {
             start = 0;
             if (!NetworkUtils.isConnected(ApplicationContext))

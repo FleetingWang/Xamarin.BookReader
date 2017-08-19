@@ -230,6 +230,31 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DownloadBookService.cs" />
+    <Compile Include="UI\Activities\BookDetailActivity.cs" />
+    <Compile Include="UI\Activities\BookDetailCommunityActivity.cs" />
+    <Compile Include="UI\Activities\BookDiscussionActivity.cs" />
+    <Compile Include="UI\Activities\BookDiscussionDetailActivity.cs" />
+    <Compile Include="UI\Activities\BookHelpActivity.cs" />
+    <Compile Include="UI\Activities\BookHelpDetailActivity.cs" />
+    <Compile Include="UI\Activities\BookReviewActivity.cs" />
+    <Compile Include="UI\Activities\BookReviewDetailActivity.cs" />
+    <Compile Include="UI\Activities\BooksByTagActivity.cs" />
+    <Compile Include="UI\Activities\BookSourceActivity.cs" />
+    <Compile Include="UI\Activities\FeedbackActivity.cs" />
+    <Compile Include="UI\Activities\GirlBookDiscussionActivity.cs" />
+    <Compile Include="UI\Activities\MyBookListActivity.cs" />
+    <Compile Include="UI\Activities\ScanLocalBookActivity.cs" />
+    <Compile Include="UI\Activities\SearchActivity.cs" />
+    <Compile Include="UI\Activities\SearchByAuthorActivity.cs" />
+    <Compile Include="UI\Activities\SettingActivity.cs" />
+    <Compile Include="UI\Activities\SplashActivity.cs" />
+    <Compile Include="UI\Activities\SubCategoryListActivity.cs" />
+    <Compile Include="UI\Activities\SubjectBookListActivity.cs" />
+    <Compile Include="UI\Activities\SubjectBookListDetailActivity.cs" />
+    <Compile Include="UI\Activities\SubOtherHomeRankActivity.cs" />
+    <Compile Include="UI\Activities\SubRankActivity.cs" />
+    <Compile Include="UI\Activities\TopCategoryListActivity.cs" />
+    <Compile Include="UI\Activities\TopRankActivity.cs" />
     <Compile Include="UI\Adapters\FindAdapter.cs" />
     <Compile Include="UI\EasyAdapters\RecommendAdapter.cs" />
     <Compile Include="UI\Fragments\CommunityFragment.cs" />
@@ -984,9 +1009,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values-w820dp\dimens.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Activities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidAsset Include="Assets\uploader\bg_drag.png" />
   </ItemGroup>
