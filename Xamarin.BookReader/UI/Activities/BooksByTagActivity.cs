@@ -15,6 +15,7 @@ using Xamarin.BookReader.Models;
 using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Xamarin.BookReader.Views;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -60,7 +61,7 @@ namespace Xamarin.BookReader.UI.Activities
             mRecyclerView.HasFixedSize = (true);
             linearLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(linearLayoutManager);
-            mRecyclerView.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL));
+            mRecyclerView.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.Vertical));
             mAdapter = new BooksByTagAdapter(mContext, mList, this);
             mRecyclerView.SetAdapter(mAdapter);
             mRecyclerView.AddOnScrollListener(new RefreshListener(this));
@@ -75,7 +76,7 @@ namespace Xamarin.BookReader.UI.Activities
                 mList.Clear();
             mList.AddRange(list);
             current = mList.Count();
-            mAdapter.notifyDataSetChanged();
+            mAdapter.NotifyDataSetChanged();
         }
 
         public void onLoadComplete(bool isSuccess, String msg)
@@ -119,13 +120,13 @@ namespace Xamarin.BookReader.UI.Activities
                 base.OnScrolled(recyclerView, dx, dy);
 
                 int lastVisibleItemPosition = booksByTagActivity.linearLayoutManager.FindLastVisibleItemPosition();
-                if (lastVisibleItemPosition + 1 == booksByTagActivity.mAdapter.getItemCount())
+                if (lastVisibleItemPosition + 1 == booksByTagActivity.mAdapter.ItemCount)
                 { // 滑到倒数第二项就加载更多
 
                     bool isRefreshing = booksByTagActivity.refreshLayout.Refreshing;
                     if (isRefreshing)
                     {
-                        booksByTagActivity.mAdapter.notifyItemRemoved(booksByTagActivity.mAdapter.getItemCount());
+                        booksByTagActivity.mAdapter.NotifyItemRemoved(booksByTagActivity.mAdapter.ItemCount);
                         return;
                     }
                     booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");

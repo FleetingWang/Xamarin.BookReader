@@ -18,6 +18,7 @@ using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Com.Bumptech.Glide;
 using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -121,7 +122,7 @@ namespace Xamarin.BookReader.UI.Activities
                 mBestCommentList.AddRange(list.comments);
                 headerViewHolder.rvBestComments.HasFixedSize = (true);
                 headerViewHolder.rvBestComments.SetLayoutManager(new LinearLayoutManager(this));
-                headerViewHolder.rvBestComments.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.VERTICAL, true));
+                headerViewHolder.rvBestComments.AddItemDecoration(new SupportDividerItemDecoration(mContext, LinearLayoutManager.Vertical, true));
                 mBestCommentListAdapter = new BestCommentListAdapter(mContext, mBestCommentList);
                 mBestCommentListAdapter.setOnItemClickListener(this);
                 headerViewHolder.rvBestComments.SetAdapter(mBestCommentListAdapter);

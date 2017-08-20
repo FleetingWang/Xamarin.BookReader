@@ -30,22 +30,9 @@ namespace Xamarin.BookReader.UI.Adapters
             var holder = viewHolder as EasyRVHolder;
             holder.setText(Resource.Id.tvTitle, item.Title);
             holder.setImageResource(Resource.Id.ivIcon, item.IconResId);
-            holder.setOnItemViewClickListener(new CustomOnClickListener(() => {
+            holder.setOnItemViewClickListener((sender, e) => {
                 itemClickListener.onItemClick(holder.getItemView(), position, item);
-            }));
-        }
-
-        class CustomOnClickListener : Java.Lang.Object, View.IOnClickListener
-        {
-            Action _action;
-            public CustomOnClickListener(Action action)
-            {
-                _action = action;
-            }
-            public void OnClick(View v)
-            {
-                _action?.Invoke();
-            }
+            });
         }
     }
 }

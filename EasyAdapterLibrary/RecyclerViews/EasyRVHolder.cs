@@ -31,6 +31,7 @@ namespace EasyAdapterLibrary.RecyclerViews
         private View mConvertView;
         private int mLayoutId;
         protected Context mContext;
+        public event EventHandler Click;
 
         public EasyRVHolder(Context context, int layoutId, View itemView)
                 : base(itemView)
@@ -39,6 +40,9 @@ namespace EasyAdapterLibrary.RecyclerViews
             this.mLayoutId = layoutId;
             mConvertView = itemView;
             mConvertView.Tag = this;
+            mConvertView.Click += (sender, e) => {
+                Click?.Invoke(sender, e);
+            };
         }
 
         public V getView<V>(int viewId) where V : View
@@ -65,12 +69,6 @@ namespace EasyAdapterLibrary.RecyclerViews
         public View getItemView()
         {
             return mConvertView;
-        }
-
-        public EasyRVHolder setOnItemViewClickListener(View.IOnClickListener listener)
-        {
-            mConvertView.SetOnClickListener(listener);
-            return this;
         }
 
         public EasyRVHolder setText(int viewId, String value)

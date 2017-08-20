@@ -14,7 +14,7 @@ using Java.Lang;
 
 namespace EasyAdapterLibrary.AbsListViews
 {
-    public abstract class EasyLVAdapter<T> : BaseAdapter, DataHelper<T> where T : Java.Lang.Object
+    public abstract class EasyLVAdapter<T> : BaseAdapter, DataHelper<T> where T : class
     {
 
         protected Context mContext;
@@ -42,7 +42,7 @@ namespace EasyAdapterLibrary.AbsListViews
         public override int Count => mList == null ? 0 : mList.Count();
         public override Java.Lang.Object GetItem(int position)
         {
-            return mList == null ? null : mList[position];
+            return null;//TODO: mList == null ? null : mList[position];
         }
         public override long GetItemId(int position)
         {

@@ -23,6 +23,7 @@ using Android.Text;
 using Xamarin.BookReader.Managers;
 using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -131,13 +132,6 @@ namespace Xamarin.BookReader.UI.Activities
             mRvRecommendBoookList.SetAdapter(mRecommendBookListAdapter);
 
             mTagGroup.setOnTagClickListener(new CustomOnTagClickListener(this));
-            //mTagGroup.setOnTagClickListener(new TagGroup.OnTagClickListener() {
-            //@Override
-            //public void onTagClick(String tag) {
-            //    startActivity(new Intent(BookDetailActivity.this, BooksByTagActivity.class)
-            //            .PutExtra("tag", tag));
-            //    }
-            //});
 
             //TODO: mPresenter.getBookDetail(bookId);
             //TODO: mPresenter.getHotReview(bookId);
@@ -240,7 +234,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             mHotReviewList.Clear();
             mHotReviewList.AddRange(list);
-            mHotReviewAdapter.notifyDataSetChanged();
+            mHotReviewAdapter.NotifyDataSetChanged();
         }
 
         public void showRecommendBookList(List<RecommendBookList.RecommendBook> list)
@@ -250,7 +244,7 @@ namespace Xamarin.BookReader.UI.Activities
                 mTvRecommendBookList.Visibility = ViewStates.Visible;
                 mRecommendBookList.Clear();
                 mRecommendBookList.AddRange(list);
-                mRecommendBookListAdapter.notifyDataSetChanged();
+                mRecommendBookListAdapter.NotifyDataSetChanged();
             }
         }
 
