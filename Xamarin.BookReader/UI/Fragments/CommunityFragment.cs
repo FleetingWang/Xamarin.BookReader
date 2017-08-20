@@ -15,6 +15,7 @@ using Xamarin.BookReader.UI.Listeners;
 using Android.Support.V7.Widget;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -61,19 +62,19 @@ namespace Xamarin.BookReader.UI.Fragments
             switch (position)
             {
                 case 0:
-                    // TODO:BookDiscussionActivity.startActivity(Activity, true);
+                    BookDiscussionActivity.startActivity(Activity, true);
                     break;
                 case 1:
-                    // TODO:BookReviewActivity.startActivity(Activity);
+                    BookReviewActivity.startActivity(Activity);
                     break;
                 case 2:
-                    // TODO:BookHelpActivity.startActivity(Activity);
+                    BookHelpActivity.startActivity(Activity);
                     break;
                 case 3:
-                    // TODO:GirlBookDiscussionActivity.startActivity(Activity);
+                    GirlBookDiscussionActivity.startActivity(Activity);
                     break;
                 case 4:
-                    // TODO:BookDiscussionActivity.startActivity(Activity, false);
+                    BookDiscussionActivity.startActivity(Activity, false);
                     break;
                 default:
                     break;

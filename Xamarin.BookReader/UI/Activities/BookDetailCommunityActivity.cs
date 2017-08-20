@@ -77,7 +77,7 @@ namespace Xamarin.BookReader.UI.Activities
             mTabContents.Add(BookDetailDiscussionFragment.newInstance(bookId));
             mTabContents.Add(BookDetailReviewFragment.newInstance(bookId));
 
-            mAdapter = new CustomFragmentPagerAdapter(this, SupportFragmentManager);
+            mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
 
         public override void configViews()
@@ -161,23 +161,20 @@ namespace Xamarin.BookReader.UI.Activities
                     .Create();
             dialog.Show();
         }
-
-        private class CustomFragmentPagerAdapter : FragmentPagerAdapter
+        class CustomFragmentPagerAdapter : FragmentPagerAdapter
         {
-            private BookDetailCommunityActivity bookDetailCommunityActivity;
-            private FragmentManager supportFragmentManager;
-            public CustomFragmentPagerAdapter(BookDetailCommunityActivity bookDetailCommunityActivity, FragmentManager supportFragmentManager)
-                : base(supportFragmentManager)
+            private List<Fragment> _mTabContents;
+            public CustomFragmentPagerAdapter(FragmentManager fm, List<Fragment> mTabContents)
+                : base(fm)
             {
-                this.bookDetailCommunityActivity = bookDetailCommunityActivity;
-                this.supportFragmentManager = supportFragmentManager;
+                _mTabContents = mTabContents;
             }
 
-            public override int Count => bookDetailCommunityActivity.mTabContents.Count();
+            public override int Count => _mTabContents.Count();
 
             public override Fragment GetItem(int position)
             {
-                return bookDetailCommunityActivity.mTabContents[position];
+                return _mTabContents[position];
             }
         }
     }

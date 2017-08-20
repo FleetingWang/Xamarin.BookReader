@@ -13,14 +13,13 @@ using Xamarin.BookReader.Bases;
 using Android.Support.V7.Widget;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
+using Xamarin.BookReader.Views;
 
 namespace Xamarin.BookReader.UI.Activities
 {
-    public class TopCategoryListActivity: BaseActivity
+    public class TopCategoryListActivity : BaseActivity
     {
-        //@Bind(Resource.Id.rvMaleCategory)
         RecyclerView mRvMaleCategory;
-        //@Bind(Resource.Id.rvFemaleCategory)
         RecyclerView mRvFeMaleCategory;
 
         private TopCategoryListAdapter mMaleCategoryListAdapter;
@@ -34,12 +33,13 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mRvMaleCategory = FindViewById<RecyclerView>(Resource.Id.rvMaleCategory);
+            mRvFeMaleCategory = FindViewById<RecyclerView>(Resource.Id.rvFemaleCategory);
         }
 
         public override void initToolBar()
         {
-            mCommonToolbar.SetTitle(GetString(Resource.String.category));
+            mCommonToolbar.Title = (GetString(Resource.String.category));
             mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
@@ -54,13 +54,12 @@ namespace Xamarin.BookReader.UI.Activities
             mRvFeMaleCategory.HasFixedSize = (true);
             mRvFeMaleCategory.SetLayoutManager(new GridLayoutManager(this, 3));
             mRvFeMaleCategory.AddItemDecoration(new SupportGridItemDecoration(this));
-            mMaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mMaleCategoryList, new ClickListener(Constant.Gender.MALE));
-            mFemaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mFemaleCategoryList, new ClickListener(Constant.Gender.FEMALE));
+            mMaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mMaleCategoryList, new ClickListener(this, Constant.Gender.Male.ToString()));
+            mFemaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mFemaleCategoryList, new ClickListener(this, Constant.Gender.Female.ToString()));
             mRvMaleCategory.SetAdapter(mMaleCategoryListAdapter);
             mRvFeMaleCategory.SetAdapter(mFemaleCategoryListAdapter);
 
-            mPresenter.attachView(this);
-            mPresenter.getCategoryList();
+            //TODO: mPresenter.getCategoryList();
         }
 
         public void showCategoryList(CategoryList data)
@@ -82,16 +81,20 @@ namespace Xamarin.BookReader.UI.Activities
             dismissDialog();
         }
 
-        class ClickListener: IOnRvItemClickListener<CategoryList.MaleBean> {
-
+        class ClickListener : IOnRvItemClickListener<CategoryList.MaleBean>
+        {
             private String gender;
+            private TopCategoryListActivity topCategoryListActivity;
 
-            public ClickListener(String gender) {
+            public ClickListener(TopCategoryListActivity topCategoryListActivity, String gender)
+            {
+                this.topCategoryListActivity = topCategoryListActivity;
                 this.gender = gender;
             }
 
-            public void onItemClick(View view, int position, CategoryList.MaleBean data) {
-                SubCategoryListActivity.startActivity(mContext, data.name, gender);
+            public void onItemClick(View view, int position, CategoryList.MaleBean data)
+            {
+                SubCategoryListActivity.startActivity(topCategoryListActivity, data.name, gender);
             }
         }
 

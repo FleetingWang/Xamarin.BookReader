@@ -15,20 +15,20 @@ using Android.Support.V4.View;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.Models;
 using Android.Support.V4.App;
+using DSoft.Messaging;
+using Xamarin.BookReader.Models.Support;
+using Xamarin.BookReader.Utils;
+using Android.Views.Animations;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     public class SubjectBookListActivity : BaseActivity, IOnRvItemClickListener<String>
     {
-        //@Bind(Resource.Id.indicatorSubject)
         RVPIndicator mIndicator;
-        //@Bind(Resource.Id.viewpagerSubject)
         ViewPager mViewPager;
-        //@Bind(Resource.Id.rsvTags)
         ReboundScrollView rsvTags;
-
-        //@Bind(Resource.Id.rvTags)
         RecyclerView rvTags;
+
         private SubjectTagsAdapter mTagAdapter;
         private List<BookListTags.DataBean> mTagList = new List<BookListTags.DataBean>();
 
@@ -50,7 +50,10 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
+            mIndicator = FindViewById<RVPIndicator>(Resource.Id.indicatorSubject);
+            mViewPager = FindViewById<ViewPager>(Resource.Id.viewpagerSubject);
+            rsvTags = FindViewById<ReboundScrollView>(Resource.Id.rsvTags);
+            rvTags = FindViewById<RecyclerView>(Resource.Id.rvTags);
         }
 
         public override void initToolBar()
@@ -60,40 +63,28 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void initDatas()
         {
-            mDatas = Arrays.asList(Resources.GetStringArray(Resource.Array.subject_tabs));
+            mDatas = Resources.GetStringArray(Resource.Array.subject_tabs).ToList();
 
-            mTabContents = new ArrayList<>();
-            mTabContents.add(SubjectFragment.newInstance("", 0));
-            mTabContents.add(SubjectFragment.newInstance("", 1));
-            mTabContents.add(SubjectFragment.newInstance("", 2));
-
-            //mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            //    @Override
-            //    public int getCount() {
-            //        return mTabContents.Count();
-            //    }
-
-            //    @Override
-            //    public Fragment getItem(int position) {
-            //        return mTabContents.get(position);
-            //    }
-            //};
+            mTabContents = new List<Fragment>();
+            mTabContents.Add(SubjectFragment.newInstance("", 0));
+            mTabContents.Add(SubjectFragment.newInstance("", 1));
+            mTabContents.Add(SubjectFragment.newInstance("", 2));
+            mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
         public override void configViews()
         {
             mIndicator.setTabItemTitles(mDatas);
-            mViewPager.SetAdapter(mAdapter);
+            mViewPager.Adapter = (mAdapter);
             mIndicator.setViewPager(mViewPager, 0);
 
             rvTags.HasFixedSize = (true);
             rvTags.SetLayoutManager(new LinearLayoutManager(this));
-            rvTags.AddItemDecoration(new SupportDividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+            rvTags.AddItemDecoration(new SupportDividerItemDecoration(this, LinearLayoutManager.Vertical));
             mTagAdapter = new SubjectTagsAdapter(this, mTagList);
             mTagAdapter.setItemClickListener(this);
             rvTags.SetAdapter(mTagAdapter);
 
-            mPresenter.attachView(this);
-            mPresenter.getBookListTags();
+            //TODO: mPresenter.getBookListTags();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -104,14 +95,20 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.ItemId == Resource.Id.menu_tags) {
-            if (isVisible(rsvTags)) {
-                hideTagGroup();
-            } else {
-                showTagGroup();
+            if (item.ItemId == Resource.Id.menu_tags)
+            {
+                if (isVisible(rsvTags))
+                {
+                    hideTagGroup();
+                }
+                else
+                {
+                    showTagGroup();
+                }
+                return true;
             }
-            return true;
-            } else if (item.ItemId == Resource.Id.menu_my_book_list) {
+            else if (item.ItemId == Resource.Id.menu_my_book_list)
+            {
                 StartActivity(new Intent(this, typeof(MyBookListActivity)));
             }
             return base.OnOptionsItemSelected(item);
@@ -148,34 +145,50 @@ namespace Xamarin.BookReader.UI.Activities
         {
             hideTagGroup();
             currentTag = data;
-            MessageBus.Default.post(new TagEvent(currentTag));
+            MessageBus.Default.Post(new TagEvent(currentTag));
         }
 
         private void showTagGroup()
         {
-            if (mTagList.IsEmpty())
+            if (!mTagList.Any())
             {
                 ToastUtils.showToast(GetString(Resource.String.network_error_tips));
                 return;
             }
-            Animation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, -1.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f);
-            mShowAction.setDuration(400);
-            rsvTags.startAnimation(mShowAction);
-            rsvTags.Visibility = (View.VISIBLE);
+            Animation mShowAction = new TranslateAnimation(Dimension.RelativeToSelf, 0.0f,
+                    Dimension.RelativeToSelf, 0.0f,
+                    Dimension.RelativeToSelf, -1.0f,
+                    Dimension.RelativeToSelf, 0.0f);
+            mShowAction.Duration = (400);
+            rsvTags.StartAnimation(mShowAction);
+            rsvTags.Visibility = ViewStates.Visible;
         }
 
         private void hideTagGroup()
         {
-            Animation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, -1.0f);
-            mHiddenAction.setDuration(400);
-            rsvTags.startAnimation(mHiddenAction);
-            rsvTags.Visibility = (View.GONE);
+            Animation mHiddenAction = new TranslateAnimation(Dimension.RelativeToSelf, 0.0f,
+                    Dimension.RelativeToSelf, 0.0f,
+                    Dimension.RelativeToSelf, 0.0f,
+                    Dimension.RelativeToSelf, -1.0f);
+            mHiddenAction.Duration = (400);
+            rsvTags.StartAnimation(mHiddenAction);
+            rsvTags.Visibility = ViewStates.Gone;
+        }
+        class CustomFragmentPagerAdapter : FragmentPagerAdapter
+        {
+            private List<Fragment> _mTabContents;
+            public CustomFragmentPagerAdapter(FragmentManager fm, List<Fragment> mTabContents)
+                : base(fm)
+            {
+                _mTabContents = mTabContents;
+            }
+
+            public override int Count => _mTabContents.Count();
+
+            public override Fragment GetItem(int position)
+            {
+                return _mTabContents[position];
+            }
         }
     }
 }

@@ -88,7 +88,7 @@ namespace Xamarin.BookReader.UI.Activities
             mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation));
             mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over));
 
-            mAdapter = new CustomFragmentPagerAdapter(this, SupportFragmentManager);
+            mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
 
         public override void configViews()
@@ -199,23 +199,20 @@ namespace Xamarin.BookReader.UI.Activities
             }
         }
 
-        private class CustomFragmentPagerAdapter : FragmentPagerAdapter
+        class CustomFragmentPagerAdapter : FragmentPagerAdapter
         {
-            private SubCategoryListActivity subCategoryListActivity;
-            private global::Android.Support.V4.App.FragmentManager supportFragmentManager;
-
-            public CustomFragmentPagerAdapter(SubCategoryListActivity subCategoryListActivity, global::Android.Support.V4.App.FragmentManager supportFragmentManager)
-                : base(supportFragmentManager)
+            private List<Fragment> _mTabContents;
+            public CustomFragmentPagerAdapter(FragmentManager fm, List<Fragment> mTabContents)
+                : base(fm)
             {
-                this.subCategoryListActivity = subCategoryListActivity;
-                this.supportFragmentManager = supportFragmentManager;
+                _mTabContents = mTabContents;
             }
 
-            public override int Count => subCategoryListActivity.mTabContents.Count();
+            public override int Count => _mTabContents.Count();
 
-            public override global::Android.Support.V4.App.Fragment GetItem(int position)
+            public override Fragment GetItem(int position)
             {
-                return subCategoryListActivity.mTabContents[position];
+                return _mTabContents[position];
             }
         }
     }

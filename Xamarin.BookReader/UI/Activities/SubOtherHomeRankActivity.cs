@@ -17,14 +17,15 @@ namespace Xamarin.BookReader.UI.Activities
     /// <summary>
     /// 别人家的排行榜
     /// </summary>
-    public class SubOtherHomeRankActivity: BaseRVActivity<BooksByCats.BooksBean>
+    public class SubOtherHomeRankActivity : BaseRVActivity<BooksByCats.BooksBean>
     {
         public static String BUNDLE_ID = "_id";
         public static String INTENT_TITLE = "title";
         private String id;
         private String title;
 
-        public static void startActivity(Context context, String id, String title) {
+        public static void startActivity(Context context, String id, String title)
+        {
             context.StartActivity(new Intent(context, typeof(SubOtherHomeRankActivity))
                     .PutExtra(INTENT_TITLE, title)
                     .PutExtra(BUNDLE_ID, id));
@@ -41,10 +42,10 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initToolBar()
         {
-            title = Intent.GetStringExtra(INTENT_TITLE).split(" ")[0];
+            title = Intent.GetStringExtra(INTENT_TITLE).Split(' ')[0];
             id = Intent.GetStringExtra(BUNDLE_ID);
 
-            mCommonToolbar.SetTitle(title);
+            mCommonToolbar.Title = (title);
             mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
         public override void initDatas()
@@ -53,13 +54,12 @@ namespace Xamarin.BookReader.UI.Activities
         public override void configViews()
         {
             initAdapter(SubCategoryAdapter, true, false);
-            mPresenter.attachView(this);
             onRefresh();
         }
         public void showRankList(BooksByCats data)
         {
-            mAdapter.Clear();
-            mAdapter.AddRange(data.books);
+            mAdapter.clear();
+            mAdapter.addAll(data.books);
         }
         public void showError()
         {
@@ -77,7 +77,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void onRefresh()
         {
             base.onRefresh();
-            mPresenter.getRankList(id);
+            //TODO：mPresenter.getRankList(id);
         }
     }
 }

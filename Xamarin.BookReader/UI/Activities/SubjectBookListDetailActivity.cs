@@ -12,31 +12,18 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Datas;
+using Newtonsoft.Json;
+using Com.Bumptech.Glide;
+using Com.Bumptech.Glide.Load.Resource.Bitmap;
+using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     public class SubjectBookListDetailActivity : BaseRVActivity<BookListDetail.BookListBean.BooksBean>
     {
         private HeaderViewHolder headerViewHolder;
-        //class HeaderViewHolder
-        //{
-        //    @Bind(Resource.Id.tvBookListTitle)
-        //    TextView tvBookListTitle;
-        //    @Bind(Resource.Id.tvBookListDesc)
-        //    TextView tvBookListDesc;
-        //    @Bind(Resource.Id.ivAuthorAvatar)
-        //    ImageView ivAuthorAvatar;
-        //    @Bind(Resource.Id.tvBookListAuthor)
-        //    TextView tvBookListAuthor;
-        //    @Bind(Resource.Id.btnShare)
-        //    TextView btnShare;
 
-        //    public HeaderViewHolder(View view)
-        //    {
-        //        ButterKnife.bind(this, view);
-        //    }
-        //}
-        private List<BookListDetail.BookListBean.BooksBean> mAllBooks = new ArrayList<>();
+        private List<BookListDetail.BookListBean.BooksBean> mAllBooks = new List<BookListDetail.BookListBean.BooksBean>();
 
         private int start = 0;
         private int limit = 20;
@@ -48,14 +35,14 @@ namespace Xamarin.BookReader.UI.Activities
         public static void startActivity(Context context, BookLists.BookListsBean bookListsBean)
         {
             context.StartActivity(new Intent(context, typeof(SubjectBookListDetailActivity))
-                .PutExtra(INTENT_BEAN, bookListsBean));
+                .PutExtra(INTENT_BEAN, JsonConvert.SerializeObject(bookListsBean)));
         }
 
         public override int getLayoutId()
         {
             return Resource.Layout.activity_subject_book_list_detail;
         }
-        
+
         public override void initToolBar()
         {
             mCommonToolbar.SetTitle(Resource.String.subject_book_list_detail);
@@ -68,45 +55,33 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void initDatas()
         {
-            bookListsBean = (BookLists.BookListsBean)getIntent().getSerializableExtra(INTENT_BEAN);
+            bookListsBean = JsonConvert.DeserializeObject<BookLists.BookListsBean>(Intent.GetStringExtra(INTENT_BEAN));
         }
         public override void configViews()
         {
             initAdapter(SubjectBookListDetailBooksAdapter, false, true);
             mRecyclerView.removeAllItemDecoration();
-            //mAdapter.addHeader(new RecyclerArrayAdapter.ItemView() {
-            //    @Override
-            //    public View onCreateView(ViewGroup parent) {
-            //        View headerView = LayoutInflater.From(mContext).Inflate(Resource.Layout.header_view_book_list_detail, parent, false);
-            //        return headerView;
-            //    }
+            mAdapter.addHeader(new CustomItemView(this));
 
-            //    @Override
-            //    public void onBindView(View headerView) {
-            //        headerViewHolder = new HeaderViewHolder(headerView);
-            //    }
-            //});
-
-            mPresenter.attachView(this);
-            mPresenter.getBookListDetail(bookListsBean._id);
+            //TODO: mPresenter.getBookListDetail(bookListsBean._id);
         }
 
         public void showBookListDetail(BookListDetail data)
         {
-            headerViewHolder.tvBookListTitle.Text = (data.getBookList().getTitle());
-            headerViewHolder.tvBookListDesc.Text = (data.getBookList().getDesc());
-            headerViewHolder.tvBookListAuthor.Text = (data.getBookList().getAuthor().getNickname());
+            headerViewHolder.tvBookListTitle.Text = (data.BookList.Title);
+            headerViewHolder.tvBookListDesc.Text = (data.BookList.Desc);
+            headerViewHolder.tvBookListAuthor.Text = (data.BookList.Author.Nickname);
 
             Glide.With(mContext)
-                    .Load(Constant.IMG_BASE_URL + data.getBookList().getAuthor().getAvatar())
+                    .Load(Constant.IMG_BASE_URL + data.BookList.Author.Avatar)
                     .Placeholder(Resource.Drawable.avatar_default)
                     .Transform(new GlideCircleTransform(mContext))
                     .Into(headerViewHolder.ivAuthorAvatar);
 
-            List<BookListDetail.BookListBean.BooksBean> list = data.getBookList().getBooks();
+            List<BookListDetail.BookListBean.BooksBean> list = data.BookList.Books;
             mAllBooks.Clear();
             mAllBooks.AddRange(list);
-            mAdapter.Clear();
+            mAdapter.clear();
             loadNextPage();
         }
 
@@ -116,17 +91,17 @@ namespace Xamarin.BookReader.UI.Activities
             {
                 if (mAllBooks.Count() - start > limit)
                 {
-                    mAdapter.AddRange(mAllBooks.subList(start, start + limit));
+                    mAdapter.addAll(mAllBooks.GetRange(start, limit));
                 }
                 else
                 {
-                    mAdapter.AddRange(mAllBooks.subList(start, mAllBooks.Count()));
+                    mAdapter.addAll(mAllBooks.GetRange(start, mAllBooks.Count() - start + 1));
                 }
                 start += limit;
             }
             else
             {
-                mAdapter.AddRange(new ArrayList<BookListDetail.BookListBean.BooksBean>());
+                mAdapter.addAll(new List<BookListDetail.BookListBean.BooksBean>());
             }
         }
 
@@ -141,12 +116,12 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void onItemClick(int position)
         {
-            BookDetailActivity.startActivity(this, mAdapter.getItem(position).getBook().get_id());
+            BookDetailActivity.startActivity(this, mAdapter.getItem(position).Book._id);
         }
 
         public override void onRefresh()
         {
-            getBookListDetail(bookListsBean._id);
+            //TODO: getBookListDetail(bookListsBean._id);
         }
 
         public override void onLoadMore()
@@ -168,6 +143,45 @@ namespace Xamarin.BookReader.UI.Activities
                 return true;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        class HeaderViewHolder
+        {
+            public TextView tvBookListTitle;
+            public TextView tvBookListDesc;
+            public ImageView ivAuthorAvatar;
+            public TextView tvBookListAuthor;
+            public TextView btnShare;
+
+            public HeaderViewHolder(View view)
+            {
+                tvBookListTitle = view.FindViewById<TextView>(Resource.Id.tvBookListTitle);
+                tvBookListDesc = view.FindViewById<TextView>(Resource.Id.tvBookListDesc);
+                ivAuthorAvatar = view.FindViewById<ImageView>(Resource.Id.ivAuthorAvatar);
+                tvBookListAuthor = view.FindViewById<TextView>(Resource.Id.tvBookListAuthor);
+                btnShare = view.FindViewById<TextView>(Resource.Id.btnShare);
+            }
+        }
+
+        private class CustomItemView : RecyclerArrayAdapter<BookListDetail.BookListBean.BooksBean>.ItemView
+        {
+            private SubjectBookListDetailActivity subjectBookListDetailActivity;
+
+            public CustomItemView(SubjectBookListDetailActivity subjectBookListDetailActivity)
+            {
+                this.subjectBookListDetailActivity = subjectBookListDetailActivity;
+            }
+
+            public void onBindView(View headerView)
+            {
+                subjectBookListDetailActivity.headerViewHolder = new HeaderViewHolder(headerView);
+            }
+
+            public View onCreateView(ViewGroup parent)
+            {
+                View headerView = LayoutInflater.From(subjectBookListDetailActivity).Inflate(Resource.Layout.header_view_book_list_detail, parent, false);
+                return headerView;
+            }
         }
     }
 }
