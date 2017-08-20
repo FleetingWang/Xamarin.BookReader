@@ -68,7 +68,7 @@ namespace Xamarin.BookReader.Services
 
         private void addToDownloadQueue(object sender, MessageBusEvent evnt)
         {
-            if(evnt is DownloadQueue queue)
+            if (evnt is DownloadQueue queue)
             {
                 if (!TextUtils.IsEmpty(queue.bookId))
                 {
@@ -117,42 +117,55 @@ namespace Xamarin.BookReader.Services
                 {
                     Thread.Sleep(1000);
 
-                }catch(InterruptedException e) { }
-                for (int i = start; i <= end && i <= list.Count(); i++) {
-                    if (canceled) {
+                }
+                catch (InterruptedException e) { }
+                for (int i = start; i <= end && i <= list.Count(); i++)
+                {
+                    if (canceled)
+                    {
                         break;
                     }
                     // 网络异常，取消下载
-                    if (!NetworkUtils.isAvailable(AppUtils.getAppContext())) {
+                    if (!NetworkUtils.isAvailable(AppUtils.getAppContext()))
+                    {
                         downloadQueue.isCancel = true;
                         Post(new DownloadMessage(bookId, GetString(Resource.String.book_read_download_error), true));
                         failureCount = -1;
                         break;
                     }
-                    if (!downloadQueue.isFinish && !downloadQueue.isCancel) {
+                    if (!downloadQueue.isFinish && !downloadQueue.isCancel)
+                    {
                         // 章节文件不存在,则下载，否则跳过
-                        if (CacheManager.GetChapterFile(bookId, i) == null) {
+                        if (CacheManager.GetChapterFile(bookId, i) == null)
+                        {
                             BookMixAToc.MixToc.Chapters chapters = list[i - 1];
                             string url = chapters.link;
                             int ret = download(url, bookId, chapters.title, i, list.Count());
-                            if (ret != 1) {
+                            if (ret != 1)
+                            {
                                 failureCount++;
                             }
-                        } else {
+                        }
+                        else
+                        {
                             Post(new DownloadProgress(bookId, Java.Lang.String.Format(
                                     GetString(Resource.String.book_read_alreday_download), list[i - 1].title, i, list.Count()),
                                     true));
                         }
                     }
                 }
-                try {
+                try
+                {
                     Thread.Sleep(500);
-                } catch (InterruptedException e) {
+                }
+                catch (InterruptedException e)
+                {
                 }
                 return failureCount;
 
 
-            }).ContinueWith(task => {
+            }).ContinueWith(task =>
+            {
                 downloadQueue.isFinish = true;
                 if (failureCount > -1)
                 {
@@ -185,7 +198,8 @@ namespace Xamarin.BookReader.Services
             bookApi.getChapterRead(url)
                 //.subscribeOn(Schedulers.io())
                 //.observeOn(AndroidSchedulers.mainThread())
-                .Subscribe(data => {
+                .Subscribe(data =>
+                {
                     if (data.chapter != null)
                     {
                         Post(new DownloadProgress(bookId, Java.Lang.String.Format(
@@ -198,9 +212,11 @@ namespace Xamarin.BookReader.Services
                     {
                         result[0] = 0;
                     }
-                }, e => {
+                }, e =>
+                {
                     result[0] = 0;
-                }, () => {
+                }, () =>
+                {
                     result[0] = 1;
                 });
 

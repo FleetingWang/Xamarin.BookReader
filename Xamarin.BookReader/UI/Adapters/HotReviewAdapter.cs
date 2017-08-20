@@ -20,9 +20,9 @@ namespace Xamarin.BookReader.UI.Adapters
 {
     public class HotReviewAdapter : EasyRVAdapter<HotReview.Reviews>
     {
-        private IOnRvItemClickListener<HotReview.Reviews> itemClickListener;
+        private IOnRvItemClickListener<Object> itemClickListener;
 
-        public HotReviewAdapter(Context context, List<HotReview.Reviews> list, IOnRvItemClickListener<HotReview.Reviews> listener)
+        public HotReviewAdapter(Context context, List<HotReview.Reviews> list, IOnRvItemClickListener<Object> listener)
             : base(context, list, Resource.Layout.item_book_detai_hot_review_list)
         {
             this.itemClickListener = listener;

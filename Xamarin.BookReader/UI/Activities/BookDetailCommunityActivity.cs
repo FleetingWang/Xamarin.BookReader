@@ -15,6 +15,7 @@ using Android.Support.V4.App;
 using Android.Support.V7.App;
 using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
+using Xamarin.BookReader.UI.Fragments;
 
 namespace Xamarin.BookReader.UI.Activities
 {

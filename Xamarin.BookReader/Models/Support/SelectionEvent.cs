@@ -8,9 +8,9 @@ namespace Xamarin.BookReader.Models.Support
 {
     public class SelectionEvent: MessageBusEvent
     {
-        private Constant.Distillate distillate;
-        private Constant.BookType type;
-        private Constant.SortType sort;
+        public Constant.Distillate distillate;
+        public Constant.BookType type;
+        public Constant.SortType sort;
 
         public SelectionEvent() { }
         public SelectionEvent(Constant.Distillate distillate, Constant.BookType type, Constant.SortType sort)

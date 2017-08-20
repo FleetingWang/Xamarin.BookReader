@@ -28,8 +28,6 @@ namespace Xamarin.BookReader.Bases
         protected int start = 0;
         protected int limit = 20;
 
-        public override int LayoutResId => throw new NotImplementedException();
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle state)
         {
             var parent = base.OnCreateView(inflater, container, state);

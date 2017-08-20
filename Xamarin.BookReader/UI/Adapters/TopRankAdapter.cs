@@ -119,5 +119,9 @@ namespace Xamarin.BookReader.UI.Adapters
         {
             return true;
         }
+        public void setItemClickListener(IOnRvItemClickListener<RankingList.MaleBean> listener)
+        {
+            this.listener = listener;
+        }
     }
 }

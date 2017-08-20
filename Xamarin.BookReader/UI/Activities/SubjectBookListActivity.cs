@@ -19,6 +19,8 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.Utils;
 using Android.Views.Animations;
+using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.UI.Fragments;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -130,7 +132,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             mTagList.Clear();
             mTagList.AddRange(data.data);
-            mTagAdapter.notifyDataSetChanged();
+            mTagAdapter.NotifyDataSetChanged();
         }
 
         public void showError()

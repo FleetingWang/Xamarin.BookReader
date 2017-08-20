@@ -71,6 +71,12 @@ namespace EasyAdapterLibrary.RecyclerViews
             return mConvertView;
         }
 
+        public EasyRVHolder setOnItemViewClickListener(View.IOnClickListener listener)
+        {
+            mConvertView.SetOnClickListener(listener);
+            return this;
+        }
+
         public EasyRVHolder setText(int viewId, String value)
         {
             TextView view = getView<TextView>(viewId);

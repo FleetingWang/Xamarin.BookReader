@@ -13,6 +13,7 @@ using Android.Support.V4.View;
 using Xamarin.BookReader.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
+using Xamarin.BookReader.UI.Fragments;
 
 namespace Xamarin.BookReader.UI.Activities
 {

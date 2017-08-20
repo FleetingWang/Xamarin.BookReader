@@ -112,7 +112,7 @@ namespace Xamarin.BookReader.UI.Activities
             public void OnRefresh()
             {
                 booksByTagActivity.current = 0;
-                booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
+                //TODO: BooksByTagPresenter getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
             }
 
             public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
@@ -129,7 +129,7 @@ namespace Xamarin.BookReader.UI.Activities
                         booksByTagActivity.mAdapter.NotifyItemRemoved(booksByTagActivity.mAdapter.ItemCount);
                         return;
                     }
-                    booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
+                    //TODO: BooksByTagPresenter getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
                 }
             }
 

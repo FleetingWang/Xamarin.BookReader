@@ -15,6 +15,8 @@ using Xamarin.BookReader.Managers;
 using Xamarin.BookReader.Models;
 using Android.Text;
 using Android.Support.V4.App;
+using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.UI.Fragments;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -83,10 +85,10 @@ namespace Xamarin.BookReader.UI.Activities
             //TODO: mPresenter.getCategoryListLv2();
 
             mTabContents = new List<Fragment>();
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Hot));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New.ToString()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Hot.ToString()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation.ToString()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over.ToString()));
 
             mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
@@ -180,7 +182,7 @@ namespace Xamarin.BookReader.UI.Activities
                     mListPopupWindow.ItemClick += (sender, e) =>
                     {
                         var position = e.Position;
-                        minorAdapter.SetChecked(position);
+                        minorAdapter.setChecked(position);
                         if (position > 0)
                         {
                             currentMinor = mMinors[position];

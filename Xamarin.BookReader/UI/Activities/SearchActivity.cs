@@ -15,6 +15,7 @@ using Xamarin.BookReader.Views;
 using Xamarin.BookReader.Datas;
 using Android.Support.V4.View;
 using Android.Text;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -158,7 +159,7 @@ namespace Xamarin.BookReader.UI.Activities
                 mListPopupWindow.SoftInputMode = SoftInput.AdjustResize;
                 mListPopupWindow.Show();
             }
-            mAutoAdapter.notifyDataSetChanged();
+            mAutoAdapter.NotifyDataSetChanged();
         }
 
         public void showSearchResultList(List<SearchDetail.SearchBooks> list)
@@ -231,17 +232,17 @@ namespace Xamarin.BookReader.UI.Activities
         private void initSearchHistory()
         {
             List<String> list = CacheManager.SearchHistory;
-            mHisAdapter.Clear();
+            mHisAdapter.clear();
             if (list != null && list.Count() > 0)
             {
                 tvClear.Enabled = (true);
-                mHisAdapter.AddRange(list);
+                mHisAdapter.addAll(list);
             }
             else
             {
                 tvClear.Enabled = (false);
             }
-            mHisAdapter.notifyDataSetChanged();
+            mHisAdapter.NotifyDataSetChanged();
         }
 
         /**

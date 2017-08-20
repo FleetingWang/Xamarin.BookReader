@@ -12,6 +12,7 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -94,7 +95,7 @@ namespace Xamarin.BookReader.UI.Activities
                 maleGroups.Add(new RankingList.MaleBean("别人家的排行榜"));
                 maleChilds.Add(collapse);
             }
-            maleAdapter.notifyDataSetChanged();
+            maleAdapter.NotifyDataSetChanged();
         }
 
         private void updateFemale(RankingList rankingList)
@@ -118,7 +119,7 @@ namespace Xamarin.BookReader.UI.Activities
                 femaleGroups.Add(new RankingList.MaleBean("别人家的排行榜"));
                 femaleChilds.Add(collapse);
             }
-            femaleAdapter.notifyDataSetChanged();
+            femaleAdapter.NotifyDataSetChanged();
         }
         public void showError()
         {

@@ -20,9 +20,9 @@ namespace Xamarin.BookReader.UI.Adapters
 {
     public class RecommendBookListAdapter: EasyRVAdapter<RecommendBookList.RecommendBook>
     {
-        private IOnRvItemClickListener<RecommendBookList.RecommendBook> itemClickListener;
+        private IOnRvItemClickListener<Object> itemClickListener;
         public RecommendBookListAdapter(Context context, List<RecommendBookList.RecommendBook> list,
-                                    IOnRvItemClickListener<RecommendBookList.RecommendBook> listener)
+                                    IOnRvItemClickListener<Object> listener)
             : base(context, list, Resource.Layout.item_book_detail_recommend_book_list)
         {
             this.itemClickListener = listener;

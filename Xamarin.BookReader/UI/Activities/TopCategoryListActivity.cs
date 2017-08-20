@@ -14,6 +14,7 @@ using Android.Support.V7.Widget;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
 using Xamarin.BookReader.Views;
+using Xamarin.BookReader.UI.Adapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -68,8 +69,8 @@ namespace Xamarin.BookReader.UI.Activities
             mFemaleCategoryList.Clear();
             mMaleCategoryList.AddRange(data.male);
             mFemaleCategoryList.AddRange(data.female);
-            mMaleCategoryListAdapter.notifyDataSetChanged();
-            mFemaleCategoryListAdapter.notifyDataSetChanged();
+            mMaleCategoryListAdapter.NotifyDataSetChanged();
+            mFemaleCategoryListAdapter.NotifyDataSetChanged();
         }
 
         public void showError()
