@@ -21,6 +21,7 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Linq;
 using Android.Support.V7.View.Menu;
 using System.Reactive.Concurrency;
+using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader
 {
@@ -144,13 +145,13 @@ namespace Xamarin.BookReader
                      popupWindow.showAtLocation(mCommonToolbar, GravityFlags.Center, 0, 0);*/
                     break;
                 case Resource.Id.action_scan_local_book:
-                    // TODO：ScanLocalBookActivity.startActivity(this);
+                    ScanLocalBookActivity.startActivity(this);
                     break;
                 case Resource.Id.action_wifi_book:
                     // TODO：WifiBookActivity.startActivity(this);
                     break;
                 case Resource.Id.action_feedback:
-                    // TODO：FeedbackActivity.startActivity(this);
+                    FeedbackActivity.startActivity(this);
                     break;
                 case Resource.Id.action_night_mode:
                     if (SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT, false))
@@ -166,7 +167,7 @@ namespace Xamarin.BookReader
                     Recreate();
                     break;
                 case Resource.Id.action_settings:
-                    // TODO：SettingActivity.startActivity(this);
+                    SettingActivity.startActivity(this);
                     break;
                 default:
                     break;

@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Com.Bumptech.Glide;
 using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -59,7 +60,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            initAdapter(SubjectBookListDetailBooksAdapter, false, true);
+            initAdapter(new SubjectBookListDetailBooksAdapter(this), false, true);
             mRecyclerView.removeAllItemDecoration();
             mAdapter.addHeader(new CustomItemView(this));
 

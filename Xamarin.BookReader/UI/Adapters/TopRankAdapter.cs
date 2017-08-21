@@ -43,7 +43,7 @@ namespace Xamarin.BookReader.UI.Adapters
 
         public override Java.Lang.Object GetChild(int groupPosition, int childPosition)
         {
-            return childArray[groupPosition][childPosition];
+            return null;//TODO: childArray[groupPosition][childPosition];
         }
 
         public override long GetChildId(int groupPosition, int childPosition)
@@ -70,7 +70,7 @@ namespace Xamarin.BookReader.UI.Adapters
 
         public override Java.Lang.Object GetGroup(int groupPosition)
         {
-            return groupArray[groupPosition];
+            return null;//TODO: groupArray[groupPosition];
         }
 
         public override long GetGroupId(int groupPosition)

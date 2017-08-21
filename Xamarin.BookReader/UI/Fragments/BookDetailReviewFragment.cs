@@ -14,6 +14,7 @@ using Xamarin.BookReader.Models;
 using DSoft.Messaging;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.Models.Support;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -49,7 +50,7 @@ namespace Xamarin.BookReader.UI.Fragments
 
         public override void ConfigViews()
         {
-            initAdapter(/*new BookDetailReviewAdapter(),*/ true, true);
+            initAdapter(new BookDetailReviewAdapter(Activity), true, true);
             onRefresh();
         }
 

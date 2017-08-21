@@ -16,6 +16,7 @@ using Android.Util;
 using Xamarin.BookReader.Utils;
 using Android.Text.Method;
 using Android.Graphics;
+using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader.Views
 {
@@ -83,7 +84,7 @@ namespace Xamarin.BookReader.Views
 
             public override void OnClick(View v)
             {
-                // TODO: SearchActivity.startActivity(context, name.Replace("》", "").Replace("《", ""));
+                SearchActivity.startActivity(context, name.Replace("》", "").Replace("《", ""));
             }
         }
     }

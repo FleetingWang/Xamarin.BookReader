@@ -14,6 +14,7 @@ using Xamarin.BookReader.Models;
 using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -59,7 +60,7 @@ namespace Xamarin.BookReader.UI.Fragments
 
         public override void ConfigViews()
         {
-            initAdapter(/*new SubCategoryAdapter(),*/ true, true);
+            initAdapter(new SubCategoryAdapter(Activity), true, true);
             onRefresh();
         }
         public void showCategoryList(BooksByCats data, bool isRefresh)

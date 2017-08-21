@@ -14,6 +14,7 @@ using Xamarin.BookReader.Models;
 using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -65,7 +66,7 @@ namespace Xamarin.BookReader.UI.Fragments
         }
         public override void ConfigViews()
         {
-            initAdapter(/*new SubjectBookListAdapter(),*/ true, true);
+            initAdapter(new SubjectBookListAdapter(Activity), true, true);
             onRefresh();
         }
         public void showBookList(List<BookLists.BookListsBean> bookLists, bool isRefresh)

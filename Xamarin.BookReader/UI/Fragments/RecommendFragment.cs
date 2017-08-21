@@ -26,6 +26,7 @@ using Xamarin.BookReader.Datas;
 using Settings = Xamarin.BookReader.Helpers.Settings;
 using System.Threading.Tasks;
 using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -124,7 +125,7 @@ namespace Xamarin.BookReader.UI.Fragments
         {
             if (IsViewVisible(llBatchManagement)) //批量管理时，屏蔽点击事件
                 return;
-            // TODO: ReadActivity.StartActivity(Activity, mAdapter.getItem(position), mAdapter.getItem(position).isFromSD);
+            //TODO: ReadActivity.StartActivity(Activity, mAdapter.getItem(position), mAdapter.getItem(position).isFromSD);
         }
 
         public bool onItemLongClick(int position)
@@ -186,9 +187,9 @@ namespace Xamarin.BookReader.UI.Fragments
                             CollectionsManager.getInstance().top(mAdapter.getItem(position)._id, !isTop);
                             break;
                         case 1:
-                            // TODO: 书籍详情
-                            //BookDetailActivity.startActivity(Activity,
-                            //        mAdapter.getItem(position)._id);
+                            // 书籍详情
+                            BookDetailActivity.startActivity(Activity,
+                                    mAdapter.getItem(position)._id);
                             break;
                         case 2:
                             //移入养肥区

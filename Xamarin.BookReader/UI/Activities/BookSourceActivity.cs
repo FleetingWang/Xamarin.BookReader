@@ -12,6 +12,7 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Newtonsoft.Json;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -43,7 +44,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void initDatas()
         {
-            initAdapter(BookSourceAdapter, false, false);
+            initAdapter(new BookSourceAdapter(this), false, false);
         }
         public override void configViews()
         {

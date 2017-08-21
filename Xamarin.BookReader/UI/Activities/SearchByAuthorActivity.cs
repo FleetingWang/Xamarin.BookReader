@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -42,7 +43,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void initDatas()
         {
-            initAdapter(SearchAdapter, false, false);
+            initAdapter(new SearchAdapter(this), false, false);
         }
         public override void configViews()
         {

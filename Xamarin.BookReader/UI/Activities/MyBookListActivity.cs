@@ -13,6 +13,7 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Datas;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -41,7 +42,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            initAdapter(SubjectBookListAdapter, true, false);
+            initAdapter(new SubjectBookListAdapter(this), true, false);
             mAdapter.setOnItemLongClickListener(this);
             onRefresh();
         }

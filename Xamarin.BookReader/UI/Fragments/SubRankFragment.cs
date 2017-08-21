@@ -12,6 +12,7 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Activities;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -41,7 +42,7 @@ namespace Xamarin.BookReader.UI.Fragments
         }
         public override void ConfigViews()
         {
-            initAdapter(/*new SubCategoryAdapter(),*/ true, false);
+            initAdapter(new SubCategoryAdapter(Activity), true, false);
             onRefresh();
         }
         public void showRankList(BooksByCats data)

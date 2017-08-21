@@ -19,6 +19,7 @@ using Com.Bumptech.Glide;
 using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.UI.EasyAdapters;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -74,7 +75,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            initAdapter(CommentListAdapter, false, true);
+            initAdapter(new CommentListAdapter(this), false, true);
             mAdapter.addHeader(new CustomItemView(this));
         }
 

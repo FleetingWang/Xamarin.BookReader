@@ -17,6 +17,7 @@ using Android.Support.V7.Widget;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.UI.Adapters;
 using Uri = Android.Net.Uri;
+using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -61,13 +62,13 @@ namespace Xamarin.BookReader.UI.Fragments
             switch (position)
             {
                 case 0:
-                    // TODO: TopRankActivity.startActivity(activity);
+                    TopRankActivity.startActivity(Activity);
                     break;
                 case 1:
-                    // TODO: SubjectBookListActivity.startActivity(activity);
+                    SubjectBookListActivity.startActivity(Activity);
                     break;
                 case 2:
-                    // TODO: startActivity(new Intent(activity, TopCategoryListActivity.class));
+                    StartActivity(new Intent(Activity, typeof(TopCategoryListActivity)));
                     break;
                 case 3:
                     StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://jq.qq.com/?_wv=1027&k=46qbql8")));
