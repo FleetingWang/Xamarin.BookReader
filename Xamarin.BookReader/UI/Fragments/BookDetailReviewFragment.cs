@@ -15,6 +15,10 @@ using DSoft.Messaging;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -92,13 +96,30 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getBookDetailReviewList(bookId, sort, 0, limit);
+            getBookDetailReviewList(bookId, sort, 0, limit);
         }
         public override void onLoadMore()
         {
             base.onLoadMore();
-            //TODO: mPresenter.getBookDetailReviewList(sort, type, start, limit);
+            getBookDetailReviewList(sort, type, start, limit);
         }
+        void getBookDetailReviewList(String bookId, String sort, int start, int limit)
+        {
+            BookApi.Instance.getBookDetailReviewList(bookId, sort, start.ToString(), limit.ToString())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showBookDetailReviewList(data.reviews, isRefresh);
+                }, e => {
+                    LogUtils.e("BookDetailReviewFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("BookDetailReviewFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void onItemClick(int position)
         {
             BookReviewDetailActivity.startActivity(Activity, mAdapter.getItem(position)._id);

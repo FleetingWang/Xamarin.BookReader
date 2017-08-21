@@ -13,6 +13,10 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Newtonsoft.Json;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -48,8 +52,7 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getBookSource("summary", bookId);
+            getBookSource("summary", bookId);
 
             new AlertDialog.Builder(this)
                 .SetMessage("换源功能暂未实现，后续更新...")
@@ -59,6 +62,23 @@ namespace Xamarin.BookReader.UI.Activities
                     dialog?.Dismiss();
                 })
             .Create().Show();
+        }
+
+        void getBookSource(String viewSummary, String book)
+        {
+            BookApi.Instance.getBookSource(viewSummary, book)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    if (data != null)
+                    {
+                        showBookSource(data);
+                    }
+                }, e => {
+                    LogUtils.e("BookSourceActivity", e.ToString());
+                }, () => {
+
+                });
         }
 
         public override void onItemClick(int position)

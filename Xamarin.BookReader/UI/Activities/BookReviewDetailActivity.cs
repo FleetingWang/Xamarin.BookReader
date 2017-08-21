@@ -20,6 +20,9 @@ using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -69,16 +72,55 @@ namespace Xamarin.BookReader.UI.Activities
         {
             id = Intent.GetStringExtra(INTENT_ID);
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getBookReviewDetail(id);
-            //TODO: mPresenter.getBestComments(id);
-            //TODO: mPresenter.getBookReviewComments(id, start, limit);
+            getBookReviewDetail(id);
+            getBestComments(id);
+            getBookReviewComments(id, start, limit);
         }
         public override void configViews()
         {
             initAdapter(new CommentListAdapter(this), false, true);
             mAdapter.addHeader(new CustomItemView(this));
         }
+        void getBookReviewDetail(String id)
+        {
+            BookApi.Instance.getBookReviewDetail(id)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookReviewDetail(data);
+                }, e => {
+                    LogUtils.e("BookReviewDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBestComments(String disscussionId)
+        {
+            BookApi.Instance.getBestComments(disscussionId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBestComments(data);
+                }, e => {
+                    LogUtils.e("BookReviewDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBookReviewComments(String bookReviewId, int start, int limit)
+        {
+            BookApi.Instance.getBookReviewComments(bookReviewId, start.ToString(), limit.ToString())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookReviewComments(data);
+                }, e => {
+                    LogUtils.e("BookReviewDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+
 
         public void showBookReviewDetail(BookReview data)
         {
@@ -140,7 +182,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void onLoadMore()
         {
             base.onLoadMore();
-            //TODO: getBookReviewComments(id, start, limit);
+            getBookReviewComments(id, start, limit);
         }
 
         public override void onItemClick(int position)

@@ -21,6 +21,10 @@ using Xamarin.BookReader.Utils;
 using Android.Views.Animations;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.Fragments;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
+using AppApplication = Android.App.Application;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -86,8 +90,24 @@ namespace Xamarin.BookReader.UI.Activities
             mTagAdapter.setItemClickListener(this);
             rvTags.SetAdapter(mTagAdapter);
 
-            //TODO: mPresenter.getBookListTags();
+            getBookListTags();
         }
+        void getBookListTags()
+        {
+            BookApi.Instance.getBookListTags()
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(AppApplication.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookListTags(data);
+                }, e => {
+                    LogUtils.e("SubjectBookListActivity", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("SubjectBookListActivity", "complete");
+                    complete();
+                });
+        }
+
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

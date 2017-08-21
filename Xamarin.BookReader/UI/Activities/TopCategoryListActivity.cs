@@ -15,6 +15,10 @@ using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -60,7 +64,25 @@ namespace Xamarin.BookReader.UI.Activities
             mRvMaleCategory.SetAdapter(mMaleCategoryListAdapter);
             mRvFeMaleCategory.SetAdapter(mFemaleCategoryListAdapter);
 
-            //TODO: mPresenter.getCategoryList();
+            getCategoryList();
+        }
+        void getCategoryList()
+        {
+            BookApi.Instance.getCategoryList()
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    if (data != null)
+                    {
+                        showCategoryList(data);
+                    }
+                }, e => {
+                    LogUtils.e("TopCategoryListActivity", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("TopCategoryListActivity", "complete");
+                    complete();
+                });
         }
 
         public void showCategoryList(CategoryList data)

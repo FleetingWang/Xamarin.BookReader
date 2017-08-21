@@ -20,6 +20,9 @@ using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.EasyAdapters;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -68,15 +71,53 @@ namespace Xamarin.BookReader.UI.Activities
         {
             id = Intent.GetStringExtra(INTENT_ID);
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getBookHelpDetail(id);
-            //TODO: mPresenter.getBestComments(id);
-            //TODO: mPresenter.getBookHelpComments(id, start, limit);
+            getBookHelpDetail(id);
+            getBestComments(id);
+            getBookHelpComments(id, start, limit);
         }
         public override void configViews()
         {
             initAdapter(new CommentListAdapter(this), false, true);
             mAdapter.addHeader(new CustomItemView(this));
+        }
+        void getBookHelpDetail(String id)
+        {
+            BookApi.Instance.getBookHelpDetail(id)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookHelpDetail(data);
+                }, e => {
+                    LogUtils.e("BookHelpDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBestComments(String disscussionId)
+        {
+            BookApi.Instance.getBestComments(disscussionId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBestComments(data);
+                }, e => {
+                    LogUtils.e("BookHelpDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBookHelpComments(String disscussionId, int start, int limit)
+        {
+            BookApi.Instance.getBookReviewComments(disscussionId, start.ToString(), limit.ToString())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookHelpComments(data);
+                }, e => {
+                    LogUtils.e("BookDiscussionDetailActivity", e.ToString());
+                }, () => {
+
+                });
         }
 
         public void showBookHelpDetail(BookHelp data)
@@ -121,7 +162,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void onLoadMore()
         {
             base.onLoadMore();
-            //TODO: mPresenter.getBookHelpComments(id, start, limit);
+            getBookHelpComments(id, start, limit);
         }
 
         public override void onItemClick(int position)

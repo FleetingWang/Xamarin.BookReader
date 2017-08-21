@@ -12,6 +12,10 @@ using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -47,7 +51,22 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void configViews()
         {
-            //TODO: mPresenter.getSearchResultList(author);
+            getSearchResultList(author);
+        }
+        void getSearchResultList(String author)
+        {
+            BookApi.Instance.searchBooksByAuthor(author)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showSearchResultList(data.books);
+                }, e => {
+                    LogUtils.e("SearchByAuthorActivity", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("SearchByAuthorActivity", "complete");
+                    complete();
+                });
         }
 
         public override void onItemClick(int position)

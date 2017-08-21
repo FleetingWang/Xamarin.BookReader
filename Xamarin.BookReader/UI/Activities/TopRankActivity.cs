@@ -13,6 +13,10 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Listeners;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -64,8 +68,27 @@ namespace Xamarin.BookReader.UI.Activities
             elvMale.SetAdapter(maleAdapter);
             elvFeMale.SetAdapter(femaleAdapter);
 
-            //TODO：mPresenter.getRankList();
+            getRankList();
         }
+        void getRankList()
+        {
+            BookApi.Instance.getRanking()
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    if (data != null)
+                    {
+                        showRankList(data);
+                    }
+                }, e => {
+                    LogUtils.e("TopRankActivity", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("TopRankActivity", "complete");
+                    complete();
+                });
+        }
+
         public void showRankList(RankingList rankingList)
         {
             maleGroups.Clear();

@@ -24,6 +24,9 @@ using Xamarin.BookReader.Managers;
 using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -133,9 +136,66 @@ namespace Xamarin.BookReader.UI.Activities
 
             mTagGroup.setOnTagClickListener(new CustomOnTagClickListener(this));
 
-            //TODO: mPresenter.getBookDetail(bookId);
-            //TODO: mPresenter.getHotReview(bookId);
-            //TODO: mPresenter.getRecommendBookList(bookId, "3");
+            getBookDetail(bookId);
+            getHotReview(bookId);
+            getRecommendBookList(bookId, "3");
+        }
+
+        void getBookDetail(string bookId)
+        {
+            BookApi.Instance.getBookDetail(bookId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    if (data != null)
+                    {
+                        showBookDetail(data);
+                    }
+                }, e => {
+                    LogUtils.e("BookDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+
+        void getHotReview(string bookId)
+        {
+            BookApi.Instance.getHotReview(bookId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    if (data != null)
+                    {
+                        List<HotReview.Reviews> list = data.reviews;
+                        if(list != null && list.Any())
+                        {
+                            showHotReview(list);
+                        }
+                    }
+                }, e => {
+                    LogUtils.e("BookDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+
+        void getRecommendBookList(String bookId, String limit)
+        {
+            BookApi.Instance.getRecommendBookList(bookId, limit)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    LogUtils.i(data.booklists.ToString());
+                    List<RecommendBookList.RecommendBook> list = data.booklists;
+                    if (list != null && !list.Any())
+                    {
+                        showRecommendBookList(list);
+                    }
+                }, e => {
+                    LogUtils.e("BookDetailActivity", e.ToString());
+                }, () => {
+
+                });
         }
 
         public void showBookDetail(BookDetail data)

@@ -17,6 +17,11 @@ using Android.Text;
 using Android.Support.V4.App;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.Fragments;
+using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using AppApplication = Android.App.Application;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -81,8 +86,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             mDatas = Resources.GetStringArray(Resource.Array.sub_tabs).ToList();
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getCategoryListLv2();
+            getCategoryListLv2();
 
             mTabContents = new List<Fragment>();
             mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New.ToString()));
@@ -103,6 +107,21 @@ namespace Xamarin.BookReader.UI.Activities
             {
                 EventManager.refreshSubCategory(currentMinor, types[e.Position]);
             };
+        }
+        void getCategoryListLv2()
+        {
+            BookApi.Instance.getCategoryListLv2()
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(AppApplication.SynchronizationContext)
+                .Subscribe(data => {
+                    showCategoryList(data);
+                }, e => {
+                    LogUtils.e("SubCategoryListActivity", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("SubCategoryListActivity", "complete");
+                    complete();
+                });
         }
 
         public void showCategoryList(CategoryListLv2 data)

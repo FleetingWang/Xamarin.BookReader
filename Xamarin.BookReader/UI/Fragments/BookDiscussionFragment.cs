@@ -15,6 +15,10 @@ using Xamarin.BookReader.Models.Support;
 using DSoft.Messaging;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Datas;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -83,12 +87,29 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getBookDisscussionList(block, sort, distillate, 0, limit);
+            getBookDisscussionList(block, sort, distillate, 0, limit);
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getBookDisscussionList(block, sort, distillate, start, limit);
+            getBookDisscussionList(block, sort, distillate, start, limit);
         }
+        void getBookDisscussionList(String block, String sort, String distillate, int start, int limit)
+        {
+            BookApi.Instance.getBookDisscussionList(block, "all", sort, "all", start.ToString(), limit.ToString(), distillate)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showBookDisscussionList(data.posts, isRefresh);
+                }, e => {
+                    LogUtils.e("BookDiscussionFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("BookDiscussionFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void onItemClick(int position)
         {
             DiscussionList.PostsBean data = mAdapter.getItem(position);

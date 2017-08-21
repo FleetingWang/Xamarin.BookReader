@@ -17,6 +17,9 @@ using Android.Support.V4.View;
 using Android.Text;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.EasyAdapters;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -105,8 +108,60 @@ namespace Xamarin.BookReader.UI.Activities
                 showHotWord();
             };
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getHotWordList();
+            getHotWordList();
+        }
+
+        void getHotWordList()
+        {
+            BookApi.Instance.getHotWord()
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    List<String> list = data.hotWords;
+                    if (list != null && list.Any())
+                    {
+                        showHotWordList(list);
+                    }
+                }, e => {
+                    LogUtils.e("SearchActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getAutoCompleteList(String query)
+        {
+            BookApi.Instance.getAutoComplete(query)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    LogUtils.i("getAutoCompleteList" + data.keywords.ToString());
+                    List<String> list = data.keywords;
+                    if (list != null && list.Any())
+                    {
+                        showAutoCompleteList(list);
+                    }
+                }, e => {
+                    LogUtils.e("SearchActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getSearchResultList(String query)
+        {
+            BookApi.Instance.getSearchResult(query)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    List<SearchDetail.SearchBooks> list = data.books;
+                    if (list != null && list.Any())
+                    {
+                        showSearchResultList(list);
+                    }
+                }, e => {
+                    LogUtils.e("SearchActivity", e.ToString());
+                }, () => {
+
+                });
         }
 
         private void initAutoList()
@@ -181,7 +236,7 @@ namespace Xamarin.BookReader.UI.Activities
             {
                 var query = e.Query;
                 key = query;
-                //TODO: mPresenter.getSearchResultList(query);
+                getSearchResultList(query);
                 saveSearchHistory(query);
                 e.Handled = false;
             };
@@ -196,7 +251,7 @@ namespace Xamarin.BookReader.UI.Activities
                 }
                 else
                 {
-                    //TODO: mPresenter.getAutoCompleteList(newText);
+                    getAutoCompleteList(newText);
                 }
                 e.Handled = false;
             };

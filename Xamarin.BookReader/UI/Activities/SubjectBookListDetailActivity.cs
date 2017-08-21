@@ -17,6 +17,9 @@ using Com.Bumptech.Glide;
 using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.UI.EasyAdapters;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -64,7 +67,22 @@ namespace Xamarin.BookReader.UI.Activities
             mRecyclerView.removeAllItemDecoration();
             mAdapter.addHeader(new CustomItemView(this));
 
-            //TODO: mPresenter.getBookListDetail(bookListsBean._id);
+            getBookListDetail(bookListsBean._id);
+        }
+        void getBookListDetail(String bookListId)
+        {
+            BookApi.Instance.getBookListDetail(bookListId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookListDetail(data);
+                }, e => {
+                    LogUtils.e("SubjectBookListDetailActivity", e.ToString());
+                    complete();
+                }, () => {
+                    LogUtils.i("SubjectBookListDetailActivity", "complete");
+                    complete();
+                });
         }
 
         public void showBookListDetail(BookListDetail data)
@@ -122,7 +140,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void onRefresh()
         {
-            //TODO: getBookListDetail(bookListsBean._id);
+            getBookListDetail(bookListsBean._id);
         }
 
         public override void onLoadMore()

@@ -16,6 +16,10 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Xamarin.BookReader.Views;
 using Xamarin.BookReader.UI.Adapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -66,8 +70,36 @@ namespace Xamarin.BookReader.UI.Activities
             mRecyclerView.SetAdapter(mAdapter);
             mRecyclerView.AddOnScrollListener(new RefreshListener(this));
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getBooksByTag(tag, current + "", (current + 10) + "");
+            getBooksByTag(tag, current + "", (current + 10) + "");
+        }
+        private bool isLoading = false;
+        void getBooksByTag(String tags, String start, String limit)
+        {
+            if (!isLoading)
+            {
+                isLoading = true;
+                BookApi.Instance.getBooksByTag(tags, start, limit)
+                    .SubscribeOn(DefaultScheduler.Instance)
+                    .ObserveOn(Application.SynchronizationContext)
+                    .Subscribe(data => {
+                        if (data != null)
+                        {
+                            List<BooksByTag.TagBook> list = data.books;
+                            if (list != null && list.Any())
+                            {
+                                bool isRefresh = start.Equals("0") ? true : false;
+                                showBooksByTag(list, isRefresh);
+                            }
+                        }
+                    }, e => {
+                        LogUtils.e("BooksByTagActivity", e.ToString());
+                        isLoading = false;
+                        onLoadComplete(false, e.ToString());
+                    }, () => {
+                        isLoading = false;
+                        onLoadComplete(true, "");
+                    });
+            }
         }
 
         public void showBooksByTag(List<BooksByTag.TagBook> list, bool isRefresh)
@@ -112,7 +144,7 @@ namespace Xamarin.BookReader.UI.Activities
             public void OnRefresh()
             {
                 booksByTagActivity.current = 0;
-                //TODO: BooksByTagPresenter getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
+                booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
             }
 
             public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
@@ -129,7 +161,7 @@ namespace Xamarin.BookReader.UI.Activities
                         booksByTagActivity.mAdapter.NotifyItemRemoved(booksByTagActivity.mAdapter.ItemCount);
                         return;
                     }
-                    //TODO: BooksByTagPresenter getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
+                    booksByTagActivity.getBooksByTag(booksByTagActivity.tag, booksByTagActivity.current + "", "10");
                 }
             }
 

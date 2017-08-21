@@ -20,6 +20,9 @@ using Com.Bumptech.Glide.Load.Resource.Bitmap;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -73,15 +76,54 @@ namespace Xamarin.BookReader.UI.Activities
         {
             id = Intent.GetStringExtra(INTENT_ID);
 
-            //TODO: mPresenter.attachView(this);
-            //TODO: mPresenter.getBookDisscussionDetail(id);
-            //TODO: mPresenter.getBestComments(id);
-            //TODO: mPresenter.getBookDisscussionComments(id, start, limit);
+            getBookDisscussionDetail(id);
+            getBestComments(id);
+            getBookDisscussionComments(id, start, limit);
         }
         public override void configViews()
         {
             initAdapter(new CommentListAdapter(this), false, true);
             mAdapter.addHeader(new CustomItemView(this));
+        }
+
+        void getBookDisscussionDetail(String id)
+        {
+            BookApi.Instance.getBookDisscussionDetail(id)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookDisscussionDetail(data);
+                }, e => {
+                    LogUtils.e("BookDiscussionDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBestComments(String disscussionId)
+        {
+            BookApi.Instance.getBestComments(disscussionId)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBestComments(data);
+                }, e => {
+                    LogUtils.e("BookDiscussionDetailActivity", e.ToString());
+                }, () => {
+
+                });
+        }
+        void getBookDisscussionComments(String disscussionId, int start, int limit)
+        {
+            BookApi.Instance.getBookDisscussionComments(disscussionId, start.ToString(), limit.ToString())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookDisscussionComments(data);
+                }, e => {
+                    LogUtils.e("BookDiscussionDetailActivity", e.ToString());
+                }, () => {
+
+                });
         }
 
         public void showBookDisscussionDetail(Disscussion disscussion)
@@ -127,7 +169,7 @@ namespace Xamarin.BookReader.UI.Activities
         public override void onLoadMore()
         {
             base.onLoadMore();
-            // TODO: mPresenter.getBookDisscussionComments(id, start, limit);
+            getBookDisscussionComments(id, start, limit);
         }
 
         public void onItemClick(View view, int position, CommentList.CommentsBean data)
