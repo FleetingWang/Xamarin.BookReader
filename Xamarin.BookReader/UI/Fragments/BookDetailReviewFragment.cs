@@ -25,6 +25,7 @@ namespace Xamarin.BookReader.UI.Fragments
     /// <summary>
     /// 书籍详情 书评列表Fragment
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.BookDetailReviewFragment")]
     public class BookDetailReviewFragment : BaseRVFragment<HotReview.Reviews>
     {
         public static String BUNDLE_ID = "bookId";

@@ -17,9 +17,11 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using Xamarin.BookReader.Utils;
 using System.Reactive.Linq;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookSourceActivity : BaseRVActivity<BookSource>
     {
         public static String INTENT_BOOK_ID = "bookId";

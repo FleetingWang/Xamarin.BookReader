@@ -11,12 +11,14 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Views;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 女生区
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class GirlBookDiscussionActivity : BaseCommunitActivity
     {
         public static void startActivity(Context context)

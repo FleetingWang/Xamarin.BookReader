@@ -14,12 +14,14 @@ using Xamarin.BookReader.Models;
 using Xamarin.BookReader.Views.RecyclerViews.Adapters;
 using Xamarin.BookReader.Datas;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 我的书单
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class MyBookListActivity : BaseRVActivity<BookLists.BookListsBean>,
         RecyclerArrayAdapter<BookLists.BookListsBean>.OnItemLongClickListener
     {

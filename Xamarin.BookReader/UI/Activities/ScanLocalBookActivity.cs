@@ -22,12 +22,14 @@ using Android.Database;
 using Uri = Android.Net.Uri;
 using Java.IO;
 using Xamarin.BookReader.Managers;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 扫描本地书籍
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class ScanLocalBookActivity : BaseActivity, RecyclerArrayAdapter<Recommend.RecommendBooks>.OnItemClickListener
     {
         public static void startActivity(Context context)

@@ -149,14 +149,16 @@ namespace EasyAdapterLibrary.RecyclerViews
         public EasyRVHolder setCircleImageUrl(int viewId, String imgUrl, int placeHolderRes)
         {
             ImageView view = getView<ImageView>(viewId);
-            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes).Transform(new GlideCircleTransform(mContext)).Into(view);
+            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes)
+                .Transform(new GlideCircleTransform(mContext)).Into(view);
             return this;
         }
 
         public EasyRVHolder setRoundImageUrl(int viewId, String imgUrl, int placeHolderRes)
         {
             ImageView view = getView<ImageView>(viewId);
-            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes).Transform(new GlideRoundTransform(mContext)).Into(view);
+            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes)
+                .Transform(new GlideRoundTransform(mContext)).Into(view);
             return this;
         }
 

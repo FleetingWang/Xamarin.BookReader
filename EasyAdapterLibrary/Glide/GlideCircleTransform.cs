@@ -23,7 +23,7 @@ namespace Com.Bumptech.Glide.Load.Resource.Bitmap
 
         }
 
-        public override string Id => throw new NotImplementedException();
+        public override string Id => Class.Name;
 
         protected override Android.Graphics.Bitmap Transform(IBitmapPool pool, Android.Graphics.Bitmap toTransform, int outWidth, int outHeight)
         {

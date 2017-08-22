@@ -15,12 +15,17 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     /// <summary>
     /// 书评区Fragment
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.BookReviewFragment")]
     public class BookReviewFragment : BaseRVFragment<BookReviewList.ReviewsBean>
     {
         private String sort = Constant.SortType.Default.ToString();
@@ -65,18 +70,35 @@ namespace Xamarin.BookReader.UI.Fragments
                 type = e.type.ToString();
                 distillate = e.distillate.ToString();
                 start = 0;
-                //TODO: mPresenter.getBookReviewList(sort, type, distillate, start, limit);
+                getBookReviewList(sort, type, distillate, start, limit);
             });
         }
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getBookReviewList(sort, type, distillate, start, limit);
+            getBookReviewList(sort, type, distillate, start, limit);
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getBookReviewList(sort, type, distillate, start, limit);
+            getBookReviewList(sort, type, distillate, start, limit);
         }
+        void getBookReviewList(String sort, String type, String distillate, int start, int limit)
+        {
+            BookApi.Instance.getBookReviewList("all", sort, type, start.ToString(), limit.ToString(), distillate)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showBookReviewList(data.reviews, isRefresh);
+                }, e => {
+                    LogUtils.e("BookReviewFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("BookReviewFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void onItemClick(int position)
         {
             BookReviewList.ReviewsBean data = mAdapter.getItem(position);

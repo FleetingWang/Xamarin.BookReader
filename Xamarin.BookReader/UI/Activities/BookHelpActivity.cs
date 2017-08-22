@@ -10,12 +10,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Bases;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 书荒求助区
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookHelpActivity : BaseCommunitActivity
     {
         public static void startActivity(Context context) {

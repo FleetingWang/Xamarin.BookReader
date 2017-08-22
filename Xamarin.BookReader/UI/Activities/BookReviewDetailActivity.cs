@@ -23,12 +23,14 @@ using Xamarin.BookReader.UI.EasyAdapters;
 using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 书评区详情
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookReviewDetailActivity : BaseRVActivity<CommentList.CommentsBean>,
         IOnRvItemClickListener<CommentList.CommentsBean>
     {
@@ -60,7 +62,6 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
         }
 
         public override void initToolBar()

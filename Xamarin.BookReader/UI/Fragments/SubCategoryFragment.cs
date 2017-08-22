@@ -15,12 +15,17 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     /// <summary>
     /// 二级分类
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.SubCategoryFragment")]
     public class SubCategoryFragment : BaseRVFragment<BooksByCats.BooksBean>
     {
         public static String BUNDLE_MAJOR = "major";
@@ -101,12 +106,29 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getCategoryList(gender, major, minor, this.type, 0, limit);
+            getCategoryList(gender, major, minor, this.type, 0, limit);
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getCategoryList(gender, major, minor, this.type, start, limit);
+            getCategoryList(gender, major, minor, this.type, start, limit);
         }
+        void getCategoryList(String gender, String major, String minor, String type, int start, int limit)
+        {
+            BookApi.Instance.getBooksByCats(gender, type, major, minor, start, limit)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showCategoryList(data, isRefresh);
+                }, e => {
+                    LogUtils.e("GirlBookDiscussionFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("GirlBookDiscussionFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void OnDestroyView()
         {
             MessageBus.Default.DeRegister<SubEvent>(initCategoryList);

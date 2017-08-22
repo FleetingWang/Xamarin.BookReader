@@ -13,9 +13,12 @@ using Android.Support.V4.View;
 using Xamarin.BookReader.Views;
 using Android.Support.V4.App;
 using Xamarin.BookReader.UI.Fragments;
+using Android.Content.PM;
+using AndroidApp = Android.App;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [AndroidApp.Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SubRankActivity : BaseActivity
     {
         public static String INTENT_WEEK = "_id";

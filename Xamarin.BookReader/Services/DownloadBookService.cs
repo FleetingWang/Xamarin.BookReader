@@ -17,6 +17,8 @@ using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.Models;
 using System.Threading.Tasks;
 using Java.Lang;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.Services
 {
@@ -196,8 +198,8 @@ namespace Xamarin.BookReader.Services
         {
             int[] result = { -1 };
             bookApi.getChapterRead(url)
-                //.subscribeOn(Schedulers.io())
-                //.observeOn(AndroidSchedulers.mainThread())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
                 .Subscribe(data =>
                 {
                     if (data.chapter != null)

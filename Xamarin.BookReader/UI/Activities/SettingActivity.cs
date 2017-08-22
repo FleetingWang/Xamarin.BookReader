@@ -16,9 +16,11 @@ using Xamarin.BookReader.Datas;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.Helpers;
 using Xamarin.BookReader.Managers;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SettingActivity : BaseActivity
     {
         public static void startActivity(Context context)

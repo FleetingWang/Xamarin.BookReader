@@ -15,12 +15,18 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using Xamarin.BookReader.Helpers;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     /// <summary>
     /// 主题书单
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.SubjectFragment")]
     public class SubjectFragment : BaseRVFragment<BookLists.BookListsBean>
     {
         public static String BUNDLE_TAG = "tag";
@@ -95,7 +101,7 @@ namespace Xamarin.BookReader.UI.Fragments
                 currendTag = e.tag.ToString();
                 if (UserVisibleHint)
                 {
-                    //TODO: mPresenter.getBookLists(duration, sort, 0, limit, currendTag, SettingManager.getInstance().getUserChooseSex());
+                    getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.ToString());
                 }
             });
         }
@@ -107,12 +113,32 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getBookLists(duration, sort, 0, limit, currendTag, SettingManager.getInstance().getUserChooseSex());
+            getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.ToString());
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getBookLists(duration, sort, start, limit, currendTag, SettingManager.getInstance().getUserChooseSex());
+            getBookLists(duration, sort, start, limit, currendTag, Settings.UserChooseSex.ToString());
         }
+        void getBookLists(String duration, String sort, int start, int limit, String tag, String gender)
+        {
+            BookApi.Instance.getBookLists(duration, sort, start.ToString(), limit.ToString(), tag, gender)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    showBookList(data.bookLists, start == 0 ? true : false);
+                    if (data.bookLists == null || !data.bookLists.Any())
+                    {
+                        ToastUtils.showSingleToast("暂无相关书单");
+                    }
+                }, e => {
+                    LogUtils.e("GirlBookDiscussionFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("GirlBookDiscussionFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void OnDestroyView()
         {
             MessageBus.Default.DeRegister<TagEvent>(initCategoryList);

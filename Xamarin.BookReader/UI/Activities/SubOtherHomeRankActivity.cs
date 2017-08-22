@@ -16,12 +16,14 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 别人家的排行榜
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SubOtherHomeRankActivity : BaseRVActivity<BooksByCats.BooksBean>
     {
         public static String BUNDLE_ID = "_id";

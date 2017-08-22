@@ -16,9 +16,11 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SearchByAuthorActivity : BaseRVActivity<SearchDetail.SearchBooks>
     {
         public static String INTENT_AUTHOR = "author";
@@ -37,7 +39,6 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
         }
         public override void initToolBar()
         {

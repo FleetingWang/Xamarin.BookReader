@@ -20,9 +20,11 @@ using Xamarin.BookReader.UI.EasyAdapters;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SearchActivity : BaseRVActivity<SearchDetail.SearchBooks>
     {
         public static String INTENT_QUERY = "query";

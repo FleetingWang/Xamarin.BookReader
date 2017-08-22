@@ -11,9 +11,11 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Views;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class FeedbackActivity: BaseActivity
     {
         public static void startActivity(Context context)

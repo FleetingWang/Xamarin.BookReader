@@ -15,9 +15,14 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
+    [Register("xamarin.bookreader.ui.fragments.BookHelpFragment")]
     public class BookHelpFragment : BaseRVFragment<BookHelpList.HelpsBean>
     {
         private String sort = Constant.SortType.Default.ToString();
@@ -65,12 +70,29 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getBookHelpList(sort, distillate, 0, limit);
+            getBookHelpList(sort, distillate, 0, limit);
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getBookHelpList(sort, distillate, start, limit);
+            getBookHelpList(sort, distillate, start, limit);
         }
+        void getBookHelpList(String sort, String distillate, int start, int limit)
+        {
+            BookApi.Instance.getBookHelpList("all", sort, start.ToString(), limit.ToString(), distillate)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showBookHelpList(data.helps, isRefresh);
+                }, e => {
+                    LogUtils.e("BookHelpFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("BookHelpFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void onItemClick(int position)
         {
             BookHelpList.HelpsBean data = mAdapter.getItem(position);

@@ -20,9 +20,11 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
 using Xamarin.BookReader.Utils;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BooksByTagActivity : BaseActivity,
         IOnRvItemClickListener<BooksByTag.TagBook>
     {

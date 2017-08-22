@@ -23,12 +23,14 @@ using Xamarin.BookReader.UI.EasyAdapters;
 using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 综合讨论区详情
     /// </summary>
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookDiscussionDetailActivity : BaseRVActivity<CommentList.CommentsBean>,
         IOnRvItemClickListener<CommentList.CommentsBean>
     {
@@ -205,11 +207,12 @@ namespace Xamarin.BookReader.UI.Activities
             }
         }
 
-        private class CustomItemView : RecyclerArrayAdapter<CommentList.CommentsBean>.ItemView
+        private class CustomItemView : View, RecyclerArrayAdapter<CommentList.CommentsBean>.ItemView
         {
             private BookDiscussionDetailActivity bookDiscussionDetailActivity;
 
             public CustomItemView(BookDiscussionDetailActivity bookDiscussionDetailActivity)
+                :base(bookDiscussionDetailActivity)
             {
                 this.bookDiscussionDetailActivity = bookDiscussionDetailActivity;
             }

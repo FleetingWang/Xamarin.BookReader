@@ -16,12 +16,15 @@ using Android.Support.V7.App;
 using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Fragments;
+using Android.Content.PM;
+using AndroidApp = Android.App;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 书籍详情 社区
     /// </summary>
+    [AndroidApp.Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookDetailCommunityActivity : BaseActivity
     {
         public static String INTENT_ID = "bookId";

@@ -14,18 +14,21 @@ using Xamarin.BookReader.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Xamarin.BookReader.UI.Fragments;
+using Android.Content.PM;
+using AndroidApp = Android.App;
 
 namespace Xamarin.BookReader.UI.Activities
 {
     /// <summary>
     /// 综合讨论区
     /// </summary>
+    [AndroidApp.Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookDiscussionActivity : BaseCommunitActivity
     {
         public static String INTENT_DIS = "isDis";
         public static void startActivity(Context context, bool isDiscussion)
         {
-            context.StartActivity(new Intent(context, typeof(BookDetailCommunityActivity))
+            context.StartActivity(new Intent(context, typeof(BookDiscussionActivity))
                 .PutExtra(INTENT_DIS, isDiscussion));
         }
         private bool mIsDiscussion;

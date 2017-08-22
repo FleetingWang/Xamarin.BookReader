@@ -20,9 +20,11 @@ using Xamarin.BookReader.UI.EasyAdapters;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
 using Xamarin.BookReader.Utils;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SubjectBookListDetailActivity : BaseRVActivity<BookListDetail.BookListBean.BooksBean>
     {
         private HeaderViewHolder headerViewHolder;
@@ -54,7 +56,6 @@ namespace Xamarin.BookReader.UI.Activities
         }
         public override void bindViews()
         {
-            throw new NotImplementedException();
         }
 
         public override void initDatas()

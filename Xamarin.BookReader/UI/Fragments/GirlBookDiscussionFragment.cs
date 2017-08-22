@@ -15,12 +15,17 @@ using DSoft.Messaging;
 using Xamarin.BookReader.Models.Support;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     /// <summary>
     /// 女生区Fragment
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.GirlBookDiscussionFragment")]
     public class GirlBookDiscussionFragment : BaseRVFragment<DiscussionList.PostsBean>
     {
         private String sort = Constant.SortType.Default.ToString();
@@ -69,12 +74,29 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getGirlBookDisscussionList(sort, distillate, 0, limit);
+            getGirlBookDisscussionList(sort, distillate, 0, limit);
         }
         public override void onLoadMore()
         {
-            //TODO: mPresenter.getGirlBookDisscussionList(sort, distillate, start, limit);
+            getGirlBookDisscussionList(sort, distillate, start, limit);
         }
+        void getGirlBookDisscussionList(String sort, String distillate, int start, int limit)
+        {
+            BookApi.Instance.getGirlBookDisscussionList("girl", "all", sort, "all", start.ToString(), limit.ToString(), distillate)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    bool isRefresh = start == 0 ? true : false;
+                    showGirlBookDisscussionList(data.posts, isRefresh);
+                }, e => {
+                    LogUtils.e("GirlBookDiscussionFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("GirlBookDiscussionFragment", "complete");
+                    complete();
+                });
+        }
+
         public override void onItemClick(int position)
         {
             DiscussionList.PostsBean data = mAdapter.getItem(position);

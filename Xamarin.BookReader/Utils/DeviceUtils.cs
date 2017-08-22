@@ -130,7 +130,6 @@ namespace Xamarin.BookReader.Utils
          * @param context
          * @return
          */
-        //@(Build.VERSION_CODES.CUPCAKE)
         [TargetApi(Value = (int)BuildVersionCodes.Cupcake)]
         public static string getAvailMemory(Context context)
         {

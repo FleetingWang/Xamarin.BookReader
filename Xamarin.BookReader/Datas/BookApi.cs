@@ -15,6 +15,7 @@ using Xamarin.BookReader.Models;
 using Akavache;
 using Xamarin.BookReader.Models.User;
 using System.Reactive.Threading.Tasks;
+using System.Net.Http;
 
 namespace Xamarin.BookReader.Datas
 {
@@ -32,7 +33,8 @@ namespace Xamarin.BookReader.Datas
 
         public BookApi()
         {
-            service = RestService.For<BookApiService>(Constant.API_BASE_URL);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(Constant.API_BASE_URL) };
+            service = RestService.For<BookApiService>(httpClient);
         }
 
         public IObservable<Recommend> getRecommend(string gender)

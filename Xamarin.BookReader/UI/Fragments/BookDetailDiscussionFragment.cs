@@ -25,6 +25,7 @@ namespace Xamarin.BookReader.UI.Fragments
     /// <summary>
     /// 书籍详情 讨论列表Fragment
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.BookDetailDiscussionFragment")]
     public class BookDetailDiscussionFragment : BaseRVFragment<DiscussionList.PostsBean>
     {
         public static String BUNDLE_ID = "bookId";

@@ -25,6 +25,7 @@ namespace Xamarin.BookReader.UI.Fragments
     /// <summary>
     /// 综合讨论区Fragment
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.BookDiscussionFragment")]
     public class BookDiscussionFragment : BaseRVFragment<DiscussionList.PostsBean>
     {
         private static String BUNDLE_BLOCK = "block";

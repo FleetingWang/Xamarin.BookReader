@@ -25,9 +25,12 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
 using AppApplication = Android.App.Application;
+using Android.Content.PM;
+using AndroidApp = Android.App;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [AndroidApp.Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class SubjectBookListActivity : BaseActivity, IOnRvItemClickListener<String>
     {
         RVPIndicator mIndicator;

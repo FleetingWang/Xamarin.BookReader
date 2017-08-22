@@ -13,12 +13,17 @@ using Xamarin.BookReader.Bases;
 using Xamarin.BookReader.Models;
 using Xamarin.BookReader.UI.Activities;
 using Xamarin.BookReader.UI.EasyAdapters;
+using Xamarin.BookReader.Datas;
+using System.Reactive.Concurrency;
+using Xamarin.BookReader.Utils;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     /// <summary>
     /// 二级排行榜
     /// </summary>
+    [Register("xamarin.bookreader.ui.fragments.SubRankFragment")]
     public class SubRankFragment : BaseRVFragment<BooksByCats.BooksBean>
     {
         public static String BUNDLE_ID = "_id";
@@ -65,7 +70,31 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            //TODO: mPresenter.getRankList(id);
+            getRankList(id);
         }
+        void getRankList(String id)
+        {
+            BookApi.Instance.getRanking(id)
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
+                .Subscribe(data => {
+                    List<Rankings.RankingBean.BooksBean> books = data.ranking.books;
+
+                    BooksByCats cats = new BooksByCats();
+                    cats.books = new List<BooksByCats.BooksBean>();
+                    foreach (Rankings.RankingBean.BooksBean bean in books)
+                    {
+                        cats.books.Add(new BooksByCats.BooksBean(bean._id, bean.cover, bean.title, bean.author, bean.cat, bean.shortIntro, bean.latelyFollower, bean.retentionRatio));
+                    }
+                    showRankList(cats);
+                }, e => {
+                    LogUtils.e("SubRankFragment", e.ToString());
+                    showError();
+                }, () => {
+                    LogUtils.i("SubRankFragment", "complete");
+                    complete();
+                });
+        }
+
     }
 }

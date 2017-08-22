@@ -27,9 +27,11 @@ using Xamarin.BookReader.UI.Adapters;
 using Xamarin.BookReader.Datas;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
+using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class BookDetailActivity : BaseActivity, IOnRvItemClickListener<Object>
     {
         ImageView mIvBookCover;

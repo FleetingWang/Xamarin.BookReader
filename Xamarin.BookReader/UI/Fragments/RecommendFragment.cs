@@ -27,6 +27,8 @@ using Settings = Xamarin.BookReader.Helpers.Settings;
 using System.Threading.Tasks;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Activities;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -236,8 +238,8 @@ namespace Xamarin.BookReader.UI.Fragments
         private void getTocList(string bookId)
         {
             BookApi.Instance.getBookMixAToc(bookId, "chapters")
-                //.SubscribeOn(Schedulers.io())
-                //.observeOn(AndroidSchedulers.mainThread())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
                 .Subscribe(data => {
                     List<BookMixAToc.MixToc.Chapters> list = data.mixToc.chapters;
                     if (list != null && list.Any())
