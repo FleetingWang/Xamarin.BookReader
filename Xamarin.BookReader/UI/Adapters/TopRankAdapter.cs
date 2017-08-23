@@ -86,7 +86,7 @@ namespace Xamarin.BookReader.UI.Adapters
             if (!TextUtils.IsEmpty(groupArray[groupPosition].cover)) {
                 Glide.With(mContext)
                     .Load(Constant.IMG_BASE_URL + groupArray[groupPosition].cover)
-                    .Placeholder(Resource.Drawable.avatar_default)
+                    //.Placeholder(Resource.Drawable.avatar_default)
                     .Transform(new GlideCircleTransform(mContext))
                     .Into(ivCover);
                 group.Click += (sender, e) => {

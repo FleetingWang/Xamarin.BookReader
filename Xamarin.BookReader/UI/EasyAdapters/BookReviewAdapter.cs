@@ -58,9 +58,9 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                 }
 
                 holder.setText(Resource.Id.tvBookTitle, item.book.title)
-                        .setText(Resource.Id.tvBookType, String.Format(mContext.GetString(Resource.String.book_review_book_type), Constant.bookType[item.book.type]))
+                        .setText(Resource.Id.tvBookType, Java.Lang.String.Format(mContext.GetString(Resource.String.book_review_book_type), Constant.bookType[item.book.type]))
                         .setText(Resource.Id.tvTitle, item.title)
-                        .setText(Resource.Id.tvHelpfulYes, String.Format(mContext.GetString(Resource.String.book_review_helpful_yes), item.helpful.yes));
+                        .setText(Resource.Id.tvHelpfulYes, Java.Lang.String.Format(mContext.GetString(Resource.String.book_review_helpful_yes), item.helpful.yes));
 
                 if (TextUtils.Equals(item.state, "hot"))
                 {

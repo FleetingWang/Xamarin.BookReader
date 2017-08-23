@@ -40,9 +40,9 @@ namespace Xamarin.BookReader.UI.Adapters
                     .setText(Resource.Id.tvBookAuthor, item.author)
                     .setText(Resource.Id.tvBookListTitle, item.title)
                     .setText(Resource.Id.tvBookListDesc, item.desc)
-                    .setText(Resource.Id.tvBookCount, String.Format(mContext.GetString(Resource.String
+                    .setText(Resource.Id.tvBookCount, Java.Lang.String.Format(mContext.GetString(Resource.String
                             .book_detail_recommend_book_list_book_count), item.bookCount))
-                    .setText(Resource.Id.tvCollectorCount, String.Format(mContext.GetString(Resource.String
+                    .setText(Resource.Id.tvCollectorCount, Java.Lang.String.Format(mContext.GetString(Resource.String
                             .book_detail_recommend_book_list_collector_count), item.collectorCount));
             // TODO: NoDoubleClickListener
             holder.Click += (sender, e) => {

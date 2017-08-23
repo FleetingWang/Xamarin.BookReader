@@ -56,7 +56,7 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                     holder.setImageResource(Resource.Id.ivBookCover, Resource.Drawable.avatar_default);
                 }
 
-                holder.setText(Resource.Id.tvBookType, String.Format(mContext.GetString(Resource.String
+                holder.setText(Resource.Id.tvBookType, Java.Lang.String.Format(mContext.GetString(Resource.String
                         .book_detail_user_lv), item.author.lv))
                         .setText(Resource.Id.tvTitle, item.title)
                         .setText(Resource.Id.tvHelpfulYes, item.commentCount + "");

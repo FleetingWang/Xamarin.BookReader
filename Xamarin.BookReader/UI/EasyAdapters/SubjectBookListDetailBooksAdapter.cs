@@ -56,9 +56,9 @@ namespace Xamarin.BookReader.UI.EasyAdapters
 
                 holder.setText(Resource.Id.tvBookListTitle, item.Book.Title)
                         .setText(Resource.Id.tvBookAuthor, item.Book.Author)
-                        .setText(Resource.Id.tvBookLatelyFollower, String.Format(mContext.Resources.GetString(Resource.String.subject_book_list_detail_book_lately_follower),
+                        .setText(Resource.Id.tvBookLatelyFollower, Java.Lang.String.Format(mContext.Resources.GetString(Resource.String.subject_book_list_detail_book_lately_follower),
                                 item.Book.LatelyFollower))
-                        .setText(Resource.Id.tvBookWordCount, String.Format(mContext.Resources.GetString(Resource.String.subject_book_list_detail_book_word_count),
+                        .setText(Resource.Id.tvBookWordCount, Java.Lang.String.Format(mContext.Resources.GetString(Resource.String.subject_book_list_detail_book_word_count),
                                 item.Book.WordCount / 10000))
                         .setText(Resource.Id.tvBookDetail, item.Book.LongIntro);
             }

@@ -19,6 +19,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.Datas;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -40,8 +41,8 @@ namespace Xamarin.BookReader.UI.Fragments
         }
 
         private String block = "ramble";
-        private String sort = Constant.SortType.Default.ToString();
-        private String distillate = Constant.Distillate.All.ToString();
+        private String sort = Constant.SortType.Default.GetEnumDescription();
+        private String distillate = Constant.Distillate.All.GetEnumDescription();
 
         public override int LayoutResId => Resource.Layout.common_easy_recyclerview;
 
@@ -80,8 +81,8 @@ namespace Xamarin.BookReader.UI.Fragments
             Activity.RunOnUiThread(() =>
             {
                 mRecyclerView.setRefreshing(true);
-                sort = e.sort.ToString();
-                distillate = e.distillate.ToString();
+                sort = e.sort.GetEnumDescription();
+                distillate = e.distillate.GetEnumDescription();
                 onRefresh();
             });
         }

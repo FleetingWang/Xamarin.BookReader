@@ -54,9 +54,6 @@ namespace Xamarin.BookReader.UI.Activities
             mCommonToolbar.SetTitle(Resource.String.subject_book_list_detail);
             mCommonToolbar.SetNavigationIcon(Resource.Drawable.ab_back);
         }
-        public override void bindViews()
-        {
-        }
 
         public override void initDatas()
         {
@@ -94,7 +91,7 @@ namespace Xamarin.BookReader.UI.Activities
 
             Glide.With(mContext)
                     .Load(Constant.IMG_BASE_URL + data.BookList.Author.Avatar)
-                    .Placeholder(Resource.Drawable.avatar_default)
+                    //.Placeholder(Resource.Drawable.avatar_default)
                     .Transform(new GlideCircleTransform(mContext))
                     .Into(headerViewHolder.ivAuthorAvatar);
 
@@ -115,7 +112,7 @@ namespace Xamarin.BookReader.UI.Activities
                 }
                 else
                 {
-                    mAdapter.addAll(mAllBooks.GetRange(start, mAllBooks.Count() - start + 1));
+                    mAdapter.addAll(mAllBooks.GetRange(start, mAllBooks.Count() - start));
                 }
                 start += limit;
             }

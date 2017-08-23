@@ -19,6 +19,7 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using Xamarin.BookReader.Utils;
 using System.Reactive.Linq;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -28,9 +29,9 @@ namespace Xamarin.BookReader.UI.Fragments
     [Register("xamarin.bookreader.ui.fragments.BookReviewFragment")]
     public class BookReviewFragment : BaseRVFragment<BookReviewList.ReviewsBean>
     {
-        private String sort = Constant.SortType.Default.ToString();
-        private String type = Constant.BookType.ALL.ToString();
-        private String distillate = Constant.Distillate.All.ToString();
+        private String sort = Constant.SortType.Default.GetEnumDescription();
+        private String type = Constant.BookType.ALL.GetEnumDescription();
+        private String distillate = Constant.Distillate.All.GetEnumDescription();
 
         public override int LayoutResId => Resource.Layout.common_easy_recyclerview;
 
@@ -66,9 +67,9 @@ namespace Xamarin.BookReader.UI.Fragments
             Activity.RunOnUiThread(() =>
             {
                 mRecyclerView.setRefreshing(true);
-                sort = e.sort.ToString();
-                type = e.type.ToString();
-                distillate = e.distillate.ToString();
+                sort = e.sort.GetEnumDescription();
+                type = e.type.GetEnumDescription();
+                distillate = e.distillate.GetEnumDescription();
                 start = 0;
                 getBookReviewList(sort, type, distillate, start, limit);
             });

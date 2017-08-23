@@ -204,18 +204,18 @@ namespace Xamarin.BookReader.UI.Activities
         {
             Glide.With(mContext)
                 .Load(Constant.IMG_BASE_URL + data.cover)
-                .Placeholder(Resource.Drawable.cover_default)
+                //.Placeholder(Resource.Drawable.cover_default)
                 .Transform(new GlideRoundTransform(mContext))
                 .Into(mIvBookCover);
 
             mTvBookTitle.Text = (data.title);
-            mTvAuthor.Text = (String.Format(GetString(Resource.String.book_detail_author), data.author));
-            mTvCatgory.Text = (String.Format(GetString(Resource.String.book_detail_category), data.cat));
+            mTvAuthor.Text = (Java.Lang.String.Format(GetString(Resource.String.book_detail_author), data.author));
+            mTvCatgory.Text = (Java.Lang.String.Format(GetString(Resource.String.book_detail_category), data.cat));
             mTvWordCount.Text = (FormatUtils.formatWordCount(data.wordCount));
             mTvLatelyUpdate.Text = (FormatUtils.getDescriptionTimeFromDateString(data.updated));
             mTvLatelyFollower.Text = data.latelyFollower.ToString();
             mTvRetentionRatio.Text = (TextUtils.IsEmpty(data.retentionRatio) ?
-                    "-" : String.Format(GetString(Resource.String.book_detail_retention_ratio),
+                    "-" : Java.Lang.String.Format(GetString(Resource.String.book_detail_retention_ratio),
                     data.retentionRatio));
             mTvSerializeWordCount.Text = (data.serializeWordCount < 0 ? "-" :
                     data.serializeWordCount.ToString());
@@ -226,8 +226,8 @@ namespace Xamarin.BookReader.UI.Activities
             showHotWord();
 
             mTvlongIntro.Text = (data.longIntro);
-            mTvCommunity.Text = (String.Format(GetString(Resource.String.book_detail_community), data.title));
-            mTvPostCount.Text = (String.Format(GetString(Resource.String.book_detail_post_count), data.postCount));
+            mTvCommunity.Text = (Java.Lang.String.Format(GetString(Resource.String.book_detail_community), data.title));
+            mTvPostCount.Text = (Java.Lang.String.Format(GetString(Resource.String.book_detail_post_count), data.postCount));
 
             recommendBooks = new Recommend.RecommendBooks();
             recommendBooks.title = data.title;
@@ -286,7 +286,7 @@ namespace Xamarin.BookReader.UI.Activities
             times = end;
             if (end - start > 0)
             {
-                List<String> batch = tagList.GetRange(start, end - start + 1);
+                List<String> batch = tagList.GetRange(start, end - start);
                 List<TagColor> colors = TagColor.getRandomColors(batch.Count());
                 mTagGroup.setTags(colors, batch.ToArray());
             }
@@ -341,7 +341,7 @@ namespace Xamarin.BookReader.UI.Activities
                 if (recommendBooks != null)
                 {
                     CollectionsManager.getInstance().add(recommendBooks);
-                    ToastUtils.showToast(String.Format(GetString(
+                    ToastUtils.showToast(Java.Lang.String.Format(GetString(
                             Resource.String.book_detail_has_joined_the_book_shelf), recommendBooks.title));
                     initCollection(false);
                 }
@@ -349,7 +349,7 @@ namespace Xamarin.BookReader.UI.Activities
             else
             {
                 CollectionsManager.getInstance().remove(recommendBooks._id);
-                ToastUtils.showToast(String.Format(GetString(
+                ToastUtils.showToast(Java.Lang.String.Format(GetString(
                         Resource.String.book_detail_has_remove_the_book_shelf), recommendBooks.title));
                 initCollection(true);
             }

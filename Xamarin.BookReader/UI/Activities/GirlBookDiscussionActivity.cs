@@ -26,15 +26,9 @@ namespace Xamarin.BookReader.UI.Activities
             context.StartActivity(new Intent(context, typeof(GirlBookDiscussionActivity)));
         }
 
-        SelectionLayout slOverall;
-
         public override int getLayoutId()
         {
             return Resource.Layout.activity_community_girl_book_discussion;
-        }
-        public override void bindViews()
-        {
-            slOverall = FindViewById<SelectionLayout>(Resource.Id.slOverall);
         }
 
         public override void initToolBar()

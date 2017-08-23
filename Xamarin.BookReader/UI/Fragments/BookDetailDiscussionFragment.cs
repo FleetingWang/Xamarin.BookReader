@@ -19,6 +19,7 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -40,7 +41,7 @@ namespace Xamarin.BookReader.UI.Fragments
 
         private String bookId;
 
-        private String sort = Constant.SortType.Default.ToString();
+        private String sort = Constant.SortType.Default.GetEnumDescription();
 
         public override int LayoutResId => Resource.Layout.common_easy_recyclerview;
 
@@ -83,7 +84,7 @@ namespace Xamarin.BookReader.UI.Fragments
                 if (UserVisibleHint)
                 {
                     mRecyclerView.setRefreshing(true);
-                    sort = e.sort.ToString();
+                    sort = e.sort.GetEnumDescription();
                     onRefresh();
                 }
             });

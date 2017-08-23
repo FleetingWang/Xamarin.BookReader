@@ -24,6 +24,7 @@ using System.Reactive.Linq;
 using AppApplication = Android.App.Application;
 using Android.Content.PM;
 using AndroidApp = Android.App;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -48,10 +49,10 @@ namespace Xamarin.BookReader.UI.Activities
         private ListPopupWindow mListPopupWindow;
         private MinorAdapter minorAdapter;
         private String[] types = new String[] {
-            Constant.CateType.New.ToString(),
-            Constant.CateType.Hot.ToString(),
-            Constant.CateType.Reputation.ToString(),
-            Constant.CateType.Over.ToString()
+            Constant.CateType.New.GetEnumDescription(),
+            Constant.CateType.Hot.GetEnumDescription(),
+            Constant.CateType.Reputation.GetEnumDescription(),
+            Constant.CateType.Over.GetEnumDescription()
         };
 
         private IMenuItem menuItem = null;
@@ -92,10 +93,10 @@ namespace Xamarin.BookReader.UI.Activities
             getCategoryListLv2();
 
             mTabContents = new List<Fragment>();
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New.ToString()));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Hot.ToString()));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation.ToString()));
-            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over.ToString()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.New.GetEnumDescription()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Hot.GetEnumDescription()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Reputation.GetEnumDescription()));
+            mTabContents.Add(SubCategoryFragment.newInstance(cate, "", gender, Constant.CateType.Over.GetEnumDescription()));
 
             mAdapter = new CustomFragmentPagerAdapter(SupportFragmentManager, mTabContents);
         }
@@ -131,7 +132,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             mMinors.Clear();
             mMinors.Add(cate);
-            if (gender.Equals(Constant.Gender.Male.ToString()))
+            if (gender.Equals(Constant.Gender.Male.GetEnumDescription()))
             {
                 foreach (CategoryListLv2.MaleBean bean in data.male)
                 {
@@ -156,7 +157,7 @@ namespace Xamarin.BookReader.UI.Activities
             minorAdapter = new MinorAdapter(this, mMinors);
             minorAdapter.setChecked(0);
             currentMinor = "";
-            EventManager.refreshSubCategory(currentMinor, Constant.CateType.New.ToString());
+            EventManager.refreshSubCategory(currentMinor, Constant.CateType.New.GetEnumDescription());
         }
 
         public void showError()

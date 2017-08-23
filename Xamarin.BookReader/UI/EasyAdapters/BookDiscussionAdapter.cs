@@ -59,7 +59,7 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                 }
 
                 holder.setText(Resource.Id.tvBookTitle, item.author.nickname)
-                        .setText(Resource.Id.tvBookType, String.Format(mContext.GetString(Resource.String.book_detail_user_lv), item.author.lv))
+                        .setText(Resource.Id.tvBookType, Java.Lang.String.Format(mContext.GetString(Resource.String.book_detail_user_lv), item.author.lv))
                         .setText(Resource.Id.tvTitle, item.title)
                         .setText(Resource.Id.tvHelpfulYes, item.commentCount + "")
                         .setText(Resource.Id.tvLikeCount, item.likeCount + "");

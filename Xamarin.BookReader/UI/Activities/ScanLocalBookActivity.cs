@@ -141,7 +141,7 @@ namespace Xamarin.BookReader.UI.Activities
                 // TXT
                 new AlertDialog.Builder(this)
                     .SetTitle("提示")
-                    .SetMessage(String.Format(GetString(
+                    .SetMessage(Java.Lang.String.Format(GetString(
                             Resource.String.book_detail_is_joined_the_book_shelf), books.title))
                     .SetPositiveButton("确定", (sender, e) =>
                     {
@@ -151,7 +151,7 @@ namespace Xamarin.BookReader.UI.Activities
                         // 加入书架
                         if (CollectionsManager.getInstance().add(books))
                         {
-                            mRecyclerView.showTipViewAndDelayClose(String.Format(GetString(
+                            mRecyclerView.showTipViewAndDelayClose(Java.Lang.String.Format(GetString(
                                     Resource.String.book_detail_has_joined_the_book_shelf), books.title));
                             // 通知
                             EventManager.refreshCollectionList();

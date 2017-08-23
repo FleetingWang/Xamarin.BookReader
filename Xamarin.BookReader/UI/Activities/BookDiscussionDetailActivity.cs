@@ -56,17 +56,10 @@ namespace Xamarin.BookReader.UI.Activities
         {
 
         }
-
-
-
-
+        
         public override int getLayoutId()
         {
             return Resource.Layout.activity_community_book_discussion_detail;
-        }
-        public override void bindViews()
-        {
-
         }
 
         public override void initToolBar()
@@ -132,7 +125,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             Glide.With(mContext)
                     .Load(Constant.IMG_BASE_URL + disscussion.post.author.avatar)
-                    .Placeholder(Resource.Drawable.avatar_default)
+                    //.Placeholder(Resource.Drawable.avatar_default)
                     .Transform(new GlideCircleTransform(mContext))
                     .Into(headerViewHolder.ivAvatar);
 
@@ -140,7 +133,7 @@ namespace Xamarin.BookReader.UI.Activities
             headerViewHolder.tvTime.Text = (FormatUtils.getDescriptionTimeFromDateString(disscussion.post.created));
             headerViewHolder.tvTitle.Text = (disscussion.post.title);
             headerViewHolder.tvContent.Text = (disscussion.post.content);
-            headerViewHolder.tvCommentCount.Text = (String.Format(mContext.GetString(Resource.String.comment_comment_count), disscussion.post.commentCount));
+            headerViewHolder.tvCommentCount.Text = (Java.Lang.String.Format(mContext.GetString(Resource.String.comment_comment_count), disscussion.post.commentCount));
         }
 
         public void showBestComments(CommentList list)

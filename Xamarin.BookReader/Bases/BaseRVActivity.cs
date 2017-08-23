@@ -23,9 +23,8 @@ namespace Xamarin.BookReader.Bases
         protected EasyRecyclerView mRecyclerView;
         protected RecyclerArrayAdapter<T> mAdapter;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        public override void bindViews()
         {
-            base.OnCreate(savedInstanceState);
             mRecyclerView = FindViewById<EasyRecyclerView>(Resource.Id.recyclerview);
         }
 

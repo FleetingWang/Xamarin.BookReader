@@ -21,6 +21,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
 using Android.Content.PM;
+using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -74,6 +75,7 @@ namespace Xamarin.BookReader.UI.Activities
 
         public override void bindViews()
         {
+            base.bindViews();
             mTvChangeWords = FindViewById<TextView>(Resource.Id.tvChangeWords);
             mTagGroup = FindViewById<TagGroup>(Resource.Id.tag_group);
             mRootLayout = FindViewById<LinearLayout>(Resource.Id.rootLayout);

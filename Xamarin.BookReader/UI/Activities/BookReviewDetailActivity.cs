@@ -60,9 +60,6 @@ namespace Xamarin.BookReader.UI.Activities
         {
             return Resource.Layout.activity_community_book_discussion_detail;
         }
-        public override void bindViews()
-        {
-        }
 
         public override void initToolBar()
         {
@@ -127,7 +124,7 @@ namespace Xamarin.BookReader.UI.Activities
         {
             Glide.With(mContext)
                     .Load(Constant.IMG_BASE_URL + data.review.author.avatar)
-                    .Placeholder(Resource.Drawable.avatar_default)
+                    //.Placeholder(Resource.Drawable.avatar_default)
                     .Transform(new GlideCircleTransform(mContext))
                     .Into(headerViewHolder.ivAuthorAvatar);
 
@@ -138,7 +135,7 @@ namespace Xamarin.BookReader.UI.Activities
 
             Glide.With(mContext)
                     .Load(Constant.IMG_BASE_URL + data.review.book.cover)
-                    .Placeholder(Resource.Drawable.cover_default)
+                    //.Placeholder(Resource.Drawable.cover_default)
                     .Transform(new GlideRoundTransform(mContext))
                     .Into(headerViewHolder.ivBookCover);
             headerViewHolder.tvBookTitle.Text = (data.review.book.title);
@@ -146,7 +143,7 @@ namespace Xamarin.BookReader.UI.Activities
             headerViewHolder.tvHelpfullYesCount.Text = data.review.helpful.yes.ToString();
             headerViewHolder.tvHelpfullNoCount.Text = data.review.helpful.no.ToString();
 
-            headerViewHolder.tvCommentCount.Text = (String.Format(mContext.GetString(Resource.String.comment_comment_count), data.review.commentCount));
+            headerViewHolder.tvCommentCount.Text = (Java.Lang.String.Format(mContext.GetString(Resource.String.comment_comment_count), data.review.commentCount));
             headerViewHolder.rlBookInfo.Click += (sender, e) =>
             {
                 BookDetailActivity.startActivity(this, data.review.book._id);

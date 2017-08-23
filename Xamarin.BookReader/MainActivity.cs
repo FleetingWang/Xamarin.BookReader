@@ -117,7 +117,7 @@ namespace Xamarin.BookReader
             switch (id)
             {
                 case Resource.Id.action_search:
-                    StartActivity(new Intent(this, typeof(MainActivity)));
+                    StartActivity(new Intent(this, typeof(SearchActivity)));
                     break;
                 case Resource.Id.action_login:
                     if (popupWindow == null)

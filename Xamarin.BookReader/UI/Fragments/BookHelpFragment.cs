@@ -19,14 +19,15 @@ using Xamarin.BookReader.Datas;
 using System.Reactive.Concurrency;
 using Xamarin.BookReader.Utils;
 using System.Reactive.Linq;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
     [Register("xamarin.bookreader.ui.fragments.BookHelpFragment")]
     public class BookHelpFragment : BaseRVFragment<BookHelpList.HelpsBean>
     {
-        private String sort = Constant.SortType.Default.ToString();
-        private String distillate = Constant.Distillate.All.ToString();
+        private String sort = Constant.SortType.Default.GetEnumDescription();
+        private String distillate = Constant.Distillate.All.GetEnumDescription();
 
         public override int LayoutResId => Resource.Layout.common_easy_recyclerview;
 
@@ -62,8 +63,8 @@ namespace Xamarin.BookReader.UI.Fragments
             Activity.RunOnUiThread(() =>
             {
                 mRecyclerView.setRefreshing(true);
-                sort = e.sort.ToString();
-                distillate = e.distillate.ToString();
+                sort = e.sort.GetEnumDescription();
+                distillate = e.distillate.GetEnumDescription();
                 onRefresh();
             });
         }

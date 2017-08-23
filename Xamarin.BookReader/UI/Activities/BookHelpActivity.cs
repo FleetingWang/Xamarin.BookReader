@@ -27,9 +27,6 @@ namespace Xamarin.BookReader.UI.Activities
         {
             return Resource.Layout.activity_community_book_help;
         }
-        public override void bindViews()
-        {
-        }
 
         public override void initToolBar()
         {

@@ -60,8 +60,8 @@ namespace Xamarin.BookReader.UI.EasyAdapters
 
                 holder.setText(Resource.Id.tvBookTitle, item.author.nickname)
                         .setText(Resource.Id.tvContent, item.content)
-                        .setText(Resource.Id.tvBookType, String.Format(mContext.GetString(Resource.String.book_detail_user_lv), item.author.lv))
-                        .setText(Resource.Id.tvFloor, String.Format(mContext.GetString(Resource.String.comment_floor), item.floor))
+                        .setText(Resource.Id.tvBookType, Java.Lang.String.Format(mContext.GetString(Resource.String.book_detail_user_lv), item.author.lv))
+                        .setText(Resource.Id.tvFloor, Java.Lang.String.Format(mContext.GetString(Resource.String.comment_floor), item.floor))
                         .setText(Resource.Id.tvTime, FormatUtils.getDescriptionTimeFromDateString(item.created));
 
                 if (item.replyTo == null)
@@ -71,8 +71,8 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                 }
                 else
                 {
-                    holder.setText(Resource.Id.tvReplyNickName, String.Format(mContext.GetString(Resource.String.comment_reply_nickname), item.replyTo.author.nickname))
-                            .setText(Resource.Id.tvReplyFloor, String.Format(mContext.GetString(Resource.String.comment_reply_floor), item.replyTo.floor));
+                    holder.setText(Resource.Id.tvReplyNickName, Java.Lang.String.Format(mContext.GetString(Resource.String.comment_reply_nickname), item.replyTo.author.nickname))
+                            .setText(Resource.Id.tvReplyFloor, Java.Lang.String.Format(mContext.GetString(Resource.String.comment_reply_floor), item.replyTo.floor));
                     holder.setVisible(Resource.Id.tvReplyNickName, true);
                     holder.setVisible(Resource.Id.tvReplyFloor, true);
                 }

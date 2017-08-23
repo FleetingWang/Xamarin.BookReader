@@ -29,7 +29,7 @@ namespace Xamarin.BookReader.UI.Adapters
         {
             var holder = viewHolder as EasyRVHolder;
             holder.setText(Resource.Id.tvName, item.name)
-                   .setText(Resource.Id.tvBookCount, String.Format(mContext.GetString(Resource.String
+                   .setText(Resource.Id.tvBookCount, Java.Lang.String.Format(mContext.GetString(Resource.String
                         .category_book_count), item.bookCount));
             holder.Click += (sender, e) => {
                 itemClickListener.onItemClick(holder.getItemView(), position, item);

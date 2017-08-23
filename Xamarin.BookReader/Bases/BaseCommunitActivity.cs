@@ -66,9 +66,8 @@ namespace Xamarin.BookReader.Bases
         private Constant.BookType type = Constant.BookType.ALL;
         private Constant.SortType sort = Constant.SortType.Default;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        public override void bindViews()
         {
-            base.OnCreate(savedInstanceState);
             slOverall = FindViewById<SelectionLayout>(Resource.Id.slOverall);
         }
 

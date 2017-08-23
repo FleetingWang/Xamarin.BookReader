@@ -32,15 +32,10 @@ namespace Xamarin.BookReader.UI.Activities
                 .PutExtra(INTENT_DIS, isDiscussion));
         }
         private bool mIsDiscussion;
-        SelectionLayout slOverall;
 
         public override int getLayoutId()
         {
             return Resource.Layout.activity_community_book_discussion;
-        }
-        public override void bindViews()
-        {
-            slOverall = FindViewById<SelectionLayout>(Resource.Id.slOverall);
         }
 
         public override void initToolBar()

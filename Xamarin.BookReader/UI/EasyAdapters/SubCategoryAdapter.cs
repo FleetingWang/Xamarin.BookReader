@@ -62,7 +62,7 @@ namespace Xamarin.BookReader.UI.EasyAdapters
                 holder.setText(Resource.Id.tvSubCateTitle, item.title)
                         .setText(Resource.Id.tvSubCateAuthor, (item.author == null ? "未知" : item.author) + " | " + (item.majorCate == null ? "未知" : item.majorCate))
                         .setText(Resource.Id.tvSubCateShort, item.shortIntro)
-                        .setText(Resource.Id.tvSubCateMsg, String.Format(mContext.Resources.GetString(Resource.String.category_book_msg),
+                        .setText(Resource.Id.tvSubCateMsg, Java.Lang.String.Format(mContext.Resources.GetString(Resource.String.category_book_msg),
                                 item.latelyFollower,
                                 TextUtils.IsEmpty(item.retentionRatio) ? "0" : item.retentionRatio));
             }

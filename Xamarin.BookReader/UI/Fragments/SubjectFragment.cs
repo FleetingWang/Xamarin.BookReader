@@ -20,6 +20,7 @@ using Xamarin.BookReader.Helpers;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using Xamarin.BookReader.Utils;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -101,7 +102,7 @@ namespace Xamarin.BookReader.UI.Fragments
                 currendTag = e.tag.ToString();
                 if (UserVisibleHint)
                 {
-                    getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.ToString());
+                    getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.GetEnumDescription());
                 }
             });
         }
@@ -113,11 +114,11 @@ namespace Xamarin.BookReader.UI.Fragments
         public override void onRefresh()
         {
             base.onRefresh();
-            getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.ToString());
+            getBookLists(duration, sort, 0, limit, currendTag, Settings.UserChooseSex.GetEnumDescription());
         }
         public override void onLoadMore()
         {
-            getBookLists(duration, sort, start, limit, currendTag, Settings.UserChooseSex.ToString());
+            getBookLists(duration, sort, start, limit, currendTag, Settings.UserChooseSex.GetEnumDescription());
         }
         void getBookLists(String duration, String sort, int start, int limit, String tag, String gender)
         {

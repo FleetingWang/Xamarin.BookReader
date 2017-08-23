@@ -160,7 +160,9 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
         public BaseViewHolder<M> setImageUrl(int viewId, String imgUrl, int placeHolderRes)
         {
             ImageView view = getView<ImageView>(viewId);
-            Glide.With(mContext).Load(imgUrl).Placeholder(placeHolderRes).Into(view);
+            Glide.With(mContext).Load(imgUrl)
+                .Placeholder(placeHolderRes)
+                .Into(view);
             return this;
         }
 
@@ -168,7 +170,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
         {
             ImageView view = getView<ImageView>(viewId);
             Glide.With(mContext).Load(imgUrl)
-                .Placeholder(placeHolderRes)
+                //.Placeholder(placeHolderRes)
                 .Transform(new GlideRoundTransform(mContext))
                 .Into(view);
             return this;
@@ -178,7 +180,7 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
         {
             ImageView view = getView<ImageView>(viewId);
             Glide.With(mContext).Load(imgUrl)
-                    .Placeholder(placeHolderRes)
+                    //.Placeholder(placeHolderRes)
                     .Transform(new GlideRoundTransform(mContext))
                     .Into(view);
             return this;

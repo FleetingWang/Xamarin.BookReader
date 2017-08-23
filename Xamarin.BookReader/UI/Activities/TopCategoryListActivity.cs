@@ -20,6 +20,7 @@ using System.Reactive.Concurrency;
 using Xamarin.BookReader.Datas;
 using System.Reactive.Linq;
 using Android.Content.PM;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Activities
 {
@@ -61,8 +62,8 @@ namespace Xamarin.BookReader.UI.Activities
             mRvFeMaleCategory.HasFixedSize = (true);
             mRvFeMaleCategory.SetLayoutManager(new GridLayoutManager(this, 3));
             mRvFeMaleCategory.AddItemDecoration(new SupportGridItemDecoration(this));
-            mMaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mMaleCategoryList, new ClickListener(this, Constant.Gender.Male.ToString()));
-            mFemaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mFemaleCategoryList, new ClickListener(this, Constant.Gender.Female.ToString()));
+            mMaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mMaleCategoryList, new ClickListener(this, Constant.Gender.Male.GetEnumDescription()));
+            mFemaleCategoryListAdapter = new TopCategoryListAdapter(mContext, mFemaleCategoryList, new ClickListener(this, Constant.Gender.Female.GetEnumDescription()));
             mRvMaleCategory.SetAdapter(mMaleCategoryListAdapter);
             mRvFeMaleCategory.SetAdapter(mFemaleCategoryListAdapter);
 

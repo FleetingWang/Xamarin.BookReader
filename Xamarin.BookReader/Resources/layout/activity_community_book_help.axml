@@ -29,6 +29,7 @@
 
     <fragment
         android:id="@+id/fragmentCO"
+        class="xamarin.bookreader.ui.fragments.BookHelpFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

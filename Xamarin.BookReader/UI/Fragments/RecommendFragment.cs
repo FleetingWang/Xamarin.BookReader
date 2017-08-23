@@ -29,6 +29,7 @@ using Xamarin.BookReader.Utils;
 using Xamarin.BookReader.UI.Activities;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
+using Xamarin.BookReader.Extensions;
 
 namespace Xamarin.BookReader.UI.Fragments
 {
@@ -379,7 +380,7 @@ namespace Xamarin.BookReader.UI.Fragments
         public void UserSexChooseFinishedEventHandler(object sender, MessageBusEvent evnt)
         {
             //首次进入APP，选择性别后，获取推荐列表
-            BookApi.Instance.getRecommend(Settings.UserChooseSex.ToString())
+            BookApi.Instance.getRecommend(Settings.UserChooseSex.GetEnumDescription())
             .Subscribe(recommend => {
                 if (recommend != null)
                 {
