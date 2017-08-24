@@ -341,23 +341,22 @@ namespace Xamarin.BookReader.Views
          */
         private void initTabItem()
         {
-
             if (mTabTitles != null && mTabTitles.Count() > 0)
             {
-                if (this.ChildCount != 0)
-                {
-                    this.RemoveAllViews();
-                }
+                Post(() => {
+                    if (this.ChildCount != 0)
+                    {
+                        this.RemoveAllViews();
+                    }
 
-                foreach (String title in mTabTitles)
-                {
-                    AddView(createTextView(title));
-                }
-
-                // 设置点击事件
-                setItemClickEvent();
+                    foreach (String title in mTabTitles)
+                    {
+                        AddView(createTextView(title));
+                    }
+                    // 设置点击事件
+                    setItemClickEvent();
+                });
             }
-
         }
 
         /**
@@ -384,22 +383,23 @@ namespace Xamarin.BookReader.Views
          */
         private void setHighLightTextView(int position)
         {
-
-            for (int i = 0; i < ChildCount; i++)
-            {
-                View view = GetChildAt(i);
-                if (view is TextView)
+            Post(() => {
+                for (int i = 0; i < ChildCount; i++)
                 {
-                    if (i == position)
+                    View view = GetChildAt(i);
+                    if (view is TextView)
                     {
-                        ((TextView)view).SetTextColor(mTextColorHighlight);
-                    }
-                    else
-                    {
-                        ((TextView)view).SetTextColor(mTextColorNormal);
+                        if (i == position)
+                        {
+                            ((TextView)view).SetTextColor(mTextColorHighlight);
+                        }
+                        else
+                        {
+                            ((TextView)view).SetTextColor(mTextColorNormal);
+                        }
                     }
                 }
-            }
+            });
         }
 
         /**
