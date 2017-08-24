@@ -7,6 +7,7 @@ using Android.Support.V4.View;
 using Android.Support.V4.App;
 using System.Collections.Generic;
 using Activity = Android.App.ActivityAttribute;
+using Application = Android.App.Application;
 using System.Linq;
 using Android.Views;
 using Android.Content;
@@ -25,7 +26,7 @@ using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader
 {
-    [Activity(Label = "Xamarin.BookReader", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(Label = "Xamarin.BookReader", Icon = "@mipmap/icon")]
     public class MainActivity : BaseActivity, LoginPopupWindow.LoginTypeListener
     {
         RVPIndicator mIndicator;
@@ -271,8 +272,8 @@ namespace Xamarin.BookReader
                 return;
             }
             Observable.Merge(observables)
-                //.SubscribeOn(Scheduler.io)
-                //.ObserveOn(AndroidSchedulers.MainThread())
+                .SubscribeOn(DefaultScheduler.Instance)
+                .ObserveOn(Application.SynchronizationContext)
                 .Subscribe(data => {
                     String lastChapter = data.chapters[data.chapters.Count() - 1].title;
                     CollectionsManager.getInstance().setLastChapterAndLatelyUpdate(data.book, lastChapter, data.chaptersUpdated);

@@ -20,6 +20,7 @@ using Settings = Xamarin.BookReader.Helpers.Settings;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.GenderPopupWindow")]
     public class GenderPopupWindow : PopupWindow
     {
         private View mContentView;

@@ -19,6 +19,7 @@ using AndroidResource = Android.Resource;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.SupportGridItemDecoration")]
     public class SupportGridItemDecoration : RecyclerView.ItemDecoration
     {
         private static int[] ATTRS = new int[] { AndroidResource.Attribute.ListDivider };

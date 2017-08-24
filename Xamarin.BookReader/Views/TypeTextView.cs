@@ -19,6 +19,7 @@ namespace Xamarin.BookReader.Views
     /// <summary>
     /// 打字效果TextView
     /// </summary>
+    [Register("xamarin.bookreader.views.TypeTextView")]
     public class TypeTextView : TextView
     {
         private Context mContext = null;

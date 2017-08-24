@@ -87,14 +87,14 @@ namespace EasyAdapterLibrary.RecyclerViews
         public EasyRVHolder setTextColor(int viewId, int color)
         {
             TextView view = getView<TextView>(viewId);
-            view.SetTextColor(ColorStateList.ValueOf(new Android.Graphics.Color(color)));
+            view.SetTextColor(new Color(color));
             return this;
         }
 
         public EasyRVHolder setTextColorRes(int viewId, int colorRes)
         {
             TextView view = getView<TextView>(viewId);
-            view.SetTextColor(ColorStateList.ValueOf(new Android.Graphics.Color(ContextCompat.GetColor(mContext, colorRes))));
+            view.SetTextColor(new Color(ContextCompat.GetColor(mContext, colorRes)));
             return this;
         }
 

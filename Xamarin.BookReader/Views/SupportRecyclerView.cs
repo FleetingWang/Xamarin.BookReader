@@ -16,6 +16,7 @@ using Xamarin.BookReader.Utils;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.SupportRecyclerView")]
     public class SupportRecyclerView : RecyclerView
     {
         private View emptyView;

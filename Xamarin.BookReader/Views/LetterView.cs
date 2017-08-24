@@ -16,6 +16,7 @@ using static Android.Graphics.Paint;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.LetterView")]
     public class LetterView : TextView
     {
         // 颜色画板集

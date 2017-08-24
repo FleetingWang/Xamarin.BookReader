@@ -15,7 +15,7 @@ using Android.Content.PM;
 
 namespace Xamarin.BookReader.UI.Activities
 {
-    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
     public class SplashActivity : AppCompatActivity
     {
         TextView tvSkip;

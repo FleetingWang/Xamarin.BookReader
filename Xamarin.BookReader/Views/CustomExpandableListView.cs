@@ -13,6 +13,7 @@ using Android.Util;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.CustomExpandableListView")]
     public class CustomExpandableListView : ExpandableListView
     {
         public CustomExpandableListView(Context context, IAttributeSet attrs) : base(context, attrs)

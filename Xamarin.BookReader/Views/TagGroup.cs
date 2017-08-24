@@ -937,8 +937,8 @@ namespace Xamarin.BookReader.Views
                         mBorderPaint.Color = new Color(tagGroup.dashBorderColor);
                         mBorderPaint.SetPathEffect(mPathEffect);
                         mBackgroundPaint.Color = new Color(tagGroup.backgroundColor);
-                        SetHintTextColor(ColorStateList.ValueOf(new Color(tagGroup.inputHintColor)));
-                        SetTextColor(ColorStateList.ValueOf(new Color(tagGroup.inputTextColor)));
+                        SetHintTextColor(new Color(tagGroup.inputHintColor));
+                        SetTextColor(new Color(tagGroup.inputTextColor));
                     }
                     else
                     {
@@ -947,13 +947,13 @@ namespace Xamarin.BookReader.Views
                         {
                             mBorderPaint.Color = new Color(tagGroup.checkedBorderColor);
                             mBackgroundPaint.Color = new Color(tagGroup.checkedBackgroundColor);
-                            SetTextColor(ColorStateList.ValueOf(new Color(tagGroup.checkedTextColor)));
+                            SetTextColor(new Color(tagGroup.checkedTextColor));
                         }
                         else
                         {
                             mBorderPaint.Color = new Color(tagGroup.borderColor);
                             mBackgroundPaint.Color = new Color(tagGroup.backgroundColor);
-                            SetTextColor(ColorStateList.ValueOf(new Color(tagGroup.textColor)));
+                            SetTextColor(new Color(tagGroup.textColor));
                         }
                     }
                 }
@@ -963,13 +963,13 @@ namespace Xamarin.BookReader.Views
                     {
                         mBorderPaint.Color = new Color(color.borderColor);
                         mBackgroundPaint.Color = new Color(color.backgroundColor);
-                        SetTextColor(ColorStateList.ValueOf(new Color(tagGroup.textColor)));
+                        SetTextColor(new Color(tagGroup.textColor));
                     }
                     else
                     {
                         mBorderPaint.Color = new Color(tagGroup.borderColor);
                         mBackgroundPaint.Color = new Color(tagGroup.backgroundColor);
-                        SetTextColor(ColorStateList.ValueOf(new Color(tagGroup.textColor)));
+                        SetTextColor(new Color(tagGroup.textColor));
                     }
                 }
 

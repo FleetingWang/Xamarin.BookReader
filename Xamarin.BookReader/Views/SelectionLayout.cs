@@ -18,6 +18,7 @@ using ListPopupWindow = Android.Support.V7.Widget.ListPopupWindow;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.SelectionLayout")]
     public class SelectionLayout : LinearLayout
     {
         private Context mContext;

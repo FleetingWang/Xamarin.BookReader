@@ -16,6 +16,7 @@ using Android.Views.Animations;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.LoginPopupWindow")]
     public class LoginPopupWindow : PopupWindow, View.IOnTouchListener
     {
         private View mContentView;

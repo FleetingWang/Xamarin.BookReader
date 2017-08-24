@@ -43,13 +43,13 @@ namespace Xamarin.BookReader.Bases
             }
             transparent19and20();
             mContext = this;
+            bindViews();
             mCommonToolbar = FindViewById<Toolbar>(Resource.Id.common_toolbar);
             if (mCommonToolbar != null)
             {
                 initToolBar();
                 SetSupportActionBar(mCommonToolbar);
             }
-            bindViews();
             initDatas();
             configViews();
             mNowMode = SharedPreferencesUtil.getInstance().getBoolean(Constant.ISNIGHT);

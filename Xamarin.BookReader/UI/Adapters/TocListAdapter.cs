@@ -39,17 +39,17 @@ namespace Xamarin.BookReader.UI.Adapters
             Drawable drawable;
             if (currentChapter == position + 1)
             {
-                tvTocItem.SetTextColor(ColorStateList.ValueOf(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_red))));
+                tvTocItem.SetTextColor(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_red)));
                 drawable = ContextCompat.GetDrawable(mContext, Resource.Drawable.ic_toc_item_activated);
             }
             else if (isEpub || FileUtils.getChapterFile(bookId, position + 1).Length() > 10)
             {
-                tvTocItem.SetTextColor(ColorStateList.ValueOf(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_black))));
+                tvTocItem.SetTextColor(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_black)));
                 drawable = ContextCompat.GetDrawable(mContext, Resource.Drawable.ic_toc_item_download);
             }
             else
             {
-                tvTocItem.SetTextColor(ColorStateList.ValueOf(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_black))));
+                tvTocItem.SetTextColor(new Color(ContextCompat.GetColor(mContext, Resource.Color.light_black)));
                 drawable = ContextCompat.GetDrawable(mContext, Resource.Drawable.ic_toc_item_normal);
             }
             drawable.SetBounds(0, 0, drawable.MinimumWidth, drawable.MinimumHeight);

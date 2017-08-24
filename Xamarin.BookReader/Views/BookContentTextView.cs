@@ -20,6 +20,7 @@ using Xamarin.BookReader.UI.Activities;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.BookContentTextView")]
     public class BookContentTextView : TextView
     {
         public BookContentTextView(Context context) : this(context, null)

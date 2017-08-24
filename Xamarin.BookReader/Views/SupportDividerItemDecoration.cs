@@ -18,6 +18,7 @@ using AndroidResource = Android.Resource;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.SupportDividerItemDecoration")]
     public class SupportDividerItemDecoration : RecyclerView.ItemDecoration
     {
         private static int[] ATTRS = new int[]{

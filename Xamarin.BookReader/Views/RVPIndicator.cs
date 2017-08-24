@@ -18,6 +18,7 @@ using static Android.Graphics.Paint;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.RVPIndicator")]
     public class RVPIndicator : LinearLayout
     {
         // 指示器风格-图标
@@ -37,17 +38,17 @@ namespace Xamarin.BookReader.Views
         /*
          * 系统默认:文字正常时颜色
          */
-        private static int D_TEXT_COLOR_NORMAL = Color.ParseColor("#000000");
+        private static Color D_TEXT_COLOR_NORMAL = Color.ParseColor("#000000");
 
         /*
          * 系统默认:文字选中时颜色
          */
-        private static int D_TEXT_COLOR_HIGHLIGHT = Color.ParseColor("#FF0000");
+        private static Color D_TEXT_COLOR_HIGHLIGHT = Color.ParseColor("#FF0000");
 
         /*
          * 系统默认:指示器颜色
          */
-        private static int D_INDICATOR_COLOR = Color.ParseColor("#f29b76");
+        private static Color D_INDICATOR_COLOR = Color.ParseColor("#f29b76");
 
         /**
          * tab上的内容
@@ -72,17 +73,17 @@ namespace Xamarin.BookReader.Views
         /**
          * 文字正常时的颜色
          */
-        private int mTextColorNormal = D_TEXT_COLOR_NORMAL;
+        private Color mTextColorNormal = D_TEXT_COLOR_NORMAL;
 
         /**
          * 文字选中时的颜色
          */
-        private int mTextColorHighlight = D_TEXT_COLOR_HIGHLIGHT;
+        private Color mTextColorHighlight = D_TEXT_COLOR_HIGHLIGHT;
 
         /**
          * 指示器正常时的颜色
          */
-        private int mIndicatorColor = D_INDICATOR_COLOR;
+        private Color mIndicatorColor = D_INDICATOR_COLOR;
 
         /**
          * 画笔
@@ -391,11 +392,11 @@ namespace Xamarin.BookReader.Views
                 {
                     if (i == position)
                     {
-                        ((TextView)view).SetTextColor(ColorStateList.ValueOf(new Color(mTextColorHighlight)));
+                        ((TextView)view).SetTextColor(mTextColorHighlight);
                     }
                     else
                     {
-                        ((TextView)view).SetTextColor(ColorStateList.ValueOf(new Color(mTextColorNormal)));
+                        ((TextView)view).SetTextColor(mTextColorNormal);
                     }
                 }
             }
@@ -452,7 +453,7 @@ namespace Xamarin.BookReader.Views
                     LayoutParams.MatchParent, LayoutParams.MatchParent);
             lp.Width = Width / mTabVisibleCount;
             tv.Gravity = (GravityFlags.Center);
-            tv.SetTextColor(ColorStateList.ValueOf(new Color(mTextColorNormal)));
+            tv.SetTextColor(mTextColorNormal);
             tv.Text = text;
             tv.SetTextSize(ComplexUnitType.Sp, mTextSize);
             tv.LayoutParameters = lp;

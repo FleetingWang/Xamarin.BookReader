@@ -113,7 +113,7 @@ namespace EasyAdapterLibrary.AbsListViews
         public EasyLVHolder setTextColor(int viewId, int color)
         {
             TextView view = getView<TextView>(viewId);
-            view.SetTextColor(ColorStateList.ValueOf(new Android.Graphics.Color(color)));
+            view.SetTextColor(new Color(color));
             return this;
         }
 

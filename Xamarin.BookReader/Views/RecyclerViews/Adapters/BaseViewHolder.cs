@@ -105,14 +105,14 @@ namespace Xamarin.BookReader.Views.RecyclerViews.Adapters
         public BaseViewHolder<M> setTextColor(int viewId, int color)
         {
             TextView view = getView<TextView>(viewId);
-            view.SetTextColor(ColorStateList.ValueOf(new Color(color)));
+            view.SetTextColor(new Color(color));
             return this;
         }
 
         public BaseViewHolder<M> setTextColorRes(int viewId, int colorRes)
         {
             TextView view = getView<TextView>(viewId);
-            view.SetTextColor(ColorStateList.ValueOf(new Color(ContextCompat.GetColor(mContext, colorRes))));
+            view.SetTextColor(new Color(ContextCompat.GetColor(mContext, colorRes)));
             return this;
         }
 

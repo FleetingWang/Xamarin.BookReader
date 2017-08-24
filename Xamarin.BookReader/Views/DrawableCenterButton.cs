@@ -16,6 +16,7 @@ using Android.Util;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.DrawableCenterButton")]
     public class DrawableCenterButton : TextView
     {
         public DrawableCenterButton(Context context, IAttributeSet attrs,

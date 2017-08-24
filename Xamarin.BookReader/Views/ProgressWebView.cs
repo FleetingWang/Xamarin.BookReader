@@ -16,6 +16,7 @@ using Android.Webkit;
 
 namespace Xamarin.BookReader.Views
 {
+    [Register("xamarin.bookreader.views.ProgressWebView")]
     public class ProgressWebView : LinearLayout
     {
         WebView mWebView;

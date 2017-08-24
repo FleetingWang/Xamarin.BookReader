@@ -22,6 +22,7 @@ namespace Xamarin.BookReader.Views
     /// <summary>
     /// 自定义评分控件
     /// </summary>
+    [Register("xamarin.bookreader.views.XLHRatingBar")]
     public class XLHRatingBar : LinearLayout
     {
         private int countNum;

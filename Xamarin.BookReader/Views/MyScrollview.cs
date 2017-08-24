@@ -17,6 +17,7 @@ namespace Xamarin.BookReader.Views
     /// <summary>
     /// 屏蔽 滑动事件
     /// </summary>
+    [Register("xamarin.bookreader.views.MyScrollview")]
     public class MyScrollview : ScrollView
     {
         private int downX;

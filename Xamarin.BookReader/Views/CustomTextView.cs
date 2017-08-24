@@ -13,7 +13,8 @@ using Android.Util;
 
 namespace Xamarin.BookReader.Views
 {
-    public class CustomTextView: TextView
+    [Register("xamarin.bookreader.views.CustomTextView")]
+    public class CustomTextView : TextView
     {
         private String txt;
 

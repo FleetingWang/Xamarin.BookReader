@@ -19,6 +19,7 @@ namespace Xamarin.BookReader.Views
     /// <summary>
     /// 弹性ScrollView 上下拉超出后，手指离开后弹回的“阻尼”效果
     /// </summary>
+    [Register("xamarin.bookreader.views.ReboundScrollView")]
     public class ReboundScrollView : ScrollView
     {
         // 移动因子, 是一个百分比, 比如手指移动了100px, 那么View就只移动50px 目的是达到一个延迟的效果
