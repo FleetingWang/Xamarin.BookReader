@@ -19,6 +19,7 @@ using System.Net.Http;
 
 namespace Xamarin.BookReader.Datas
 {
+    [Preserve]
     public class BookApi
     {
         public static BookApi Instance { get; set; } = new BookApi();

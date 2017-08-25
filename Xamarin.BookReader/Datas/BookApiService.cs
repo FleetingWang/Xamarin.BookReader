@@ -16,6 +16,7 @@ using Xamarin.BookReader.Models.User;
 
 namespace Xamarin.BookReader.Datas
 {
+    [Preserve]
     public interface BookApiService
     {
         [Get("/book/recommend")]

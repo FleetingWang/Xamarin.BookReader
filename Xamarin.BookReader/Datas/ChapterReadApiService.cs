@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Xamarin.BookReader.Models;
-using System.Threading.Tasks;
+﻿using Android.Runtime;
 using Refit;
+using System.Threading.Tasks;
+using Xamarin.BookReader.Models;
 
 namespace Xamarin.BookReader.Datas
 {
+    [Preserve]
     public interface ChapterReadApiService
     {
         [Get("/chapter/{url}")]
