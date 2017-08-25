@@ -129,6 +129,7 @@ namespace Xamarin.BookReader.UI.Fragments
             if (IsViewVisible(llBatchManagement)) //批量管理时，屏蔽点击事件
                 return;
             //TODO: ReadActivity.StartActivity(Activity, mAdapter.getItem(position), mAdapter.getItem(position).isFromSD);
+            ToastUtils.showSingleToast("等待开发中");
         }
 
         public bool onItemLongClick(int position)

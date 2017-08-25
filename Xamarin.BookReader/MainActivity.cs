@@ -150,6 +150,7 @@ namespace Xamarin.BookReader
                     break;
                 case Resource.Id.action_wifi_book:
                     // TODO：WifiBookActivity.startActivity(this);
+                    ToastUtils.showSingleToast("等待开发中");
                     break;
                 case Resource.Id.action_feedback:
                     FeedbackActivity.startActivity(this);

@@ -174,16 +174,19 @@ namespace Xamarin.BookReader.UI.Activities
             {
                 // PDF
                 // TODO: ReadPDFActivity.start(this, books.path);
+                ToastUtils.showSingleToast("等待开发中");
             }
             else if (books.path.EndsWith(Constant.SUFFIX_EPUB))
             {
                 // EPub
                 // TODO: ReadEPubActivity.start(this, books.path);
+                ToastUtils.showSingleToast("等待开发中");
             }
             else if (books.path.EndsWith(Constant.SUFFIX_CHM))
             {
                 // CHM
                 // TODO: ReadCHMActivity.start(this, books.path);
+                ToastUtils.showSingleToast("等待开发中");
             }
         }
     }

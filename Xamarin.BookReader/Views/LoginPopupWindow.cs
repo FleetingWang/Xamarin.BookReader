@@ -126,7 +126,6 @@ namespace Xamarin.BookReader.Views
 
         public interface LoginTypeListener
         {
-
             void onLogin(ImageView view, String type);
         }
 
