@@ -80,6 +80,8 @@ namespace Xamarin.BookReader.Models
             public String body;
             public String cpContent;
 
+            public Chapter() { }
+
             public Chapter(String title, String body)
             {
                 this.title = title;

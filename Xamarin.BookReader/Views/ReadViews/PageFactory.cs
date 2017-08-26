@@ -218,8 +218,9 @@ namespace Xamarin.BookReader.Views.ReadViews
                 canvas.DrawText(chaptersList[currentChapter - 1].title, marginWidth, y, mTitlePaint);
                 y += mLineSpace + mNumFontSize;
                 // 绘制阅读页面文字
-                foreach (string line in mLines.ToEnumerable())
+                for(var i = 0; i < mLines.Size(); i++)
                 {
+                    var line = mLines.Get(i).ToString();
                     y += mLineSpace;
                     if (line.EndsWith("@"))
                     {
@@ -435,7 +436,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             int i = curEndPos;
             while (i < mbBufferLen)
             {
-                b0 = Convert.ToByte(mbBuff.Get(i++));
+                b0 = unchecked((byte)mbBuff.Get(i++));
                 if (b0 == 0x0a)
                 {
                     break;
@@ -445,7 +446,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             byte[] buf = new byte[nParaSize];
             for (i = 0; i < nParaSize; i++)
             {
-                buf[i] = Convert.ToByte(mbBuff.Get(curEndPos + i));
+                buf[i] = unchecked((byte)mbBuff.Get(curEndPos + i));
             }
             return buf;
         }
@@ -462,7 +463,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             int i = curBeginPos - 1;
             while (i > 0)
             {
-                b0 = Convert.ToByte(mbBuff.Get(i));
+                b0 = unchecked((byte)mbBuff.Get(i));
                 if (b0 == 0x0a && i != curBeginPos - 1)
                 {
                     i++;
@@ -474,7 +475,7 @@ namespace Xamarin.BookReader.Views.ReadViews
             byte[] buf = new byte[nParaSize];
             for (int j = 0; j < nParaSize; j++)
             {
-                buf[j] = Convert.ToByte(mbBuff.Get(i + j));
+                buf[j] = unchecked((byte)mbBuff.Get(i + j));
             }
             return buf;
         }

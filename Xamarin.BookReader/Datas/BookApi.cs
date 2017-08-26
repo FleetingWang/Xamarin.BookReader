@@ -100,8 +100,9 @@ namespace Xamarin.BookReader.Datas
 
         public /*synchronized*/ IObservable<ChapterRead> getChapterRead(String url)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getChapterRead_{url}", () =>
-                ChapterReadApiService.getChapterRead(url)
+            var encodeUrl = Uri.EscapeDataString(url);
+            return BlobCache.LocalMachine.GetOrFetchObject($"getChapterRead_{encodeUrl}", () =>
+                ChapterReadApiService.getChapterRead(encodeUrl)
             );
         }
 

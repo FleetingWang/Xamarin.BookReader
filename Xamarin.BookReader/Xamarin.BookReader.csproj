@@ -247,6 +247,7 @@
     <Compile Include="UI\Activities\FeedbackActivity.cs" />
     <Compile Include="UI\Activities\GirlBookDiscussionActivity.cs" />
     <Compile Include="UI\Activities\MyBookListActivity.cs" />
+    <Compile Include="UI\Activities\ReadActivity.cs" />
     <Compile Include="UI\Activities\ScanLocalBookActivity.cs" />
     <Compile Include="UI\Activities\SearchActivity.cs" />
     <Compile Include="UI\Activities\SearchByAuthorActivity.cs" />

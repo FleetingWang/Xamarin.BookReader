@@ -382,8 +382,7 @@ namespace Xamarin.BookReader.UI.Activities
         public void onClickRead()
         {
             if (recommendBooks == null) return;
-            // TODO: ReadActivity.startActivity(this, recommendBooks);
-            ToastUtils.showSingleToast("等待开发中");
+            ReadActivity.startActivity(this, recommendBooks);
         }
 
         public void searchByAuthor()
