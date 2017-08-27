@@ -5,6 +5,8 @@ Xamarin.Android 复刻实现的 ["任阅" 网络小说阅读器](https://github.
 项目使用C#语言、Xamarin.Android技术开发。项目中的API均来自追书神器，纯属共享学习之用，不得用于商业！！
 有任何疑问或建议可提[issue](https://github.com/wtffly/Xamarin.BookReader/issues/new)
 
+demo下载：[任阅.apk](https://github.com/wtffly/Xamarin.BookReader/raw/master/体验demo/Xamarin.BookReader.apk)
+
 ## TODO
 * [ ] CHM、PDF、EPub阅读
 
