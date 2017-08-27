@@ -52,14 +52,12 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<AutoComplete> getAutoComplete(String query)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getAutoComplete_{query}", () =>
-            service.autoComplete(query));
+            return service.autoComplete(query).ToObservable();
         }
 
         public IObservable<SearchDetail> getSearchResult(String query)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getSearchResult_{query}", () =>
-            service.searchBooks(query));
+            return service.searchBooks(query).ToObservable();
         }
 
         public IObservable<BooksByTag> searchBooksByAuthor(String author)
@@ -70,20 +68,17 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<BookDetail> getBookDetail(String bookId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookDetail_{bookId}", () =>
-            service.getBookDetail(bookId));
+            return service.getBookDetail(bookId).ToObservable();
         }
 
         public IObservable<HotReview> getHotReview(String book)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getHotReview_{book}", () =>
-            service.getHotReview(book));
+            return service.getHotReview(book).ToObservable();
         }
 
         public IObservable<RecommendBookList> getRecommendBookList(String bookId, String limit)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getRecommendBookList_{bookId}_{limit}", () =>
-            service.getRecommendBookList(bookId, limit));
+            return service.getRecommendBookList(bookId, limit).ToObservable();
         }
 
         public IObservable<BooksByTag> getBooksByTag(String tags, String start, String limit)
@@ -101,15 +96,12 @@ namespace Xamarin.BookReader.Datas
         public /*synchronized*/ IObservable<ChapterRead> getChapterRead(String url)
         {
             var encodeUrl = Uri.EscapeDataString(url);
-            return BlobCache.LocalMachine.GetOrFetchObject($"getChapterRead_{encodeUrl}", () =>
-                ChapterReadApiService.getChapterRead(encodeUrl)
-            );
+            return ChapterReadApiService.getChapterRead(encodeUrl).ToObservable();
         }
 
         public /*synchronized*/ IObservable<List<BookSource>> getBookSource(String view, String book)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookSource_{view}_{book}", () =>
-            service.getABookSource(view, book));
+            return service.getABookSource(view, book).ToObservable();
         }
 
         public IObservable<RankingList> getRanking()
@@ -120,8 +112,7 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<Rankings> getRanking(String rankingId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getRanking_{rankingId}", () =>
-            service.getRankingById(rankingId));
+            return service.getRankingById(rankingId).ToObservable();
         }
 
         public IObservable<BookLists> getBookLists(String duration, String sort, String start, String limit, String tag, String gender)
@@ -138,8 +129,7 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<BookListDetail> getBookListDetail(String bookListId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookListDetail_{bookListId}", () =>
-            service.getBookListDetail(bookListId));
+            return service.getBookListDetail(bookListId).ToObservable();
         }
 
         public /*synchronized*/ IObservable<CategoryList> getCategoryList()
@@ -168,20 +158,17 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<Disscussion> getBookDisscussionDetail(String disscussionId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookDisscussionDetail_{disscussionId}", () =>
-            service.getBookDisscussionDetail(disscussionId));
+            return service.getBookDisscussionDetail(disscussionId).ToObservable();
         }
 
         public IObservable<CommentList> getBestComments(String disscussionId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBestComments_{disscussionId}", () =>
-            service.getBestComments(disscussionId));
+            return service.getBestComments(disscussionId).ToObservable();
         }
 
         public IObservable<CommentList> getBookDisscussionComments(String disscussionId, String start, String limit)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookDisscussionComments_{disscussionId}_{start}_{limit}", () =>
-            service.getBookDisscussionComments(disscussionId, start, limit));
+            return service.getBookDisscussionComments(disscussionId, start, limit).ToObservable();
         }
 
         public IObservable<BookReviewList> getBookReviewList(String duration, String sort, String type, String start, String limit, String distillate)
@@ -192,14 +179,12 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<BookReview> getBookReviewDetail(String bookReviewId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookReviewDetail_{bookReviewId}", () =>
-            service.getBookReviewDetail(bookReviewId));
+            return service.getBookReviewDetail(bookReviewId).ToObservable();
         }
 
         public IObservable<CommentList> getBookReviewComments(String bookReviewId, String start, String limit)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookReviewComments_{bookReviewId}_{start}_{limit}", () =>
-            service.getBookReviewComments(bookReviewId, start, limit));
+            return service.getBookReviewComments(bookReviewId, start, limit).ToObservable();
         }
 
         public IObservable<BookHelpList> getBookHelpList(String duration, String sort, String start, String limit, String distillate)
@@ -210,8 +195,7 @@ namespace Xamarin.BookReader.Datas
 
         public IObservable<BookHelp> getBookHelpDetail(String helpId)
         {
-            return BlobCache.LocalMachine.GetOrFetchObject($"getBookHelpDetail_{helpId}", () =>
-            service.getBookHelpDetail(helpId));
+            return service.getBookHelpDetail(helpId).ToObservable();
         }
 
         public IObservable<Login> login(String platform_uid, String platform_token, String platform_code)

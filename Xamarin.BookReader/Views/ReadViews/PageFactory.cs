@@ -290,7 +290,7 @@ namespace Xamarin.BookReader.Views.ReadViews
                 { // 4.如果段落添加完，但是超出一页，则超出部分需删减
                     try
                     {
-                        curBeginPos += ((Java.Lang.String)lines.Get(0)).GetBytes(charset).Length; // 5.删减行数同时起始位置指针也要跟着偏移
+                        curBeginPos += (new Java.Lang.String(lines.Get(0).ToString())).GetBytes(charset).Length; // 5.删减行数同时起始位置指针也要跟着偏移
                         lines.Remove(0);
                     }
                     catch (UnsupportedEncodingException e)
